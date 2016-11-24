@@ -1,5 +1,5 @@
 {
-	"name": "",
+	"name": "kofi.sexy",
 	"icons": [
 		{
 			"src": "\/android-chrome-192x192.png",
@@ -12,6 +12,6 @@
 			"type": "image\/png"
 		}
 	],
-	"theme_color": "#333333",
+	"theme_color": "#212121",
 	"display": "standalone"
 }
