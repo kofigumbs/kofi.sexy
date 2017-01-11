@@ -1,4 +1,4 @@
 [submodule "_layouts"]
 	path = _layouts
 	url = https://github.com/hkgumbs/_layouts.git
-	branch = master
+	commit = fef78798ab55999b11de11682c19e6260e222017
