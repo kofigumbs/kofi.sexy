@@ -7,6 +7,5 @@ layout: default
 I write software and enjoy speaking about it.
 Here are some talks that I have given before:
 
-
-[COMING SOON...](https://www.youtube.com/watch?v=q_qUiytLYRc)
-
+ - [Introducing Functional, Reactive Programming](http://www.youtube.com/watch?v=Bt10M34vSwo)
+ - [MORE COMING SOON...](https://www.youtube.com/watch?v=q_qUiytLYRc)
