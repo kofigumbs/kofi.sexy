@@ -1,0 +1,39 @@
+<!doctype html>
+<html amp lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <link rel="canonical" href="https://kofi.sexy" />
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+        <title>{{ page.title }}</title>
+        <meta name="description" content="{{ page.description }}">
+        <meta name="author" content="Kofi Gumbs">
+        <meta name="keywords" content="kofi gumbs hkgumbs software developer">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#795548">
+        <meta name="theme-color" content="#212121">
+
+        <style amp-custom>
+            main {
+                margin:1em auto;
+                max-width:40em;
+                padding:0 .62em;
+                font:1.2em/1.62em sans-serif;
+            }
+            h1,h2,h3 {
+                line-height:1.2em;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            {{ page.content | markdownify }}
+        </main>
+    </body>
+</html>
