@@ -1,8 +1,10 @@
 ---
-title: kofi.sexy
+title: man kofi
 description: About Me
 layout: default
 ---
+
+# Kofi Gumbs
 
 I write software and enjoy speaking about it.
 Here are some talks that I have given before:
