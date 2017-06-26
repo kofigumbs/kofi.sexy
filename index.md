@@ -1,6 +1,5 @@
 ---
-title: man kofi
-description: About Me
+title: About Me
 layout: default
 ---
 
