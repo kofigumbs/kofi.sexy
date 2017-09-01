@@ -30,16 +30,16 @@
                 padding: 0 .62em;
             }
             .content {
-                animation: fadein 0.95s;
-                font: 1.2em/1.62em sans-serif;
+                animation: fadein .95s;
+                transition: transform .50s;
+                font: 1.20em/1.62em sans-serif;
                 max-width: 40em;
             }
             h1,h2,h3 {
-                line-height: 1.2em;
+                line-height: 1.20em;
             }
             @keyframes fadein {
-                0% { opacity: 0; margin-top: 1em; }
-                50% { margin-top: 0; }
+                0%   { opacity: 0; transform: translate3d(0, 1em, 0); }
                 100% { opacity: 1; }
             }
         </style>
