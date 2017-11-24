@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How JSON decoding works in Elm—Part 1
 authors: ["kofi-gumbs"]
 tags: ["Coding"]
