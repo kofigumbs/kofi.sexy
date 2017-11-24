@@ -30,33 +30,54 @@
 
     <style amp-custom>
       .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
         padding: 0 .62em;
+        animation: fadein .95s, moveup .95s;
       }
-      .content {
-        animation: fadein .95s;
-        transition: transform .50s;
+      .menuicon {
+        appearance: none;
+        -webkit-appearance: none;
+        float: right;
+        padding-right: 24px;
+        font-size: 1.62em;
+        cursor: pointer;
+      }
+      .menuicon:before {
+        content: ' ☰ ';
+      }
+      .menuicon:checked:before {
+        content: ' ✕ ';
+      }
+      .menupane {
+        background-color: #00baff;
+      }
+      main {
         font: 1.20em/1.62em sans-serif;
-        max-width: 40em;
+        margin: 0 auto;
+        max-width: 770px;
       }
       h1,h2,h3 {
         line-height: 1.20em;
       }
+      pre {
+        background-color: #EEEEEE;
+        padding: 36px;
+        border-radius: 2px
+      }
       @keyframes fadein {
-        0%   { opacity: 0; transform: translate3d(0, 1em, 0); }
-        100% { opacity: 1; }
+        0%   { opacity: 0 }
+        100% { opacity: 1 }
+      }
+      @keyframes moveup {
+        0% { transform: translate3d(0, 1em, 0) }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="content">
+      <main>
+        <input class="menuicon" title="Menu" type=checkbox></input>
         {{ page.content | markdownify }}
-      </div>
+      </main>
     </div>
   </body>
 </html>
