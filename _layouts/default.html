@@ -32,21 +32,24 @@
       .container {
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
         min-height: 100vh;
         padding: 0 .62em;
       }
       .content {
-        animation: fadein .95s;
+				width: 100%;
+        max-width: 40em;
+        margin: 0 auto;
         transition: transform .50s;
         font: 1.20em/1.62em sans-serif;
-        max-width: 40em;
+        animation: fadein .95s;
       }
       h1,h2,h3 {
         line-height: 1.20em;
       }
       pre {
+				position: relative;
+				overflow-x: scroll;
         background-color: #EEEEEE;
         border-radius: 2px;
         padding: 36px;
