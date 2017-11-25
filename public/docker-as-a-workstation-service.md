@@ -1,4 +1,6 @@
-# Docker as a (workstation) service
+---
+title: Docker as a (workstation) service
+---
 
 [Docker](http://docker.com) promotes itself as
 "a tool for developers and sysadmins to build, ship, and run distributed applications,"

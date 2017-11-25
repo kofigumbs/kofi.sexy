@@ -1,4 +1,6 @@
-# Using Functions to Make Better Abstractions
+---
+title: Using Functions to Make Better Abstractions
+---
 
 I spent much of my programming youth in object-oriented land, so I grew accustomed to attaching patterns to object-oriented features.
 In particular, when I heard the word "abstraction," my thoughts automatically drifted to interfaces and abstract classes.

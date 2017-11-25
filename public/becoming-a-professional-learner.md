@@ -1,4 +1,6 @@
-# Becoming a professional learner
+---
+title: Becoming a professional learner
+---
 
 > Is the software industry trying to write the script for Hamlet by hiring a
 > million monkeys to bang on keyboards?

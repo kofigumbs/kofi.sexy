@@ -1,4 +1,6 @@
-# Lamda Calculus
+---
+title: Lambda Calculus
+---
 
 Lambda Calculus is often cited as the first functional programming language.
 Though there have been many attempts to derive a formal programming language

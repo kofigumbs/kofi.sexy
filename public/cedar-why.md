@@ -1,12 +1,9 @@
 ---
-title: cedar
+title: Cedar, Why?
 description: writing an (elm -> C) compiler
 layout: default
 ---
 
-
-
-# Why
 
 ## December 2, 2016
 

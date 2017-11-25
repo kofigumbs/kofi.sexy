@@ -1,4 +1,6 @@
-# Why I make trivial apps
+---
+title: Why I make trivial apps
+---
 
 ## Heart of a front-end developer trapped in the body of a computer science student
 

@@ -1,4 +1,6 @@
-# Data Structures
+---
+title: Intro to Data Structures
+---
 
 "Data structures" tend to conjure intimidation, but they are very easy to begin to understand.
 Understanding data structures helps us to know when we are/aren't using the right tool for our task.
