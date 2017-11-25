@@ -1,0 +1,8 @@
+permalink: pretty
+defaults:
+  -
+    scope:
+      file: ""
+      type: "pages"
+    values:
+      layout: "default"

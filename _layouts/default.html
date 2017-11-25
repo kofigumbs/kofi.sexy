@@ -29,27 +29,44 @@
     <meta name="theme-color" content="#333333">
 
     <style amp-custom>
+      html,body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font: 1.20em/1.62em sans-serif;
+      }
       .container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         min-height: 100vh;
-        padding: 0 .62em;
       }
-      .content {
-				width: 100%;
+      .centered {
+        width: 100%;
         max-width: 40em;
         margin: 0 auto;
+        padding: 0 .62em;
+      }
+      main {
         transition: transform .50s;
-        font: 1.20em/1.62em sans-serif;
         animation: fadein .95s;
+      }
+      nav {
+        width: 100%;
+        overflow: hidden;
+        padding: 35px 0;
+        background-color: #34495E;
+      }
+      nav * {
+        color: #FFFFFF;
       }
       h1,h2,h3 {
         line-height: 1.20em;
       }
       pre {
-				position: relative;
-				overflow-x: scroll;
+        position: relative;
+        overflow-x: scroll;
         background-color: #EEEEEE;
         border-radius: 2px;
         padding: 36px;
@@ -61,11 +78,21 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="content">
+    <div class="container centered">
+      <main>
         <h1>{{ page.title }}</h1>
         {{ page.content | markdownify }}
-      </div>
+      </main>
     </div>
+    <nav>
+      <div class="centered">
+        <h1>Blog posts</h1>
+        <ul>
+          {% for post in site.pages %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      <div>
+    </nav>
   </body>
 </html>
