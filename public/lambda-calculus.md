@@ -1,5 +1,6 @@
 ---
 title: Lambda Calculus
+layout: default
 ---
 
 Lambda Calculus is often cited as the first functional programming language.

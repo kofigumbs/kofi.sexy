@@ -1,8 +1,15 @@
-permalink: pretty
-defaults:
-  -
-    scope:
-      file: ""
-      type: "pages"
-    values:
-      layout: "default"
+eighthlight:
+  - title: "How JSON decoding works in Elm—Part 3"
+    url: "https://8thlight.com/blog/kofi-gumbs/2017/08/29/elm-json-decoding-custom.html"
+  - title: "How JSON decoding works in Elm—Part 2"
+    url: "https://8thlight.com/blog/kofi-gumbs/2017/07/17/elm-json-decoding-data-structures.html"
+  - title: "How JSON decoding works in Elm—Part 1"
+    url: "https://8thlight.com/blog/kofi-gumbs/2017/06/28/elm-json-decoding-types.html"
+  - title: "The Core of Erlang"
+    url: "https://8thlight.com/blog/kofi-gumbs/2017/05/02/core-erlang.html"
+  - title: "Docker as a (workstation) service"
+    url: "https://8thlight.com/blog/kofi-gumbs/2016/07/27/docker-as-a-workstation-service.html"
+  - title: "Using Functions to Make Better Abstractions"
+    url: "https://8thlight.com/blog/kofi-gumbs/2016/02/16/using-functions-to-make-better-abstractions.html"
+  - title: "Becoming a professional learner"
+    url: "https://8thlight.com/blog/kofi-gumbs/2016/06/08/becoming-a-professional-learner.html"
