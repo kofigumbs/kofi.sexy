@@ -1,3 +1,13 @@
+plugins:
+  - jekyll-seo-tag
+
+title: Kofi Gumbs
+author: Kofi Gumbs
+url: https://kofi.sexy
+logo: /icons/android-chrome-192x192.png
+twitter:
+  username: hkgumbs
+
 blog_posts:
   - title: "How JSON decoding works in Elm—Part 3"
     url: "https://8thlight.com/blog/kofi-gumbs/2017/08/29/elm-json-decoding-custom.html"
