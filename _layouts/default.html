@@ -80,15 +80,15 @@
     <div class="container centered">
       <main>
         <h1>{{ page.title }}</h1>
-        {{ page.content | markdownify }}
+        {{ content }}
       </main>
     </div>
     <nav>
       <div class="centered">
-        <h1 id="archive">Archive</h1>
+        <h1 id="writing">Writing</h1>
         <ul>
-          {% for post in site.eighthlight %}
-          <li><a target="_blank" href="{{ post.url }}">{{ post.title }}</a></li>
+          {% for post in site.blog_posts %}
+            <li><a {% unless post.dont_sandbox %} target="_blank" {% endunless %} href="{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
         </ul>
       </div>
