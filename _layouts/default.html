@@ -43,7 +43,7 @@
       .centered {
         max-width: 40em;
         margin: 0 auto;
-        padding: 0 .62em;
+        padding: .62em;
       }
       main {
         transition: transform .50s;
@@ -75,8 +75,10 @@
     </style>
   </head>
   <body>
+    {% include icons.html %}
     <div class="container centered">
       <main>
+        {% unless page.url == "/" %}<a href="/">{{ home_icon }}</a>{% endunless %}
         <h1>{{ page.title }}</h1>
         {{ content }}
       </main>
