@@ -4,8 +4,6 @@ description: A brief post + example about dependency injection
 layout: default
 ---
 
-# Testing `Cmd`s in Elm
-
 This problem frequently appears in [#testing on Elm Slack](https://elmlang.slackarchive.io/testing),
 and I've been curious about what a "dependency injection" API might look like.
 Dependency injection, in general, is quite simple.
