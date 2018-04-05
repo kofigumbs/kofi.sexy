@@ -9,6 +9,9 @@ twitter:
   username: hkgumbs
 
 blog_posts:
+  - title: "Testing Cmd's in Elm"
+    url: "/public/testing-cmds-in-elm"
+    dont_sandbox: true
   - title: "How JSON decoding works in Elm—Part 3"
     url: "https://8thlight.com/blog/kofi-gumbs/2017/08/29/elm-json-decoding-custom.html"
   - title: "How JSON decoding works in Elm—Part 2"
