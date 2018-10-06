@@ -1,23 +1,21 @@
 ---
-title: About Me
+title: "@hkgumbs"
 layout: default
 ---
-
 {% include icons.html %}
 
-<p>
-I write software and enjoy speaking about it.
-Here are some talks that I have given before:
-</p>
+<h3 id="writing">Writing</h3>
+<ul class="no-bullets">
+  {% for post in site.blog_posts %}
+    <li><a {% unless post.dont_sandbox %} rel="external" {% endunless %} href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
 
-<ul style="list-style-type: none;">
+<h3 id="talks">Talks</h3>
+<ul class="no-bullets">
   <li><a href="https://www.youtube.com/watch?v=BcXQ2qaEzNI">{{ video_icon }} Getting to BEAM without going through Erlang</a></li>
   <li><a href="https://www.youtube.com/watch?v=Bt10M34vSwo">{{ video_icon }} Introducing Functional, Reactive Programming</a></li>
   <li><a href="/blog/lambda-calculus">{{ manuscript_icon }} Lambda Calculus</a></li>
   <li><a href="/blog/intro-to-data-structures">{{ manuscript_icon }} Intro to Data Structures</a></li>
   <li><a href="https://goo.gl/zViQzY">{{ manuscript_icon }} History of Hip-Hop Dance</a></li>
 </ul>
-
-<strong style="text-align:center;display:block">
-  <a href="#writing" title="Scroll to writing">↓</a>
-</strong>
