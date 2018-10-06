@@ -1,17 +1,16 @@
 ---
-title: "@hkgumbs"
 layout: default
 ---
 {% include icons.html %}
 
-<h3 id="writing">Writing</h3>
+<h2 id="writing">Writing</h2>
 <ul class="no-bullets">
   {% for post in site.blog_posts %}
     <li><a {% unless post.dont_sandbox %} rel="external" {% endunless %} href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
-<h3 id="talks">Talks</h3>
+<h2 id="speaking">Speaking</h2>
 <ul class="no-bullets">
   <li><a href="https://www.youtube.com/watch?v=BcXQ2qaEzNI">{{ video_icon }} Getting to BEAM without going through Erlang</a></li>
   <li><a href="https://www.youtube.com/watch?v=Bt10M34vSwo">{{ video_icon }} Introducing Functional, Reactive Programming</a></li>
