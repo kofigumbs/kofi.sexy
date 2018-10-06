@@ -1,14 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108288287-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-108288287-1');
-    </script>
-
     <meta charset="utf-8">
     <link rel="canonical" href="https://kofi.sexy" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -25,36 +17,51 @@
     <meta name="theme-color" content="#333333">
 
     <style>
+      .header {
+        font-size: 1.25em;
+      }
+      .header a {
+        text-decoration: none;
+        padding-right: 0.5em;
+      }
+      .no-bullets {
+        list-style-type: none;
+      }
+      .no-bullets li {
+        padding-bottom: 0.25em
+      }
+      .footer {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(121, 85, 72);
+      }
+      .footer a {
+        color: white;
+        font-weight: 100;
+        font-size: 1.25em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.25em 1em;
+      }
+      .footer a:hover {
+        opacity: 0.75;
+      }
       html,body {
         margin: 0;
         padding: 0;
       }
       body {
-        font: 1.20em/1.62em sans-serif;
-      }
-      .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: 100vh;
-      }
-      .centered {
-        max-width: 40em;
-        margin: 0 auto;
-        padding: .62em;
-      }
-      main {
         transition: transform .20s;
         animation: fadein .40s;
+        font: 1.20em/1.62em sans-serif;
       }
-      nav {
-        width: 100%;
-        overflow: hidden;
-        padding: 36px 0;
-        background-color: #795548;
-      }
-      nav * {
-        color: #FFFFFF;
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 1em;
       }
       h1,h2,h3 {
         line-height: 1.20em;
@@ -73,23 +80,12 @@
     </style>
   </head>
   <body>
-    {% include icons.html %}
-    <div class="container centered">
-      <main>
-        {% unless page.url == "/" %}<a href="/">{{ home_icon }}</a>{% endunless %}
-        <h1>{{ page.title }}</h1>
-        {{ content }}
-      </main>
-    </div>
-    <nav>
-      <div class="centered">
-        <h1 id="writing">Writing</h1>
-        <ul>
-          {% for post in site.blog_posts %}
-            <li><a {% unless post.dont_sandbox %} rel="external" {% endunless %} href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-    </nav>
+    <main>
+      <span class="header">{% include social.html %}</span>
+      <h1>{{ page.title }}</h1>
+      {{ content }}
+    </main>
+    {% include wave.html %}
+    <span class="footer">{% include social.html %}</span>
   </body>
 </html>
