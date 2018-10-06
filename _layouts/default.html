@@ -18,11 +18,21 @@
 
     <style>
       .header {
+        display: flex;
+        flex-direction: row;
         font-size: 1.25em;
+      }
+      .header span {
+        flex: 1;
       }
       .header a {
         text-decoration: none;
         padding-right: 0.5em;
+      }
+      .header h6 {
+        text-align: right;
+        margin: 0;
+        padding: 0;
       }
       .no-bullets {
         list-style-type: none;
@@ -84,7 +94,10 @@
   </head>
   <body>
     <main>
-      <span class="header">{% include social.html %}</span>
+      <span class="header">
+        <span>{% include social.html %}</span>
+        <h6>Kofi Gumbs</h6>
+      </span>
       <h1>{{ page.title }}</h1>
       {{ content }}
     </main>
