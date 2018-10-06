@@ -12,8 +12,7 @@ This essay documents some interesting parts of the project.
 
 ### Background
 
-According to the website,
-Elm is a "a delightful language for reliable webapps."<sup>[1](https://elm-lang.org/)</sup>
+According to [the website](https://elm-lang.org/), Elm is a "a delightful language for reliable webapps."
 I am a huge fan of the language and its goals, and I encourage you to give it a try.
 Elm helped me enjoy writing front-end code again, and many in the community share that experience.
 The Elm ecosystem is focused on the front-end webapp domain.
@@ -24,7 +23,7 @@ This experience with Elm produces a particular effect in many folks.
 I've heard it called the X-is-great-so-we-should-use-X-everywhere effect.
 A large part of our small community is excited by the idea of "Elm on the server",
 though that phrase likely means different things for different people.
-I enjoy how the Elm author responds to this idea in the [Elm roadmap document](https://github.com/elm/projects/blob/master/roadmap.md#can-i-use-elm-on-servers):
+I enjoy how the Elm author responds to this idea in [the roadmap document](https://github.com/elm/projects/blob/master/roadmap.md#can-i-use-elm-on-servers):
 
 > Many folks tell me “Elm should compile to X” where X is a thing they like.
 > Here are people suggesting [Go](https://twitter.com/zvozin/status/847860742787223553), [Lua](https://groups.google.com/d/msg/elm-dev/Mi9j3nVD5NE/11akZGmNAgAJ) and [Erlang](https://groups.google.com/d/msg/elm-dev/Mi9j3nVD5NE/Pf1GXS2QAgAJ)...
@@ -83,7 +82,7 @@ Here is a quote from [the documentation of the Process module](https://package.e
 
 Internally, the Elm runtime is built upon the idea of processes and messages.
 It seems this implementation is explicitly inspired by Erlang's design.
-Elm programmers will recognize this design from their use of `port`s,
+Elm programmers will recognize this design from their use of ports,
 [Elm's means of JavaScript interop](https://guide.elm-lang.org/interop/ports.html).
 In order to communicate between JavaScript and your Elm application, you send messages!
 Much like inter-process communication in Erlang.
@@ -101,7 +100,7 @@ app.ports.toJS.subscribe(x => f(x))  // Elm ↔ JavaScript
 receive X -> f(X) end                %% Erlang ↔ Erlang
 ```
 
-`elm-beam` build upon these similarities.
+`elm-beam` builds upon these similarities.
 The compiled Elm application results in a `.beam` module that defines an
 [OTP gen_server](http://erlang.org/doc/design_principles/gen_server_concepts.html).
 Starting a `gen_server` and communicating with it uses Erlang functions from the standard library.
