@@ -23,7 +23,7 @@ This experience with Elm produces a particular effect in many folks.
 I've heard it called the X-is-great-so-we-should-use-X-everywhere effect.
 A large part of our small community is excited by the idea of "Elm on the server",
 though that phrase likely means different things for different people.
-I enjoy how the Elm author responds to this idea in [the roadmap document](https://github.com/elm/projects/blob/master/roadmap.md#can-i-use-elm-on-servers):
+I enjoy how the Elm author responds to this idea in the [roadmap writeup]:
 
 > Many folks tell me “Elm should compile to X” where X is a thing they like.
 > Here are people suggesting [Go](https://twitter.com/zvozin/status/847860742787223553), [Lua](https://groups.google.com/d/msg/elm-dev/Mi9j3nVD5NE/11akZGmNAgAJ) and [Erlang](https://groups.google.com/d/msg/elm-dev/Mi9j3nVD5NE/Pf1GXS2QAgAJ)...
@@ -36,7 +36,7 @@ I enjoy how the Elm author responds to this idea in [the roadmap document](https
 
 > ... Writing a compiler backend is like 5% of what it takes to make a project like this worthwhile.
 
-I echo 100% of this idea.
+I echo this idea completely.
 The project discussed here **is not** "Elm on the server".
 Nor is it a suggested direction for the Elm team.
 Instead, it's a fun exploration in compilers and code generation that I'm excited to share with other folks.
@@ -60,7 +60,7 @@ $ tree
 
 `elm-beam` is a Haskell project with 2 major dependencies:
 the 0.18 Elm compiler and a BEAM codegen library I wrote called [codec-beam].
-Interop with the Elm compiler is a bit untraditional.
+Integration with the Elm compiler is a bit untraditional.
 The Cabal file points _both_ to files in this project and files in the git submodule.
 [Building the project](https://github.com/hkgumbs/elm-beam#setup-guide)
 results in an executable that takes a `.elm` file and produces a file called `elm.beam`.
@@ -85,7 +85,7 @@ It seems this implementation is explicitly inspired by Erlang's design.
 Elm programmers will recognize this design from their use of ports,
 [Elm's means of JavaScript interop](https://guide.elm-lang.org/interop/ports.html).
 In order to communicate between JavaScript and your Elm application, you send messages!
-Much like inter-process communication in Erlang.
+Much like inter-process communication in Erlang:
 
 ```
   SENDING A MESSAGE
@@ -101,7 +101,7 @@ receive X -> f(X) end                %% Erlang ↔ Erlang
 ```
 
 `elm-beam` builds upon these similarities.
-The compiled Elm application results in a `.beam` module that defines an
+The compiled Elm application is a BEAM module that defines an
 [OTP gen_server](http://erlang.org/doc/design_principles/gen_server_concepts.html).
 Starting a `gen_server` and communicating with it uses Erlang functions from the standard library.
 You can see these functions in action in the following demo:
@@ -111,10 +111,21 @@ You can see these functions in action in the following demo:
 
 ### `gen_server` design implications
 
-TODO
+Since `elm-beam` commits to the `gen_server` protocol,
+Elm-written modules can exist within a supervision tree.
+To me, this may be the most exciting aspect of this exploration.
+Imagine your team has spent several years writing software in the Erlang/Elixir ecosystem.
+During that time,
+your organization has developed tooling and workflow around the Erlang Virtual Machine.
+Now, you are interested in exploring what static types have to offer.
+Must you forfeit all of the tooling and workflow just to try it out?
 
- - gen_server as the unit of isolation
- - Actor model made explicit
+Of course, this is a fiction.
+`elm-beam` is not meant for "teams" — it is an incomplete exploration!
+However, the design of the project thus far suggests an answer to the hypothetical concern.
+**`elm-beam` allows you to incrementally introduce Elm into Erlang/Elixir systems.**
+Elm-written `gen_server`'s would act just like Erlang/Elixir-written `gen_server`'s,
+living inside the same supervision tree and application.
 
 
 ### Generating BEAM
@@ -122,9 +133,31 @@ TODO
 TODO
 
 
-### Thoughts on the future
+### Is BEAM best for Elm?
+
+No. In fact, Elm's author suggests as much in the aforementioned [roadmap writeup]:
+
+> Ultimately, the ideal form of a project like this has its own bespoke backend, going to assembly directly.
+
+I agree.
+In many ways, going through BEAM was a "shortcut".
+The similarities between Erlang and Elm mean that Elm "fits in" with BEAM languages,
+but Elm can certainly do better.
+For instance, an Elm-specific garbage collector could use a more precise strategy than that of Erlang's.
+This is a natural difference between languages with/without exhaustive type information at compile-time.
+
+The Erlang platform includes a native compiler called the High Performance Erlang (HiPE).
+HiPE reads BEAM modules and produces native programs
+that generally run faster than their VM-interpreted counterparts.
+The existence of HiPE is further support for the "going to assembly" Elm compiler.
+With exhaustive type information at compile-time,
+Elm could create faster, more densely packed programs than BEAM even allows.
+
+
+### Elm as a compiler front-end
 
 TODO
 
 
+[roadmap writeup]: https://github.com/elm/projects/blob/master/roadmap.md#can-i-use-elm-on-servers
 [codec-beam]: https://github.com/hkgumbs/codec-beam
