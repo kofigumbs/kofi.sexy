@@ -22,14 +22,15 @@
         flex-direction: row;
         font-size: 1.25em;
       }
-      .header span {
+      .header a {
+        color: black;
+        text-decoration: none;
+        margin-right: 0.75em;
+      }
+      .left {
         flex: 1;
       }
-      .header a {
-        text-decoration: none;
-        padding-right: 0.5em;
-      }
-      .header h6 {
+      .right {
         text-align: right;
         margin: 0;
         padding: 0;
@@ -38,7 +39,7 @@
         list-style-type: none;
       }
       .no-bullets li {
-        padding-bottom: 0.25em
+        padding-bottom: 0.35em
       }
       .footer {
         width: 100%;
@@ -54,9 +55,9 @@
         font-size: 1.25em;
         text-transform: uppercase;
         text-decoration: none;
-        padding: 0.25em 1em;
+        margin: 0.25em 1em;
       }
-      .footer a:hover {
+      .social:hover {
         opacity: 0.75;
       }
       html,body {
@@ -95,8 +96,8 @@
   <body>
     <main>
       <span class="header">
-        <span>{% include social.html %}</span>
-        <h6>Kofi Gumbs</h6>
+        <span class="left">{% include social.html %}</span>
+        <h6 class="right">Kofi Gumbs</h6>
       </span>
       <h1>{{ page.title }}</h1>
       {{ content }}
