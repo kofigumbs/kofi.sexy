@@ -62,7 +62,7 @@ $ tree
 the 0.18 Elm compiler and a BEAM codegen library I wrote called [codec-beam].
 Integration with the Elm compiler is a bit untraditional.
 The Cabal file points _both_ to files in this project and files in the git submodule.
-[Building the project](https://github.com/hkgumbs/elm-beam#setup-guide)
+[Building the project](https://github.com/hkgumbs/elm-beam/blob/master/README.md#setup-guide)
 results in an executable that takes a `.elm` file and produces a file called `elm.beam`.
 
 
