@@ -3,8 +3,6 @@ title: elm-beam
 layout: default
 ---
 
-# ⚠️ DRAFT ⚠️
-
 I've been exploring the idea of an Elm compiler that produces assembly for the Erlang Virtual Machine.
 You can find the code for [this project on GitHub](https://github.com/hkgumbs/elm-beam).
 This essay documents some interesting parts of the project.
