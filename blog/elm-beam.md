@@ -119,12 +119,10 @@ your organization has developed tooling and workflow around the Erlang Virtual M
 Now, you are interested in exploring what static types have to offer.
 Must you forfeit all of the tooling and workflow just to try it out?
 
-Of course, this is a fiction.
-`elm-beam` is not meant for "teams"—it is an incomplete exploration!
-However, the design of the project thus far suggests an answer to the hypothetical concern.
+The design of the project thus far suggests an answer to the hypothetical concern.
 **`elm-beam` allows you to incrementally introduce Elm into Erlang/Elixir systems.**
-Elm-written `gen_server`'s would act just like Erlang/Elixir-written `gen_server`'s,
-living inside the same supervision tree and application.
+Elm-written `gen_server`'s act just like Erlang/Elixir-written `gen_server`'s,
+living inside the same supervision trees and applications.
 
 
 ### Generating BEAM

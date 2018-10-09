@@ -9,6 +9,9 @@ twitter:
   username: hkgumbs
 
 blog_posts:
+  - title: "elm-beam"
+    url: "/blog/elm-beam"
+    dont_sandbox: true
   - title: "Testing Cmd's in Elm"
     url: "/blog/testing-cmds-in-elm"
     dont_sandbox: true
