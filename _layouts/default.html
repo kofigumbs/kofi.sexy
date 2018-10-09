@@ -21,14 +21,16 @@
   <body>
     {% include icon_definitions.html %}
     <main>
-      <span class="header">
-        <span>{% include social.html %}</span>
+      <header>
+        {% include social.html %}
         <h6>Kofi Gumbs</h6>
-      </span>
+      </header>
       <h1>{{ page.title }}</h1>
       {{ content }}
     </main>
-    {% include wave.html %}
-    <span class="footer">{% include social.html %}</span>
+    <footer>
+      {% include wave.html %}
+      {% include social.html %}
+    </footer>
   </body>
 </html>
