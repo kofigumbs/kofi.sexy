@@ -12,12 +12,12 @@ This essay documents some interesting parts of the project.
 
 ### Background
 
-According to [the website](https://elm-lang.org/), Elm is a "a delightful language for reliable webapps."
+According to [the website](https://elm-lang.org/), Elm is "a delightful language for reliable webapps."
 I am a huge fan of the language and its goals, and I encourage you to give it a try.
 Elm helped me enjoy writing front-end code again, and many in the community share that experience.
 The Elm ecosystem is focused on the front-end webapp domain.
-This domain focus is much of what makes Elm delightful —
-the tooling, documentation, and community largely coalesce around this goal.
+This domain focus is much of what makes Elm delightful—the tooling,
+documentation, and community largely coalesce around this goal.
 
 This experience with Elm produces a particular effect in many folks.
 I've heard it called the X-is-great-so-we-should-use-X-everywhere effect.
@@ -39,7 +39,7 @@ I enjoy how the Elm author responds to this idea in the [roadmap writeup]:
 I echo this idea completely.
 The project discussed here **is not** "Elm on the server".
 Nor is it a suggested direction for the Elm team.
-Instead, it's a fun exploration in compilers and code generation that I'm excited to share with other folks.
+Instead, it's a fun exploration in compilers and code generation that I'm excited to share with others.
 Perhaps the work here will help someone interested in building a delightful language for reliable web servers.
 
 
@@ -70,7 +70,7 @@ results in an executable that takes a `.elm` file and produces a file called `el
 
 In many ways, Elm matches the semantics of Erlang and Elixir.
 These languages all feature immutable data structures, pattern matching, and lambda functions.
-However, the similarities run even deeper — to the implementation of the Elm runtime itself.
+However, the similarities run even deeper—to the implementation of the Elm runtime itself.
 Here is a quote from [the documentation of Elm's Process module](https://package.elm-lang.org/packages/elm/core/latest/Process):
 
 > Right now, this library is pretty sparse.
@@ -120,7 +120,7 @@ Now, you are interested in exploring what static types have to offer.
 Must you forfeit all of the tooling and workflow just to try it out?
 
 Of course, this is a fiction.
-`elm-beam` is not meant for "teams" — it is an incomplete exploration!
+`elm-beam` is not meant for "teams"—it is an incomplete exploration!
 However, the design of the project thus far suggests an answer to the hypothetical concern.
 **`elm-beam` allows you to incrementally introduce Elm into Erlang/Elixir systems.**
 Elm-written `gen_server`'s would act just like Erlang/Elixir-written `gen_server`'s,
@@ -177,6 +177,8 @@ At this point, I feel like my work with `elm-beam` has come to an end.
 I'm satisfied with the results of the exploration, and I'm ready to continue with other projects.
 Hopefully you've found value in some these ideas.
 If so, [I'd love to hear from you](mailto:hello@kofi.sexy).
+And to those interested in continuing the exploration:
+join us in the _#elm-beam_ channel on the [Elm Slack](https://elmlang.herokuapp.com/).
 
 Finally, I want to express the sincerest admiration for all the projects I referenced: Elm and Erlang in particular.
 Languages are large projects, and I tend to take them for granted.
