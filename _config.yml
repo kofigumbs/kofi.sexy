@@ -9,6 +9,8 @@ twitter:
   username: hkgumbs
 
 blog_posts:
+  - title: "Inventing Options"
+    url: "https://engineering.hubtran.com/2019/03/18/inventing-options.html"
   - title: "elm-beam"
     url: "/blog/elm-beam"
   - title: "Testing Cmd's in Elm"
