@@ -6,7 +6,8 @@ layout: default
 <h2 id="writing">Writing</h2>
 <ul class="no-bullets">
   {% for post in site.blog_posts %}
-    <li><a {% unless post.dont_sandbox %} rel="external" {% endunless %} href="{{ post.url }}">{{ post.title }}</a></li>
+    {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
+    <li><a {% unless starts_with == "/" %}rel="external"{% endunless %} href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
