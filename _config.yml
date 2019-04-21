@@ -2,17 +2,18 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-  extensions: ["autolink", "tables"]
-
 plugins:
   - jekyll-seo-tag
 
 title: Kofi Gumbs
 author: Kofi Gumbs
 url: https://kofi.sexy
-logo: /icons/android-chrome-192x192.png
+logo: /android-chrome-192x192.png
 twitter:
   username: hkgumbs
+
+collections:
+  icons: { "output": true, "permalink": "/:path" }
 
 blog_posts:
   - title: "Building a tool that leverages Elm's types"
