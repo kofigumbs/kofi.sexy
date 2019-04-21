@@ -14,7 +14,7 @@ In this guide, we'll be implementing a specific tool called `elm-snapshot`.
 The specific tool we are building is not very important,
 so I'll focus on _extracting and manipulating Elm's types_.
 To build `elm-snapshot` locally, clone this repo and run
-[`./compile.rb`](https://github.com/hkgumbs/elm-type-tool-demo/blob/master/compile.rb).
+[`./compile.rb`](https://github.com/hkgumbs/hkgumbs.github.io/blob/elm-snapshot/blog/elm-type-tool-demo/compile.rb).
 
 
 # Problem Statement
@@ -111,8 +111,8 @@ end
 ```
 
 <details>
-<summary>Interface JSON for <a href="https://github.com/hkgumbs/elm-type-tool-demo/blob/master/example/src/ToSentence.elm"><code>ToSentence.elm</code></a></summary>
-<pre><code class="json">
+<summary>Interface JSON for <a href="https://github.com/hkgumbs/hkgumbs.github.io/blob/elm-snapshot/blog/elm-type-tool-demo/example/src/ToSentence.elm"><code>ToSentence.elm</code></a></summary>
+<pre><code class="language-json">
 {
   "modulePath" : "src/ToSentence.elm",
   "moduleName" : "ToSentence",
