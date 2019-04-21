@@ -39,6 +39,7 @@ Therefore, we will define the following "integer" representations:
 These definitions only serve to help us "evaluate" expressions!
 
 Let's look at how we would define Clojure's `inc` function in Lamda Calculus:
+
 ```
 λn.λs.λz.s(n s z)          #=> parenthesis help us describe order of operations
 λn.λs.λz.s(n s z) 3        #=> let's apply this function to the value 3

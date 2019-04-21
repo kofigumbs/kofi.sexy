@@ -1,3 +1,9 @@
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+  extensions: ["autolink", "tables"]
+
 plugins:
   - jekyll-seo-tag
 
