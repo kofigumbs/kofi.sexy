@@ -15,6 +15,8 @@ twitter:
   username: hkgumbs
 
 blog_posts:
+  - title: "Building a tool that leverages Elm's types"
+    url: "/blog/elm-type-tool-demo"
   - title: "Inventing Options"
     url: "https://engineering.hubtran.com/2019/03/18/inventing-options.html"
   - title: "elm-beam"
