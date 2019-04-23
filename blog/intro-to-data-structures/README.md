@@ -24,7 +24,7 @@ The guarantee that elements will reside adjacently allows us to make assumptions
 *an ordered collection*
 
 
-## [ArrayList](src/array_list.py)
+## [ArrayList](https://github.com/hkgumbs/hkgumbs.github.io/tree/master/blog/intro-to-data-structures/src/array_list.py)
 *an ordered collection backed by a contiguous chunk of indexable memory*
 
 - How would you implement `remove(index)`?
@@ -37,7 +37,7 @@ The guarantee that elements will reside adjacently allows us to make assumptions
   - make a new array of double the size then copy every value over
 
 
-## [LinkedList](src/linked_list.py)
+## [LinkedList](https://github.com/hkgumbs/hkgumbs.github.io/tree/master/blog/intro-to-data-structures/src/linked_list.py)
 *an ordered collection containing exactly 1 or 0 values and a reference to exactly 1 or 0 other linked lists*
 
 - Why `prepend` instead of `append`?
@@ -62,7 +62,7 @@ The guarantee that elements will reside adjacently allows us to make assumptions
 The resulting `int` is called a hashcode or hash value.
 
 
-## [HashMap](src/hash_map.py)
+## [HashMap](https://github.com/hkgumbs/hkgumbs.github.io/tree/master/blog/intro-to-data-structures/src/hash_map.py)
 *2-dimensional collection of keys and values, where each value is mapped to its corresponding and unique key based on the key’s hashcode*
 
 Since `HashMap`s are array-based, they are as fast as an `ArrayList` for lookup and addition.
@@ -86,7 +86,7 @@ Since they do not guarantee consecutive elements, they have fast removal, unlike
 *an unordered collection of unique elements*
 
 
-## [HashSet](src/hash_set.py)
+## [HashSet](https://github.com/hkgumbs/hkgumbs.github.io/tree/master/blog/intro-to-data-structures/src/hash_set.py)
 *an unordered collection of elements that uses the elements hashcode to guarantee fast lookup and addition*
 
 - Why might we not care to implement `get(value)` in a set?
@@ -99,7 +99,7 @@ Sets are great for collecting unique elements then checking membership. More rob
 *a one-dimensional collection, which is either empty, or a node containing one value and references to two branches, each of which are trees*
 
 
-## [Binary Search Tree](src/binary_search_tree.py)
+## [Binary Search Tree](https://github.com/hkgumbs/hkgumbs.github.io/tree/master/blog/intro-to-data-structures/src/binary_search_tree.py)
 *a tree, whose value is greater than the value of its left branch and less than the value of its right branch, each of with are binary search trees*
 
 - How does `contains(value)` compare to that of the `LinkedList`?
@@ -109,7 +109,7 @@ Sets are great for collecting unique elements then checking membership. More rob
   - search for `value` then replace it with either the right-most value in the left sub-tree or the left-most element in the right subtree
 
 
-## [A Recursive Board](src/board.py)
+## [A Recursive Board](https://github.com/hkgumbs/hkgumbs.github.io/tree/master/blog/intro-to-data-structures/src/board.py)
 *either empty or a node containing an index, marker, and reference to its previous state, which is also a board*
 
 - How would you implement `undo()`?
