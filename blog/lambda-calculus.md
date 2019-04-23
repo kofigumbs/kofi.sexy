@@ -52,6 +52,6 @@ Let's look at how we would define Clojure's `inc` function in Lamda Calculus:
 ```
 
 ## Resources
-- http://zeroturnaround.com/rebellabs/what-is-lambda-calculus-and-why-should-you-care/
-- http://www.toves.org/books/lambda/
-- http://www.inf.fu-berlin.de/lehre/WS03/alpi/lambda.pdf
+- <http://zeroturnaround.com/rebellabs/what-is-lambda-calculus-and-why-should-you-care/>
+- <http://www.toves.org/books/lambda/>
+- <http://www.inf.fu-berlin.de/lehre/WS03/alpi/lambda.pdf>
