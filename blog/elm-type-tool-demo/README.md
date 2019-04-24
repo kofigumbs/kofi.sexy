@@ -41,10 +41,25 @@ elm-test ./test/Snapshot_XYZ.elm   # Snapshot passes if we didn't change behavio
 rm ./test/Snapshot_XYZ.elm         # No need to keep this around
 ```
 
+Let's take a stab at a concrete answer: what are snapshots?
+If we call the original function `f` and the refactored function `g`,
+snapshots are tests that verify that:
+
+```
+f 1 == g 1 &&
+f 2 == g 2 &&
+f 3 == g 3 ... and so on and so forth
+```
+
+For every valid input to `f`, passing that input into `f` should produce a value
+equal to passing the same input into `g`.
+
 
 # Ruby Setup
 
 We'll be using Ruby to generate our "snapshot modules".
+There is nothing particularly interesting about Ruby in this context,
+but it is a scripting language that I know well.
 Before we get started, we'll make our file executable
 and add some standard dependencies.
 
@@ -183,20 +198,9 @@ end
 
 # Building Fuzzers
 
-So far, I've left a major question unanswered: what are snapshots?
-If we call the original function `f` and the refactored function `g`,
-snapshots are tests that verify that:
-
-```
-f 1 == g 1 &&
-f 2 == g 2 &&
-f 3 == g 3 ... and so on and so forth
-```
-
-For every valid input to `f`, passing that input into `f` should produce a value
-equal to passing the same input into `g`.
-The snippet above suggests that the more numbers we can check,
-the more confidence we will have.
+Consider the snapshot definition we used earlier: `f 1 == g 1 && f 2 == g 2 && ...`.
+This snippet suggests that the more numbers we can check,
+the more confidence we will have that the two behaviours match.
 Whenever we want to simulate a large set of potential values in Elm tests,
 we should think of fuzz tests.
 
