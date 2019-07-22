@@ -3,11 +3,11 @@
 
 [[redirects]]
   from = "/wedding"
-  to = "wedding.kofi.sexy"
+  to = "https://wedding.kofi.sexy"
 
 [[redirects]]
   from = "/grayarea"
-  to = "grayarea.kofi.sexy"
+  to = "https://grayarea.kofi.sexy"
 
 [[redirects]]
   from = "/public/*"
