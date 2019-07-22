@@ -1,0 +1,14 @@
+[build]
+  command = "jekyll build"
+
+[[redirects]]
+  from = "/wedding"
+  to = "wedding.kofi.sexy"
+
+[[redirects]]
+  from = "/grayarea"
+  to = "grayarea.kofi.sexy"
+
+[[redirects]]
+  from = "/public/*"
+  to = "/blog/:splat"
