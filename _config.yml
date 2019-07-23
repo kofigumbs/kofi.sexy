@@ -13,6 +13,7 @@ twitter:
   username: hkgumbs
 
 collections:
+  www: { "output": true, "permalink": "/:path" }
   icons: { "output": true, "permalink": "/:path" }
 
 blog_posts:
