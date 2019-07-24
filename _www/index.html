@@ -2,10 +2,8 @@
 title: ""
 layout: default
 ---
-{% include icon_captures.html %}
-
 <h2 id="writing">Writing</h2>
-<ul class="no-bullets">
+<ul>
   {% for post in site.blog_posts %}
     {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
     <li><a {% unless starts_with == "/" %}rel="external"{% endunless %} href="{{ post.url }}">{{ post.title }}</a></li>
@@ -13,12 +11,12 @@ layout: default
 </ul>
 
 <h2 id="speaking">Speaking</h2>
-<ul class="no-bullets">
-  <li><a href="/blog/programming-language-design-pattern.mp4">{{ video_icon }} The "Programming Language" Design Pattern</a></li>
-  <li><a href="https://www.youtube.com/watch?v=Eb3pfaFwvi4">{{ video_icon }} Guaranteed Refactors: Generating Tests from Types</a></li>
-  <li><a href="https://www.youtube.com/watch?v=BcXQ2qaEzNI">{{ video_icon }} Getting to BEAM without going through Erlang</a></li>
-  <li><a href="https://www.youtube.com/watch?v=Bt10M34vSwo">{{ video_icon }} Introducing Functional, Reactive Programming</a></li>
-  <li><a href="/blog/lambda-calculus">{{ manuscript_icon }} Lambda Calculus</a></li>
-  <li><a href="/blog/intro-to-data-structures">{{ manuscript_icon }} Intro to Data Structures</a></li>
-  <li><a href="https://goo.gl/zViQzY">{{ manuscript_icon }} History of Hip-Hop Dance</a></li>
+<ul>
+  <li><a href="/blog/programming-language-design-pattern.mp4">The "Programming Language" Design Pattern</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Eb3pfaFwvi4">Guaranteed Refactors: Generating Tests from Types</a></li>
+  <li><a href="https://www.youtube.com/watch?v=BcXQ2qaEzNI">Getting to BEAM without going through Erlang</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Bt10M34vSwo">Introducing Functional, Reactive Programming</a></li>
+  <li><a href="/blog/lambda-calculus">Lambda Calculus</a></li>
+  <li><a href="/blog/intro-to-data-structures">Intro to Data Structures</a></li>
+  <li><a href="https://goo.gl/zViQzY">History of Hip-Hop Dance</a></li>
 </ul>
