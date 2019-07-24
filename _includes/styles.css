@@ -4,13 +4,12 @@ html,body {
 }
 body {
   transition: transform 200ms;
-  animation: fadein 400ms;
   font: 1.20em/1.62em sans-serif;
 }
 main {
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 50em;
   padding: 1em;
+  margin: 0 auto;
 }
 h1,h2,h3 {
   line-height: 1.20em;
@@ -19,14 +18,14 @@ pre {
   position: relative;
   overflow-x: scroll;
   background-color: #F0F0F0;
-  border-radius: 2px;
-  padding: 24px;
+  border-radius: 0.1em;
+  padding: 1em;
 }
 blockquote {
   font-style: italic;
 }
 hr {
-  margin: 32px;
+  margin: 1.5em;
 }
 footer {
   margin: 2em 0;
@@ -41,8 +40,4 @@ footer a:hover {
 }
 footer a svg {
   vertical-align: middle;
-}
-@keyframes fadein {
-  0%   { opacity: 0; transform: translateY(1em); }
-  100% { opacity: 1; }
 }
