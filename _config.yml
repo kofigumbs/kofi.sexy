@@ -5,7 +5,6 @@ kramdown:
 plugins:
   - jekyll-seo-tag
 
-title: Kofi
 author: Kofi Gumbs
 url: https://kofi.sexy
 logo: /android-chrome-192x192.png
