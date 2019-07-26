@@ -17,7 +17,7 @@ To build `elm-snapshot` locally, clone this repo and run
 [`./compile.rb`](https://github.com/hkgumbs/hkgumbs.github.io/blob/elm-snapshot/blog/elm-type-tool-demo/compile.rb).
 
 
-# Problem Statement
+## Problem Statement
 
 Given some module that defines `someFunction`,
 I want to _refactor_ `someFunction` and _verify_ that
@@ -55,7 +55,7 @@ For every valid input to `f`, passing that input into `f` should produce a value
 equal to passing the same input into `g`.
 
 
-# Ruby Setup
+## Ruby Setup
 
 We'll be using Ruby to generate our "snapshot modules".
 There is nothing particularly interesting about Ruby in this context,
@@ -86,7 +86,7 @@ After every block of code we add,
 the file should still be runnable even though the program isn't complete.
 
 
-# Extracting Types
+## Extracting Types
 
 When you run `elm make`,
 the Elm compiler collects and verifies all the types in your program.
@@ -196,7 +196,7 @@ end
 </details>
 
 
-# Building Fuzzers
+## Building Fuzzers
 
 Consider the snapshot definition we used earlier: `f 1 == g 1 && f 2 == g 2 && ...`.
 This snippet suggests that the more numbers we can check,
@@ -254,7 +254,7 @@ however, this syntax does not let us easily use the global names we've been defi
 Arrow functions let us side-step this restriction and keep this file in literate style.
 
 
-# Code Generation
+## Code Generation
 
 Now that we have the function types for our module,
 and we know how to generate the right `Fuzzer`s,
@@ -355,7 +355,7 @@ end
 generate_test.(fuzz_tests.join("\n"))
 ```
 
-# Finalizing the Snapshot
+## Finalizing the Snapshot
 
 The snapshot file we have now, contains a bunch of passing tests.
 Running it will have no interesting result... Except for the logs!
@@ -406,7 +406,7 @@ generate_test.(prelude + snapshot.join("\n"))
 ```
 
 
-# Parting Thoughts
+## Parting Thoughts
 
 I think there are some exciting opportunities for extending `elm-snapshot`.
 The "shrinking" story isn't great in our implementation,

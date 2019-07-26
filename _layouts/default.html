@@ -16,8 +16,11 @@
     <meta name="theme-color" content="#8a6a5e">
 
     <style>
-    {% include styles.css %}
-    {% include syntax.css %}
+    {% capture styles %}
+      {% include styles.css %}
+      {% include syntax.css %}
+    {% endcapture %}
+    {{ styles | normalize_whitespace }}
     </style>
   </head>
   <body>
