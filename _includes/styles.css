@@ -3,7 +3,6 @@ html,body {
   padding: 0;
 }
 body {
-  transition: transform 200ms;
   font: 1.20em/1.62em sans-serif;
 }
 main {
@@ -13,9 +12,6 @@ main {
 }
 h1,h2,h3 {
   line-height: 1.20em;
-}
-h1 {
-  text-shadow: -0.05em 0.05em 0 #8a6a5e;
 }
 pre {
   position: relative;
@@ -36,11 +32,24 @@ footer {
 }
 footer a {
   padding: 1em;
-  transition: all 400ms ease;
+  transition: all 250ms ease;
 }
 footer a:hover {
   background: rgba(0,0,0,0.05);
 }
 footer a svg {
   vertical-align: middle;
+}
+
+/* "fun" stuff */
+
+:root {
+  --text-shadow-x: -1.5;
+  --text-shadow-y:  1;
+}
+h1 {
+  display: inline-block;
+  cursor: crosshair;
+  text-shadow: calc(var(--text-shadow-x) * 0.05em) calc(var(--text-shadow-y) * 0.05em) #8a6a5e;
+  transition: text-shadow 250ms ease;
 }
