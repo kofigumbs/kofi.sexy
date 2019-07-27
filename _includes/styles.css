@@ -51,5 +51,5 @@ h1 {
   display: inline-block;
   cursor: crosshair;
   text-shadow: calc(var(--text-shadow-x) * 0.05em) calc(var(--text-shadow-y) * 0.05em) #8a6a5e;
-  transition: text-shadow 250ms ease;
+  transition: text-shadow 250ms ease-out;
 }
