@@ -5,10 +5,7 @@ layout: default
 ---
 
 This is a learn-by-example guide to building tools with Elm's type system.
-This guide here accompanies my Elm in the Spring 2019 talk
-(Video: _COMING SOON_
-/
-[Slides](https://docs.google.com/presentation/d/e/2PACX-1vS9rMH3yse_jC3TjPUQCJ14yseO1XwdXFTXHpvz7Hv590BbqfFL93sUEncJ4_4yqj-z6KwNU1PUP8Gk/pub?start=false&loop=false&delayms=3000)).
+This guide here accompanies [my Elm in the Spring 2019 talk](/talk/guaranteed-refactors).
 
 In this guide, we'll be implementing a specific tool called `elm-snapshot`.
 The specific tool we are building is not very important,
