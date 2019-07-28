@@ -14,3 +14,8 @@ h1.addEventListener("mousemove", function(e) {
     root.style.setProperty("--text-shadow-y", calculateShadow(e.clientY - h1.offsetTop, h1.clientHeight));
   });
 });
+
+h1.addEventListener("mouseleave", function(e) {
+  root.style.removeProperty("--text-shadow-x");
+  root.style.removeProperty("--text-shadow-y");
+});
