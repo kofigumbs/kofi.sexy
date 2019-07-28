@@ -13,6 +13,9 @@ main {
 h1,h2,h3 {
   line-height: 1.20em;
 }
+li {
+  list-style-type: circle;
+}
 pre {
   position: relative;
   overflow-x: scroll;
@@ -40,16 +43,17 @@ footer a:hover {
 footer a svg {
   vertical-align: middle;
 }
-
-/* "fun" stuff */
-
-:root {
-  --text-shadow-x: -1.5;
-  --text-shadow-y:  1;
+iframe {
+  width: 100%;
+  height: 25em;
 }
+
+/* Easter egg setup
+   Shadow values use range [-1, 1] */
 h1 {
   display: inline-block;
   cursor: crosshair;
-  text-shadow: calc(var(--text-shadow-x) * 0.05em) calc(var(--text-shadow-y) * 0.05em) #8a6a5e;
-  transition: text-shadow 250ms ease-out;
+  transition: text-shadow 100ms ease-out;
+  text-shadow: calc(var(--text-shadow-x, -0.3) * 0.25em)
+               calc(var(--text-shadow-y,  0.2) * 0.25em) #8a6a5e;
 }

@@ -4,19 +4,14 @@ layout: default
 ---
 <h2 id="writing">Writing</h2>
 <ul>
-  {% for post in site.blog_posts %}
-    {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
-    <li><a {% unless starts_with == "/" %}rel="external"{% endunless %} href="{{ post.url }}">{{ post.title }}</a></li>
+  {% for post in site.blogs %}
+  <li>{% include link.html title=post.title url=post.url %}</li>
   {% endfor %}
 </ul>
 
 <h2 id="speaking">Speaking</h2>
 <ul>
-  <li><a href="/blog/programming-language-design-pattern.mp4">The "Programming Language" Design Pattern</a></li>
-  <li><a rel="external" href="https://www.youtube.com/watch?v=Eb3pfaFwvi4">Guaranteed Refactors: Generating Tests from Types</a></li>
-  <li><a rel="external" href="https://www.youtube.com/watch?v=BcXQ2qaEzNI">Getting to BEAM without going through Erlang</a></li>
-  <li><a rel="external" href="https://www.youtube.com/watch?v=Bt10M34vSwo">Introducing Functional, Reactive Programming</a></li>
-  <li><a href="/blog/lambda-calculus">Lambda Calculus</a></li>
-  <li><a href="/blog/intro-to-data-structures">Intro to Data Structures</a></li>
-  <li><a rel="external" href="https://goo.gl/zViQzY">History of Hip-Hop Dance</a></li>
+  {% for post in site.talks %}
+  <li>{% include link.html title=post.title url=post.url %}</li>
+  {% endfor %}
 </ul>
