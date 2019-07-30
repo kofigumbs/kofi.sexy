@@ -16,6 +16,7 @@ h1.addEventListener("mousemove", function(e) {
 });
 
 h1.addEventListener("mouseleave", function(e) {
+  cancelAnimationFrame(lastRequestId);
   root.style.removeProperty("--text-shadow-x");
   root.style.removeProperty("--text-shadow-y");
 });
