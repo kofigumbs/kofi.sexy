@@ -40,8 +40,8 @@ footer a {
 footer a:hover {
   background: rgba(0,0,0,0.05);
 }
-footer a svg {
-  vertical-align: middle;
+a svg {
+  height: 1em;
 }
 iframe {
   width: 100%;

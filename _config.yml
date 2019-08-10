@@ -14,6 +14,7 @@ twitter:
 collections:
   www: { "output": true, "permalink": "/:path" }
   icons: { "output": true, "permalink": "/:path" }
+  talks: { "output": true, "permalink": "/talk/:path" }
 
 blogs:
   - title: "Building a tool that leverages Elm's types"
@@ -40,13 +41,3 @@ blogs:
     url: "https://8thlight.com/blog/kofi-gumbs/2016/06/08/becoming-a-professional-learner.html"
   - title: "Why I make trivial apps"
     url: "/blog/why-i-make-trivial-apps"
-
-talks:
-  - title: 'The "Programming Language" Design Pattern'
-    url: "/talk/programming-language-design-pattern"
-  - title: "Guaranteed Refactors: Generating Tests from Types"
-    url: "/talk/guaranteed-refactors"
-  - title: "Getting to BEAM without going through Erlang"
-    url: "/talk/getting-to-beam-without-going-through-erlang"
-  - title: "Introducing Functional, Reactive Programming"
-    url: "/talk/managed-effects"

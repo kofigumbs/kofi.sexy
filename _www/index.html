@@ -11,7 +11,8 @@ layout: default
 
 <h2 id="speaking">Speaking</h2>
 <ul>
-  {% for post in site.talks %}
+  {% assign sorted_talks = site.talks | reverse %}
+  {% for post in sorted_talks %}
   <li>{% include link.html title=post.title url=post.url %}</li>
   {% endfor %}
 </ul>
