@@ -41,3 +41,5 @@ external_posts:
   - title: "Using Functions to Make Better Abstractions"
     date: 2016-02-16t08:00:00.00-05:00
     url: "https://8thlight.com/blog/kofi-gumbs/2016/02/16/using-functions-to-make-better-abstractions.html"
+
+empty_array: [] # https://github.com/jekyll/jekyll/issues/3246#issuecomment-68398379

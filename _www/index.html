@@ -2,21 +2,20 @@
 title: Kofi Gumbs
 layout: default
 ---
+
+<nav><a href="/feed.xml">{% include rss.svg %}</a></nav>
+
 <h2 id="writing">Writing</h2>
 <ul>
-  {% assign sorted_blogs = site.blogs | concat: site.external_posts | sort: "date" | reverse %}
-  {% for post in sorted_blogs %}
-  {% assign filename = post.relative_path | split: "/" | last %}
-  {% if post.publish == filename %}
+  {% include __assign_blog_posts %}
+  {% for post in blog_posts reversed %}
   <li>{% include link.html title=post.title url=post.url %}</li>
-  {% endif %}
   {% endfor %}
 </ul>
 
 <h2 id="speaking">Speaking</h2>
 <ul>
-  {% assign sorted_talks = site.talks | reverse %}
-  {% for post in sorted_talks %}
+  {% for post in site.talks reversed %}
   <li>{% include link.html title=post.title url=post.url %}</li>
   {% endfor %}
 </ul>

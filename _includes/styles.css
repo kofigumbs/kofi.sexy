@@ -33,11 +33,14 @@ footer {
   margin: 2em 0;
   text-align: center;
 }
-footer a {
+nav {
+  display: inline-block;
+}
+footer a, nav a {
   padding: 1em;
   transition: all 250ms ease;
 }
-footer a:hover {
+footer a:hover, nav a:hover {
   background: rgba(0,0,0,0.05);
 }
 a svg {
@@ -50,7 +53,7 @@ iframe {
 
 /* Easter egg setup
    Shadow values use range [-1, 1] */
-h1 {
+main > h1 {
   display: inline-block;
   cursor: crosshair;
   transition: text-shadow 100ms ease-out;
