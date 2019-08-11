@@ -7,7 +7,7 @@
   <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" {% if site.lang %}hreflang="{{ site.lang }}" {% endif %}/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ site.url | absolute_url | xml_escape }}</id>
-  <title type="html">{{ site.title | smartify | xml_escape }}</title>
+  <title type="html">{{ site.title | default: site.author | smartify | xml_escape }}</title>
   <author>
     <name>{{ site.author | xml_escape }}</name>
   </author>
@@ -21,7 +21,7 @@
     <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
     <id>{{ post.id | absolute_url | xml_escape }}</id>
-    <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">{{ post.content | strip | xml_escape }}</content>
+    <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">{{ post.content | markdownify | strip | xml_escape }}</content>
 
     {% assign post_author = post.author | default: post.authors[0] | default: site.author %}
     {% assign post_author = site.data.authors[post_author] | default: post_author %}
