@@ -1,7 +1,10 @@
 ---
 title: Testing Cmd's in Elm
+date: 2018-08-01
 description: A brief post + example about dependency injection
 layout: default
+publish: index.md
+
 ---
 
 This problem frequently appears in [#testing on Elm Slack](https://elmlang.slackarchive.io/testing),

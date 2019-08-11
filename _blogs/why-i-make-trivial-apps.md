@@ -1,6 +1,9 @@
 ---
 title: Why I make trivial apps
+date: 2014-03-08
+publish: why-i-make-trivial-apps.md
 layout: default
+
 ---
 
 ## Heart of a front-end developer trapped in the body of a computer science student
@@ -74,6 +77,3 @@ Computer science eduction can’t offer that perspective.
 
 In short, if I only have trivial ideas, then so be it —
 I’ll design them well, release them into the wild, and then hope for the best!
-
-
-_Mar 8, 2014_

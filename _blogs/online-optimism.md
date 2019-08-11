@@ -1,8 +1,10 @@
 ---
 title: Online Optimism
 description: On the virtue of Twitter positivity
+date: 2000-01-01
 published: false
 layout: default
+
 ---
 
 This time last year, my goal on Twitter was to sound clever.

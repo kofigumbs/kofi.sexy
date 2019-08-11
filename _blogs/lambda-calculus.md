@@ -1,5 +1,6 @@
 ---
 title: Lambda Calculus
+date: 2000-01-01
 layout: default
 ---
 

@@ -4,8 +4,12 @@ layout: default
 ---
 <h2 id="writing">Writing</h2>
 <ul>
-  {% for post in site.blogs %}
+  {% assign sorted_blogs = site.blogs | concat: site.external_posts | sort: "date" | reverse %}
+  {% for post in sorted_blogs %}
+  {% assign filename = post.relative_path | split: "/" | last %}
+  {% if post.publish == filename %}
   <li>{% include link.html title=post.title url=post.url %}</li>
+  {% endif %}
   {% endfor %}
 </ul>
 

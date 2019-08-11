@@ -12,32 +12,32 @@ twitter:
   username: hkgumbs
 
 collections:
-  www: { "output": true, "permalink": "/:path" }
-  icons: { "output": true, "permalink": "/:path" }
+  www:   { "output": true, "permalink": "/:path" }
+  blogs: { "output": true, "permalink": "/blog/:path" }
   talks: { "output": true, "permalink": "/talk/:path" }
 
-blogs:
-  - title: "Building a tool that leverages Elm's types"
-    url: "/blog/elm-type-tool-demo"
+external_posts:
   - title: "Inventing Options"
+    date: 2019-03-18t08:00:00.00-05:00
     url: "https://engineering.hubtran.com/2019/03/18/inventing-options.html"
-  - title: "elm-beam"
-    url: "/blog/elm-beam"
-  - title: "Testing Cmd's in Elm"
-    url: "/blog/testing-cmds-in-elm"
   - title: "How JSON decoding works in Elm—Part 3"
+    date: 2017-08-29t08:00:00.00-05:00
     url: "https://8thlight.com/blog/kofi-gumbs/2017/08/29/elm-json-decoding-custom.html"
   - title: "How JSON decoding works in Elm—Part 2"
+    date: 2017-07-17t08:00:00.00-05:00
     url: "https://8thlight.com/blog/kofi-gumbs/2017/07/17/elm-json-decoding-data-structures.html"
   - title: "How JSON decoding works in Elm—Part 1"
+    date: 2017-06-28t08:00:00.00-05:00
     url: "https://8thlight.com/blog/kofi-gumbs/2017/06/28/elm-json-decoding-types.html"
   - title: "The Core of Erlang"
+    date: 2017-05-02t08:00:00.00-05:00
     url: "https://8thlight.com/blog/kofi-gumbs/2017/05/02/core-erlang.html"
   - title: "Docker as a (workstation) service"
+    date: 2016-07-27t08:00:00.00-05:00
     url: "https://8thlight.com/blog/kofi-gumbs/2016/07/27/docker-as-a-workstation-service.html"
-  - title: "Using Functions to Make Better Abstractions"
-    url: "https://8thlight.com/blog/kofi-gumbs/2016/02/16/using-functions-to-make-better-abstractions.html"
   - title: "Becoming a professional learner"
+    date: 2016-06-08t08:00:00.00-05:00
     url: "https://8thlight.com/blog/kofi-gumbs/2016/06/08/becoming-a-professional-learner.html"
-  - title: "Why I make trivial apps"
-    url: "/blog/why-i-make-trivial-apps"
+  - title: "Using Functions to Make Better Abstractions"
+    date: 2016-02-16t08:00:00.00-05:00
+    url: "https://8thlight.com/blog/kofi-gumbs/2016/02/16/using-functions-to-make-better-abstractions.html"

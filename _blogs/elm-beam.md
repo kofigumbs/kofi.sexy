@@ -1,6 +1,9 @@
 ---
 title: elm-beam
+date: 2018-10-09
+publish: elm-beam.md
 layout: default
+
 ---
 
 I've been exploring the idea of an Elm compiler that produces assembly for the Erlang Virtual Machine.

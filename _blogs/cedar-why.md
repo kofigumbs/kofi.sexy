@@ -1,7 +1,9 @@
 ---
 title: Cedar, Why?
+date: 2000-01-01
 description: writing an (elm -> C) compiler
 layout: default
+
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: Intro to Data Structures
 layout: default
+
 ---
 
 "Data structures" tend to conjure intimidation, but they are very easy to begin to understand.
