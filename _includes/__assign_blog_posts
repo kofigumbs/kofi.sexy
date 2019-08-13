@@ -1,8 +1,0 @@
-{% assign blog_posts = site.empty_array %}
-{% for post in site.blogs %}
-  {% assign basename = post.relative_path | split: "/" | last %}
-  {% if post.publish_file == basename %}
-    {% assign blog_posts = blog_posts | push: post %}
-  {% endif %}
-{% endfor %}
-{% assign blog_posts = blog_posts | concat: site.external_posts | sort: "publish_date" %}

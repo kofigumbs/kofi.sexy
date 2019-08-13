@@ -2,7 +2,6 @@
 title: Testing Cmd's in Elm
 description: A brief post + example about dependency injection
 publish_date: 2018-08-01
-publish_file: index.md
 layout: default
 
 ---

@@ -1,7 +1,6 @@
 ---
 title: Why I make trivial apps
 publish_date: 2014-03-08
-publish_file: why-i-make-trivial-apps.md
 layout: default
 
 ---

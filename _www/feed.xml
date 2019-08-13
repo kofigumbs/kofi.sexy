@@ -12,8 +12,7 @@
     <name>{{ site.author | xml_escape }}</name>
   </author>
 
-  {% include __assign_blog_posts %}
-  {% assign posts = blog_posts | concat: site.talks %}
+  {% assign posts = site.blogs | concat: site.external_posts | concat: site.talks %}
   {% capture external_link %}{% include external-link.svg %}{% endcapture %}
   {% for post in posts %}
   <entry{% if post.lang %}{{" "}}xml:lang="{{ post.lang }}"{% endif %}>

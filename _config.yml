@@ -14,7 +14,9 @@ twitter:
 collections:
   www:   { "output": true, "permalink": "/:path" }
   blogs: { "output": true, "permalink": "/blog/:path" }
+  notes: { "output": true, "permalink": "/blog/:path" }
   talks: { "output": true, "permalink": "/talk/:path" }
+exclude: [ "**/README.md" ]
 
 external_posts:
   - title: "Inventing Options"

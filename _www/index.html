@@ -7,7 +7,7 @@ layout: default
 
 <h2 id="writing">Writing</h2>
 <ul>
-  {% include __assign_blog_posts %}
+  {% assign blog_posts = site.blogs | concat: site.external_posts | sort: "publish_date" %}
   {% for post in blog_posts reversed %}
   <li>{% include link.html title=post.title url=post.url %}</li>
   {% endfor %}
