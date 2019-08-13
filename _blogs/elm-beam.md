@@ -1,7 +1,7 @@
 ---
 title: elm-beam
-date: 2018-10-09
-publish: elm-beam.md
+publish_date: 2018-10-09
+publish_file: elm-beam.md
 layout: default
 
 ---

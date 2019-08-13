@@ -50,6 +50,10 @@ iframe {
   width: 100%;
   height: 25em;
 }
+time {
+  display: block;
+  font-style: italic;
+}
 
 /* Easter egg setup
    Shadow values use range [-1, 1] */

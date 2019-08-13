@@ -1,7 +1,7 @@
 ---
 title: Building a tool that leverages Elm's types
-date: 2019-04-26
-publish: index.md
+publish_date: 2019-04-26
+publish_file: index.md
 layout: default
 
 ---
