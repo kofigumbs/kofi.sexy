@@ -18,6 +18,11 @@ collections:
   talks: { "output": true, "permalink": "/talk/:path" }
 exclude: [ "**/README.md" ]
 
+defaults:
+  -
+    scope:  { "path": "" }
+    values: { "layout": "default" }
+
 external_posts:
   - title: "Inventing Options"
     publish_date: 2019-03-18

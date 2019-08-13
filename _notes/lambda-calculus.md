@@ -1,6 +1,5 @@
 ---
 title: Lambda Calculus
-layout: default
 
 ---
 

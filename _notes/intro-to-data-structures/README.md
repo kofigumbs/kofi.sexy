@@ -1,6 +1,5 @@
 ---
 title: Intro to Data Structures
-layout: default
 
 ---
 
