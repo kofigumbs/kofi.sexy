@@ -33,15 +33,14 @@ footer {
   margin: 2em 0;
   text-align: center;
 }
-nav {
-  display: inline-block;
+footer a {
+  padding: 0.65em;
 }
-footer a, nav a {
-  padding: 1em;
-  transition: all 250ms ease;
-}
-footer a:hover, nav a:hover {
+footer a:hover {
   background: rgba(0,0,0,0.05);
+}
+a {
+  transition: all 250ms ease;
 }
 a svg {
   height: 1em;

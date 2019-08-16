@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -33,12 +33,11 @@
     </main>
     <footer>
       <!-- Feather Icons, Copyright (c) 2013-2017 Cole Bemis -->
-      <a title="Home" href="/">{% include home.svg %}</a>
+      <a title="Home" href="/" style="border-bottom:solid 2px black">{% include home.svg %}</a>
+      <a title="RSS/Atom Feed" href="/feed.xml">{% include rss.svg %}</a>
       <a title="Twitter" rel="external" href="https://twitter.com/hkgumbs">{% include twitter.svg %}</a>
       <a title="GitHub" rel="external" href="https://github.com/hkgumbs">{% include github.svg %}</a>
     </footer>
-    <script>
-      {% include animate-text-shadow.js %}
-    </script>
+    <script>{% include animate-text-shadow.js %}</script>
   </body>
 </html>
