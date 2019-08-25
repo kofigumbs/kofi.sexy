@@ -20,7 +20,7 @@ pre {
   position: relative;
   overflow-x: scroll;
   background-color: #F0F0F0;
-  border-radius: 0.1em;
+  border-radius: .1em;
   padding: 1.5em;
 }
 blockquote {
@@ -34,10 +34,10 @@ footer {
   text-align: center;
 }
 footer a {
-  padding: 0.65em;
+  padding: .65em;
 }
 footer a:hover {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0,0,0,.05);
 }
 a {
   transition: all 250ms ease;
@@ -56,10 +56,10 @@ time {
 
 /* Easter egg setup
    Shadow values use range [-1, 1] */
-main > h1 {
+h1 {
   display: inline-block;
   cursor: crosshair;
   transition: text-shadow 100ms ease-out;
-  text-shadow: calc(var(--text-shadow-x, -0.3) * 0.25em)
-               calc(var(--text-shadow-y,  0.2) * 0.25em) #8a6a5e;
+  text-shadow: calc(var(--text-shadow-x, -.3) * .25em)
+               calc(var(--text-shadow-y,  .2) * .25em) {{ site.theme_color }};
 }

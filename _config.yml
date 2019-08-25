@@ -7,9 +7,9 @@ plugins:
 
 author: Kofi Gumbs
 url: https://kofi.sexy
+twitter: { "username": "hkgumbs" }
 logo: /android-chrome-192x192.png
-twitter:
-  username: hkgumbs
+theme_color: "#8a6a5e"
 
 collections:
   www:   { "output": true, "permalink": "/:path" }

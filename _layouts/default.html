@@ -11,9 +11,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8a6a5e">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="{{ site.theme_color }}">
     <meta name="msapplication-config" content="/browserconfig.xml">
-    <meta name="theme-color" content="#8a6a5e">
+    <meta name="theme-color" content="{{ site.theme_color }}">
 
     <style>
     {% capture styles %}
@@ -33,7 +33,7 @@
     </main>
     <footer>
       <!-- Feather Icons, Copyright (c) 2013-2017 Cole Bemis -->
-      <a title="Home" href="/" style="border-bottom:solid 2px black">{% include home.svg %}</a>
+      <a title="Home" href="/" style="border-bottom:solid 2px {{ site.theme_color }}">{% include home.svg %}</a>
       <a title="RSS/Atom Feed" href="/feed.xml">{% include rss.svg %}</a>
       <a title="Twitter" rel="external" href="https://twitter.com/hkgumbs">{% include twitter.svg %}</a>
       <a title="GitHub" rel="external" href="https://github.com/hkgumbs">{% include github.svg %}</a>
