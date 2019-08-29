@@ -3,15 +3,18 @@ html,body {
   padding: 0;
 }
 body {
-  font: 1.20em/1.62em sans-serif;
+  font-size: 1.20em;
+  line-height: 1.62em;
+  color: rgb(51, 51, 51);
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+h1,h2,h3 {
+  line-height: 1.20em;
 }
 main {
   max-width: 50em;
   padding: 1em 1em 0;
   margin: 0 auto;
-}
-h1,h2,h3 {
-  line-height: 1.20em;
 }
 li {
   list-style-type: circle;
@@ -54,12 +57,13 @@ time {
   font-style: italic;
 }
 
-/* Easter egg setup
-   Shadow values use range [-1, 1] */
+/* Easter egg setup — shadow values use range [-1, 1] */
 h1 {
+  margin: 0;
+  padding: 0.75em 0;
   display: inline-block;
   cursor: crosshair;
   transition: text-shadow 100ms ease-out;
-  text-shadow: calc(var(--text-shadow-x, -.3) * .25em)
-               calc(var(--text-shadow-y,  .2) * .25em) {{ site.theme_color }};
+  text-shadow: calc(var(--text-shadow-x, -.15) * .5em)
+               calc(var(--text-shadow-y,  .10) * .5em) {{ site.theme_color }};
 }
