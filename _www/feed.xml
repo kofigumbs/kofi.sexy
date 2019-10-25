@@ -19,8 +19,8 @@ layout: none
   <entry{% if post.lang %}{{" "}}xml:lang="{{ post.lang }}"{% endif %}>
     <title type="html">{{ post.title | smartify | strip_html | normalize_whitespace | xml_escape }}</title>
     <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}" />
-    <published>{{ post.publish_on | date_to_xmlschema }}</published>
-    <updated>{{ post.last_modified_at | default: post.publish_on | date_to_xmlschema }}</updated>
+    <published>{{ post.publish_date | date_to_xmlschema }}</published>
+    <updated>{{ post.last_modified_at | default: post.publish_date | date_to_xmlschema }}</updated>
     <id>{{ post.id | default: post.url | absolute_url | xml_escape }}</id>
     <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">{{ post.content | default: external_link | markdownify | strip | xml_escape }}</content>
 
