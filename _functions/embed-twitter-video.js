@@ -42,6 +42,7 @@ exports.handler = (event, _, callback) => {
     const [ { url } ] = JSON.parse(response.body).extended_entities.media
       .map(x => x.video_info.variants)
       .reduce((acc, x) => acc.concat(x), [])
+      .filter(x => x.content_type === "video/mp4")
       .sort((a, b) => b.bitrate - a.bitrate);
     callback(null, {
       statusCode: 200,
