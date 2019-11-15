@@ -13,3 +13,9 @@
 [[redirects]]
   from = "/public/*"
   to = "/blog/:splat"
+
+[[redirects]]
+  from = "https://hkgumbs.netlify.com/*"
+  to = "https://kofi.sexy/:splat"
+  status = 301
+  force = true

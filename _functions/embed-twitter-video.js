@@ -43,7 +43,14 @@ exports.handler = (event, _, callback) => {
       .map(x => x.video_info.variants)
       .reduce((acc, x) => acc.concat(x), [])
       .sort((a, b) => b.bitrate - a.bitrate);
-    callback(null, { statusCode: 200, body: url });
+    callback(null, {
+      statusCode: 200,
+      body: url,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "content-type",
+      },
+    });
   }).catch(err => {
     console.log(err, event);
     callback(null, { statusCode: 500, body: "" });
