@@ -1,8 +1,6 @@
 const https = require("https");
 const { TWITTER_CONSUMER_API_KEY, TWITTER_CONSUMER_API_SECRET_KEY } = process.env;
 
-const p = x => { console.log(x); return x }
-
 const mediaUrl = id => {
   return "https://api.twitter.com/1.1/statuses/show.json?include_entities=true&id=" + id;
 };
