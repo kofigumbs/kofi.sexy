@@ -49,7 +49,7 @@ layout: none
     {% endfor %}
 
     {% if post.excerpt and post.excerpt != empty %}
-    <summary type="html">{{ post.excerpt | strip_html | normalize_whitespace | xml_escape }}</summary>
+    <summary type="html">{{ post.excerpt | markdownify | strip_html | normalize_whitespace | xml_escape }}</summary>
     {% endif %}
 
     {% assign post_image = post.image.path | default: post.image %}
