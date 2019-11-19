@@ -1,6 +1,6 @@
 ---
 title: Why I make trivial apps
-publish_date: 2014-03-08
+categories: ['blog']
 
 ---
 

@@ -5,7 +5,7 @@ canonical_url: https://kofi.sexy
 
 <h2 id="writing">Writing</h2>
 <ul>
-  {% assign blog_posts = site.blogs | concat: site.external_posts | sort: "publish_date" %}
+  {% assign blog_posts = site.categories.blog | concat: site.external_posts | sort: "date" %}
   {% for post in blog_posts reversed %}
   <li>{% include link.html title=post.title url=post.url %}</li>
   {% endfor %}
@@ -13,7 +13,7 @@ canonical_url: https://kofi.sexy
 
 <h2 id="speaking">Speaking</h2>
 <ul>
-  {% assign talk_posts = site.talks | sort: "publish_date" %}
+  {% assign talk_posts = site.categories.talk | sort: "date" %}
   {% for post in talk_posts reversed %}
   <li>{% include link.html title=post.title url=post.url %}</li>
   {% endfor %}

@@ -1,6 +1,6 @@
 ---
 title: Building a tool that leverages Elm's types
-publish_date: 2019-04-26
+categories: ['blog']
 
 ---
 

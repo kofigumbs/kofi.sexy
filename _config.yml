@@ -4,6 +4,7 @@ kramdown:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-feed
 
 author: Kofi Gumbs
 url: https://kofi.sexy
@@ -13,10 +14,7 @@ theme_color: "#8a6a5e"
 
 collections:
   www:   { "output": true, "permalink": "/:path" }
-  blogs: { "output": true, "permalink": "/blog/:path" }
-  notes: { "output": true, "permalink": "/blog/:path" }
-  talks: { "output": true, "permalink": "/talk/:path" }
-exclude: [ "**/README.md" ]
+  posts: { "output": true, "permalink": "/:categories/:slug" }
 
 defaults:
   -
@@ -25,28 +23,26 @@ defaults:
 
 external_posts:
   - title: "Inventing Options"
-    publish_date: 2019-03-18
+    date: 2019-03-18 10:00:00
     url: "https://engineering.hubtran.com/2019/03/18/inventing-options.html"
   - title: "How JSON decoding works in Elm—Part 3"
-    publish_date: 2017-08-29
+    date: 2017-08-29 10:00:00
     url: "https://8thlight.com/blog/kofi-gumbs/2017/08/29/elm-json-decoding-custom.html"
   - title: "How JSON decoding works in Elm—Part 2"
-    publish_date: 2017-07-17
+    date: 2017-07-17 10:00:00
     url: "https://8thlight.com/blog/kofi-gumbs/2017/07/17/elm-json-decoding-data-structures.html"
   - title: "How JSON decoding works in Elm—Part 1"
-    publish_date: 2017-06-28
+    date: 2017-06-28 10:00:00
     url: "https://8thlight.com/blog/kofi-gumbs/2017/06/28/elm-json-decoding-types.html"
   - title: "The Core of Erlang"
-    publish_date: 2017-05-02
+    date: 2017-05-02 10:00:00
     url: "https://8thlight.com/blog/kofi-gumbs/2017/05/02/core-erlang.html"
   - title: "Docker as a (workstation) service"
-    publish_date: 2016-07-27
+    date: 2016-07-27 10:00:00
     url: "https://8thlight.com/blog/kofi-gumbs/2016/07/27/docker-as-a-workstation-service.html"
   - title: "Becoming a professional learner"
-    publish_date: 2016-06-08
+    date: 2016-06-08 10:00:00
     url: "https://8thlight.com/blog/kofi-gumbs/2016/06/08/becoming-a-professional-learner.html"
   - title: "Using functions to make better abstractions"
-    publish_date: 2016-02-16
+    date: 2016-02-16 10:00:00
     url: "https://8thlight.com/blog/kofi-gumbs/2016/02/16/using-functions-to-make-better-abstractions.html"
-
-empty_array: [] # https://github.com/jekyll/jekyll/issues/3246#issuecomment-68398379
