@@ -3,17 +3,19 @@ html,body {
   padding: 0;
 }
 body {
-  font-size: 1.20em;
+  font-size: 1.10em;
   line-height: 1.62em;
-  color: rgb(51, 51, 51);
+  color: #333;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
 h1,h2,h3 {
+  margin: 0;
+  padding: 0.75em 0 0;
   line-height: 1.20em;
 }
 main {
-  max-width: 50em;
-  padding: 1em 1em 0;
+  max-width: 45em;
+  padding: 0 1.5em 0;
   margin: 0 auto;
 }
 li {
@@ -30,7 +32,8 @@ blockquote {
   font-style: italic;
 }
 hr {
-  margin: 1.5em;
+  margin: 1.5em auto;
+  max-width: 20em;
 }
 footer {
   margin: 2em 0;
@@ -38,32 +41,22 @@ footer {
 }
 footer a {
   padding: .65em;
+  transition: all 250ms ease;
 }
 footer a:hover {
   background: rgba(0,0,0,.05);
 }
-a {
-  transition: all 250ms ease;
-}
-a svg {
+footer a svg {
   height: 1em;
 }
 iframe {
   width: 100%;
   height: 25em;
 }
-time {
+dl {
   display: block;
-  font-style: italic;
-}
-
-/* Easter egg setup — shadow values use range [-1, 1] */
-h1 {
   margin: 0;
-  padding: 0.75em 0;
-  display: inline-block;
-  cursor: crosshair;
-  transition: text-shadow 100ms ease-out;
-  text-shadow: calc(var(--text-shadow-x, -.15) * .5em)
-               calc(var(--text-shadow-y,  .10) * .5em) {{ site.theme_color }};
+  padding: 0;
+  color: #777;
+  font-weight: 100;
 }

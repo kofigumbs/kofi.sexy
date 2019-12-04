@@ -37,7 +37,7 @@ You can <a href="https://github.com/hkgumbs/kofi.sexy/blob/master/_functions/emb
 </body>
 </html>
 {% endcapture %}
-<div class="frame" style="position:relative;border-radius:0.1em;border:solid 2px {{site.theme_color}};">
+<div class="frame" style="position:relative;border-radius:0.1em;padding:1em;border:solid 2px {{site.theme_color}};">
   <iframe srcdoc='{{ frame | strip_newlines }}' style="width:100%;height:3em;border:none;margin:0;padding:0;"></iframe>
   <code style="position:absolute;right:0;bottom:0;padding:4px 8px;border-top-left-radius:0.1em;color:white;background:{{ site.theme_color }};">iframe</code>
 </div>
