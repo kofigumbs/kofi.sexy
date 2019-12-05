@@ -5,16 +5,14 @@ canonical_url: https://kofi.sexy
 
 <h2 id="writing">Writing</h2>
 <ul>
-  {% assign blog_posts = site.categories.blog | concat: site.external_posts | sort: "date" %}
-  {% for post in blog_posts reversed %}
+  {% for post in site.categories.blog %}
   <li>{% include link.html title=post.title url=post.url %}</li>
   {% endfor %}
 </ul>
 
 <h2 id="speaking">Speaking</h2>
 <ul>
-  {% assign talk_posts = site.categories.talk | sort: "date" %}
-  {% for post in talk_posts reversed %}
+  {% for post in site.categories.talk %}
   <li>{% include link.html title=post.title url=post.url %}</li>
   {% endfor %}
 </ul>
