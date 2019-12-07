@@ -35,11 +35,15 @@
       {{ content }}
     </main>
     <footer>
-      <!-- Feather Icons, Copyright (c) 2013-2017 Cole Bemis -->
-      <a title="Home" href="/" style="border-bottom:solid 2px {{ site.theme_color }}">{% include home.svg %}</a>
-      <a title="RSS/Atom Feed" href="/feed.xml">{% include rss.svg %}</a>
-      <a title="Twitter" rel="external" href="https://twitter.com/hkgumbs">{% include twitter.svg %}</a>
-      <a title="GitHub" rel="external" href="https://github.com/hkgumbs">{% include github.svg %}</a>
+      <hr>
+      <p>
+        Follow me via
+        <a rel="external" href="https://twitter.com/hkgumbs">Twitter</a>,
+        <a rel="external" href="https://github.com/hkgumbs">GitHub</a>,
+        or
+        <a href="/feed.xml">RSS/Atom</a>
+        {% if page.id != '/index' %} — or go <a href="/">back home</a>{% endif %}
+      </p>
     </footer>
   </body>
 </html>
