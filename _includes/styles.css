@@ -28,9 +28,6 @@ pre {
   border-radius: .1em;
   padding: 1.5em;
 }
-blockquote {
-  font-style: italic;
-}
 hr {
   border: none;
   outline: none;
@@ -49,8 +46,8 @@ dl {
 footer {
   margin: 0 auto 3em;
 }
-dl,footer,hr::before {
-  color: #777;
+blockquote,dl,footer,hr::before {
+  color: #666;
   font-family: serif;
   font-style: italic;
 }
