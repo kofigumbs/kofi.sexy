@@ -16,8 +16,6 @@ h1,h2,h3 {
 }
 main,footer {
   max-width: 42em;
-}
-main {
   padding: 0 1.5em 0;
   margin: 0 auto;
 }
@@ -42,9 +40,6 @@ iframe {
 dl {
   margin: 0;
   padding: 0;
-}
-footer {
-  margin: 0 auto 3em;
 }
 blockquote,dl,footer,hr::before {
   color: #666;
