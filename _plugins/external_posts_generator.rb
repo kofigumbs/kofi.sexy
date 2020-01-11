@@ -24,7 +24,7 @@ module Jekyll
     def initialize(url, options)
       super("", options)
       @url = url
-      @content = "View this post at <#{url}>"
+      @content = "<a href='#{url}'>#{url}</a>"
     end
 
     def write(*_)
