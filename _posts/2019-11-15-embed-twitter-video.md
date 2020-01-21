@@ -12,7 +12,7 @@ Here is my workaround, which hopefully saves you some time:
 
 - Load [Twitter's embed widget](https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/scripting-factory-functions) using the tweet's ID
 - On a server (AWS Lambda in my case) use the [Twitter API](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-show-id) to lookup the tweet's metadata
-- Grab the `.mp4` video URLs from the JSON response: `$.extended_entities.media[*].variants.url`
+- Grab the `.mp4` video URLs from the JSON response
 - Replace the tweet widget's media content with a `<video>` tag referencing the `.mp4` URL
 
 My API, described above, is universally accessible on this site:
