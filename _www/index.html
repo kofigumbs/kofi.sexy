@@ -1,7 +1,69 @@
 ---
 title: Kofi Gumbs
 canonical_url: https://kofi.sexy
+style: >
+  #music {
+    padding: 3.5em 0;
+    position: relative;
+  }
+  #music div:first-child {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background: black;
+    z-index: -2;
+  }
+  #music a {
+    color: white !important;
+  }
+  #music h2 {
+    padding: 0;
+    color: white;
+    position: relative;
+  }
+  #music h2::before {
+    color: red;
+    text-transform: italic;
+  }
+  #music h2::after {
+    color: blue;
+    animation-direction: reverse;
+  }
+  #music:hover h2::before, #music:hover h2::after {
+  content: 'Music: Instagram && YouTube';
+    position: absolute;
+    z-index: -1;
+    animation-name: glitch;
+    animation-duration: .25s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+  @keyframes glitch {
+    0%   { top: -2px; left: -3px; font-style: italic }
+    25%  { top: -2px; left:  3px }
+    50%  { top:  2px; left: -3px; font-style: italic }
+    75%  { top:  2px; left:  3px }
+    100% { top: -2px; left: -3px }
+  }
+
 ---
+
+<p>
+  Currently building <a href="https://trainervision.com">Trainer Vision</a>
+  <br>I write and speak about programming
+</p>
+
+<div id="music">
+  <div></div>
+  <h2>
+    Music:
+      <a href="https://www.instagram.com/hkgumbs/" rel="external">Instagram</a>
+      && <a href="https://www.youtube.com/c/hkofigumbs" rel="external">YouTube</a>
+  </h2>
+</div>
 
 <h2 id="writing">Writing</h2>
 <ul>
