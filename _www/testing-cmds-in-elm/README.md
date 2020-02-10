@@ -2,6 +2,7 @@
 title: Testing Cmd's in Elm
 description: A brief post + example about dependency injection
 categories: ['blog']
+permalink: /testing-cmds-in-elm/
 
 ---
 

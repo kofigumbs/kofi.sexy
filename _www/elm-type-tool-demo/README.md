@@ -1,6 +1,7 @@
 ---
 title: Building a tool that leverages Elm's types
 categories: ['blog']
+permalink: /elm-type-tool-demo/
 
 ---
 
