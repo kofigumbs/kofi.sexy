@@ -6,11 +6,20 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
 
-author: Kofi Gumbs
 url: https://kofi.sexy
-twitter: { "username": "hkgumbs" }
 logo: /android-chrome-192x192.png
 theme_color: "#8a6a5e"
+
+author:  { "twitter":  "hkgumbs" }
+twitter: { "username": "hkgumbs" }
+
+social:
+  name: Kofi Gumbs
+  links:
+    - https://twitter.com/hkgumbs
+    - https://github.com/hkgumbs
+    - https://instagram.com/hkgumbs
+    - https://youtube.com/c/hkofigumbs
 
 collections:
   www:   { "output": true, "permalink": "/:path" }
