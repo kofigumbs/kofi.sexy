@@ -23,6 +23,7 @@ social:
 
 collections:
   www:   { "output": true, "permalink": "/:path" }
+  icons: { "output": true, "permalink": "/:path" }
   posts: { "output": true, "permalink": "/:categories/:slug" }
 
 defaults:
