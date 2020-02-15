@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
     {% seo %}
-    <meta name="keywords" content="kofi gumbs hkgumbs web software developer engineer elm">
-
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -17,16 +15,19 @@
 
     <style>
     {% capture styles %}
-      {{ page.style }}
       {% include styles.css %}
       {% include syntax.css %}
+      {{ page.style }}
     {% endcapture %}
     {{ styles | normalize_whitespace }}
     </style>
   </head>
   <body>
     <main>
-      <h1>{{ page.title }}</h1>
+      {% if page.header %}<header><h1>{{ page.title }}</h1>{{ page.header }}</header>
+      {% else %}                  <h1>{{ page.title }}</h1>
+      {% endif %}
+
       {% if page.collection == 'posts' %}
       <dl>
         by <a href="/">Kofi Gumbs</a> on

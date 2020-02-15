@@ -3,6 +3,9 @@ html,body {
   padding: 0;
   overflow-x: hidden;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-size: 1.10em;
   line-height: 1.62em;
@@ -46,4 +49,10 @@ blockquote,dl,footer,hr::before {
   color: #666;
   font-family: serif;
   font-style: italic;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
 }

@@ -1,0 +1,50 @@
+---
+title: Music
+header: >
+  <h2>Coming soon...</h2>
+  <p>
+    check
+      <a href="https://www.youtube.com/c/hkofigumbs" rel="external">YouTube</a>
+      and <a href="https://www.instagram.com/hkgumbs/" rel="external">Instagram</a>
+    for now — or go <a href="/">back home</a>
+  </p>
+
+style: >
+  html {
+    background: black;
+  }
+  footer {
+    display: none;
+  }
+  h1, h2, p, a {
+    color: white;
+  }
+  h2 {
+    padding: 0;
+    position: relative;
+  }
+  h2::before {
+    color: red;
+    font-style: italic;
+  }
+  h2::after {
+    color: blue;
+    animation-direction: reverse;
+  }
+  h2::before, h2::after {
+    content: 'Coming soon...';
+    position: absolute;
+    z-index: -1;
+    animation-name: glitch;
+    animation-duration: .25s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+  @keyframes glitch {
+    0%   { top: -2px; left: -3px; font-style: italic }
+    25%  { top: -2px; left:  3px }
+    50%  { top:  2px; left: -3px; font-style: italic }
+    75%  { top:  2px; left:  3px }
+    100% { top: -2px; left: -3px }
+  }
+---
