@@ -2,5 +2,5 @@
 {% if starts_with == "/" %}
 <a href="{{ include.url }}">{{ include.title }}</a>
 {% else %}
-<a rel="external" href="{{ include.url }}">{{ include.title }}<small>{% include external-link.svg %}</small></a>
+<a rel="external" href="{{ include.url }}">{{ include.title }}<b>↗</b></a>
 {% endif %}
