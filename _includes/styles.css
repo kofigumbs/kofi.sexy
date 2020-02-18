@@ -1,7 +1,8 @@
-html,body {
+html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  height: 100%;
 }
 html {
   scroll-behavior: smooth;
@@ -18,7 +19,7 @@ h1,h2,h3 {
   line-height: 1.20em;
   font-weight: 800;
 }
-main,footer {
+main, header, footer {
   max-width: 42em;
   padding: 0 1.5em 0;
   margin: 0 auto;
@@ -45,7 +46,7 @@ dl {
   margin: 0;
   padding: 0;
 }
-blockquote,dl,footer,hr::before {
+blockquote, dl, footer, hr::before {
   color: #666;
   font-family: serif;
   font-style: italic;
@@ -54,5 +55,5 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+  height: 100%;
 }
