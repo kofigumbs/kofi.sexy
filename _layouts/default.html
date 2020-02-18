@@ -29,21 +29,18 @@
 
       {% if page.collection == 'posts' %}
       <dl>
-        by <a href="/">Kofi Gumbs</a> on
+        by <a href="/">Kofi Gumbs</a> ·
         <time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
       </dl>
       {% endif %}
       {{ content }}
     </main>
     <footer>
-      <hr>
       <p>
-        Follow me via
+        by <a href="/">Kofi Gumbs</a> · follow me via
         <a rel="external" href="https://twitter.com/hkgumbs">Twitter</a>,
-        <a rel="external" href="https://github.com/hkgumbs">GitHub</a>,
-        or
+        <a rel="external" href="https://github.com/hkgumbs">GitHub</a>, or
         <a href="/feed.xml">RSS/Atom</a>
-        {% if page.id != '/index' %} — or go <a href="/">back home</a>{% endif %}
       </p>
     </footer>
   </body>
