@@ -32,6 +32,9 @@ defaults:
     values: { "layout": "default" }
 
 external_posts:
+  - title: "Designing for trainer productivity"
+    date: 2020-02-21 10:00:00
+    url: "https://trainervision.com/articles/how-we-design-for-trainer-productivity"
   - title: "Inventing Options"
     date: 2019-03-18 10:00:00
     url: "https://engineering.hubtran.com/2019/03/18/inventing-options.html"
