@@ -1,8 +1,9 @@
 ---
 title: Music
+description: Coming soon...
 avatar: /images/music.png
 header: >
-  <h2>Coming soon...</h2>
+  <h1>Coming soon...</h1>
   <p>
     check
       <a href="https://www.youtube.com/channel/UCGLngLEo0198QxPmZnwnm9Q" rel="external">YouTube</a>
@@ -17,23 +18,23 @@ style: >
   footer {
     display: none;
   }
-  h1, h2, p, a {
+  h1, p, a {
     color: white;
   }
-  h2 {
-    padding: 0;
+  h1 {
     position: relative;
   }
-  h2::before {
+  h1::before {
     color: red;
     font-style: italic;
   }
-  h2::after {
+  h1::after {
     color: blue;
     animation-direction: reverse;
   }
-  h2::before, h2::after {
+  h1::before, h1::after {
     content: 'Coming soon...';
+    padding-top: .75em;
     position: absolute;
     z-index: -1;
     animation-name: glitch;
