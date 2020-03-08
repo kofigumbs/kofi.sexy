@@ -1,6 +1,7 @@
 ---
 title: Kofi Gumbs
 permalink: /
+avatar: /images/profile.jpg
 header: >
   <p>
     Essays, talks, and music by me,
@@ -8,21 +9,50 @@ header: >
     <br>Brooklyn, NY.
   </p>
   <p>
-    <a href="#writing"><b>↓</b> Tech</a> &middot; <a href="/music">Music <b>→</b></a>
+    <a href="#tech"><b>↓</b> Tech</a> &middot; <a href="/music">Music <b>→</b></a>
   </p>
+
+style: >
+  h6 {
+    margin: 0;
+    padding: 0;
+    color: #666;
+    font-family: serif;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  li {
+    position: relative;
+    padding-bottom: 2em;
+  }
+  li:before, li:after {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    height: 100%;
+    width: 1.5em;
+    overflow: hidden;
+  }
+  li:not(:last-child):before {
+    transform: translateY(1em);
+    content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 8 100"><path d="M 4 0, V 100" stroke-width=".5" stroke-dasharray="4" stroke="%23666"></path>%3Cstyle%3E path %7B animation: dash 1s linear infinite; %7D @keyframes dash %7B from %7B stroke-dashoffset: 0; %7D to %7B %7D to %7B stroke-dashoffset: 8; %7D %7D %3C/style%3E</svg>');
+  }
+  li:after {
+    content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 8 8"><circle cx="4" cy="4" r="2" stroke-width=".5" stroke="%23666" fill="white"></circle></svg>');
+  }
 
 ---
 
-<h2 id="writing" style="padding-top:0">Writing</h2>
-<ul>
-  {% for post in site.categories.blog %}
-  <li>{% include link.html title=post.title url=post.url %}</li>
-  {% endfor %}
-</ul>
-
-<h2 id="speaking">Speaking</h2>
-<ul>
-  {% for post in site.categories.talk %}
-  <li>{% include link.html title=post.title url=post.url %}</li>
+<ul id="tech">
+  {% for post in site.posts %}
+  <li>
+    <h6>{{ post.categories }} &middot; {{ post.date | date: "%B %e, %Y" }}</h6>
+    {% include link.html title=post.title url=post.url %}
+  </li>
   {% endfor %}
 </ul>
