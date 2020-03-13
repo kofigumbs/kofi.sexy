@@ -12,15 +12,15 @@ function html(body) {
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/styles.css">
       </head>
-      <body>${body}</body>
+      <body><main>${body}</main></body>
     </html>`;
 }
 
 exports.handler = (event, _, callback) => {
   const q = decode(event.queryStringParameters.q).replace(/[<>]/g, "");
-  const body = q ? html(`<pre>${q}</pre>`) : html(`
+  const body = q ? html(`<pre style="white-space: pre-line">${q}</pre>`) : html(`
     <textarea></textarea>
     <script type="text/javascript">
       document.querySelector("textarea").addEventListener("input", function(event) {
