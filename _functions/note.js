@@ -20,7 +20,7 @@ function html(body) {
 
 exports.handler = (event, _, callback) => {
   const q = decode(event.queryStringParameters.q).replace(/[<>]/g, "");
-  const body = q ? html(`<pre style="white-space: pre-line">${q}</pre>`) : html(`
+  const body = q ? html(`<p style="white-space: pre-line">${q}</p>`) : html(`
     <textarea></textarea>
     <script type="text/javascript">
       document.querySelector("textarea").addEventListener("input", function(event) {
