@@ -1,8 +1,8 @@
-function decode(s) {
+function decode(q) {
   try {
-    return decodeURIComponent(s || "");
+    return decodeURIComponent(q || "");
   } catch {
-    return null;
+    return "";
   }
 }
 
