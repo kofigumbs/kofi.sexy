@@ -18,10 +18,12 @@ exports.handler = function(event, _, callback) {
           <link rel="stylesheet" href="/styles.css">
         </head>
         <body>
-          <header contenteditable style="white-space: pre-line">${q(event)}</header>
-          <br>
+          <header>
+            <div contenteditable style="white-space: pre-line">${q(event)}</div>
+            <br>
+          </header>
           <script type="text/javascript">
-            document.querySelector("header").addEventListener("input", function(event) {
+            document.querySelector("div").addEventListener("input", function(event) {
               window.history.replaceState(null, null, "?q=" + encodeURIComponent(event.target.innerText));
             });
           </script>
