@@ -57,8 +57,10 @@ header {
   height: 100%;
   max-height: 100vh;
 }
-header > img:first-child {
+header > *:first-child {
   margin-top: 15vw;
+}
+header > img:first-child {
   width: 6em;
   height: 6em;
   border-radius: 50%;
