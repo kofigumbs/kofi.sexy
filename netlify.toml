@@ -11,6 +11,10 @@
   to = "https://grayarea.kofi.sexy"
 
 [[redirects]]
+  from = "/note"
+  to = "/.netlify/functions/note?q=Hello%2C%20World!"
+
+[[redirects]]
   from = "/public/*"
   to = "/blog/:splat"
 
