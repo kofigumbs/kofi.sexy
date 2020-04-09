@@ -15,10 +15,6 @@
   to = "/.netlify/functions/note?q=Hello%2C%20World!"
 
 [[redirects]]
-  from = "/public/*"
-  to = "/blog/:splat"
-
-[[redirects]]
   from = "https://hkgumbs.netlify.com/*"
   to = "https://kofi.sexy/:splat"
   status = 301
