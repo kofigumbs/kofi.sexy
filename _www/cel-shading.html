@@ -106,17 +106,17 @@
         }
       ]]></style>
 
-      <radialGradient id="g-top" fr="25%" r="100%">
+      <radialGradient id="top" fr="25%" r="100%">
         <stop offset="  0%" stop-color="#fff"></stop>
         <stop offset="100%" stop-color="#bbb"></stop>
       </radialGradient>
 
-      <radialGradient id="g-middle" fr="25%" r="100%">
+      <radialGradient id="middle" fr="25%" r="100%">
         <stop offset="  0%" stop-color="#fff"></stop>
         <stop offset="100%" stop-color="#aaa"></stop>
       </radialGradient>
 
-      <radialGradient id="g-bottom" fr="25%" r="100%">
+      <radialGradient id="bottom" fr="25%" r="100%">
         <stop offset="  0%" stop-color="#fff"></stop>
         <stop offset="100%" stop-color="#888"></stop>
       </radialGradient>
@@ -125,12 +125,12 @@
       <path id="leg" d="M 0 0, a 5 5 0 0 1 10 0, v 20, a 5 5 0 0 1 -10 0, v -20"></path>
     </defs>
     <g class="body">
-      <circle id="head" cx="50" cy="15" r="10" fill="url('#g-top')"></circle>
-      <path id="bust" d="M 42.5 37.5, a 7.5 7.5 0 0 1 15 0, v 15, a 7.5 7.5 0 0 1 -15 0, v -15" fill="url('#g-middle')"></path>
-      <use id="larm" href="#arm" x="27.5" y="37.5" fill="url('#g-middle')"/>
-      <use id="rarm" href="#arm" x="62.5" y="37.5" fill="url('#g-middle')"/>
-      <use id="lleg" href="#leg" x="37.5" y="70.0" fill="url('#g-bottom')"/>
-      <use id="rleg" href="#leg" x="52.5" y="70.0" fill="url('#g-bottom')"/>
+      <circle id="head" cx="50" cy="15" r="10" fill="url('#top')"></circle>
+      <path id="bust" d="M 42.5 37.5, a 7.5 7.5 0 0 1 15 0, v 15, a 7.5 7.5 0 0 1 -15 0, v -15" fill="url('#middle')"></path>
+      <use id="larm" href="#arm" x="27.5" y="37.5" fill="url('#middle')"/>
+      <use id="rarm" href="#arm" x="62.5" y="37.5" fill="url('#middle')"/>
+      <use id="lleg" href="#leg" x="37.5" y="70.0" fill="url('#bottom')"/>
+      <use id="rleg" href="#leg" x="52.5" y="70.0" fill="url('#bottom')"/>
     </g>
   </svg>
   <script>
