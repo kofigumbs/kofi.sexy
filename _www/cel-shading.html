@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<!--
+  Simulating light and shadow with SVG and 2D gradients!
+  Originally inspired by https://codepen.io/Virtuousquare/pen/zzyYEW -->
+<html>
+<head>
+<style>
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    cursor: none;
+    background: radial-gradient(circle at var(--spotlight, 50% 50%), rgba(237,20,61,.5) 0%, rgba(237,20,61,1) 15%);
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  svg {
+    width: 50%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+</head>
+<body>
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 100 100">
+    <defs>
+      <style><![CDATA[
+        .body {
+          fill: #fff;
+          stroke: black;
+          stroke-width: 2;
+          opacity: 0;
+          animation: 1s appear 1s both;
+        }
+
+        .body * {
+          transform-origin: center center;
+        }
+
+        #head { animation: 1s head       ease-in-out infinite; }
+        #bust { animation: 2s bust 150ms ease-in-out infinite; }
+        #larm { animation: 2s larm 100ms ease-in-out infinite; }
+        #rarm { animation: 2s rarm 100ms ease-in-out infinite; }
+        #lleg { animation: 2s lleg 100ms ease-in-out infinite; }
+        #rleg { animation: 2s rleg 100ms ease-in-out infinite; }
+
+        @keyframes appear {
+          0%   { opacity: 0; }
+          100% { opacity: 1; }
+        }
+
+        @keyframes head {
+          0%   { transform: translateY(   0px); }
+          50%  { transform: translateY(-1.5px); }
+          100% { transform: translateY(   0px); }
+        }
+
+        @keyframes bust {
+          0%   { transform: rotate(-2deg) translateY(   0px); }
+          25%  { transform: rotate( 0deg) translateY(-2.5px); }
+          50%  { transform: rotate( 2deg) translateY(   0px); }
+          75%  { transform: rotate( 0deg) translateY(-2.5px); }
+          100% { transform: rotate(-2deg) translateY(   0px); }
+        }
+
+        @keyframes larm {
+          0%   { transform: rotate(0deg) translateY( 0px) scale(1.05) }
+          25%  { transform: rotate(0deg) translateY(-1px) scale(1   ) }
+          50%  { transform: rotate(0deg) translateY( 0px) scale(0.95) }
+          75%  { transform: rotate(5deg) translateY(-1px) scale(1   ) }
+          100% { transform: rotate(0deg) translateY( 0px) scale(1.05) }
+        }
+
+        @keyframes rarm {
+          0%   { transform: rotate( 0deg) translateY( 0px) scale(0.95) }
+          25%  { transform: rotate(-5deg) translateY(-1px) scale(1   ) }
+          50%  { transform: rotate( 0deg) translateY( 0px) scale(1.05) }
+          75%  { transform: rotate( 0deg) translateY(-1px) scale(1   ) }
+          100% { transform: rotate( 0deg) translateY( 0px) scale(0.95) }
+        }
+
+        @keyframes lleg {
+          0%   { transform: translateY(1.5px) scale(0.95) }
+          25%  { transform: translateY( -5px) scale(1   ) }
+          50%  { transform: translateY(1.5px) scale(1.05) }
+          75%  { transform: translateY(1.5px) scale(1   ) }
+          100% { transform: translateY(1.5px) scale(0.95) }
+        }
+
+        @keyframes rleg {
+          0%   { transform: translateY(1.5px) scale(1.05) }
+          25%  { transform: translateY(1.5px) scale(1   ) }
+          50%  { transform: translateY(1.5px) scale(0.95) }
+          75%  { transform: translateY( -5px) scale(1   ) }
+          100% { transform: translateY(1.5px) scale(1.05) }
+        }
+      ]]></style>
+
+      <radialGradient id="g-top" fr="25%" r="100%">
+        <stop offset="  0%" stop-color="#fff"></stop>
+        <stop offset="100%" stop-color="#bbb"></stop>
+      </radialGradient>
+
+      <radialGradient id="g-middle" fr="25%" r="100%">
+        <stop offset="  0%" stop-color="#fff"></stop>
+        <stop offset="100%" stop-color="#aaa"></stop>
+      </radialGradient>
+
+      <radialGradient id="g-bottom" fr="25%" r="100%">
+        <stop offset="  0%" stop-color="#fff"></stop>
+        <stop offset="100%" stop-color="#888"></stop>
+      </radialGradient>
+
+      <path id="arm" d="M 0 0, a 5 5 0 0 1 10 0, v 15, a 5 5 0 0 1 -10 0, v -15"></path>
+      <path id="leg" d="M 0 0, a 5 5 0 0 1 10 0, v 20, a 5 5 0 0 1 -10 0, v -20"></path>
+    </defs>
+    <g class="body">
+      <circle id="head" cx="50" cy="15" r="10" fill="url('#g-top')"></circle>
+      <path id="bust" d="M 42.5 37.5, a 7.5 7.5 0 0 1 15 0, v 15, a 7.5 7.5 0 0 1 -15 0, v -15" fill="url('#g-middle')"></path>
+      <use id="larm" href="#arm" x="27.5" y="37.5" fill="url('#g-middle')"/>
+      <use id="rarm" href="#arm" x="62.5" y="37.5" fill="url('#g-middle')"/>
+      <use id="lleg" href="#leg" x="37.5" y="70.0" fill="url('#g-bottom')"/>
+      <use id="rleg" href="#leg" x="52.5" y="70.0" fill="url('#g-bottom')"/>
+    </g>
+  </svg>
+  <script>
+    const gradients = document.querySelectorAll("radialGradient");
+    document.addEventListener("mousemove", function(event) {
+      const x = (event.pageX / window.innerWidth  * 100).toString() + "%";
+      const y = (event.pageY / window.innerHeight * 100).toString() + "%";
+      document.documentElement.style.setProperty("--spotlight", x + " " + y);
+      for (const g of gradients) {
+        g.setAttribute("cx", x);
+        g.setAttribute("cy", y);
+      }
+    });
+  </script>
+</body>
+</html>
