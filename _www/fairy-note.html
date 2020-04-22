@@ -34,7 +34,7 @@
         transition: all .15s ease;
       }
 
-      .mute {
+      .no-changes {
         opacity: 0;
         visibility: hidden;
         transform: translateX(-1em);
@@ -69,12 +69,19 @@
       notepad.addEventListener("focus", moveCursor);
       notepad.addEventListener("click", moveCursor);
       notepad.addEventListener("select", updateMenu);
-      notepad.addEventListener("keyup", updateMenu);
-      notepad.addEventListener("input", seq(resize, moveCursor, updateMenu));
+      notepad.addEventListener("input", hardRefresh);
       menu.addEventListener("click", applyChange);
+
+      notepad.addEventListener("keyup", () => { if (notepad.value) updateMenu() });
       document.addEventListener("keydown", e => { if (e.metaKey && e.key === "k") applyChange() });
 
       /******/
+
+      function hardRefresh() {
+        resize();
+        moveCursor();
+        updateMenu();
+      }
 
       function resize() {
         notepad.rows = Math.max(5, lines(notepad.value));
@@ -112,7 +119,7 @@
           const result = eval(expression);
           menu.innerHTML = "Replace with <b>" + result + "</b>? <code class='pa2 br2 ml1 bg-white-20'>⌘K</code>";
           menu.classList.add("white", "bg-purple", "pointer");
-          menu.classList.remove("mute");
+          menu.classList.remove("no-changes");
           change = {
             result: result,
             start: start + lastMatch.index,
@@ -120,21 +127,16 @@
             mode: mode,
           };
         } else {
-          menu.classList.add("mute");
+          menu.classList.add("no-changes");
         }
       }
 
       function applyChange() {
-        notepad.focus();
-        notepad.setRangeText(change.result, change.start, change.end, change.mode);
-        menu.classList.add("mute");
-        resize();
-        moveCursor();
-      }
-
-      function seq() {
-        const fs = arguments;
-        return () => { for (const f of fs) f() };
+        if (!menu.classList.contains("no-changes")) {
+          notepad.focus();
+          notepad.setRangeText(change.result, change.start, change.end, change.mode);
+          hardRefresh();
+        }
       }
     </script>
   </body>
