@@ -50,7 +50,7 @@
       <cursor class="absolute transition z-5">
         <div class="h1 w1 ml2 bg-light-purple br-100 shadow-4"></div>
         <menu class="pre absolute bottom--100 pa3 mb4 ba b--purple br2 bg-white shadow-4 transition"
-          ><span class="f1 fw2">Welcome to</span> <h1 class="inline f1 fw8 ma0 pa0">Fairy Note</h1></p></menu>
+              ><h1 class="fw2">Welcome to <i class="serif b">Fairy Note</i></h1></p></menu>
       </cursor>
       <div class="relative transition">
         <textarea class="w-100 mb3 pa3 pr3 pl4 ba br2 b--light-gray" rows="5" placeholder="Type anything!" autofocus></textarea>
@@ -72,7 +72,7 @@
       notepad.addEventListener("keyup", updateMenu);
       notepad.addEventListener("input", seq(resize, moveCursor, updateMenu));
       menu.addEventListener("click", applyChange);
-      document.addEventListener("keydown", e => { if (e => e.metaKey && e.key === "k") applyChange() });
+      document.addEventListener("keydown", e => { if (e.metaKey && e.key === "k") applyChange() });
 
       /******/
 
