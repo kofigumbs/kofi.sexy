@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Fairy Note</title>
+    <link rel="stylesheet" href="https://twcv.netlify.app/tachyons-with-css-variables.min.css"/>
+    <style>
+      @font-face{
+        font-family: "JetBrains Mono";
+        src: url("https://raw.githubusercontent.com/tonsky/FiraCode/master/dist/woff2/FiraCode-Regular.woff2") format("woff2"),
+             url("https://raw.githubusercontent.com/tonsky/FiraCode/master/dist/woff/FiraCode-Regular.woff") format("woff"),
+             url("https://raw.githubusercontent.com/tonsky/FiraCode/master/dist/ttf/FiraCode-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      textarea, code {
+        resize: none;
+        -webkit-font-feature-settings: "liga" on, "calt" on;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-family: "Fira Code";
+      }
+
+      cursor > *:first-child {
+        animation: bounce 1s ease infinite;
+      }
+      @keyframes bounce {
+        0%   { transform: translate3d(0,   0%, 0) }
+        50%  { transform: translate3d(0, -25%, 0) }
+        100% { transform: translate3d(0,   0%, 0) }
+      }
+
+      .transition {
+        transition: all .15s ease;
+      }
+
+      .mute {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-1em);
+      }
+
+      .bottom--100 {
+        bottom: 100%;
+      }
+  </style>
+  </head>
+  <body class="sans-serif">
+    <main class="center mw7 ph4 pt7">
+      <cursor class="absolute transition z-5">
+        <div class="h1 w1 ml2 bg-light-purple br-100 shadow-4"></div>
+        <menu class="pre absolute bottom--100 pa3 mb4 ba b--purple br2 bg-white shadow-4 transition"
+          ><span class="f1 fw2">Welcome to</span> <h1 class="inline f1 fw8 ma0 pa0">Fairy Note</h1></p></menu>
+      </cursor>
+      <div class="relative transition">
+        <textarea class="w-100 mb3 pa3 pr3 pl4 ba br2 b--light-gray" rows="5" placeholder="Type anything!" autofocus></textarea>
+      </div>
+    </main>
+
+    <script>
+      let change = {};
+      const notepad = document.querySelector("textarea");
+      const cursor = document.querySelector("cursor");
+      const menu = document.querySelector("menu");
+
+      resize();
+
+      window.addEventListener("resize", moveCursor);
+      notepad.addEventListener("focus", moveCursor);
+      notepad.addEventListener("click", moveCursor);
+      notepad.addEventListener("select", updateMenu);
+      notepad.addEventListener("keyup", updateMenu);
+      notepad.addEventListener("input", seq(resize, moveCursor, updateMenu));
+      menu.addEventListener("click", applyChange);
+      document.addEventListener("keydown", e => { if (e => e.metaKey && e.key === "k") applyChange() });
+
+      /******/
+
+      function resize() {
+        notepad.rows = Math.max(5, lines(notepad.value));
+      }
+
+      function lines(string) {
+        return string.split(/\r\n|\r|\n/).length;
+      }
+
+      function moveCursor() {
+        const lineY =
+          notepadPx("line-height") *
+          (lines(notepad.value.substring(0, notepad.selectionStart)));
+        const y = lineY + notepad.getBoundingClientRect().top + notepadPx("margin-top");
+        cursor.style.top = y + "px";
+      }
+
+      function notepadPx(name) {
+        return parseInt(window.getComputedStyle(notepad).getPropertyValue(name));
+      }
+
+      function updateMenu() {
+        notepad.selectionStart === notepad.selectionEnd
+          ? parse(0, notepad.selectionStart, "end")
+          : parse(notepad.selectionStart, notepad.selectionEnd, "select");
+      }
+
+      function parse(start, end, mode) {
+        let match;
+        const selection = notepad.value.substring(start, end);
+        if (
+          (match = (/\d+((\s)*[-+\/*%](\s)*\d+)+$/m).exec(selection))
+            && (expression = match[0])
+            && (start + match.index + expression.length === end)
+        ) {
+          const result = eval(expression);
+          menu.innerHTML = "Replace with <b>" + result + "</b>? <code class='pa2 br2 ml1 bg-white-20'>⌘K</code>";
+          menu.classList.add("white", "bg-purple", "pointer");
+          menu.classList.remove("mute");
+          change = {
+            result: result,
+            start: start + match.index,
+            end: start + match.index + expression.length,
+            mode: mode,
+          };
+        } else {
+          menu.classList.add("mute");
+        }
+      }
+
+      function applyChange() {
+        notepad.focus();
+        notepad.setRangeText(change.result, change.start, change.end, change.mode);
+        menu.classList.add("mute");
+        resize();
+        moveCursor();
+      }
+
+      function seq() {
+        const fs = arguments;
+        return () => { for (const f of fs) f() };
+      }
+    </script>
+  </body>
+</html>
