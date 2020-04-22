@@ -103,21 +103,20 @@
       }
 
       function parse(start, end, mode) {
-        let match;
         const selection = notepad.value.substring(start, end);
-        if (
-          (match = (/\d+((\s)*[-+\/*%](\s)*\d+)+$/m).exec(selection))
-            && (expression = match[0])
-            && (start + match.index + expression.length === end)
-        ) {
+        let lastMatch;
+        for(lastMatch of selection.matchAll(/\d+((\s)*[-+\/*%](\s)*\d+)+$/gm));
+        if (lastMatch
+            && (expression = lastMatch[0])
+            && (start + lastMatch.index + expression.length === end)) {
           const result = eval(expression);
           menu.innerHTML = "Replace with <b>" + result + "</b>? <code class='pa2 br2 ml1 bg-white-20'>⌘K</code>";
           menu.classList.add("white", "bg-purple", "pointer");
           menu.classList.remove("mute");
           change = {
             result: result,
-            start: start + match.index,
-            end: start + match.index + expression.length,
+            start: start + lastMatch.index,
+            end: start + lastMatch.index + expression.length,
             mode: mode,
           };
         } else {
