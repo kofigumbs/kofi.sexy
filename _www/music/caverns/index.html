@@ -1,0 +1,168 @@
+---
+layout: none
+---
+<html>
+<head>
+<title>CAVERNS - K0F1</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<style>
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: none;
+    background: tan;
+    transition: background 2s linear;
+  }
+  html.active {
+    cursor: none;
+    background: {{ site.theme_color }};
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  svg {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+  }
+  audio {
+    position: absolute;
+    bottom: 5vw;
+  }
+  audio.active {
+    display: none;
+  }
+  h1 {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+    font-size: 20vw;
+    font-weight: 900;
+    color: tan;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  }
+  .streak {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 50%;
+    background: tan;
+    pointer-events: none;
+    animation: streak linear infinite;
+  }
+  .streak:nth-of-type(1) { left: 10%; top: 10%; animation-delay:  400ms; animation-duration: 1800ms; }
+  .streak:nth-of-type(2) { left: 40%; top: 30%; animation-delay:  800ms; animation-duration: 2000ms; }
+  .streak:nth-of-type(3) { left: 25%; top: 80%; animation-delay: 1200ms; animation-duration: 2200ms; }
+  .streak:nth-of-type(4) { left: 70%; top: 80%; animation-delay: 1600ms; animation-duration: 2400ms; }
+  .streak:nth-of-type(5) { left: 30%; top: 10%; animation-delay: 2000ms; animation-duration: 2600ms; }
+  @keyframes streak {
+    0%   { opacity: 0; transform: translate3d(   0,    0, 0); }
+    20%  { opacity: 1; transform: translate3d(   0, -40%, 0); }
+    40%  { opacity: 0; transform: translate3d(   0, -80%, 0); }
+    60%  { opacity: 0; transform: translate3d(25vw,  20%, 0); }
+    80%  { opacity: 1; transform: translate3d(25vw,    0, 0); }
+    100% { opacity: 0; transform: translate3d(25vw, -20%, 0); }
+  }
+</style>
+</head>
+<body>
+  <h1>CAVERNS</h1>
+  <div class="streak"></div>
+  <div class="streak"></div>
+  <div class="streak"></div>
+  <div class="streak"></div>
+  <div class="streak"></div>
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 100 100">
+    <defs>
+      <style><![CDATA[
+        .body {
+          fill: #fff;
+          stroke: black;
+          stroke-width: 2;
+        }
+
+        .body * {
+          transition: all 2s linear;
+          transform: translateZ(0);
+          transform-origin: center center;
+        }
+
+        .body.active {
+          animation: shake 400ms linear infinite;
+        }
+
+        @keyframes shake {
+          0%   { transform: translate3d(0,   0, 0); }
+          25%  { transform: translate3d( .5%, 0, 0); }
+          50%  { transform: translate3d(-.5%, 0, 0); }
+          75%  { transform: translate3d(0, .5%, 0); }
+          100% { transform: translate3d(0, 0, 0); }
+        }
+
+        .active #head {}
+        .active #bust {}
+        .active #larm { transform: translate3d(0, -20%, 0) rotate(-15deg); }
+        .active #rarm { transform: translate3d(0, -20%, 0) rotate( 15deg); }
+        .active #lleg { transform: translate3d(0, 2.5%, 0) }
+        .active #rleg { transform: translate3d(0,-2.5%, 0) }
+      ]]></style>
+
+      <radialGradient id="top" fr="25%" r="100%" cy="0%">
+        <stop offset="  0%" stop-color="#fff"></stop>
+        <stop offset="100%" stop-color="#bbb"></stop>
+        <animate attributeName="cx" values="15%;75%;15%" dur="4s" repeatCount="indefinite"/>
+      </radialGradient>
+
+      <radialGradient id="middle" fr="25%" r="100%" cy="0%">
+        <stop offset="  0%" stop-color="#fff"></stop>
+        <stop offset="100%" stop-color="#aaa"></stop>
+        <animate attributeName="cx" values="15%;75%;15%" dur="4s" repeatCount="indefinite"/>
+      </radialGradient>
+
+      <radialGradient id="bottom" fr="25%" r="100%" cy="0%">
+        <stop offset="  0%" stop-color="#fff"></stop>
+        <stop offset="100%" stop-color="#888"></stop>
+        <animate attributeName="cx" values="15%;75%;15%" dur="4s" repeatCount="indefinite"/>
+      </radialGradient>
+
+      <path id="arm" d="M 0 0, a 5 5 0 0 1 10 0, v 15, a 5 5 0 0 1 -10 0, v -15"></path>
+      <path id="leg" d="M 0 0, a 5 5 0 0 1 10 0, v 20, a 5 5 0 0 1 -10 0, v -20"></path>
+    </defs>
+    <g class="body">
+      <circle id="head" cx="50" cy="12.5" r="10" fill="url('#top')"></circle>
+      <path id="bust" d="M 42.5 35, a 7.5 7.5 0 0 1 15 0, v 15, a 7.5 7.5 0 0 1 -15 0, v -15" fill="url('#middle')"></path>
+      <use id="larm" href="#arm" x="27.5" y="35" fill="url('#top')"/>
+      <use id="rarm" href="#arm" x="62.5" y="35" fill="url('#top')"/>
+      <use id="lleg" href="#leg" x="37.5" y="67.5" fill="url('#bottom')"/>
+      <use id="rleg" href="#leg" x="52.5" y="67.5" fill="url('#bottom')"/>
+    </g>
+  </svg>
+  <audio controls preload><source src="K0F1-CAVERNS.mp3" type="audio/mpeg"></audio>
+  <script>
+    const page = document.documentElement;
+    const body = document.querySelector(".body");
+    const audio = document.querySelector("audio");
+    audio.addEventListener("playing", update);
+    audio.addEventListener("pause", update);
+    audio.addEventListener("error", update);
+    function update(event) {
+      audio.classList.toggle("active", !audio.paused);
+      page.classList.toggle("active", !audio.paused);
+      body.classList.toggle("active", !audio.paused);
+    }
+  </script>
+</body>
+</html>
