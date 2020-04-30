@@ -11,9 +11,9 @@ layout: none
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: none;
+    overflow: hidden;
     background: tan;
-    transition: background 2s linear;
+    transition: background 2s ease;
   }
   html.active {
     cursor: none;
@@ -35,13 +35,18 @@ layout: none
     height: 50%;
     margin: 0;
     padding: 0;
+    transition: all 2s ease;
+    transform: translate3d(0, 0, 0);
   }
   audio {
     position: absolute;
     bottom: 5vw;
   }
-  audio.active {
+  .active audio {
     display: none;
+  }
+  .active svg {
+    transform: translate3d(0, 20%, 0);
   }
   h1 {
     position: absolute;
@@ -50,8 +55,9 @@ layout: none
     padding: 0;
     line-height: 1em;
     font-size: 20vw;
-    font-weight: 900;
+    font-weight: 100;
     color: tan;
+    opacity: .5;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   }
   .streak {
@@ -95,13 +101,15 @@ layout: none
         }
 
         .body * {
-          transition: all 2s linear;
           transform: translateZ(0);
-          transform-origin: center center;
+        }
+
+        .ready {
+          transition: all 2s ease;
         }
 
         .body.active {
-          animation: shake 400ms linear infinite;
+          animation: shake 400ms ease infinite;
         }
 
         @keyframes shake {
@@ -114,10 +122,10 @@ layout: none
 
         .active #head {}
         .active #bust {}
-        .active #larm { transform: translate3d(0, -20%, 0) rotate(-15deg); }
-        .active #rarm { transform: translate3d(0, -20%, 0) rotate( 15deg); }
-        .active #lleg { transform: translate3d(0, 2.5%, 0) }
-        .active #rleg { transform: translate3d(0,-2.5%, 0) }
+        .active #larm { transform: rotate( 150deg) translate3d(0, 20%, 0); }
+        .active #rarm { transform: rotate(-150deg) translate3d(0, 20%, 0); }
+        .active #lleg { transform: translate3d(0, 2.5%, 0); }
+        .active #rleg { transform: translate3d(0,-2.5%, 0); }
       ]]></style>
 
       <radialGradient id="top" fr="25%" r="100%" cy="0%">
@@ -159,9 +167,15 @@ layout: none
     audio.addEventListener("pause", update);
     audio.addEventListener("error", update);
     function update(event) {
-      audio.classList.toggle("active", !audio.paused);
       page.classList.toggle("active", !audio.paused);
       body.classList.toggle("active", !audio.paused);
+    }
+    // Programmatically do what `transform-origin: center center` ought to do
+    // <https://bugzilla.mozilla.org/show_bug.cgi?id=1209853>
+    for (const part of body.children) {
+      const box = part.getBBox();
+      part.style.transformOrigin = (box.x + box.width/2) + "px " + (box.y + box.height/2) + "px";
+      requestAnimationFrame(function() { part.classList.add("ready") });
     }
   </script>
 </body>
