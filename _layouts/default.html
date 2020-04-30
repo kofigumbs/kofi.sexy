@@ -1,49 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-
-    {% seo %}
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="{{ site.theme_color }}">
-    <meta name="msapplication-TileColor" content="{{ site.theme_color }}">
-    <meta name="theme-color" content="{{ site.theme_color }}">
-
-    <style>
-    {% capture styles %}
-      {% include styles.css %}
-      {% include syntax.css %}
-      {{ page.style }}
-    {% endcapture %}
-    {{ styles | normalize_whitespace }}
-    </style>
-  </head>
-  <body>
-    {% if page.header %}
-    <header><img src="{{ page.avatar }}">{{ page.header }}</header><main>
-    {% else %}
-    <main><h1>{{ page.title }}</h1>
+---
+layout: base
+---
+<main>
+  <h1>{{ page.title }}</h1>
+  <dl>
+    by <a href="/">Kofi Gumbs</a>
+    {% if page.collection == "posts" %}
+    &middot; <time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
     {% endif %}
+  </dl>
+  {{ content }}
+</main>
 
-      {% if page.collection == 'posts' %}
-      <dl>
-        by <a href="/">Kofi Gumbs</a> &middot;
-        <time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
-      </dl>
-      {% endif %}
-      {{ content }}
-    </main>
-    <footer>
-      <p>
-        by <a href="/">Kofi Gumbs</a> &middot; follow via
-        <a rel="external" href="https://twitter.com/hkgumbs">Twitter</a>,
-        <a rel="external" href="https://github.com/hkgumbs">GitHub</a>, or
-        <a href="/feed.xml">RSS/Atom</a>
-      </p>
-    </footer>
-  </body>
-</html>
+{% include footer.html %}

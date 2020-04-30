@@ -1,18 +1,7 @@
 ---
 title: Kofi Gumbs
 permalink: /
-avatar: /images/profile.jpg
-header: >
-  <h1>Kofi Gumbs</h1>
-  <p>
-    Essays, talks, and music by me,
-    the solo developer behind <a href="https://trainervision.com">Trainer Vision</a>.
-    <br>Brooklyn, NY.
-  </p>
-  <p>
-    <a href="#tech"><b>↓</b> Tech</a> &middot; <a href="/music">Music <b>→</b></a>
-  </p>
-
+layout: base
 style: >
   h6 {
     margin: 0;
@@ -51,12 +40,28 @@ line_svg: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.or
 dot_svg:  '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 8 8"><circle cx="4" cy="4" r="2" stroke-width=".5" stroke="#666" fill="white"></circle></svg>'
 
 ---
+<header>
+  <img src="/images/profile.jpg">
+  <h1>Kofi Gumbs</h1>
+  <p>
+    Essays, talks, and music by me,
+    the solo developer behind <a href="https://trainervision.com">Trainer Vision</a>.
+    <br>Brooklyn, NY.
+  </p>
+  <p>
+    <a href="#tech"><b>↓</b> Tech</a> &middot; <a href="/music">Music <b>→</b></a>
+  </p>
+</header>
 
-<ul id="tech">
-  {% for post in site.posts %}
-  <li>
-    <h6>{{ post.categories }} &middot; {{ post.date | date: "%B %e, %Y" }}</h6>
-    {% include link.html title=post.title url=post.url %}
-  </li>
-  {% endfor %}
-</ul>
+<main>
+  <ul id="tech">
+    {% for post in site.posts %}
+    <li>
+      <h6>{{ post.categories }} &middot; {{ post.date | date: "%B %e, %Y" }}</h6>
+      {% include link.html title=post.title url=post.url %}
+    </li>
+    {% endfor %}
+  </ul>
+</main>
+
+{% include footer.html %}
