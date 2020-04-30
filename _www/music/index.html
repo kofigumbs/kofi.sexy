@@ -2,7 +2,7 @@
 title: K0F1
 permalink: /music/
 layout: base
-description: Original music and visual experiences by K0F1
+description: Original music and visual performances by K0F1
 tracks:
   - CAVERNS
   - Anti-Gravity
@@ -14,42 +14,58 @@ style: >
   h1, h2, footer a {
     color: white;
   }
-  h1 {
-    letter-spacing: 1.0005em;
-  }
   h2 a {
     color: currentColor;
     text-decoration: none;
   }
+  .hide {
+    display: none;
+  }
 ---
 <header>
   <img src="/images/music.png">
-  <h1>K&Oslash;F1</h1>
+  <h1>
+    <span>K&Oslash;F1 &middot</span>
+    <span style="font-weight: 100">Original Track<span data-hide>s</span></span>
+  </h1>
 </header>
 
-{% for track in page.tracks %}
-<section>
-  {% assign chars = track | characters %}
-  {% capture url %}K0F1-{{ track | uri_escape }}.mp3{% endcapture %}
-  <a href="{{ url }}">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 15">
-      <style>
-        text {
-          line-height: 1;
-          font-size: 10px;
-          font-weight: 100;
-          font-family: {{ site.font_family }};
-        }
-      </style>
-      <title>{{ track }}</title>
-      <text x="10" y="10" fill="white" stroke="white" stroke-width="0">{% for x in chars %}<tspan>{{ x }}</tspan>{% endfor %}</text>
-    </svg>
-  </a>
-  <audio preload title="{{ track }}"><source src="{{ url }}" type="audio/mpeg"></audio>
-</section>
+<main>
+  {% for track in page.tracks %}
+  <p {% unless forloop.first %}data-hide{% endunless %}>
+    {% assign chars = track | characters %}
+    {% capture url %}K0F1-{{ track | uri_escape }}.mp3{% endcapture %}
+    <a href="{{ url }}">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 15">
+        <style>
+          * {
+            transition: fill 150ms, stroke 150ms;
+          }
+          text {
+            line-height: 1;
+            font-size: 12px;
+            font-weight: 100;
+            font-family: {{ site.font_family }};
+          }
+          svg:hover text {
+            fill: black;
+            stroke: black;
+          }
+          svg:hover rect {
+            fill: white;
+          }
+        </style>
+        <title>{{ track }}</title>
+        <rect x="0" y="0" width="100%" height="100%" fill="black" stroke="0"></rect>
+        <text x="0" y="12" fill="white" stroke="white" stroke-width="0">{% for x in chars %}<tspan>{{ x }}</tspan>{% endfor %}</text>
+      </svg>
+    </a>
+    <audio preload title="{{ track }}"><source src="{{ url }}" type="audio/mpeg"></audio>
+  </p>
 {% endfor %}
+</main>
 
-<footer>
+<footer data-hide>
   <p>
     follow via
       <a href="https://www.youtube.com/channel/UCGLngLEo0198QxPmZnwnm9Q" rel="external">YouTube</a>
@@ -58,19 +74,23 @@ style: >
 </footer>
 
 <script>
+  document.addEventListener("keypress", function(event) {
+    if (event.key === "`")
+      for (const x of document.querySelectorAll("[data-hide]"))
+        x.classList.toggle("hide");
+  });
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const audioContext = new AudioContext();
 
-  for (const section of document.querySelectorAll("section")) {
-    const title = section.querySelector("text");
-    const audio = section.querySelector("audio");
+  for (const track of document.querySelectorAll("main p")) {
+    const title = track.querySelector("text");
+    const audio = track.querySelector("audio");
     const source = audioContext.createMediaElementSource(audio);
     const analyser = audioContext.createAnalyser();
 
     source.connect(analyser)
     source.connect(audioContext.destination);
 
-    analyser.fftSize = 128;
     const buffer = new Uint8Array(analyser.frequencyBinCount);
     const step = analyser.frequencyBinCount / title.textContent.length;
     const draw = function() {
@@ -79,8 +99,8 @@ style: >
       for(let i = 0; i < title.textContent.length; i++) {
         const data = buffer.slice(Math.floor(i * step), Math.ceil((i + 1) * step));
         let total = 0;
-        for (const x of data) total += (x / 256);
-        title.children[i].style.strokeWidth = total / data.length * 1.5;
+        for (const x of data) total += x/256;
+        title.children[i].style.strokeWidth = total / data.length * 3;
       }
     };
     draw();
