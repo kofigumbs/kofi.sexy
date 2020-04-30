@@ -9,6 +9,7 @@ plugins:
 url: https://kofi.sexy
 logo: /android-chrome-192x192.png
 theme_color: "#8a6a5e"
+font_family: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
 
 author:  { "twitter":  "hkgumbs" }
 twitter: { "username": "hkgumbs" }

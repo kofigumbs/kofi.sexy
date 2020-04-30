@@ -1,51 +1,97 @@
 ---
 title: K0F1
 permalink: /music/
-description: Coming soon...
 layout: base
+description: Original music and visual experiences by K0F1
+tracks:
+  - CAVERNS
+  - Anti-Gravity
+  - Come _ Stay _
 style: >
   html {
     background: black;
   }
-  h1, p, a {
+  h1, h2, footer a {
     color: white;
   }
   h1 {
-    position: relative;
+    letter-spacing: 1.0005em;
   }
-  h1::before {
-    color: red;
-    font-style: italic;
-  }
-  h1::after {
-    color: blue;
-    animation-direction: reverse;
-  }
-  h1::before, h1::after {
-    content: 'Coming soon...';
-    padding-top: .75em;
-    position: absolute;
-    z-index: -1;
-    animation-name: glitch;
-    animation-duration: .25s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-  }
-  @keyframes glitch {
-    0%   { top: -2px; left: -3px; font-style: italic }
-    25%  { top: -2px; left:  3px }
-    50%  { top:  2px; left: -3px; font-style: italic }
-    75%  { top:  2px; left:  3px }
-    100% { top: -2px; left: -3px }
+  h2 a {
+    color: currentColor;
+    text-decoration: none;
   }
 ---
 <header>
   <img src="/images/music.png">
-  <h1>Coming soon...</h1>
+  <h1>K&Oslash;F1</h1>
+</header>
+
+{% for track in page.tracks %}
+<section>
+  {% assign chars = track | characters %}
+  {% capture url %}K0F1-{{ track | uri_escape }}.mp3{% endcapture %}
+  <a href="{{ url }}">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 15">
+      <style>
+        text {
+          line-height: 1;
+          font-size: 10px;
+          font-weight: 100;
+          font-family: {{ site.font_family }};
+        }
+      </style>
+      <title>{{ track }}</title>
+      <text x="10" y="10" fill="white" stroke="white" stroke-width="0">{% for x in chars %}<tspan>{{ x }}</tspan>{% endfor %}</text>
+    </svg>
+  </a>
+  <audio preload title="{{ track }}"><source src="{{ url }}" type="audio/mpeg"></audio>
+</section>
+{% endfor %}
+
+<footer>
   <p>
-    check
+    follow via
       <a href="https://www.youtube.com/channel/UCGLngLEo0198QxPmZnwnm9Q" rel="external">YouTube</a>
       and <a href="https://www.instagram.com/hkgumbs/" rel="external">Instagram</a>
-    for now — or go <a href="/">back home</a>
   </p>
-</header>
+</footer>
+
+<script>
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioContext = new AudioContext();
+
+  for (const section of document.querySelectorAll("section")) {
+    const title = section.querySelector("text");
+    const audio = section.querySelector("audio");
+    const source = audioContext.createMediaElementSource(audio);
+    const analyser = audioContext.createAnalyser();
+
+    source.connect(analyser)
+    source.connect(audioContext.destination);
+
+    analyser.fftSize = 128;
+    const buffer = new Uint8Array(analyser.frequencyBinCount);
+    const step = analyser.frequencyBinCount / title.textContent.length;
+    const draw = function() {
+      requestAnimationFrame(draw);
+      analyser.getByteFrequencyData(buffer);
+      for(let i = 0; i < title.textContent.length; i++) {
+        const data = buffer.slice(Math.floor(i * step), Math.ceil((i + 1) * step));
+        let total = 0;
+        for (const x of data) total += (x / 256);
+        title.children[i].style.strokeWidth = total / data.length * 1.5;
+      }
+    };
+    draw();
+
+    const play = function(event) {
+      event.preventDefault();
+      if (audioContext.state === "suspended") audioContext.resume();
+      audio.paused ? audio.play() : audio.pause();
+    };
+
+    title.addEventListener("click", play);
+    audio.addEventListener("error", function() { title.removeEventListener("click", play); });
+  }
+</script>
