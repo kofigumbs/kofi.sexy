@@ -12,6 +12,7 @@ layout: none
     width: 100%;
     height: 100%;
     overflow: hidden;
+    cursor: pointer;
     background: tan;
     transition: background 2s ease;
   }
@@ -158,7 +159,7 @@ layout: none
       <use id="rleg" href="#leg" x="52.5" y="67.5" fill="url('#bottom')"/>
     </g>
   </svg>
-  <audio controls preload><source src="K0F1-CAVERNS.mp3" type="audio/mpeg"></audio>
+  <audio preload><source src="K0F1-CAVERNS.mp3" type="audio/mpeg"></audio>
   <script>
     const page = document.documentElement;
     const body = document.querySelector(".body");
@@ -170,6 +171,11 @@ layout: none
       page.classList.toggle("active", !audio.paused);
       body.classList.toggle("active", !audio.paused);
     }
+
+    page.addEventListener("click", function() {
+      audio.paused ? audio.play() : audio.pause();
+    });
+
     // Programmatically do what `transform-origin: center center` ought to do
     // <https://bugzilla.mozilla.org/show_bug.cgi?id=1209853>
     for (const part of body.children) {
