@@ -13,14 +13,25 @@ style: >
   html {
     background: black;
   }
-  h1, h2, footer a {
+  h1, footer a {
     color: white;
+  }
+  main a {
+    position: relative;
+    display: block;
+    outline: none;
+    text-decoration: none;
+  }
+  main a::after {
+    /* Force links to capture svg clicks <https://stackoverflow.com/a/18018370> */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
   .hide {
     display: none;
-  }
-  a {
-    outline: none;
   }
 ---
 <header>
@@ -39,21 +50,11 @@ style: >
     <a href="{{ url }}" tabindex="0">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 15">
         <style>
-          * {
-            transition: fill 150ms, stroke 150ms;
-          }
           text {
             line-height: 1;
             font-size: 12px;
             font-weight: 100;
             font-family: {{ site.font_family }};
-          }
-          svg:hover text {
-            fill: black;
-            stroke: black;
-          }
-          svg:hover rect {
-            fill: white;
           }
         </style>
         <title>{{ track }}</title>
@@ -80,41 +81,47 @@ style: >
       for (const x of document.querySelectorAll("[data-hide]"))
         x.classList.toggle("hide");
   });
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const audioContext = new AudioContext();
 
-  for (const track of document.querySelectorAll("main p")) {
-    const link = track.querySelector("a");
-    const svg = track.querySelector("text");
-    const length = svg.textContent.length;
-    const audio = track.querySelector("audio");
-    const source = audioContext.createMediaElementSource(audio);
-    const analyser = audioContext.createAnalyser();
+  window.addEventListener("load", function() {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioContext = new AudioContext();
 
-    source.connect(analyser)
-    source.connect(audioContext.destination);
+    for (const track of document.querySelectorAll("main p")) {
+      const link = track.querySelector("a");
+      const svg = track.querySelector("text");
+      const audio = track.querySelector("audio");
+      const source = audioContext.createMediaElementSource(audio);
+      const analyser = audioContext.createAnalyser();
 
-    const buffer = new Uint8Array(analyser.frequencyBinCount);
-    const step = analyser.frequencyBinCount / length;
-    const draw = function() {
-      requestAnimationFrame(draw);
-      analyser.getByteFrequencyData(buffer);
-      for(let i = 0; i < length; i++) {
-        const data = buffer.slice(Math.floor(i * step), Math.ceil((i + 1) * step));
-        let sum = 0;
-        for (const x of data) sum += x;
-        svg.children[i].style.strokeWidth = sum / data.length / 64;
-      }
-    };
-    draw();
+      source.connect(analyser)
+      source.connect(audioContext.destination);
 
-    const play = function(event) {
-      event.preventDefault();
-      if (audioContext.state === "suspended") audioContext.resume();
-      audio.paused ? audio.play() : audio.pause();
-    };
+      analyser.fftSize = 256;
+      const length = svg.textContent.length;
+      const buffer = new Uint8Array(analyser.frequencyBinCount);
+      const step = analyser.frequencyBinCount / length;
+      (function loop() {
+        requestAnimationFrame(loop);
+        analyser.getByteFrequencyData(buffer);
+        for(let i = 0; i < length; i++) {
+          // Only use bottom half of buffer get more motion in the high frequencies
+          const data = buffer.slice(
+            Math.floor(i * step / 2),
+            Math.ceil((i + 1) * step / 2));
+          let sum = 0;
+          for (const x of data) sum += x;
+          svg.children[i].style.strokeWidth = sum / data.length / 96;
+        }
+      })();
 
-    link.addEventListener("click", play);
-    audio.addEventListener("error", function() { link.removeEventListener("click", play); });
-  }
+      const play = function(event) {
+        event.preventDefault();
+        if (audioContext.state === "suspended") audioContext.resume();
+        audio.paused ? audio.play() : audio.pause();
+      };
+
+      link.addEventListener("click", play);
+      audio.addEventListener("error", function() { link.removeEventListener("click", play); });
+    }
+  });
 </script>
