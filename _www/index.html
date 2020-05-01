@@ -1,7 +1,9 @@
 ---
+layout: base
 title: Kofi Gumbs
 permalink: /
-layout: base
+description: "Essays, talks, and music by me, the solo developer behind Trainer Vision."
+seo: { "type": "Person" }
 style: >
   h6 {
     margin: 0;
@@ -48,8 +50,7 @@ dot_svg:  '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.or
   <img src="/images/profile.jpg">
   <h1>Kofi Gumbs</h1>
   <p>
-    Essays, talks, and music by me,
-    the solo developer behind <a href="https://trainervision.com">Trainer Vision</a>.
+    {{ page.description | replace: "Trainer Vision", '<a href="https://trainervision.com">Trainer Vision</a>' }}
     <br>Brooklyn, NY.
   </p>
   <p>
