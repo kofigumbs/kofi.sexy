@@ -17,6 +17,9 @@ style: >
   .hide {
     display: none;
   }
+  a {
+    outline: none;
+  }
 ---
 <header>
   <img src="/images/music.png">
@@ -31,7 +34,7 @@ style: >
   <p {% unless forloop.first %}data-hide{% endunless %}>
     {% assign chars = track | characters %}
     {% capture url %}K0F1-{{ track | uri_escape }}.mp3{% endcapture %}
-    <a href="{{ url }}">
+    <a href="{{ url }}" tabindex="0">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 15">
         <style>
           * {
