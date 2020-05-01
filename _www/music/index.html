@@ -14,10 +14,6 @@ style: >
   h1, h2, footer a {
     color: white;
   }
-  h2 a {
-    color: currentColor;
-    text-decoration: none;
-  }
   .hide {
     display: none;
   }
@@ -83,6 +79,7 @@ style: >
   const audioContext = new AudioContext();
 
   for (const track of document.querySelectorAll("main p")) {
+    const link = track.querySelector("a");
     const svg = track.querySelector("text");
     const length = svg.textContent.length;
     const audio = track.querySelector("audio");
@@ -112,7 +109,7 @@ style: >
       audio.paused ? audio.play() : audio.pause();
     };
 
-    svg.addEventListener("click", play);
-    audio.addEventListener("error", function() { svg.removeEventListener("click", play); });
+    link.addEventListener("click", play);
+    audio.addEventListener("error", function() { link.removeEventListener("click", play); });
   }
 </script>
