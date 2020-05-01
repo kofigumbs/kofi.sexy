@@ -83,7 +83,8 @@ style: >
   const audioContext = new AudioContext();
 
   for (const track of document.querySelectorAll("main p")) {
-    const title = track.querySelector("text");
+    const svg = track.querySelector("text");
+    const length = svg.textContent.length;
     const audio = track.querySelector("audio");
     const source = audioContext.createMediaElementSource(audio);
     const analyser = audioContext.createAnalyser();
@@ -92,15 +93,15 @@ style: >
     source.connect(audioContext.destination);
 
     const buffer = new Uint8Array(analyser.frequencyBinCount);
-    const step = analyser.frequencyBinCount / title.textContent.length;
+    const step = analyser.frequencyBinCount / length;
     const draw = function() {
       requestAnimationFrame(draw);
       analyser.getByteFrequencyData(buffer);
-      for(let i = 0; i < title.textContent.length; i++) {
+      for(let i = 0; i < length; i++) {
         const data = buffer.slice(Math.floor(i * step), Math.ceil((i + 1) * step));
-        let total = 0;
-        for (const x of data) total += x/256;
-        title.children[i].style.strokeWidth = total / data.length * 3;
+        let sum = 0;
+        for (const x of data) sum += x;
+        svg.children[i].style.strokeWidth = sum / data.length / 64;
       }
     };
     draw();
@@ -111,7 +112,7 @@ style: >
       audio.paused ? audio.play() : audio.pause();
     };
 
-    title.addEventListener("click", play);
-    audio.addEventListener("error", function() { title.removeEventListener("click", play); });
+    svg.addEventListener("click", play);
+    audio.addEventListener("error", function() { svg.removeEventListener("click", play); });
   }
 </script>
