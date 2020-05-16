@@ -1,6 +1,6 @@
 /* https://raw.githubusercontent.com/richleland/pygments-css/master/friendly.css */
 .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f0f0f0; }
+.highlight  { background: #f0f0f0; border-radius: .2rem }
 .highlight .c { color: #60a0b0; font-style: italic }
 .highlight .err { border: 1px solid #FF0000 }
 .highlight .k { color: #007020; font-weight: bold }

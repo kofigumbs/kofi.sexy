@@ -29,7 +29,7 @@ pre {
   position: relative;
   overflow-x: scroll;
   background-color: #F0F0F0;
-  border-radius: .1rem;
+  border-radius: .2rem;
   padding: 1.5rem;
 }
 hr {
@@ -43,6 +43,7 @@ hr::before {
 iframe {
   width: 100%;
   height: 25rem;
+  border-radius: .2em;
 }
 dl {
   margin: 0;
