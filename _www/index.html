@@ -5,68 +5,64 @@ permalink: /
 description: "Essays, talks, and music by me, the solo developer behind Trainer Vision."
 seo: { "type": "Person" }
 style: >
+  main {
+    display: flex;
+    flex-flow: wrap;
+  }
+  main a {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-radius: .1rem;
+    box-sizing: border-box;
+    transition: 150ms box-shadow;
+    text-decoration: none;
+  }
+  main a:hover {
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.1);
+  }
   h6 {
     margin: 0;
     padding: 0;
-    color: #666;
-    font-family: serif;
-    font-style: italic;
-    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 100;
+    color: gray;
   }
-  header {
-    height: 100%;
-    max-height: 100vh;
+  @media only screen and (min-width: 45rem) {
+    main a { width: calc(50% - .5rem) }
+    main a:nth-child(odd) { margin-right: 1rem }
   }
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  li {
-    position: relative;
-    padding-bottom: 2em;
-  }
-  li:before, li:after {
-    position: absolute;
-    right: 100%;
-    width: 1.5em;
-    overflow: hidden;
-  }
-  li:not(:last-child):before {
-    top: .75em;
-    height: 100%;
-    content: url('data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgOCAxMDAiPjxwYXRoIGQ9Ik0gNCwwICBWIDEwMCIgc3Ryb2tlLXdpZHRoPSIuNSIgc3Ryb2tlLWRhc2hhcnJheT0iNCIgc3Ryb2tlPSIjNjY2Ij48L3BhdGg+PHN0eWxlPiBwYXRoIHsgYW5pbWF0aW9uOiBkYXNoIDFzIGxpbmVhciBpbmZpbml0ZTsgfSBAa2V5ZnJhbWVzIGRhc2ggeyBmcm9tIHsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7IH0gdG8geyBzdHJva2UtZGFzaG9mZnNldDogODsgfSB9PC9zdHlsZT48L3N2Zz4=');
-  }
-  li:after {
-    top: 0;
-    content: url('data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgOCA4Ij48Y2lyY2xlIGN4PSI0IiBjeT0iNCIgcj0iMiIgc3Ryb2tlLXdpZHRoPSIuNSIgc3Ryb2tlPSIjNjY2IiBmaWxsPSJ3aGl0ZSI+PC9jaXJjbGU+PC9zdmc+');
-  }
-
-line_svg: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 8 100"><path d="M 4,0  V 100" stroke-width=".5" stroke-dasharray="4" stroke="#666"></path><style> path { animation: dash 1s linear infinite; } @keyframes dash { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 8; } }</style></svg>'
-dot_svg:  '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 8 8"><circle cx="4" cy="4" r="2" stroke-width=".5" stroke="#666" fill="white"></circle></svg>'
 
 ---
 <header>
   <img src="/images/profile.jpg">
   <h1>Kofi Gumbs</h1>
   <p>
-    {{ page.description | replace: "Trainer Vision", '<a href="https://trainervision.com">Trainer Vision</a>' }}
+    {{ page.description
+        | replace: "Trainer Vision", '<a href="https://trainervision.com">Trainer Vision</a>'
+        | replace: "music", '<a href="/music">music</a>' }}
     <br>Brooklyn, NY.
-  </p>
-  <p>
-    <a href="#tech"><b>↓</b> Tech</a> &middot; <a href="/music">Music <b>→</b></a>
   </p>
 </header>
 
 <main>
-  <ul id="tech">
-    {% for post in site.posts %}
-    <li>
-      <h6>{{ post.categories }} &middot; {{ post.date | date: "%B %e, %Y" }}</h6>
-      {% include link.html title=post.title url=post.url %}
-    </li>
-    {% endfor %}
-  </ul>
+  {% for post in site.posts %}
+  {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
+  <a href="{{ post.url }}" {% if starts_with != "/" %}rel="external"{% endif %}>
+    <h6>
+      {% capture category %}{{ post.categories }}{% endcapture %}
+      <span title="{{ category | capitalize }}">
+        {% if    category == "talk" %} 📹
+        {% elsif category == "blog" %} 📜
+        {% endif %}
+      </span>
+      {{ post.date | date: "%B %e, %Y" }}
+    </h6>
+    {{ post.title }}
+    {% if starts_with != "/" %}<b>↗</b>{% endif %}
+  </a>
+  {% endfor %}
 </main>
 
 {% include footer.html %}

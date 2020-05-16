@@ -21,16 +21,16 @@ h1,h2,h3,h4,h5,h6,strong,b {
   font-weight: 800;
 }
 main, header, footer {
-  max-width: 42em;
-  padding: 0 1.5em 0;
+  max-width: 42rem;
+  padding: 0 1.5rem 0;
   margin: 0 auto;
 }
 pre {
   position: relative;
   overflow-x: scroll;
   background-color: #F0F0F0;
-  border-radius: .1em;
-  padding: 1.5em;
+  border-radius: .1rem;
+  padding: 1.5rem;
 }
 hr {
   border: none;
@@ -42,7 +42,7 @@ hr::before {
 }
 iframe {
   width: 100%;
-  height: 25em;
+  height: 25rem;
 }
 dl {
   margin: 0;
@@ -57,11 +57,11 @@ header > *:first-child {
   margin-top: 15vw;
 }
 header img {
-  width: 6em;
-  height: 6em;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
 }
 footer {
-  padding-top: .75em;
-  padding-bottom: 1.5em;
+  padding-top: .75rem;
+  padding-bottom: 1.5rem;
 }

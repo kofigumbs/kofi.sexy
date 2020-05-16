@@ -1,6 +1,0 @@
-{% capture starts_with %}{{ include.url | slice: 0 }}{% endcapture %}
-{% if starts_with == "/" %}
-<a href="{{ include.url }}">{{ include.title }}</a>
-{% else %}
-<a rel="external" href="{{ include.url }}">{{ include.title }}<b>↗</b></a>
-{% endif %}
