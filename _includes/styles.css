@@ -50,7 +50,7 @@ dl {
 }
 blockquote, dl, footer, hr::before {
   color: #666;
-  font-family: serif;
+  font-weight: 100;
   font-style: italic;
 }
 header > *:first-child {
