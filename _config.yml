@@ -19,7 +19,6 @@ social:
     - https://twitter.com/hkgumbs
     - https://github.com/hkgumbs
     - https://instagram.com/hkgumbs
-    - https://youtube.com/c/hkofigumbs
 
 collections:
   www:   { "output": true, "permalink": "/:path" }
