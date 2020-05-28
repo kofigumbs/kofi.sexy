@@ -53,10 +53,9 @@ style: >
   {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
   <a href="{{ post.url }}" {% if starts_with != "/" %}rel="external"{% endif %}>
     <h6>
-      {% capture category %}{{ post.categories }}{% endcapture %}
-      <span title="{{ category | capitalize }}">
-        {% if    category == "talk" %} 📹
-        {% elsif category == "blog" %} 📜
+      <span title="{{ post.categories | first | capitalize }}">
+        {% if    post.categories contains "talk" %} 📹
+        {% elsif post.categories contains "blog" %} 📜
         {% endif %}
       </span>
       <dl>{{ post.date | date: "%B %e, %Y" }}</dl>
