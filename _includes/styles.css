@@ -54,13 +54,12 @@ blockquote, dl, footer, hr::before {
   font-weight: 100;
   font-style: italic;
 }
-header > *:first-child {
+header::before {
+  content: url('/images/logo.svg');
+  width: 6em;
+  height: 6em;
   margin-top: 15vw;
-}
-header img {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
+  display: inline-block;
 }
 footer {
   padding-top: .75rem;
