@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 16px;
+}
+textarea, figure {
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+textarea {
+  resize: none;
+  white-space: pre;
+  font-family: "Fira Code", monospace;
+  line-height: 2;
+}
+button {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+}
+</style>
+<textarea></textarea>
+<figure></figure>
+<button>Reset</button>
+<script>
+  const defaultValue = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
+  <text x="0" y="6" style="font-size: 1px">Hello, world!</text>
+</svg>`;
+
+  const reset = document.querySelector("button");
+  const input = document.querySelector("textarea");
+  const output = document.querySelector("figure");
+
+  reset.addEventListener("click", () => {
+    output.innerHTML = input.value = defaultValue;
+    window.history.replaceState(null, null, "?q=");
+  });
+
+  input.addEventListener("input", () => {
+    output.innerHTML = input.value
+    window.history.replaceState(
+      null,
+      null,
+      "?q=" + (input.value === defaultValue ? "" : encodeURIComponent(input.value))
+    );
+  });
+
+  output.innerHTML = input.value = new URLSearchParams(location.search).get("q") || defaultValue;
+</script>
