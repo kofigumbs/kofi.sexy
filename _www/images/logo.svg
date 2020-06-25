@@ -22,7 +22,7 @@ travel: 2.5
       100% { transform: translate3d(0, 0, 0); }
     }
   ]]></style>
-  <rect x="0" y="3" height="6" width="6" fill="#8a6a5e" rx="{{page.radius}}" ry="{{page.radius}}"></rect>
-  <circle cx="8.75" cy="6" r="3.25" fill="#c2c2c2"></circle>
-  <path d="M 3.7453125 6, l 4.509375 -2.659375, l 0 5.203125 Z" fill="#333" stroke="#333" stroke-linejoin="round" stroke-width="{{page.radius|times:2}}"></path>
+  <rect x="0.05" y="3" height="6" width="6" fill="#8a6a5e" rx="{{page.radius}}" ry="{{page.radius}}"></rect>
+  <circle cx="8.70" cy="6" r="3.25" fill="#c2c2c2"></circle>
+  <path d="M 3.5625 6, l 4.875 -2.875, l 0 5.625 Z" fill="#333" stroke="#333" stroke-linejoin="round" stroke-width="{{page.radius|times:2}}"></path>
 </svg>
