@@ -6,7 +6,7 @@ travel: 2.5
 ---
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
   <style><![CDATA[
-    svg * { opacity: .9; transform-origin: center center; }
+    svg *  { opacity: .9; transform-origin: center center; }
     path   { animation: spin {{page.speed|times:3}}s infinite linear; }
     rect   { animation: bob  {{page.speed|times:2}}s infinite linear; }
     circle { animation: bob  {{page.speed|times:2}}s infinite linear; animation-delay: -{{page.speed}}s; }
@@ -24,5 +24,5 @@ travel: 2.5
   ]]></style>
   <rect x="0.05" y="3" height="6" width="6" fill="#8a6a5e" rx="{{page.radius}}" ry="{{page.radius}}"></rect>
   <circle cx="8.70" cy="6" r="3.25" fill="#c2c2c2"></circle>
-  <path d="M 3.5625 6, l 4.875 -2.875, l 0 5.625 Z" fill="#333" stroke="#333" stroke-linejoin="round" stroke-width="{{page.radius|times:2}}"></path>
+  <path d="M 3.5462613559440905 6 l 3.680607966083864 -2.125 l 0 4.25 Z" fill="#333" stroke="#333" stroke-linejoin="round" stroke-width="{{page.radius|times:2}}"></path>
 </svg>
