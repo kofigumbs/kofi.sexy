@@ -2,38 +2,31 @@
 layout: base
 title: Kofi Gumbs
 permalink: /
-description: "Blog posts, talks, and music by me, the solo developer behind Trainer Vision."
+description: "UI engineer, blog poster, talk giver, music maker."
 seo: { "type": "Person" }
 style: >
-  main {
-    display: flex;
-    flex-flow: wrap;
+  header, article {
+    padding-bottom: 3rem;
   }
-  main a {
-    width: 100%;
-    padding: 1rem;
-    margin-top: 1rem;
-    border: solid 1px rgba(0, 0, 0, 0.1);
-    border-radius: .2rem;
-    box-sizing: border-box;
-    transition: 150ms box-shadow, 150ms transform;
+  article, main {
+    padding-top: 1.5rem;
+  }
+  section dl {
+    padding-top: 1.5rem;
+    color: currentColor;
+  }
+  section next a {
+    display: inline-block;
+    padding: .75rem 1.5rem;
+    font-weight: 800;
     text-decoration: none;
+    color: currentColor;
+    background: rgba(255, 255, 255, .2);
+    border-radius: .2rem;
   }
-  main a:hover {
-    transform: translateY(-2px);
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.1);
-  }
-  main h6 {
-    margin: 0;
-    padding: 0;
-    font-size: 1rem;
-  }
-  main h6 dl {
-    display: inline;
-  }
-  @media only screen and (min-width: 45rem) {
-    main a { width: calc(50% - .5rem) }
-    main a:nth-child(odd) { margin-right: 1rem }
+  next {
+    display: block;
+    text-align: right;
   }
 
 ---
@@ -41,27 +34,45 @@ style: >
   <h1>Kofi Gumbs</h1>
   <p>
     {{ page.description
-        | replace: "Trainer Vision", '<a href="https://trainervision.com">Trainer Vision</a>'
-        | replace: "music", '<a href="/music">music</a>' }}
-    <br>Brooklyn, NY.
+        | replace: "music maker", '<a href="/music">music maker</a>' }}
+    Baltimore, MD.
   </p>
 </header>
 
+<article style="background: {{ site.theme_dark }}; color: white;">
+  <section>
+    {% for post in site.categories.blog limit: 1 %}
+    <dl>Latest blog <b>&middot;</b> {{ post.date | date: "%B %e, %Y" }}</dl>
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.excerpt | strip_html }}</p>
+    {% endfor %}
+    <next><a href="{{ post.url }}">Continue reading &hellip;</a></next>
+  </section>
+</article>
+
+<article style="background: {{ site.theme_light }};">
+  <section>
+    {% for post in site.categories.talk limit: 1 %}
+    <dl>Latest talk <b>&middot;</b> {{ post.date | date: "%B %e, %Y" }}</dl>
+    <p><iframe src="{{ post.video }}" frameborder="0"></iframe></p>
+    {% endfor %}
+    <next><a href="{{ post.url }}">View slides &hellip;</a></next>
+  </section>
+</article>
+
 <main>
+  <h2>Older posts</h2>
   {% for post in site.posts %}
-  {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
-  <a href="{{ post.url }}" {% if starts_with != "/" %}rel="external"{% endif %}>
-    <h6>
-      <span title="{{ post.categories | first | capitalize }}">
-        {% if    post.categories contains "talk" %} 📹
-        {% elsif post.categories contains "blog" %} 📜
-        {% endif %}
-      </span>
-      <dl>{{ post.date | date: "%B %e, %Y" }}</dl>
-    </h6>
-    {{ post.title }}
-    {% if starts_with != "/" %}<b>↗</b>{% endif %}
-  </a>
+    {% unless post == site.categories.blog.first or post == site.categories.talk.first %}
+    {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
+    <p>
+      <dl>{{ post.categories | first | capitalize }} <b>&middot;</b> {{ post.date | date: "%B %e, %Y" }}</dl>
+      <a href="{{ post.url }}" {% if starts_with != "/" %}rel="external"{% endif %}>
+        {{ post.title }}
+        {% if starts_with != "/" %}<b>↗</b>{% endif %}
+      </a>
+    </p>
+    {% endunless %}
   {% endfor %}
 </main>
 
