@@ -11,9 +11,11 @@ style: >
   article, main {
     padding-top: 1.5rem;
   }
+  section dl, section a {
+    color: currentColor;
+  }
   section dl {
     padding-top: 1.5rem;
-    color: currentColor;
   }
   section next a {
     display: inline-block;
@@ -43,7 +45,7 @@ style: >
   <section>
     {% for post in site.categories.blog limit: 1 %}
     <dl>Latest blog <b>&middot;</b> {{ post.date | date: "%B %e, %Y" }}</dl>
-    <h3>{{ post.title }}</h3>
+    <h3><a href="{{ post.url }}" {% if starts_with != "/" %}rel="external"{% endif %}>{{ post.title }}</a></h3>
     <p>{{ post.excerpt | strip_html }}</p>
     {% endfor %}
     <next><a href="{{ post.url }}">Continue reading &hellip;</a></next>
