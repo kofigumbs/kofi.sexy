@@ -6,10 +6,9 @@ travel: 2.5
 ---
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
   <style><![CDATA[
-    svg *  { opacity: .9; transform-origin: center center; }
-    path   { animation: spin {{page.speed|times:3}}s infinite linear; }
-    rect   { animation: bob  {{page.speed|times:2}}s infinite linear; }
-    circle { animation: bob  {{page.speed|times:2}}s infinite linear; animation-delay: -{{page.speed}}s; }
+    path   { opacity: .8; animation: spin {{page.speed|times:3}}s infinite linear; transform-origin: center center; }
+    rect   {              animation: bob  {{page.speed|times:2}}s infinite linear; }
+    circle { opacity: .9; animation: bob  {{page.speed|times:2}}s infinite reverse linear; }
     @keyframes spin {
       from { transform: rotate(0deg);   }
       to   { transform: rotate(360deg); }

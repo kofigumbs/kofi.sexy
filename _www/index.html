@@ -22,7 +22,6 @@ style: >
     padding: .75rem 1.5rem;
     font-weight: 800;
     text-decoration: none;
-    color: currentColor;
     background: rgba(255, 255, 255, .2);
     border-radius: .2rem;
   }
@@ -41,7 +40,7 @@ style: >
   </p>
 </header>
 
-<article style="background: {{ site.theme_dark }}; color: white;">
+<article style="background: {{ site.theme_color }}; color: white;">
   <section>
     {% for post in site.categories.blog limit: 1 %}
     <dl>Latest blog <b>&middot;</b> {{ post.date | date: "%B %e, %Y" }}</dl>
@@ -52,7 +51,7 @@ style: >
   </section>
 </article>
 
-<article style="background: {{ site.theme_light }};">
+<article style="background: {{ site.theme_dark }}; color: white;">
   <section>
     {% for post in site.categories.talk limit: 1 %}
     <dl>Latest talk <b>&middot;</b> {{ post.date | date: "%B %e, %Y" }}</dl>
