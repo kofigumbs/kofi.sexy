@@ -23,5 +23,5 @@ travel: 2.5
   ]]></style>
   <rect x="0.05" y="3" height="6" width="6" fill="{{site.theme_color}}" rx="{{page.radius}}" ry="{{page.radius}}"></rect>
   <circle cx="8.70" cy="6" r="3.25" fill="{{ site.theme_light }}"></circle>
-  <path d="M 3.5462613559440905 6 l 3.680607966083864 -2.125 l 0 4.25 Z" fill="{{ site.theme_dark }}" stroke="{{ site.theme_dark }}" stroke-linejoin="round" stroke-width="{{page.radius|times:2}}"></path>
+  <path d="{{ 4.25 | logo_triangle: 6, 6 }}" fill="{{ site.theme_dark }}" stroke="{{ site.theme_dark }}" stroke-linejoin="round" stroke-width="{{page.radius|times:2}}"></path>
 </svg>
