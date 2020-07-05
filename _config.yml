@@ -60,3 +60,19 @@ external_posts:
   - title: "Using functions to make better abstractions"
     date: 2016-02-16 10:00:00
     url: "https://8thlight.com/blog/kofi-gumbs/2016/02/16/using-functions-to-make-better-abstractions.html"
+
+old_tracks:
+  # I don't want to bombard the RSS feed with these.
+  # These can be converted to regular posts once that's no longer the case.
+  - title: CAVERNS
+    date: 2020-05-01 10:00:00
+    url: "/music/caverns"
+    categories: ['music']
+  - title: Anti-Gravity
+    date: 2020-04-12 10:00:00
+    url: "/music/anti-gravity"
+    categories: ['music']
+  - title: Come _ Stay _
+    date: 2020-04-08 10:00:00
+    url: "/music/come-stay"
+    categories: ['music']

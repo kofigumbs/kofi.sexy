@@ -2,7 +2,7 @@
 layout: base
 title: Kofi Gumbs
 permalink: /
-description: "UI engineer, blog poster, talk giver, music maker."
+description: "UI engineer & music maker. Baltimore, MD."
 seo: { "type": "Person" }
 style: >
   header, article {
@@ -33,11 +33,7 @@ style: >
 ---
 <header>
   <h1>Kofi Gumbs</h1>
-  <p>
-    {{ page.description
-        | replace: "music maker", '<a href="/music">music maker</a>' }}
-    Baltimore, MD.
-  </p>
+  <p>{{ page.description }}</p>
 </header>
 
 <article style="background: {{ site.theme_color }}; color: white;">
@@ -63,7 +59,8 @@ style: >
 
 <main>
   <h2>Older posts</h2>
-  {% for post in site.posts %}
+  {% assign posts = site.posts | concat: site.old_tracks | sort: "date" | reverse %}
+  {% for post in posts %}
     {% unless post == site.categories.blog.first or post == site.categories.talk.first %}
     {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
     <p>

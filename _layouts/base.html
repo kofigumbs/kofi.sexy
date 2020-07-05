@@ -17,6 +17,7 @@
     {% capture styles %}
       {% include styles.css %}
       {% include syntax.css %}
+      {{ layout.style }}
       {{ page.style }}
     {% endcapture %}
     {{ styles | normalize_whitespace }}
