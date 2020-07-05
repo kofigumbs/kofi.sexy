@@ -1,6 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
 body {
   font-size: 1.10em;
   line-height: 1.62em;
@@ -58,7 +55,7 @@ header::before {
   content: url('/images/logo.svg');
   width: 6em;
   height: 6em;
-  margin-top: 15vw;
+  margin-top: 10vw;
   display: inline-block;
 }
 footer {

@@ -1,0 +1,76 @@
+---
+title: Levi's track
+categories: ['music']
+layout: base
+style: >
+  html {
+    background: black;
+  }
+  h1 {
+    color: white;
+  }
+  figure {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: fit-content;
+  }
+  img {
+    width: 100%;
+  }
+  img.background {
+    position: relative;
+    transform: scale(.8);
+  }
+  img.foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+---
+
+<header>
+  <figure>
+    <img class="background" src="/images/levi-background.png">
+    <img class="foreground" src="/images/levi-foreground.png">
+  </figure>
+  <div align="center">
+    <audio src="/music/K0F1 - Levi's Track.mp3" preload controls></audio>
+  </div>
+</header>
+
+<script>
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioContext = new AudioContext();
+
+  const audio = document.querySelector("audio");
+  const background = document.querySelector(".background");
+  const foreground = document.querySelector(".foreground");
+  const source = audioContext.createMediaElementSource(audio);
+  const analyser = audioContext.createAnalyser();
+
+  source.connect(analyser)
+  source.connect(audioContext.destination);
+  audio.addEventListener("play", () => audioContext.resume());
+
+  analyser.fftSize = 256;
+  const buffer = new Uint8Array(analyser.frequencyBinCount);
+  (function loop() {
+    requestAnimationFrame(loop);
+    if (audio.paused) return;
+    analyser.getByteTimeDomainData(buffer);
+    let sum = 0;
+    for (const x of buffer) sum += x;
+    background.style.left = scale(sum / buffer.length, 256) + "%";
+  })();
+
+  document.addEventListener("mousemove", function(event) {
+    foreground.style.left = scale(event.pageX, window.innerWidth ) + "%";
+    foreground.style.top  = scale(event.pageY, window.innerHeight) + "%";
+  });
+
+  function scale(value, total) {
+    return 2 * (.5 - value / total);
+  }
+</script>
