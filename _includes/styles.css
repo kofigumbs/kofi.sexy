@@ -17,7 +17,7 @@ h1,h2,h3 {
 h1,h2,h3,h4,h5,h6,strong,b {
   font-weight: 800;
 }
-main, header, footer, section {
+main, header, footer {
   max-width: 42rem;
   padding: 0 1.5rem 0;
   margin: 0 auto;
