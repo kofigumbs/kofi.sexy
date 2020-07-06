@@ -87,7 +87,7 @@ style: >
   <article style="{{ article_style }}">
     {{ article_background }}
     <a href="{{ post.url }}" {% if starts_with != "/" %}rel="external"{% endif %}>
-      <b>{{ post.title }}</b>
+      <b><u>{{ post.title }}</u></b>
       <dl>
         {{ article_category }}
         <br>
