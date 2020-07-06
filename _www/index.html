@@ -41,7 +41,7 @@ style: >
     text-align: right;
   }
   .background {
-    filter: brightness(30%);
+    opacity: .3;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -73,7 +73,7 @@ style: >
 
   {% elsif post.categories.first == 'talk'  %}
   {% assign article_category = 'Talk' %}
-  {% assign article_style    = 'color: white;' %}
+  {% capture article_style %}background: {{ site.theme_dark }}; color: white;{% endcapture %}
   {% capture article_background %}
   <div class="background" style="background-image: url('https://img.youtube.com/vi/{{ post.video_id }}/maxresdefault.jpg')"></div>
   {% endcapture %}
