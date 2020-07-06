@@ -5,20 +5,22 @@ permalink: /
 description: "UI engineer & music producer. Baltimore, MD."
 seo: { "type": "Person" }
 style: >
-  main {
+  section {
     padding: 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    max-width: 45rem;
   }
   article {
     height: 0;
-    padding-bottom: 14rem; 
+    padding-bottom: 15rem; 
     position: relative;
   }
   article, .spacer {
     flex: 1;
-    min-width: 14rem;
+    min-width: 15rem;
   }
   article * {
     color: currentColor;
@@ -59,7 +61,7 @@ style: >
   <p>{{ page.description }}</p>
 </header>
 
-<main>
+<section>
   {% assign posts = site.posts | concat: site.old_tracks | sort: "date" | reverse %}
   {% for post in posts %}
   {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
@@ -97,6 +99,6 @@ style: >
 
   {% assign mod = site.posts.size | modulo: 6 %}
   {% for i in (mod..5) %}<div class="spacer"></div>{% endfor %}
-</main>
+</section>
 
 {% include footer.html %}
