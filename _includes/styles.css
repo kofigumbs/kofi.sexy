@@ -42,15 +42,6 @@ iframe {
   height: 25rem;
   border-radius: .2rem;
 }
-dl {
-  margin: 0;
-  padding: 0;
-}
-blockquote, dl, footer, hr::before {
-  color: #666;
-  font-weight: 200;
-  font-style: italic;
-}
 header::before {
   content: url('/images/logo.svg');
   width: 6rem;
@@ -59,6 +50,7 @@ header::before {
   display: inline-block;
 }
 footer {
+  font-style: italic;
   padding-top: .75rem;
   padding-bottom: 1.5rem;
 }

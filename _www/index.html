@@ -39,7 +39,7 @@ style: >
   article aside {
     overflow: hidden;
   }
-  article dl {
+  .right {
     text-align: right;
   }
   .background {
@@ -60,7 +60,12 @@ style: >
 
 <header>
   <h1>Kofi Gumbs</h1>
-  <p>{{ page.description }}</p>
+  <p>{{ page.description }}
+    Follow via
+    <a rel="external" href="https://twitter.com/hkgumbs">Twitter</a>,
+    <a rel="external" href="https://github.com/hkgumbs">GitHub</a>, or
+    <a href="/feed.xml">RSS/Atom</a>.
+  </p>
 </header>
 
 <section>
@@ -73,7 +78,7 @@ style: >
   {% assign article_style      = '' %}
   {% assign article_decoration = '' %}
   {% if starts_with == '/' %} {% assign article_excerpt = post.excerpt | strip_html %}
-  {% else %}                  {% assign article_excerpt = '' %}
+  {% else %}                  {% assign article_excerpt = false %}
   {% endif %}
 
   {% elsif post.categories.first == 'talk'  %}
@@ -82,22 +87,27 @@ style: >
   {% capture article_decoration %}
   <div class="background" style="background-image: url('https://img.youtube.com/vi/{{ post.video_id }}/maxresdefault.jpg')"></div>
   {% endcapture %}
-  {% assign article_excerpt  = '' %}
+  {% assign article_excerpt  = false %}
 
   {% elsif post.categories.first == 'music' %}
-  {% assign article_category = 'Music' %}
-  {% assign article_style    = 'background: black; color: white;' %}
+  {% assign article_category   = 'Music' %}
+  {% assign article_style      = 'background: black; color: white;' %}
   {% assign article_decoration = '' %}
-  {% assign article_excerpt    = '' %}
+  {% assign article_excerpt    = false %}
   {% endif %}
  
   <article style="{{ article_style }}">
     {{ article_decoration }}
     <a href="{{ post.url }}" {% if starts_with != "/" %}rel="external"{% endif %}>
-      <aside><b><u>{{ post.title }}</u></b>{% assign chars = article_excerpt | characters %}{%- for char in chars limit: 120 -%}
-        {% if forloop.first %}<b>:</b> {% endif %}<span style="opacity: {{ 120 | minus: forloop.index | divided_by: 120.0 }}">{{ char }}{% if forloop.last %}&hellip;{% endif %}</span>
-      {%- endfor -%}</aside>
-      <dl>{{ article_category }}<br>{{ post.date | date: "%B %e, %Y" }}</dl>
+      <aside>
+        <b><u>{{ post.title }}{%- if article_excerpt -%}</u>:</b>
+        <span role="text">{% assign chars = article_excerpt | characters %}{%- for char in chars limit: 120 -%}
+          <span style="opacity: {{ 120 | minus: forloop.index | divided_by: 120.0 }}">{{ char }}{% if forloop.last %}&hellip;{% endif %}</span>
+        {%- endfor -%}</span>
+        {%- else -%}</u></b>
+        {%- endif -%}
+      </aside>
+      <div class="right">{{ article_category }}<br>{{ post.date | date: "%B %e, %Y" }}</div>
     </a>
   </article>
   {% endfor %}
@@ -105,5 +115,3 @@ style: >
   {% assign mod = site.posts.size | modulo: 6 %}
   {% for i in (mod..5) %}<div class="spacer"></div>{% endfor %}
 </section>
-
-{% include footer.html %}
