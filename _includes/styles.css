@@ -25,7 +25,7 @@ main, header, footer {
 pre {
   position: relative;
   overflow-x: scroll;
-  background-color: #F0F0F0;
+  background: #F0F0F0;
   border-radius: .2rem;
   padding: 1.5rem;
 }
