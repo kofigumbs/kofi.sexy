@@ -22,6 +22,10 @@
     {% endcapture %}
     {{ styles | normalize_whitespace }}
     </style>
+
+    {% if page.tachyons %}
+    <link rel="stylesheet" href= "https://cdn.jsdelivr.net/gh/hkgumbs/tachyons-with-css-variables@master/css/tachyons-with-css-variables.min.css" />
+    {% endif %}
   </head>
   <body>{{ content }}</body>
 </html>

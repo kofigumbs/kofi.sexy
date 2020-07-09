@@ -1,9 +1,14 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Fairy Note</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="stylesheet" href= "https://cdn.jsdelivr.net/gh/hkgumbs/tachyons-with-css-variables@master/css/tachyons-with-css-variables.min.css" />
+---
+layout: base
+image: /images/crystal-ball.svg
+title: Fairy Note
+feed: { "excerpt_only": true }
+excerpt: ""
+description: ""
+categories: ['experiment']
+permalink: /fairy-note
+tachyons: true
+---
     <style>
       textarea, code {
         resize: none;
@@ -37,15 +42,15 @@
       }
   </style>
   </head>
-  <body class="sans-serif">
     <main class="center mw7 ph4 pt7">
       <cursor class="absolute transition z-5">
         <div class="h1 w1 ml2 bg-light-purple br-100 shadow-4"></div>
-        <menu class="pre absolute bottom--100 pa3 mb4 ba b--purple br2 bg-white shadow-4 transition"
-              ><h1 class="fw2">Welcome to <i class="serif b">Fairy Note</i></h1></p></menu>
+        <menu class="nowrap absolute bottom--100 pa3 mb4 ba b--purple br2 bg-white shadow-4 transition">
+          <h1 class="fw2 ma0 pa0">Welcome to <i class="serif b">Fairy Note</i></h1>
+        </menu>
       </cursor>
       <div class="relative transition">
-        <textarea class="w-100 mb3 pa3 pr3 pl4 ba br2 b--light-gray" rows="5" placeholder="Type anything!" autofocus></textarea>
+        <textarea class="w-100 mb3 pa3 pr3 pl4 ba br2 b--light-gray" rows="5" placeholder='Try typing "1 + 1"' autofocus></textarea>
       </div>
     </main>
 
@@ -56,6 +61,7 @@
       const menu = document.querySelector("menu");
 
       resize();
+      moveCursor();
 
       window.addEventListener("resize", moveCursor);
       notepad.addEventListener("focus", moveCursor);
@@ -65,7 +71,7 @@
       menu.addEventListener("click", applyChange);
 
       notepad.addEventListener("keyup", () => { if (notepad.value) updateMenu() });
-      document.addEventListener("keydown", e => { if (e.metaKey && e.key === "k") applyChange() });
+      document.addEventListener("keydown", e => { if (e.metaKey && e.key === "k") applyChange(e) });
 
       /******/
 
@@ -123,13 +129,12 @@
         }
       }
 
-      function applyChange() {
+      function applyChange(e) {
         if (!menu.classList.contains("no-changes")) {
+          e.preventDefault();
           notepad.focus();
           notepad.setRangeText(change.result, change.start, change.end, change.mode);
           hardRefresh();
         }
       }
     </script>
-  </body>
-</html>
