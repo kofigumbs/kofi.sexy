@@ -80,7 +80,7 @@ style: >
 </header>
 
 <section>
-  {% assign posts = site.posts | concat: site.old_tracks | sort: "date" | reverse %}
+  {% assign posts = site.posts | concat: site.old_links | sort: "date" | reverse %}
   {% for post in posts %}
   {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
 
@@ -96,9 +96,17 @@ style: >
   {% assign article_category = 'Talk' %}
   {% capture article_style %}background: rgba(51,51,51,.8); color: white;{% endcapture %}
   {% capture article_decoration %}
-  <div class="background" style="background-image: url('https://img.youtube.com/vi/{{ post.video_id }}/maxresdefault.jpg')"></div>
+  <div class="background" style="background-image: url('https://i.ytimg.com/vi/{{ post.video_id }}/maxresdefault.jpg')"></div>
   {% endcapture %}
   {% assign article_excerpt  = false %}
+
+  {% elsif post.categories.first == 'experiment' %}
+  {% assign article_category   = 'Experiment' %}
+  {% capture article_style %}background: rgba(51,51,51,.8); color: white;{% endcapture %}
+  {% capture article_decoration %}
+  <div class="background" style="background-image: url('{{ post.image }}')"></div>
+  {% endcapture %}
+  {% assign article_excerpt    = false %}
 
   {% elsif post.categories.first == 'music' %}
   {% assign article_category   = 'Music' %}

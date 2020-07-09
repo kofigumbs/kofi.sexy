@@ -28,7 +28,7 @@ You can <a href="https://github.com/hkgumbs/kofi.sexy/blob/master/_functions/emb
 <!DOCTYPE HTML>
 <html>
 <body>
-<form method="GET" action="https://kofi.sexy/.netlify/functions/embed-twitter-video">
+<form method="GET" action="/.netlify/functions/embed-twitter-video">
   <code>twitter.com/.../status/</code>
   <input name="tweet" value="1195154216454635521">
   <br>
