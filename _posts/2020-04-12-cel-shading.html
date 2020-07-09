@@ -1,18 +1,20 @@
-<!DOCTYPE HTML>
-<!--
-  Simulating light and shadow with SVG and 2D gradients!
-  Originally inspired by https://codepen.io/Virtuousquare/pen/zzyYEW -->
-<html>
-<head>
-<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<style>
+---
+layout: base
+image: https://pbs.twimg.com/ext_tw_video_thumb/1249499548856320000/pu/img/0qlmUhwxv_9OJV0G.jpg
+title: Cel shading
+feed: { "excerpt_only": true }
+excerpt: Simulating light and shadow with SVG and 2D gradients! Originally inspired by https://codepen.io/Virtuousquare/pen/zzyYEW
+description: Simulating light and shadow with SVG and 2D gradients! Originally inspired by https://codepen.io/Virtuousquare/pen/zzyYEW
+categories: ['experiment']
+permalink: /cel-shading
+style: >
   html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     cursor: none;
-    background: radial-gradient(circle at var(--spotlight, 50% 50%), rgba(237,20,61,.5) 0%, rgba(237,20,61,1) 15%);
+    background: rgb(237,20,61);
   }
   body {
     margin: 0;
@@ -23,6 +25,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(circle at var(--spotlight, 50% 50%), rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 15%);
   }
   svg {
     width: 50%;
@@ -30,9 +33,8 @@
     margin: 0;
     padding: 0;
   }
-</style>
-</head>
-<body>
+---
+
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 100 100">
     <defs>
       <style><![CDATA[
@@ -122,12 +124,12 @@
         <stop offset="100%" stop-color="#888"></stop>
       </radialGradient>
 
-      <path id="arm" d="M 0 0, a 5 5 0 0 1 10 0, v 15, a 5 5 0 0 1 -10 0, v -15"></path>
-      <path id="leg" d="M 0 0, a 5 5 0 0 1 10 0, v 20, a 5 5 0 0 1 -10 0, v -20"></path>
+      <path id="arm" d="M 0 0 a 5 5 0 0 1 10 0 v 15 a 5 5 0 0 1 -10 0 v -15"></path>
+      <path id="leg" d="M 0 0 a 5 5 0 0 1 10 0 v 20 a 5 5 0 0 1 -10 0 v -20"></path>
     </defs>
     <g class="body">
       <circle id="head" cx="50" cy="15" r="10" fill="url('#top')"></circle>
-      <path id="bust" d="M 42.5 37.5, a 7.5 7.5 0 0 1 15 0, v 15, a 7.5 7.5 0 0 1 -15 0, v -15" fill="url('#middle')"></path>
+      <path id="bust" d="M 42.5 37.5 a 7.5 7.5 0 0 1 15 0 v 15 a 7.5 7.5 0 0 1 -15 0 v -15" fill="url('#middle')"></path>
       <use id="larm" href="#arm" x="27.5" y="37.5" fill="url('#middle')"/>
       <use id="rarm" href="#arm" x="62.5" y="37.5" fill="url('#middle')"/>
       <use id="lleg" href="#leg" x="37.5" y="70.0" fill="url('#bottom')"/>
@@ -146,5 +148,3 @@
       }
     });
   </script>
-</body>
-</html>
