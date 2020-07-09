@@ -3,138 +3,137 @@ layout: base
 image: /images/crystal-ball.svg
 title: Fairy Note
 feed: { "excerpt_only": true }
-excerpt: ""
-description: ""
+excerpt: "The fairy follows. The fairy knows."
+description: "The fairy follows. The fairy knows."
 categories: ['experiment']
 permalink: /fairy-note
 tachyons: true
+style: >
+  textarea, code {
+    resize: none;
+    -webkit-font-feature-settings: "liga" on, "calt" on;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: "Fira Code";
+  }
+
+  cursor > *:first-child {
+    animation: bounce 1s ease infinite;
+  }
+  @keyframes bounce {
+    0%   { transform: translate3d(0,  10%, 0) }
+    50%  { transform: translate3d(0, -10%, 0) }
+    100% { transform: translate3d(0,  10%, 0) }
+  }
+
+  .transition {
+    transition: all .15s ease;
+  }
+
+  .no-changes {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-1em);
+  }
+
+  .bottom--100 {
+    bottom: 100%;
+  }
 ---
-    <style>
-      textarea, code {
-        resize: none;
-        -webkit-font-feature-settings: "liga" on, "calt" on;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        font-family: "Fira Code";
-      }
 
-      cursor > *:first-child {
-        animation: bounce 1s ease infinite;
-      }
-      @keyframes bounce {
-        0%   { transform: translate3d(0,  10%, 0) }
-        50%  { transform: translate3d(0, -10%, 0) }
-        100% { transform: translate3d(0,  10%, 0) }
-      }
+<main class="center mw7 ph4 pt7">
+  <cursor class="absolute transition z-5">
+    <div class="h1 w1 ml2 bg-light-purple br-100 shadow-4"></div>
+    <menu class="nowrap absolute bottom--100 pa3 mb4 ba b--purple br2 bg-white shadow-4 transition">
+      <h1 class="fw2 ma0 pa0">Welcome to <i class="serif b">Fairy Note</i></h1>
+    </menu>
+  </cursor>
+  <div class="relative transition">
+    <textarea class="w-100 mb3 pa3 pr3 pl4 ba br2 b--light-gray" rows="5" placeholder='Try typing "1 + 1"' autofocus></textarea>
+  </div>
+</main>
 
-      .transition {
-        transition: all .15s ease;
-      }
+<script>
+  let change = {};
+  const notepad = document.querySelector("textarea");
+  const cursor = document.querySelector("cursor");
+  const menu = document.querySelector("menu");
 
-      .no-changes {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateX(-1em);
-      }
+  resize();
+  moveCursor();
 
-      .bottom--100 {
-        bottom: 100%;
-      }
-  </style>
-  </head>
-    <main class="center mw7 ph4 pt7">
-      <cursor class="absolute transition z-5">
-        <div class="h1 w1 ml2 bg-light-purple br-100 shadow-4"></div>
-        <menu class="nowrap absolute bottom--100 pa3 mb4 ba b--purple br2 bg-white shadow-4 transition">
-          <h1 class="fw2 ma0 pa0">Welcome to <i class="serif b">Fairy Note</i></h1>
-        </menu>
-      </cursor>
-      <div class="relative transition">
-        <textarea class="w-100 mb3 pa3 pr3 pl4 ba br2 b--light-gray" rows="5" placeholder='Try typing "1 + 1"' autofocus></textarea>
-      </div>
-    </main>
+  window.addEventListener("resize", moveCursor);
+  notepad.addEventListener("focus", moveCursor);
+  notepad.addEventListener("click", moveCursor);
+  notepad.addEventListener("select", updateMenu);
+  notepad.addEventListener("input", hardRefresh);
+  menu.addEventListener("click", applyChange);
 
-    <script>
-      let change = {};
-      const notepad = document.querySelector("textarea");
-      const cursor = document.querySelector("cursor");
-      const menu = document.querySelector("menu");
+  notepad.addEventListener("keyup", () => { if (notepad.value) updateMenu() });
+  document.addEventListener("keydown", e => { if (e.metaKey && e.key === "k") applyChange(e) });
 
-      resize();
-      moveCursor();
+  /******/
 
-      window.addEventListener("resize", moveCursor);
-      notepad.addEventListener("focus", moveCursor);
-      notepad.addEventListener("click", moveCursor);
-      notepad.addEventListener("select", updateMenu);
-      notepad.addEventListener("input", hardRefresh);
-      menu.addEventListener("click", applyChange);
+  function hardRefresh() {
+    resize();
+    moveCursor();
+    updateMenu();
+  }
 
-      notepad.addEventListener("keyup", () => { if (notepad.value) updateMenu() });
-      document.addEventListener("keydown", e => { if (e.metaKey && e.key === "k") applyChange(e) });
+  function resize() {
+    notepad.rows = Math.max(5, lines(notepad.value));
+  }
 
-      /******/
+  function lines(string) {
+    return string.split(/\r\n|\r|\n/).length;
+  }
 
-      function hardRefresh() {
-        resize();
-        moveCursor();
-        updateMenu();
-      }
+  function moveCursor() {
+    const lineY =
+      notepadPx("line-height") *
+      (lines(notepad.value.substring(0, notepad.selectionStart)));
+    const y = lineY + notepad.getBoundingClientRect().top + notepadPx("margin-top");
+    cursor.style.top = y + "px";
+  }
 
-      function resize() {
-        notepad.rows = Math.max(5, lines(notepad.value));
-      }
+  function notepadPx(name) {
+    return parseInt(window.getComputedStyle(notepad).getPropertyValue(name));
+  }
 
-      function lines(string) {
-        return string.split(/\r\n|\r|\n/).length;
-      }
+  function updateMenu() {
+    notepad.selectionStart === notepad.selectionEnd
+      ? parse(0, notepad.selectionStart, "end")
+      : parse(notepad.selectionStart, notepad.selectionEnd, "select");
+  }
 
-      function moveCursor() {
-        const lineY =
-          notepadPx("line-height") *
-          (lines(notepad.value.substring(0, notepad.selectionStart)));
-        const y = lineY + notepad.getBoundingClientRect().top + notepadPx("margin-top");
-        cursor.style.top = y + "px";
-      }
+  function parse(start, end, mode) {
+    const selection = notepad.value.substring(start, end);
+    let lastMatch;
+    for(lastMatch of selection.matchAll(/\d+((\s)*[-+\/*%](\s)*\d+)+$/gm));
+    if (lastMatch
+        && (expression = lastMatch[0])
+        && (start + lastMatch.index + expression.length === end)) {
+      const result = eval(expression);
+      menu.innerHTML = "Replace with <b>" + result + "</b>? <code class='pa2 br2 ml1 bg-white-20'>⌘K</code>";
+      menu.classList.add("white", "bg-purple", "pointer");
+      menu.classList.remove("no-changes");
+      change = {
+        result: result,
+        start: start + lastMatch.index,
+        end: start + lastMatch.index + expression.length,
+        mode: mode,
+      };
+    } else {
+      menu.classList.add("no-changes");
+    }
+  }
 
-      function notepadPx(name) {
-        return parseInt(window.getComputedStyle(notepad).getPropertyValue(name));
-      }
-
-      function updateMenu() {
-        notepad.selectionStart === notepad.selectionEnd
-          ? parse(0, notepad.selectionStart, "end")
-          : parse(notepad.selectionStart, notepad.selectionEnd, "select");
-      }
-
-      function parse(start, end, mode) {
-        const selection = notepad.value.substring(start, end);
-        let lastMatch;
-        for(lastMatch of selection.matchAll(/\d+((\s)*[-+\/*%](\s)*\d+)+$/gm));
-        if (lastMatch
-            && (expression = lastMatch[0])
-            && (start + lastMatch.index + expression.length === end)) {
-          const result = eval(expression);
-          menu.innerHTML = "Replace with <b>" + result + "</b>? <code class='pa2 br2 ml1 bg-white-20'>⌘K</code>";
-          menu.classList.add("white", "bg-purple", "pointer");
-          menu.classList.remove("no-changes");
-          change = {
-            result: result,
-            start: start + lastMatch.index,
-            end: start + lastMatch.index + expression.length,
-            mode: mode,
-          };
-        } else {
-          menu.classList.add("no-changes");
-        }
-      }
-
-      function applyChange(e) {
-        if (!menu.classList.contains("no-changes")) {
-          e.preventDefault();
-          notepad.focus();
-          notepad.setRangeText(change.result, change.start, change.end, change.mode);
-          hardRefresh();
-        }
-      }
-    </script>
+  function applyChange(e) {
+    if (!menu.classList.contains("no-changes")) {
+      e.preventDefault();
+      notepad.focus();
+      notepad.setRangeText(change.result, change.start, change.end, change.mode);
+      hardRefresh();
+    }
+  }
+</script>
