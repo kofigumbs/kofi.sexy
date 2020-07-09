@@ -122,7 +122,6 @@ style: >
     </a>
   </article>
   {% endfor %}
-
-  {% assign mod = site.posts.size | modulo: 6 %}
-  {% for i in (mod..5) %}<div class="spacer"></div>{% endfor %}
+  <div class="spacer"></div>{% comment %} Worst case scenario: last row has 1 entry on widescreens {% endcomment %}
+  <div class="spacer"></div>
 </section>
