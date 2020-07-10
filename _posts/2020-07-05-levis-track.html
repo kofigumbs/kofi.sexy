@@ -7,10 +7,8 @@ categories: ['music']
 feed: { "excerpt_only": true }
 excerpt: Remix of Attack on Titan's season two theme song, featuring a visualization with Levi Ackerman.
 description: Remix of Attack on Titan's season two theme song, featuring a visualization with Levi Ackerman.
+dark: true
 style: >
-  html {
-    background: black;
-  }
   figure {
     margin: 0;
     padding: 0;
@@ -42,6 +40,8 @@ style: >
     </audio>
   </div>
 </header>
+
+{% include footer.html %}
 
 <script>
   const AudioContext = window.AudioContext || window.webkitAudioContext;

@@ -50,10 +50,19 @@ header::before {
   display: inline-block;
 }
 footer {
-  font-style: italic;
   padding-top: .75rem;
   padding-bottom: 1.5rem;
 }
 details summary {
   cursor: pointer;
+}
+
+html.dark {
+  background: black;
+}
+html.dark body {
+  color: white;
+}
+html.dark footer a {
+  color: {{ site.theme_color }};
 }

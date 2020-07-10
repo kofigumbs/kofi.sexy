@@ -2,11 +2,9 @@
 layout: base
 image: /images/music.png
 seo: { "type": "MusicGroup" }
-style: >
-  html {
-    background: black;
-  }
+dark: true
 ---
+
 <header>
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 15" style="margin-left:-5%">
     <style>
@@ -28,6 +26,8 @@ style: >
     </audio>
   </div>
 </header>
+
+{% include footer.html %}
 
 <script>
   const AudioContext = window.AudioContext || window.webkitAudioContext;
