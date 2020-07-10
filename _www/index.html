@@ -33,19 +33,23 @@ style: >
     color: white;
     background: #8a6a5e;
   }
-  article aside {
+  article .excerpt {
+    margin: 0;
+    padding: 0;
     overflow: hidden;
   }
-  .right {
+  article .metadata {
+    margin: 0;
+    padding: 0;
     text-align: right;
   }
-  .background {
+  article .background {
     opacity: .3;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .background {
+  article .background {
     position: absolute;
     top: 0;
     left: 0;
@@ -110,15 +114,15 @@ style: >
   <article style="{{ article_style }}">
     {{ article_decoration }}
     <a href="{{ post.url }}" {% if starts_with != "/" %}rel="external"{% endif %}>
-      <aside>
+      <p class="excerpt">
         <b><u>{{ post.title }}{%- if article_excerpt -%}</u>:</b>
-        <span role="text">{% assign chars = article_excerpt | characters %}{%- for char in chars limit: 120 -%}
-          <span style="opacity: {{ 120 | minus: forloop.index | divided_by: 120.0 }}">{{ char }}{% if forloop.last %}&hellip;{% endif %}</span>
+        <span role="text" aria-label="{{ article_excerpt }}">{% assign chars = article_excerpt | characters %}{%- for char in chars limit: 120 -%}
+          <span aria-hidden="true" style="opacity: {{ 120 | minus: forloop.index | divided_by: 120.0 }}">{{ char }}{% if forloop.last %}&hellip;{% endif %}</span>
         {%- endfor -%}</span>
         {%- else -%}</u></b>
         {%- endif -%}
-      </aside>
-      <div class="right">{{ article_category }}<br>{{ post.date | date: "%B %e, %Y" }}</div>
+      </p>
+      <p class="metadata">{{ article_category }}<br>{{ post.date | date: "%B %e, %Y" }}</p>
     </a>
   </article>
   {% endfor %}
