@@ -34,7 +34,7 @@ button {
 }
 </style>
 <textarea></textarea>
-<figure></figure>
+<figure><img></figure>
 <button>Reset</button>
 <script>
   const defaultValue = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
@@ -43,21 +43,24 @@ button {
 
   const reset = document.querySelector("button");
   const input = document.querySelector("textarea");
-  const output = document.querySelector("figure");
+  const output = document.querySelector("img");
 
   reset.addEventListener("click", () => {
-    output.innerHTML = input.value = defaultValue;
+    output.src = `data:image/svg+xml,${encodeURIComponent(defaultValue)}`;
     window.history.replaceState(null, null, "?q=");
   });
 
   input.addEventListener("input", () => {
-    output.innerHTML = input.value
+    const encoded = encodeURIComponent(input.value);
+    output.src = `data:image/svg+xml,${encoded}`;
     window.history.replaceState(
       null,
       null,
-      "?q=" + (input.value === defaultValue ? "" : encodeURIComponent(input.value))
+      "?q=" + (input.value === defaultValue ? "" : encoded)
     );
   });
 
-  output.innerHTML = input.value = new URLSearchParams(location.search).get("q") || defaultValue;
+  const q = new URLSearchParams(location.search).get("q") || defaultValue
+  input.value = q;
+  output.src = `data:image/svg+xml,${encodeURIComponent(q)}`;
 </script>
