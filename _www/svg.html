@@ -27,40 +27,50 @@ textarea {
   font-family: "Fira Code", monospace;
   line-height: 2;
 }
-button {
+iframe {
+  width: 100%;
+  height: 100%;
+}
+.actions {
   position: fixed;
   left: 10px;
   bottom: 10px;
 }
+.actions * {
+  margin-right: 10px;
+}
 </style>
 <textarea></textarea>
-<figure><img></figure>
-<button>Reset</button>
+<figure><iframe frameborder="0"></iframe></figure>
+<p class="actions">
+  <button id="reset">Reset</button>
+  <a id="download" download>Download</a>
+  <a href="https://vecta.io/nano" rel="external" target="_blank">Nano</a>
+</p>
 <script>
   const defaultValue = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
-  <text x="0" y="6" style="font-size: 1px">Hello, world!</text>
+  <style>
+    @import url('https://rsms.me/inter/inter.css');
+    * { font-family: 'Inter'; }
+  </style>
+  <rect width="100%" height="100%" fill="black"></rect>
+  <text x="1" y="6" font-size="1" fill="white">Hello, world!</text>
 </svg>`;
 
-  const reset = document.querySelector("button");
+  const reset = document.getElementById("reset");
+  const download = document.getElementById("download");
   const input = document.querySelector("textarea");
-  const output = document.querySelector("img");
+  const output = document.querySelector("iframe");
 
-  reset.addEventListener("click", () => {
-    output.src = `data:image/svg+xml,${encodeURIComponent(defaultValue)}`;
-    window.history.replaceState(null, null, "?q=");
-  });
+  reset.addEventListener("click", () => update(defaultValue));
+  input.addEventListener("input", () => update(input.value));
+  update(input.value = new URLSearchParams(location.search).get("q") || defaultValue);
 
-  input.addEventListener("input", () => {
-    const encoded = encodeURIComponent(input.value);
-    output.src = `data:image/svg+xml,${encoded}`;
-    window.history.replaceState(
-      null,
-      null,
-      "?q=" + (input.value === defaultValue ? "" : encoded)
-    );
-  });
-
-  const q = new URLSearchParams(location.search).get("q") || defaultValue
-  input.value = q;
-  output.src = `data:image/svg+xml,${encodeURIComponent(q)}`;
+  function update(svg) {
+    const encoded = encodeURIComponent(svg);
+    const newQ = svg === defaultValue ? "" : encoded;
+    window.history.replaceState(null, null, `?q=${newQ}`);
+    output.srcdoc = `<!DOCTYPE html><style>body{margin:0}</style>${svg}`
+    download.href = `data:image/svg+xml,${encoded}`;
+  };
 </script>
