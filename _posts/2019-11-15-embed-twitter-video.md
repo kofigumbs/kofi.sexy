@@ -38,4 +38,4 @@ You can <a href="https://github.com/hkgumbs/kofi.sexy/blob/master/_functions/emb
 </html>
 {% endcapture %}
 {% capture srcdoc %}srcdoc='{{ frame | strip_newlines }}'{% endcapture %}
-{% include iframe.html attr=srcdoc height="3em" %}
+{% include iframe.html attr=srcdoc height="4em" %}
