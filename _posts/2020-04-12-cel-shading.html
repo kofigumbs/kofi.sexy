@@ -123,17 +123,14 @@ style: >
       <stop offset="  0%" stop-color="#fff"></stop>
       <stop offset="100%" stop-color="#888"></stop>
     </radialGradient>
-
-    <path id="arm" d="M 0 0 a 5 5 0 0 1 10 0 v 15 a 5 5 0 0 1 -10 0 v -15"></path>
-    <path id="leg" d="M 0 0 a 5 5 0 0 1 10 0 v 20 a 5 5 0 0 1 -10 0 v -20"></path>
   </defs>
   <g class="body">
     <circle id="head" cx="50" cy="15" r="10" fill="url('#top')"></circle>
     <path id="bust" d="M 42.5 37.5 a 7.5 7.5 0 0 1 15 0 v 15 a 7.5 7.5 0 0 1 -15 0 v -15" fill="url('#middle')"></path>
-    <use id="larm" href="#arm" x="27.5" y="37.5" fill="url('#middle')"/>
-    <use id="rarm" href="#arm" x="62.5" y="37.5" fill="url('#middle')"/>
-    <use id="lleg" href="#leg" x="37.5" y="70.0" fill="url('#bottom')"/>
-    <use id="rleg" href="#leg" x="52.5" y="70.0" fill="url('#bottom')"/>
+    <path id="larm" d="M 27.5 37.5 a 5 5 0 0 1 10 0 v 15 a 5 5 0 0 1 -10 0 v -15" fill="url('#middle')"/>
+    <path id="rarm" d="M 62.5 37.5 a 5 5 0 0 1 10 0 v 15 a 5 5 0 0 1 -10 0 v -15" fill="url('#middle')"/>
+    <path id="lleg" d="M 37.5 70.0 a 5 5 0 0 1 10 0 v 20 a 5 5 0 0 1 -10 0 v -20" fill="url('#bottom')"/>
+    <path id="rleg" d="M 52.5 70.0 a 5 5 0 0 1 10 0 v 20 a 5 5 0 0 1 -10 0 v -20" fill="url('#bottom')"/>
   </g>
 </svg>
 
