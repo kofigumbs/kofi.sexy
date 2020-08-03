@@ -1,0 +1,66 @@
+---
+title: Creating a Slack app that uses fewer resources
+categories: ['blog']
+
+---
+
+<p>
+  I recently created a macOS app called Slack Lite, which beats Slack's desktop app across a few performance axises.
+  Slack Lite uses Slack's official UI, so it's visually indistinguishable from the official client.
+  Even so, Slack Lite uses 5x fewer threads, 3.5x less time to startup, 1.2x less memory, and significantly less CPU.
+  In the Activity Monitor screenshots below, you can see the raw numbers (Slack Lite's processes are highlighted):
+</p>
+
+{% capture cpu %}
+Table from Activity Monitor's CPU tab:
+Slack Helper (Renderer), CPU %: 0.9, Threads: 15.
+Highlighted: https://app.slack.com, CPU %: 0.1, Threads: 6.
+Slack, CPU %: 0.1, Threads: 30.
+Slack Helper, CPU %: 0.0, Threads: 9.
+Slack Helper (GPU), CPU %: 0.0, Threads: 8.
+Highlighted: Slack Lite, CPU %: 0.0, Threads: 5.
+{% endcapture %}
+<img src="/slack-app-fewer-resources/cpu.png" style="width: 100%" alt="{{ cpu | replace: "\n", " " }}">
+
+{% capture memory %}
+Table from Activity Monitor's Memory tab:
+Highlighted: https://app.slack.com, Memory: 262.4 MB.
+Slack Helper (Renderer), Memory: 95.4 MB.
+Slack, Memory: 62.8 MB.
+Slack Helper (GPU), Memory: 49.7 MB.
+Highlighted: Slack Lite, Memory: 24.1 MB.
+Slack Helper, Memory: 12.4 MB.
+{% endcapture %}
+<img src="/slack-app-fewer-resources/memory.png" style="width: 100%" alt="{{ memory | replace: "\n", " " }}">
+
+<p>
+  It's time to come clean: the performance differences described in this post are not really inherent to Slack Lite.
+  I suspect you could get similar numbers by applying this Slack Lite approach to any Electron-based macOS app.
+  Slack Lite is a <a href="https://github.com/hkgumbs/multi">Multi</a> app, which means it's using a WebKit WebView behind the scenes.
+  Ultimately, the numbers above are a proxy for the Chrome vs. Safari comparison.
+</p>
+
+<p>
+  I'm neither a performance engineer nor a desktop application engineer, but the Slack Lite approach just <em>feels right</em> to me.
+  If I already have a browser engine built into my operating system, why should application developers ship a different one for use with their "native" app?
+  Especially if that application is a minimal wrapper for an existing web application.
+  I know that the answer circles around developer productivity, but to me the "state of the art" still feels off.
+  I also know that other folks are thinking about this tension!
+  Here's a neat demo from Twitter via <a href="https://twitter.com/nateparrott/status/1275829708354211840" rel="external">@nateparrott</a>:
+</p>
+
+<p>
+  <blockquote style="border-color: #55ACEE;">
+    Here's another experiment we built at <a href="https://twitter.com/browsercompany" rel="external">@browsercompany</a>: "Launcher." Half the apps I use are web apps, and half are macOS apps. What if they behaved the same? (1/5)
+    <video src="https://video.twimg.com/tweet_video/EbSmCcZWAAES5EK.mp4" autoplay muted controls loop style="width: 100%; border-radius: .2rem; padding-top: 1.5rem;" alt="Screen recording of a macOS app called Launcher. It appears to work much like Spotlight or Alfred, except that once an item is \"launched\", it becomes a full macOS app with a new window and a dockbar entry.">
+    </video>
+  </blockquote>
+</p>
+
+<p>
+  Perhaps the most exciting part of this experiment is that I created the Slack Lite in 30 seconds.
+  As I mentioned above, Slack Lite is a Multi app.
+  I built Multi specifically for this use case: quickly creating a lightweight macOS app from any group of websites.
+  If that approach <em>feels right</em> to you as well, I hope you take a moment to try out Multi, which is open-source and available on GitHub:
+  <a href="https://github.com/hkgumbs/multi">github.com/hkgumbs/multi</a>.
+</p>
