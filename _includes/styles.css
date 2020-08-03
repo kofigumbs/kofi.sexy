@@ -29,6 +29,12 @@ pre {
   border-radius: .2rem;
   padding: 1.5rem;
 }
+blockquote {
+  margin: 0;
+  padding: 0;
+  padding-left: 1.5rem;
+  border-left: solid .2rem #F0F0F0;
+}
 hr {
   border: none;
   outline: none;
