@@ -1,8 +1,11 @@
 ---
 ---
+
+// Cross-browser input[type=range] styling
+
 $track-color: white
 $track-height: 2px
-$track-radius: 0
+$track-radius: 2px
 $track-border-width: 0
 $track-shadow-size: 0
 $track-shadow-blur: 0
@@ -11,10 +14,60 @@ $track-shadow-color: transparent
 $thumb-color: white
 $thumb-width: 2px
 $thumb-height: 20px
-$thumb-radius: 0
+$thumb-radius: 2px
 $thumb-border-width: 0
 $thumb-shadow-size: 0
 $thumb-shadow-blur: 0
 $track-shadow-color: transparent
 
 @import "inputrange"
+
+
+// Control elements
+
+.controls
+  display: flex
+  flex-direction: row
+  align-items: center
+
+.controls button
+  width: 20px
+  height: 20px
+  margin: 0 .5rem 0 0
+  padding: 0
+  border: none
+  overflow: hidden
+  background: transparent
+  position: relative
+  cursor: pointer
+
+.controls .range
+  flex: 1 0 auto
+  display: flex
+
+
+// Animated play/pause
+
+.controls .line
+  position: absolute
+  top: 0
+  left: 0
+  width: 2px
+  height: 100%
+  background: white
+  border-radius: 2px
+  transition: transform .4s ease
+
+.controls .line:nth-child(1)
+  transform: translate(8px, -4.6px)rotate(-60deg)
+.controls .line:nth-child(2)
+  transform: translate(8px, 4.6px) rotate(60deg)
+.controls .line:nth-child(3)
+  transform: translate(0)
+
+.controls .playing .line:nth-child(1)
+  transform: rotate(-180deg) translate(-13px)
+.controls .playing .line:nth-child(2)
+  transform: rotate(-180deg) translate(-5px)
+.controls .playing .line:nth-child(3)
+  transform: rotate(-180deg) translate(-13px)
