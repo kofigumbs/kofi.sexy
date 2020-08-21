@@ -1,4 +1,5 @@
 _site
 .bundle
 .netlify
+.sass-cache
 Gemfile.lock

@@ -3,9 +3,38 @@ layout: base
 image: /images/music.png
 seo: { "type": "MusicGroup" }
 dark: true
+stylesheet: /music-font-visualizer-inputrange.css
+style: >
+  .controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .controls button {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+    background: transparent;
+    margin: 0 1rem 0 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    transition: background .2s ease;
+  }
+  .controls button.playing {
+    background: white;
+  }
+  .controls .range {
+    flex: 1 0 auto;
+  }
+  .controls .range input {
+    display: flex;
+  }
 ---
 
-<header>
+<header></header>
+<main>
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 15" style="margin-left:-5%">
     <style>
       text {
@@ -20,12 +49,14 @@ dark: true
     {% assign chars = page.title | characters %}
     <text x="0" y="12" fill="white" stroke="white" stroke-width="0"><tspan>&nbsp;</tspan>{% for x in chars %}<tspan {% if forloop.first %}x="5%"{% endif %}>{{ x }}</tspan>{% endfor %}</text>
   </svg>
-  <div align="center">
-    <audio preload controls>
+  <div class="controls">
+    <button>▶</button>
+    <div class="range"><input type="range" value="0" max="1" step="any"></div>
+  </div>
+    <audio preload>
       <source src="/music/Kofi Gumbs-{{ page.title }}.mp3" type="audio/mpeg">
     </audio>
-  </div>
-</header>
+</main>
 
 {% include footer.html %}
 
@@ -33,7 +64,8 @@ dark: true
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const audioContext = new AudioContext();
 
-  const link = document.querySelector("a");
+  const playback = document.querySelector(".controls button");
+  const progress = document.querySelector(".controls input");
   const svg = document.querySelector("text");
   const audio = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(audio);
@@ -49,6 +81,7 @@ dark: true
   const step = analyser.frequencyBinCount / letters.length / 2;
   (function loop() {
     requestAnimationFrame(loop);
+
     analyser.getByteFrequencyData(buffer);
     for(let i = 0; i < letters.length; i++) {
       const data = buffer.slice(Math.floor(i * step), Math.ceil((i + 1) * step));
@@ -56,5 +89,25 @@ dark: true
       for (const x of data) sum += x;
       letters[i].style.strokeWidth = sum / data.length / 96;
     }
+
+    progress.value = audio.currentTime / audio.duration;
   })();
+
+  playback.addEventListener("click", function() {
+    if (audio.paused) {
+      audio.play();
+      playback.classList.add("playing");
+    } else {
+      audio.pause()
+      playback.classList.remove("playing");
+    }
+  });
+
+  audio.addEventListener("error", function() {
+    playback.classList.remove("playing");
+  });
+
+  progress.addEventListener("input", function() {
+    audio.currentTime = progress.value * audio.duration;
+  });
 </script>
