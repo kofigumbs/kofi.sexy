@@ -73,6 +73,8 @@ stylesheet: /music-font-visualizer-inputrange.css
       letters[i].style.strokeWidth = sum / data.length / 96;
     }
 
-    progress.value = audio.currentTime / audio.duration;
+    if (audio.readyState > 0) {
+      progress.value = audio.currentTime / audio.duration;
+    }
   })();
 </script>
