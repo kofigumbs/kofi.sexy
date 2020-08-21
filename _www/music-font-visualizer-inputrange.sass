@@ -31,8 +31,8 @@ $track-shadow-color: transparent
   align-items: center
 
 .controls button
-  width: 20px
-  height: 20px
+  width: $thumb-height
+  height: $thumb-height
   margin: 0 .5rem 0 0
   padding: 0
   border: none
@@ -52,15 +52,15 @@ $track-shadow-color: transparent
   position: absolute
   top: 0
   left: 0
-  width: 2px
+  width: $track-height
   height: 100%
   background: white
-  border-radius: 2px
-  transition: all .4s ease
+  border-radius: $track-height
+  transition: all .2s ease
 
 .controls .line:nth-child(1)
   opacity: 1
-  transform: translate(8px, -4.6px)rotate(-60deg)
+  transform: translate(8px, -4.6px) rotate(-60deg)
 .controls .line:nth-child(2)
   opacity: 1
   transform: translate(8px, 4.6px) rotate(60deg)
@@ -73,10 +73,10 @@ $track-shadow-color: transparent
 
 .controls .playing .line:nth-child(1)
   opacity: 0
-  transform: translate(20px, -4.6px)rotate(-60deg)
+  transform: translate($thumb-height, -4.6px) rotate(-60deg)
 .controls .playing .line:nth-child(2)
   opacity: 0
-  transform: translate(20px, 4.6px) rotate(60deg)
+  transform: translate($thumb-height, 4.6px) rotate(60deg)
 .controls .playing .line:nth-child(3)
   opacity: 1
   transform: translate(13px)
