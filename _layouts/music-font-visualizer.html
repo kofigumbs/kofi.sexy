@@ -75,6 +75,8 @@ style: >
   source.connect(analyser)
   source.connect(audioContext.destination);
   audio.addEventListener("play", () => audioContext.resume());
+  audio.addEventListener("error", () => playback.classList.remove("playing"));
+  audio.addEventListener("ended", () => playback.classList.remove("playing"));
 
   analyser.fftSize = 256;
   const letters = Array.from(svg.children).slice(1);
@@ -102,10 +104,6 @@ style: >
       audio.pause()
       playback.classList.remove("playing");
     }
-  });
-
-  audio.addEventListener("error", function() {
-    playback.classList.remove("playing");
   });
 
   progress.addEventListener("input", function() {
