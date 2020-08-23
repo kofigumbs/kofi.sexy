@@ -49,7 +49,7 @@ stylesheet: /music-font-visualizer-inputrange.css
   const source = audioContext.createMediaElementSource(audio);
   const analyser = audioContext.createAnalyser();
 
-  source.connect(analyser)
+  source.connect(analyser);
   source.connect(audioContext.destination);
   audio.addEventListener("play", () => audioContext.resume());
   audio.addEventListener("playing", () => playback.classList.add("playing"));
@@ -66,16 +66,16 @@ stylesheet: /music-font-visualizer-inputrange.css
   (function loop() {
     requestAnimationFrame(loop);
 
+    if (audio.readyState <= 0) return;
+
     analyser.getByteFrequencyData(buffer);
     for(let i = 0; i < letters.length; i++) {
       const data = buffer.slice(Math.floor(i * step), Math.ceil((i + 1) * step));
       let sum = 0;
-      for (const x of data) sum += x;
+      data.forEach(x => sum += x);
       letters[i].style.strokeWidth = sum / data.length / 96;
     }
 
-    if (audio.readyState > 0) {
-      progress.value = audio.currentTime / audio.duration;
-    }
+    progress.value = audio.currentTime / audio.duration;
   })();
 </script>

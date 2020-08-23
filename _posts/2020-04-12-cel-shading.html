@@ -140,9 +140,9 @@ style: >
     const x = (event.pageX / window.innerWidth  * 100).toString() + "%";
     const y = (event.pageY / window.innerHeight * 100).toString() + "%";
     document.documentElement.style.setProperty("--spotlight", x + " " + y);
-    for (const g of gradients) {
+    gradients.forEach(g => {
       g.setAttribute("cx", x);
       g.setAttribute("cy", y);
-    }
+    });
   });
 </script>
