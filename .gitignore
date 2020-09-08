@@ -3,3 +3,8 @@ _site
 .netlify
 .sass-cache
 Gemfile.lock
+
+*.pyc
+
+elm-stuff/
+_www/elm-type-tool/demo/elm-snapshot
