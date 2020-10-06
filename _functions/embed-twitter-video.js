@@ -30,6 +30,7 @@ exports.handler = (event, _, callback) => {
       "Authorization": "Basic " + Buffer.from(credentials).toString("base64"),
     },
   }).then(response => {
+    console.info(response);
     return request(mediaUrl(event.queryStringParameters.tweet), {
       method: "GET",
       headers: {
@@ -37,6 +38,7 @@ exports.handler = (event, _, callback) => {
       }
     });
   }).then(response => {
+    console.info(response);
     const [ { url } ] = JSON.parse(response.body).extended_entities.media
       .map(x => x.video_info.variants)
       .reduce((acc, x) => acc.concat(x), [])
@@ -51,7 +53,7 @@ exports.handler = (event, _, callback) => {
       },
     });
   }).catch(err => {
-    console.log(err, event);
+    console.error(err, event);
     callback(null, { statusCode: 500, body: "" });
   });
 };
