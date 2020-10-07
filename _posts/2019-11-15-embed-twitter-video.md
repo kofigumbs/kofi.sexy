@@ -22,7 +22,7 @@ GET https://kofi.sexy/.netlify/functions/embed-twitter-video?tweet=<YOUR TWEET I
 ```
 
 I'll continue to host it until I run into limitations with Twitter or Netlify.
-You can <a href="https://github.com/hkgumbs/kofi.sexy/blob/master/_functions/embed-twitter-video.js">view the source code on GitHub</a> and a live example below:
+You can <a href="https://github.com/kofigumbs/kofi.sexy/blob/master/_functions/embed-twitter-video.js">view the source code on GitHub</a> and a live example below:
 
 {% capture frame %}
 <!DOCTYPE HTML>

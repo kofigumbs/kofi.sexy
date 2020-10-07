@@ -15,7 +15,7 @@
   to = "/.netlify/functions/note?q=Hello%2C%20World!"
 
 [[redirects]]
-  from = "https://hkgumbs.netlify.com/*"
+  from = "https://kofigumbs.netlify.com/*"
   to = "https://kofi.sexy/:splat"
   status = 301
   force = true

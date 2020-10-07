@@ -17,7 +17,7 @@ This repo is an example of what it might look like to use Dependency injection t
 
 ### Where to start
 
-[Original.elm](https://github.com/hkgumbs/kofi.sexy/tree/master/_www/testing-cmds-in-elm/Original.elm)
+[Original.elm](https://github.com/kofigumbs/kofi.sexy/tree/master/_www/testing-cmds-in-elm/Original.elm)
 is taken directly from the [Elm Architecture Tutorial](https://github.com/evancz/elm-architecture-tutorial).
 We'll be looking at this application the whole time, so it's worth understanding what it does.
 When you click the button, the app requests a random GIF from giphy.com.
