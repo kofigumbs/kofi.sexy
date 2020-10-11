@@ -62,13 +62,3 @@ footer {
 details summary {
   cursor: pointer;
 }
-
-html.dark {
-  background: black;
-}
-html.dark body {
-  color: white;
-}
-html.dark footer a {
-  color: {{ site.theme_color }};
-}
