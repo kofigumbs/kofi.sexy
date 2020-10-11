@@ -28,9 +28,7 @@ stylesheet: /music/styles.css
     </button>
     <div class="range"><input type="range" value="0" max="1" step="any"></div>
   </div>
-    <audio preload>
-      <source src="/music/Kofi Gumbs-{{ page.title }}.mp3" type="audio/mpeg">
-    </audio>
+  <audio preload src="/music/Kofi Gumbs-{{ page.title }}.mp3"></audio>
 </main>
 
 {% include footer.html %}
@@ -48,13 +46,16 @@ stylesheet: /music/styles.css
 
   source.connect(analyser);
   source.connect(audioContext.destination);
-  audio.addEventListener("play", () => audioContext.resume());
   audio.addEventListener("playing", () => playback.classList.add("playing"));
   audio.addEventListener("pause", () => playback.classList.remove("playing"));
   audio.addEventListener("error",  () => playback.classList.remove("playing"));
   audio.addEventListener("ended",  () => playback.classList.remove("playing"));
-  playback.addEventListener("click", () => audio.paused ? audio.play() : audio.pause());
   progress.addEventListener("input", () => audio.currentTime = progress.value * audio.duration);
+
+  playback.addEventListener("click", () => {
+    audioContext.resume();
+    audio.paused ? audio.play() : audio.pause()
+  });
 
   analyser.fftSize = 256;
   const letters = Array.from(svg.children).slice(1);
