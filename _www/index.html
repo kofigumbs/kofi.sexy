@@ -72,15 +72,7 @@ style: >
 
 ---
 
-<header></header>
-
-<div style="background: linear-gradient(to right, #0db0c3, #3954ce); color: white; padding: 1.5rem; margin: 1.5rem auto; max-width: 42rem">
-  <b>Hello, Code Mesh!</b>
-  Here's a <a target="_blank" style="color: white; font-weight: bold" href="https://docs.google.com/presentation/d/e/2PACX-1vQLQVoPfKjJem4FJrd7m73E-Dcsvnu6E1K38wRLyqUtx7i5f6edp4vgQHO0kdnctuE6qvwTyR5GAE-q/pub?start=false&loop=false&delayms=3000">link to my talk slides</a>.
-  If you'd like to connect with me after today, I'm <a target="_blank" style="color: white; font-weight: bold" href="https://twitter.com/kofigumbs">@kofigumbs on Twitter</a>.
-</div>
-
-<main>
+<header>
   <h1>Kofi Gumbs</h1>
   <p>{{ page.description }}
     I use he/him pronouns.
@@ -90,7 +82,7 @@ style: >
     <a href="/feed.xml">RSS/Atom</a>.
     Here's some of my recent work:
   </p>
-</main>
+</header>
 
 <section>
   {% assign posts = site.posts | concat: site.old_links | sort: "date" | reverse %}
