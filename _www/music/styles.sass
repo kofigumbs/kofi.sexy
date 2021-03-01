@@ -3,10 +3,16 @@
 
 html
   background: black
-html body
+body
   color: white
-html footer a
+footer a
   color: {{ site.theme_color }}
+[data-tare]
+  height: 6rem
+[data-tare-character] *
+  border-width: var(--border-width)
+[data-tare-character] + [data-tare-character]
+  margin-left: 1rem
 
 
 // Cross-browser input[type=range] styling
