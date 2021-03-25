@@ -103,7 +103,7 @@ style: >
   {% capture article_category %}{{ post.categories.first | capitalize }}{% endcapture %}
   {% capture article_style %}background: rgba(51,51,51,.8); color: white;{% endcapture %}
   {% capture article_decoration %}
-  <div class="background" style="background-image: url('{{ post.image }}')"></div>
+  <div class="background" style="background-image: url('{{ post.image | default: "data:," }}')"></div>
   {% endcapture %}
   {% assign article_excerpt  = false %}
 
