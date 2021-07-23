@@ -8,7 +8,7 @@ plugins:
 
 url: https://kofi.sexy
 theme_dark:  "#333333"
-theme_light: "#c2c2c2"
+theme_light: "slategray"
 theme_color: "#8a6a5e"
 font_family: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
 
