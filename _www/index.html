@@ -79,8 +79,8 @@ style: >
   <p>{{ page.description }}
     I use he/him pronouns.
     You can follow my work via
-    <a rel="external" href="https://twitter.com/kofigumbs">Twitter</a>,
-    <a rel="external" href="https://github.com/kofigumbs">GitHub</a>, or
+    <a href="https://twitter.com/kofigumbs">Twitter</a>,
+    <a href="https://github.com/kofigumbs">GitHub</a>, or
     <a href="/feed.xml">RSS/Atom</a>.
     Here's some of my recent work:
   </p>
@@ -116,7 +116,7 @@ style: >
 
   <article style="{{ article_style }}">
     {{ article_decoration }}
-    <a href="{{ post.url }}" {% if starts_with != "/" %}rel="external"{% endif %}>
+    <a href="{{ post.url }}">
       <p class="excerpt">
         <b><u>{{ post.title }}{%- if article_excerpt -%}</u>:</b>
         <span role="text" aria-label="{{ article_excerpt }}">{% assign chars = article_excerpt | characters %}{%- for char in chars limit: 120 -%}
