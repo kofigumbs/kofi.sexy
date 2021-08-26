@@ -32,6 +32,9 @@ defaults:
     values: { "layout": "default", "image": "/images/profile.jpg" }
 
 external_posts:
+  - title: "Podcast: Collaborative Craft, Episode 3"
+    date: 2021-08-17 10:00:00
+    url: "https://8thlight.com/blog/jerome-goodrich/thomas-countz/2021/08/17/collaborative-craft-stealing-fire-kofi-gumbs.html"
   - title: "Designing for trainer productivity"
     date: 2020-02-21 10:00:00
     url: "https://trainervision.com/articles/how-we-design-for-trainer-productivity"
