@@ -24,5 +24,8 @@
     {% if page.stylesheet %}  <link rel="stylesheet" href="{{ page.stylesheet }}"  />{% endif %}
     {% if layout.stylesheet %}<link rel="stylesheet" href="{{ layout.stylesheet }}"/>{% endif %}
   </head>
-  <body>{{ content }}</body>
+  <body>
+    {{ content }}
+    <script data-goatcounter="https://stats.kofi.sexy/count" async src="//stats.kofi.sexy/count.js"></script>
+  </body>
 </html>
