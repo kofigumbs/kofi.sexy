@@ -79,7 +79,7 @@ if ARGV.count != 1
 end
 ```
 
-This is a great time to start running this file as a sanity check!
+This is a great time to start running this file as a quick smoke test!
 After every block of code we add,
 the file should still be runnable even though the program isn't complete.
 

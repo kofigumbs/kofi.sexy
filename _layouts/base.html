@@ -12,17 +12,12 @@
     <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
 
     <style>
-    {% capture styles %}
       {% include styles.css %}
       {% include syntax.css %}
-      {{ layout.style }}
-      {{ page.style }}
-    {% endcapture %}
-    {{ styles | normalize_whitespace }}
     </style>
 
-    {% if page.stylesheet %}  <link rel="stylesheet" href="{{ page.stylesheet }}"  />{% endif %}
-    {% if layout.stylesheet %}<link rel="stylesheet" href="{{ layout.stylesheet }}"/>{% endif %}
+    {{ page.head }}
+    {{ layout.head }}
   </head>
   <body>
     {{ content }}

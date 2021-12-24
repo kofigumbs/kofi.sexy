@@ -4,71 +4,73 @@ title: Kofi Gumbs
 permalink: /
 description: "I'm a UI programmer based in Baltimore, MD."
 seo: { "type": "Person" }
-style: >
-  section {
-    padding: 0;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 45rem;
-  }
-  article, .spacer {
-    flex: 1;
-    min-width: 15rem;
-    position: relative;
-  }
-  article * {
-    color: currentColor;
-  }
-  article a {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-decoration: none;
-    padding: 1.25rem 1.5rem;
-    position: relative;
-  }
-  article a:hover {
-    color: white;
-    background: #8a6a5e;
-  }
-  article .excerpt {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  article .metadata {
-    margin: 0;
-    padding: 0;
-    text-align: right;
-  }
-  article .background {
-    opacity: .3;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  article .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-  @media (min-width: 30rem) {
-    article {
-      height: 0;
-      padding-bottom: 15rem;
+head: |
+  <style>
+    section {
+      padding: 0;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 45rem;
+    }
+    article, .spacer {
+      flex: 1;
+      min-width: 15rem;
+      position: relative;
+    }
+    article * {
+      color: currentColor;
     }
     article a {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      padding: 1.25rem 1.5rem;
+      position: relative;
+    }
+    article a:hover {
+      color: white;
+      background: #8a6a5e;
+    }
+    article .excerpt {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    article .metadata {
+      margin: 0;
+      padding: 0;
+      text-align: right;
+    }
+    article .background {
+      opacity: .3;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    article .background {
       position: absolute;
       top: 0;
       left: 0;
       bottom: 0;
       right: 0;
     }
-  }
+    @media (min-width: 30rem) {
+      article {
+        height: 0;
+        padding-bottom: 15rem;
+      }
+      article a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  </style>
 
 ---
 

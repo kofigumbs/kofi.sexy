@@ -4,50 +4,52 @@ image: false
 title: This page is intentionally left Black
 categories: ['experiment']
 permalink: /this-page-is-intentionally-left-black
-style: >
-  html {
-    margin: 0;
-    padding: 0 1rem;
-    background: black;
-  }
-  body {
-    margin: 0 auto;
-    padding: 0;
-    max-width: 42rem;
-  }
-  [data-tare] {
-    width: 100%;
-    height: 100%;
-  }
-  [data-tare-character] * {
-    border-width: 2px;
-    border-color: #8a6a5e;
-  }
-  [data-tare-character] + [data-tare-character] {
-    margin-left: 1%;
-  }
-  a {
-    width: 100%;
-    height: 30vh;
-    padding: 30vh 0;
-    display: block;
-    color: #8a6a5e;
-    text-align: center;
-  }
-  .top, .bottom {
-    position: fixed;
-    left: 0;
-    width: 100%;
-    height: 20vh;
-  }
-  .top {
-    top: 0;
-    background: linear-gradient(to bottom, black, rgba(0,0,0,0));
-  }
-  .bottom {
-    bottom: 0;
-    background: linear-gradient(to top, black, rgba(0,0,0,0));
-  }
+head: |
+  <style>
+    html {
+      margin: 0;
+      padding: 0 1rem;
+      background: black;
+    }
+    body {
+      margin: 0 auto;
+      padding: 0;
+      max-width: 42rem;
+    }
+    [data-tare] {
+      width: 100%;
+      height: 100%;
+    }
+    [data-tare-character] * {
+      border-width: 2px;
+      border-color: #8a6a5e;
+    }
+    [data-tare-character] + [data-tare-character] {
+      margin-left: 1%;
+    }
+    a {
+      width: 100%;
+      height: 30vh;
+      padding: 30vh 0;
+      display: block;
+      color: #8a6a5e;
+      text-align: center;
+    }
+    .top, .bottom {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 20vh;
+    }
+    .top {
+      top: 0;
+      background: linear-gradient(to bottom, black, rgba(0,0,0,0));
+    }
+    .bottom {
+      bottom: 0;
+      background: linear-gradient(to top, black, rgba(0,0,0,0));
+    }
+  </style>
 ---
 
 <a href="https://en.wikipedia.org/wiki/Killing_of_George_Floyd">George Floyd</a>
