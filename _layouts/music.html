@@ -5,7 +5,7 @@ head: <link rel="stylesheet" href="/music/styles.css" />
 
 <header></header>
 <main>
-  <h1></h1>
+  <h1>{{ page.title | tare }}</h1>
   <div class="controls">
     <button aria-label="Play/pause">
       <span class="line" aria-hidden="true"></span>
@@ -20,7 +20,6 @@ head: <link rel="stylesheet" href="/music/styles.css" />
 
 {% include footer.html %}
 
-<script src="https://cdn.jsdelivr.net/gh/kofigumbs/tare@8150fe9/dist/tare.min.js"></script>
 <script>
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const audioContext = new AudioContext();
@@ -46,7 +45,6 @@ head: <link rel="stylesheet" href="/music/styles.css" />
   });
 
   analyser.fftSize = 256;
-  title.innerHTML = Tare.html("{{ page.title }}");
   const characters = title.querySelectorAll('[data-tare-character]');
   const buffer = new Uint8Array(analyser.frequencyBinCount);
   const step = analyser.frequencyBinCount / characters.length / 2;
