@@ -3,9 +3,11 @@ layout: base
 head: <link rel="stylesheet" href="/music/styles.css" />
 ---
 
-<header></header>
+<header>
+  {{ page.title | tare }}
+</header>
+
 <main>
-  <h1>{{ page.title | tare }}</h1>
   <div class="controls">
     <button aria-label="Play/pause">
       <span class="line" aria-hidden="true"></span>
@@ -18,7 +20,12 @@ head: <link rel="stylesheet" href="/music/styles.css" />
   <audio preload src="/music/Kofi Gumbs-{{ page.title }}.mp3"></audio>
 </main>
 
-{% include footer.html %}
+<footer class="themed">
+  <p>
+    <a href="/">kofi.sexy</a>
+    <time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
+  </p>
+</footer>
 
 <script>
   const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -26,7 +33,7 @@ head: <link rel="stylesheet" href="/music/styles.css" />
 
   const playback = document.querySelector(".controls button");
   const progress = document.querySelector(".controls input");
-  const title = document.querySelector("h1");
+  const title = document.querySelector("header");
   const audio = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(audio);
   const analyser = audioContext.createAnalyser();

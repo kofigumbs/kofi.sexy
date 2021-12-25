@@ -2,18 +2,17 @@
 layout: base
 ---
 
-<header>
+<header class="themed">
   <h1>{{ page.title }}</h1>
-  <p style="margin-top: 0">
-    by <a href="/">Kofi Gumbs</a>
-    {% if page.collection == "posts" %}
-    <b>&middot;</b> <time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
-    {% endif %}
-  </p>
+  <time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
 </header>
 
-<main>
+<main class="themed">
   {{ content }}
 </main>
 
-{% include footer.html %}
+<footer class="themed">
+  <p>
+    <a href="/">kofi.sexy</a>
+  </p>
+</footer>

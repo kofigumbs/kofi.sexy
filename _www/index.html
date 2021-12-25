@@ -2,135 +2,77 @@
 layout: base
 title: Kofi Gumbs
 permalink: /
-description: "I'm a UI programmer based in Baltimore, MD."
+description: I write software.
 seo: { "type": "Person" }
 head: |
   <style>
-    section {
-      padding: 0;
-      margin: 0 auto;
+    .intro {
+      margin: 3.75rem 0 3rem;
+    }
+    .grid {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      max-width: 45rem;
+      margin: 0 -.75rem;
     }
-    article, .spacer {
-      flex: 1;
-      min-width: 15rem;
-      position: relative;
-    }
-    article * {
-      color: currentColor;
-    }
-    article a {
+    a.post {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      text-decoration: none;
-      padding: 1.25rem 1.5rem;
-      position: relative;
+      border-bottom-width: 0;
+      margin: .75rem;
     }
-    article a:hover {
-      color: white;
-      background: #8a6a5e;
+    [data-tare] {
+      height: 10rem;
+      margin-top: 4px;
+      max-width: 28rem;
     }
-    article .excerpt {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
+    [data-tare]:first-child {
+      height: 16rem;
     }
-    article .metadata {
-      margin: 0;
-      padding: 0;
-      text-align: right;
+    [data-tare]:last-child {
+      height: 10rem;
     }
-    article .background {
-      opacity: .3;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+    [data-tare-character] + [data-tare-character] {
+      margin-left: 4px
     }
-    article .background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
-    @media (min-width: 30rem) {
-      article {
-        height: 0;
-        padding-bottom: 15rem;
-      }
-      article a {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-      }
+    [data-tare-character] * {
+      border-width: 4px;
     }
   </style>
-
 ---
 
-<header></header>
+<header>
+  {{ 'Kofi' | tare }}
+  {{ 'Gumbs' | tare }}
+</header>
 
-<main>
-  <h1>Kofi Gumbs</h1>
-  <p>{{ page.description }}
-    I use he/him pronouns.
-    You can follow my work via
-    <a href="https://twitter.com/kofigumbs">Twitter</a>,
-    <a href="https://github.com/kofigumbs">GitHub</a>, or
-    <a href="/feed.xml">RSS/Atom</a>.
-    Here's some of my recent work:
-  </p>
+<main class="themed">
+  <div class="intro">
+    I (he/him) write software.
+    This site collects thoughts that are too long for <a href="https://twitter.com/kofigumbs">Twitter</a>
+    and experiments that are too small for <a href="https://github.com/kofigumbs">GitHub</a>.
+  </div>
+
+  <div class="grid">
+    {% assign posts = site.posts | concat: site.old_links | sort: "date" | reverse %}
+    {% for post in posts %}
+    <a href="{{ post.url }}" class="post">
+      <span class="underlined">
+        {{ post.title }}
+      </span>
+      <span>
+        {% if post.categories.first == 'blog' %}
+        Blog post
+        {% elsif post.categories.first == 'music' %}
+        Song
+        {% else %}
+        {{ post.categories.first | capitalize }}
+        {% endif %}
+        <time datetime="{{ post.date }}">{{ post.date | date: "%B %e, %Y" }}</time>
+      </span>
+    </a>
+    {% endfor %}
+  </div>
 </main>
 
-<section>
-  {% assign posts = site.posts | concat: site.old_links | sort: "date" | reverse %}
-  {% for post in posts %}
-  {% capture starts_with %}{{ post.url | slice: 0 }}{% endcapture %}
-
-  {% if post.categories.first == 'blog'  %}
-  {% assign article_category   = 'Blog post' %}
-  {% assign article_style      = '' %}
-  {% assign article_decoration = '' %}
-  {% if starts_with == '/' %} {% assign article_excerpt = post.excerpt | strip_html %}
-  {% else %}                  {% assign article_excerpt = false %}
-  {% endif %}
-
-  {% elsif post.categories.first == 'talk' or post.categories.first == 'experiment' %}
-  {% capture article_category %}{{ post.categories.first | capitalize }}{% endcapture %}
-  {% capture article_style %}background: slategray; color: white;{% endcapture %}
-  {% capture article_decoration %}
-  <div class="background" style="background-image: url('{{ post.image | default: "data:," }}')"></div>
-  {% endcapture %}
-  {% assign article_excerpt  = false %}
-
-  {% elsif post.categories.first == 'music' %}
-  {% assign article_category   = 'Music' %}
-  {% assign article_style      = 'background: black; color: white;' %}
-  {% assign article_decoration = '' %}
-  {% assign article_excerpt    = false %}
-  {% endif %}
-
-  <article style="{{ article_style }}">
-    {{ article_decoration }}
-    <a href="{{ post.url }}">
-      <p class="excerpt">
-        <b><u>{{ post.title }}{%- if article_excerpt -%}</u>:</b>
-        <span role="text" aria-label="{{ article_excerpt }}">{% assign chars = article_excerpt | characters %}{%- for char in chars limit: 120 -%}
-          <span aria-hidden="true" style="opacity: {{ 120 | minus: forloop.index | divided_by: 120.0 }}">{{ char }}{% if forloop.last %}&hellip;{% endif %}</span>
-        {%- endfor -%}</span>
-        {%- else -%}</u></b>
-        {%- endif -%}
-      </p>
-      <p class="metadata">{{ article_category }}<br>{{ post.date | date: "%B %e, %Y" }}</p>
-    </a>
-  </article>
-  {% endfor %}
-  <div class="spacer"></div>{% comment %} Worst case scenario: last row has 1 entry on widescreens {% endcomment %}
-  <div class="spacer"></div>
-</section>
+<footer></footer>

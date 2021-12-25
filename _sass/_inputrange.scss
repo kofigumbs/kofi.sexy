@@ -97,7 +97,6 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
     background: $track-color;
     border: $track-border-width solid $track-border-color;
     border-radius: $track-radius;
-    height: $track-height / 2;
   }
 
   &::-moz-range-thumb {

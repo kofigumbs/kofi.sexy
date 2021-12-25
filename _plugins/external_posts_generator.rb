@@ -11,9 +11,10 @@ module Jekyll
         doc = ExternalPost.new yaml["url"], site: site, collection: posts
         doc.data["permalink"]  = yaml["url"]
         doc.data["title"]      = yaml["title"]
+        doc.data["image"]      = yaml["image"]
         doc.data["date"]       = yaml["date"]
+        doc.data["categories"] = yaml["categories"]
         doc.data["collection"] = "posts"
-        doc.data["categories"] = ["blog"]
         doc.data["draft"]      = false
         posts.docs << doc
       end

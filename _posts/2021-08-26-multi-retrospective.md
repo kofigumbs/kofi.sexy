@@ -6,7 +6,7 @@ title: A retrospective on Multi
 
 Perhaps my favorite phase of any project is when I get to call it done.
 [Multi](https://github.com/kofigumbs/multi) has come a long way since [its initial announcement](/blog/multi).
-It was neat to have built a tool that (1) had become part of my daily workflow and (2) have so many interesting opportunities for extension.
+It was neat to have built a tool that (1) had become part of my daily workflow and (2) had so many interesting opportunities for extension.
 Neither of those points are true for me today, so I decided to [make Multi free](https://github.com/kofigumbs/multi/commit/14f2d1b5524a8477f203d8e1cb4b6100ea35a5f2) for new users.
 
 ## Selling

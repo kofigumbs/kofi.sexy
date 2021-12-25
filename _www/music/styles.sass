@@ -1,12 +1,6 @@
 ---
 ---
 
-html
-  background: black
-body
-  color: white
-footer a
-  color: {{ site.theme_color }}
 [data-tare]
   height: 6rem
   margin-bottom: 1rem
@@ -18,7 +12,7 @@ footer a
 
 // Cross-browser input[type=range] styling
 
-$track-color: white
+$track-color: black
 $track-height: 2px
 $track-radius: 2px
 $track-border-width: 0
@@ -26,7 +20,7 @@ $track-shadow-size: 0
 $track-shadow-blur: 0
 $track-shadow-color: transparent
 
-$thumb-color: white
+$thumb-color: var(--theme-color)
 $thumb-width: 2px
 $thumb-height: 20px
 $thumb-radius: 2px
@@ -68,7 +62,7 @@ $thumb-shadow-blur: 0
   left: 0
   width: $track-height
   height: 100%
-  background: white
+  background: var(--theme-color)
   border-radius: $track-height
   transition: all .2s ease
 
