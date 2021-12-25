@@ -16,6 +16,7 @@ head: <link rel="stylesheet" href="/music/styles.css" />
       <span class="line" aria-hidden="true"></span>
     </button>
     <div class="range"><input type="range" value="0" max="1" step="any"></div>
+    <div class="duration"></div>
   </div>
   <audio preload src="/music/Kofi Gumbs-{{ page.title }}.mp3"></audio>
 </main>
@@ -33,6 +34,7 @@ head: <link rel="stylesheet" href="/music/styles.css" />
 
   const playback = document.querySelector(".controls button");
   const progress = document.querySelector(".controls input");
+  const duration = document.querySelector(".duration");
   const title = document.querySelector("header");
   const audio = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(audio);
@@ -45,6 +47,10 @@ head: <link rel="stylesheet" href="/music/styles.css" />
   audio.addEventListener("error",  () => playback.classList.remove("playing"));
   audio.addEventListener("ended",  () => playback.classList.remove("playing"));
   progress.addEventListener("input", () => audio.currentTime = progress.value * audio.duration);
+
+  const setDuration = () => duration.innerText = `${audio.duration/60|0}:${audio.duration%60|0}`;
+  if (audio.duration) setDuration();
+  else audio.addEventListener("loadedmetadata", setDuration);
 
   playback.addEventListener("click", () => {
     audioContext.resume();
