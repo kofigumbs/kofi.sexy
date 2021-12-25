@@ -2,7 +2,7 @@
 layout: base
 title: Kofi Gumbs
 permalink: /
-description: I write software.
+description: I (he/him) write software. This site collects thoughts that are too long for Twitter and experiments that are too small for GitHub.
 seo: { "type": "Person" }
 head: |
   <style>
@@ -48,9 +48,10 @@ head: |
 
 <main class="themed">
   <div class="intro">
-    I (he/him) write software.
-    This site collects thoughts that are too long for <a href="https://twitter.com/kofigumbs">Twitter</a>
-    and experiments that are too small for <a href="https://github.com/kofigumbs">GitHub</a>.
+    {{ page.description
+      | replace: 'Twitter', '<a href="https://twitter.com/kofigumbs">Twitter</a>'
+      | replace: 'GitHub', '<a href="https://github.com/kofigumbs">GitHub</a>'
+    }}
   </div>
 
   <div class="grid">
