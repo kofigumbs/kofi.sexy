@@ -1,10 +1,10 @@
 require 'jekyll'
 require 'tare'
 
-module Jekyll::TareFilter
+module Filters
   def tare input
     Tare::html input
   end
 end
 
-Liquid::Template.register_filter(Jekyll::TareFilter)
+Liquid::Template.register_filter Filters
