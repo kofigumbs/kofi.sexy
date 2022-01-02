@@ -54,7 +54,11 @@ header::before {
 }
 footer {
   margin-top: 3rem;
-  margin-bottom: 10vw;
+}
+footer::after {
+  content: '';
+  display: block;
+  padding-bottom: 10vw;
 }
 time {
   opacity: .45;
