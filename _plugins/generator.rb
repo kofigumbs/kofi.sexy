@@ -6,7 +6,7 @@ class Generator < Jekyll::Generator
 
   def generate(site)
     # Load profile.jpg as base64 for use in the favicon
-    site.data['profile_base64'] = %x(cat _www/images/profile.jpg | base64 | tr -d '\r\n')
+    site.data['profile_base64'] = %x(cat _www/images/profile.jpg | base64)
 
     # Set the correct MP3 tag metadata for each track
     Dir.glob("_www/music/*.mp3").each do |file|

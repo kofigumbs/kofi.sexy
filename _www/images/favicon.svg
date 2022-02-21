@@ -7,5 +7,5 @@ layout: none
       <circle cx="1" cy="1" r="1" />
     </clipPath>
   </defs>
-  <image x="0" y="0" width="2" height="2"  clip-path="url(#clip)" xlink:href="data:image/png;base64,{{ site.data.logo_base64 }}" />
+  <image x="0" y="0" width="2" height="2"  clip-path="url(#clip)" xlink:href="data:image/jpg;base64,{{ site.data.profile_base64 | trim }}" />
 </svg>
