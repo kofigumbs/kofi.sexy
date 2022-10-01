@@ -65,7 +65,7 @@ head: |
   const input = document.querySelector("textarea");
   const output = document.querySelector("iframe");
 
-  reset.addEventListener("click", () => update(defaultValue));
+  reset.addEventListener("click", () => update(input.value = defaultValue));
   input.addEventListener("input", () => update(input.value));
   update(input.value = new URLSearchParams(location.search).get("q") || defaultValue);
 
