@@ -37,5 +37,6 @@ You can <a href="https://github.com/kofigumbs/kofi.sexy/blob/master/_functions/e
 </body>
 </html>
 {% endcapture %}
-{% capture srcdoc %}srcdoc='{{ frame | strip_newlines }}'{% endcapture %}
-{% include iframe.html attr=srcdoc height="4em" %}
+<div class="frame">
+  <iframe srcdoc='{{ frame | strip_newlines }}'></iframe>
+</div>
