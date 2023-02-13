@@ -25,6 +25,8 @@ pre {
   position: relative;
   overflow-x: scroll;
   background: #F0F0F0;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
   padding: 1.5rem;
 }
 blockquote {
