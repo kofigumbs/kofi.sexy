@@ -1,12 +1,13 @@
-function q(event) {
+function decode(param) {
   try {
-    return decodeURIComponent(event.queryStringParameters.q || "").replace(/[<>]/g, "");
+    return decodeURIComponent(param || "").replace(/[<>]/g, "");
   } catch {
     return "";
   }
 }
 
 exports.handler = function(event, _, callback) {
+  const content = decode(event.queryStringParameters.q);
   callback(null, {
     statusCode: 200,
     headers: {},
@@ -19,12 +20,13 @@ exports.handler = function(event, _, callback) {
         </head>
         <body>
           <header>
-            <div contenteditable style="white-space: pre-line">${q(event)}</div>
-            <br>
+            <textarea ${content.length ? "" : "autofocus"} placeholder="What's happening?">${content}</textarea>
           </header>
           <script type="text/javascript">
-            document.querySelector("div").addEventListener("input", function(event) {
-              window.history.replaceState(null, null, "?q=" + encodeURIComponent(event.target.innerText));
+            document.querySelector("textarea").addEventListener("input", function(event) {
+              event.target.style.height = 0;
+              event.target.style.height = event.target.scrollHeight + "px";
+              window.history.replaceState(null, null, "?q=" + encodeURIComponent(event.target.value));
             });
           </script>
         </body>

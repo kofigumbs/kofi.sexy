@@ -22,12 +22,19 @@ main, header, footer {
   max-width: 42rem;
 }
 pre {
-  position: relative;
-  overflow-x: scroll;
-  background: #F0F0F0;
   margin-left: -1.5rem;
   margin-right: -1.5rem;
   padding: 1.5rem;
+  overflow-x: scroll;
+  background: #F0F0F0;
+}
+textarea {
+  font-size: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  resize: none;
 }
 blockquote {
   margin: 0;

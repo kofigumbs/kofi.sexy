@@ -12,7 +12,8 @@
 
 [[redirects]]
   from = "/note"
-  to = "/.netlify/functions/note?q=Hello%2C%20World!"
+  to = "/.netlify/functions/note"
+  status = 200
 
 [[redirects]]
   from = "https://kofigumbs.netlify.com/*"
