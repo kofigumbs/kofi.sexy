@@ -23,10 +23,15 @@ exports.handler = function(event, _, callback) {
             <textarea ${content.length ? "" : "autofocus"} placeholder="What's happening?">${content}</textarea>
           </header>
           <script type="text/javascript">
-            document.querySelector("textarea").addEventListener("input", function(event) {
-              event.target.style.height = 0;
-              event.target.style.height = event.target.scrollHeight + "px";
-              window.history.replaceState(null, null, "?q=" + encodeURIComponent(event.target.value));
+            const textarea = document.querySelector("textarea")
+            function resize() {
+              textarea.style.height = 0;
+              textarea.style.height = event.target.scrollHeight + "px";
+            }
+            resize()
+            textarea.addEventListener("input", function() {
+              resize()
+              window.history.replaceState(null, null, "?q=" + encodeURIComponent(textarea.value));
             });
           </script>
         </body>
