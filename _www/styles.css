@@ -1,4 +1,59 @@
----
-layout: none
----
-{% include styles.css %}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  color: CanvasText;
+  background: Canvas;
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0 auto;
+  padding: 10vw 1.5rem 1.5rem;
+  max-width: 42rem;
+  font-size: 15px;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.5rem;
+  line-height: 1.2;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+  font-weight: 800;
+}
+
+h1, h2, h3, h4, h5, h6, button, input, textarea {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+blockquote {
+  margin: 0;
+  padding-left: 1.5rem;
+  border-left: solid 1px Gray;
+}
+
+pre {
+  margin-inline: -1.5rem;
+  padding: 1.5rem;
+  overflow-x: scroll;
+  border: solid 1px Gray;
+  border-radius: none;
+}
+
+iframe {
+  margin: .75rem -1.5rem;
+  width: 100%;
+  min-height: 20rem;
+  border: none;
+}

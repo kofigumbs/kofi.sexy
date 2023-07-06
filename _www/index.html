@@ -2,81 +2,36 @@
 layout: base
 title: Kofi Gumbs
 permalink: /
-description: I (he/him) write software. This site collects thoughts that are too long for Twitter and experiments that are too small for GitHub.
+description: I write software.
 seo: { "type": "Person" }
-head: |
-  <style>
-    .intro {
-      margin: 3rem 0;
-    }
-    .grid {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin: -.75rem;
-    }
-    a.post {
-      display: flex;
-      flex-direction: column;
-      border-bottom-width: 0;
-      margin: .75rem;
-    }
-    footer {
-      margin-top: 0;
-    }
-    [data-tare] {
-      height: 10rem;
-      max-width: 28rem;
-    }
-    [data-tare]:first-child {
-      height: 16rem;
-    }
-    [data-tare]:last-child {
-      height: 10rem;
-      margin-top: 4px;
-    }
-    [data-tare-character] + [data-tare-character] {
-      margin-left: 4px
-    }
-    [data-tare-character] * {
-      border-width: 2px;
-    }
-  </style>
 ---
 
-<header>
-  {{ 'Kofi' | tare }}
-  {{ 'Gumbs' | tare }}
-</header>
+<h1>{{ page.title }}</h1>
+<p>
+  {{ page.description }}
+  The source code for this blog is hosted on <a href="https://github.com/kofigumbs">GitHub</a>, along with my other personal projects.
+</p>
 
-<main class="themed">
-  <div class="intro">
-    {{ page.description
-      | replace: 'Twitter', '<a href="https://twitter.com/kofigumbs">Twitter</a>'
-      | replace: 'GitHub', '<a href="https://github.com/kofigumbs">GitHub</a>'
-    }}
-  </div>
-
-  <div class="grid">
-    {% assign posts = site.posts | concat: site.old_links | sort: "date" | reverse %}
-    {% for post in posts %}
-    <a href="{{ post.url }}" class="post">
-      <span class="underlined">
-        {{ post.title }}
-      </span>
-      <span>
-        {% if post.categories.first == 'blog' %}
-        Blog post
-        {% elsif post.categories.first == 'music' %}
-        Song
-        {% else %}
-        {{ post.categories.first | capitalize }}
-        {% endif %}
-        <time datetime="{{ post.date }}">{{ post.date | date: "%B %e, %Y" }}</time>
-      </span>
-    </a>
-    {% endfor %}
-  </div>
-</main>
+{% assign years = site.posts | concat: site.old_links | sort: "date" | reverse | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for year in years %}
+<h2>{{ year.name }}</h2>
+{% for post in year.items %}
+<p>
+  <a href="{{ post.url }}" class="post">
+    <div>
+      {{ post.title }}
+    </div>
+  </a>
+  {% if post.categories.first == 'blog' %}
+  Blog post
+  {% elsif post.categories.first == 'music' %}
+  Song
+  {% else %}
+  {{ post.categories.first | capitalize }}
+  {% endif %}
+  &middot; <time datetime="{{ post.date }}">{{ post.date | date: "%B %e" }}</time>
+</p>
+{% endfor %}
+{% endfor %}
 
 <footer></footer>
