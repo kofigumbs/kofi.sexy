@@ -1,9 +1,7 @@
-kramdown:
-  input: GFM
-
+markdown: CommonMark
 plugins:
-  - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-seo-tag
 
 url: https://kofi.sexy
 theme_color: "#20BBFC"
