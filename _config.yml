@@ -1,4 +1,3 @@
-markdown: CommonMark
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

@@ -52,8 +52,12 @@ pre {
 }
 
 iframe {
-  margin: .75rem -1.5rem;
+  margin: .75rem 0;
   width: 100%;
   min-height: 20rem;
   border: none;
+}
+
+img {
+  width: 100%;
 }
