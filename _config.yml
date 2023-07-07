@@ -4,11 +4,8 @@ plugins:
   - jekyll-seo-tag
 
 url: https://kofi.sexy
-theme_color: "#20BBFC"
-
 author:  { "twitter":  "kofigumbs", "name": "Kofi Gumbs" }
 twitter: { "username": "kofigumbs", "card": "summary"    }
-
 social:
   name: Kofi Gumbs
   links:
