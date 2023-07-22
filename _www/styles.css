@@ -40,14 +40,14 @@ h1 {
 blockquote {
   margin: 0;
   padding-left: 1.5rem;
-  border-left: solid 1px Gray;
+  border-left: solid 1px #80808040;
 }
 
 pre {
   margin-inline: -1.5rem;
   padding: 1.5rem;
   overflow-x: scroll;
-  border: solid 1px Gray;
+  border: solid 1px #80808040;
   border-radius: none;
 }
 
