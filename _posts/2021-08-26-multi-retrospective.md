@@ -35,6 +35,8 @@ The previous section explains how Multi doesn't fall under motivation #1.
 Since I no longer use Multi myself and am not aiming for proficiency in AppKit, Multi work has never fit into #2 and has gradually slipped out of #3.
 Thinking through that list helped me realize that I'm ready to move on to other projects.
 
+_Edit: Migrating Multi to SwiftUI helped the project better align with motivations #2 and #3; hence [Multi 3.0](/blog/multi-3)._
+
 ---
 
 Multi 2.1.4 is the first version that removes the license key checks.
