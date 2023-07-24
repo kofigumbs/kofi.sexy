@@ -37,18 +37,21 @@ h1 {
   font-size: 3rem;
 }
 
+hr {
+  border-color: #80808020;
+}
+
 blockquote {
   margin: 0;
   padding-left: 1.5rem;
-  border-left: solid 1px #80808040;
+  border-left: solid 1px #80808020;
 }
 
 pre {
   margin-inline: -1.5rem;
   padding: 1.5rem;
   overflow-x: scroll;
-  border: solid 1px #80808040;
-  border-radius: none;
+  background: #80808020;
 }
 
 iframe {
