@@ -15,7 +15,7 @@ pass it as an argument wherever you need it!
 This repo is an example of what it might look like to use Dependency injection to make `Cmd`s easy to test!
 
 
-### Where to start
+## Where to start
 
 [Original.elm](https://github.com/kofigumbs/kofi.sexy/tree/master/_www/testing-cmds-in-elm/Original.elm)
 is taken directly from the [Elm Architecture Tutorial](https://github.com/evancz/elm-architecture-tutorial).
@@ -25,7 +25,7 @@ Also, when you start the app, it makes an HTTP request right away.
 Simple enough.
 
 
-### So how do I test the HTTP request?
+## So how do I test the HTTP request?
 
 First let's state the problem:
 
@@ -149,7 +149,7 @@ suite =
 ```
 
 
-### Perhaps a better question!
+## Perhaps a better question!
 
 Is the test and resulting code more pleasant to maintain?
 In our quest for testability, we actually gave up quite a few niceties of Elm.
@@ -173,7 +173,7 @@ Regardless, it's encouraging to know that a testable solution is entirely possib
 should the need arise before other solutions do!
 
 
-### Credits
+## Credits
 
 Thanks to [Byron](https://github.com/BWoodfork), whose idea this was originally,
 and [Justin](https://github.com/7hoenix/) who helped me prototype the first version.

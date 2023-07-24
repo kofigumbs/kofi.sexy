@@ -9,7 +9,7 @@ which introduced me to the idea of "principled negotiation."
 The entire book is worth the read—negotiation tactics apply more broadly than you might initially think.
 I'll give you an example!
 
-### The third principle
+## The third principle
 
 The Wikipedia article linked above includes a nice summary of chapter 4:
 
@@ -19,7 +19,7 @@ In a principled negotiation, it's critical to stay focused on interests.
 The eventual outcome may not look exactly like you imagine at the start... And that's OK.
 If both parties have their interests satisfied, the eventual outcome should be free to change as required.
 
-### ABN: Always be negotiating
+## ABN: Always be negotiating
 
 Last year, I started building a product, unrelated to my work at HubTran.
 I'd started the prototyping phase but was interested to accelerate my progress.
@@ -38,7 +38,7 @@ My manager helped me unfix my mindset to start thinking in terms of invented opt
 A few weeks later, we decided that I would transition to part-time.
 This gives me the opportunity to build my product _and_ reduce the risk required to do so—a win-win-win!
 
-### Wrapping up
+## Wrapping up
 
 Living in the "inventing options mindset" opens me to opportunities
 that I would have otherwise missed entirely.
