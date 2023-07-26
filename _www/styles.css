@@ -41,6 +41,12 @@ hr {
   border-color: #80808020;
 }
 
+p code {
+  display: inline-block;
+  padding-inline: .375rem;
+  background: #80808020;
+}
+
 blockquote {
   margin: 0;
   padding-left: 1.5rem;
