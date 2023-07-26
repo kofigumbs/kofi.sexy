@@ -20,7 +20,7 @@ Slack Helper, CPU %: 0.0, Threads: 9.
 Slack Helper (GPU), CPU %: 0.0, Threads: 8.
 Highlighted: Slack Lite, CPU %: 0.0, Threads: 5.
 {% endcapture %}
-<img src="/slack-app-fewer-resources/cpu.png" style="width: 100%" alt="{{ cpu | replace: "\n", " " }}">
+<img src="/slack-app-fewer-resources/cpu.png" alt="{{ cpu | replace: "\n", " " }}">
 
 {% capture memory %}
 Table from Activity Monitor's Memory tab:
@@ -31,7 +31,7 @@ Slack Helper (GPU), Memory: 49.7 MB.
 Highlighted: Slack Lite, Memory: 24.1 MB.
 Slack Helper, Memory: 12.4 MB.
 {% endcapture %}
-<img src="/slack-app-fewer-resources/memory.png" style="width: 100%" alt="{{ memory | replace: "\n", " " }}">
+<img src="/slack-app-fewer-resources/memory.png" alt="{{ memory | replace: "\n", " " }}">
 
 <p>
   <i>
@@ -57,13 +57,12 @@ Slack Helper, Memory: 12.4 MB.
   Here's a neat demo from Twitter via <a href="https://twitter.com/nateparrott/status/1275829708354211840">@nateparrott</a>:
 </p>
 
-<p>
-  <blockquote>
-    Here's another experiment we built at <a href="https://twitter.com/browsercompany">@browsercompany</a>: "Launcher." Half the apps I use are web apps, and half are macOS apps. What if they behaved the same? (1/5)
-    <video src="https://video.twimg.com/tweet_video/EbSmCcZWAAES5EK.mp4" autoplay muted controls loop style="width: 100%; border-radius: .2rem; padding-top: 1.5rem;" alt="Screen recording of a macOS app called Launcher. It appears to work much like Spotlight or Alfred, except that once an item is \"launched\", it becomes a full macOS app with a new window and a dockbar entry.">
-    </video>
-  </blockquote>
-</p>
+<blockquote><p>
+  Here's another experiment we built at <a href="https://twitter.com/browsercompany">@browsercompany</a>: "Launcher." Half the apps I use are web apps, and half are macOS apps. What if they behaved the same? (1/5)
+</p></blockquote>
+
+<video src="https://video.twimg.com/tweet_video/EbSmCcZWAAES5EK.mp4" autoplay muted controls loop alt="Screen recording of a macOS app called Launcher. It appears to work much like Spotlight or Alfred, except that once an item is \"launched\", it becomes a full macOS app with a new window and a dockbar entry.">
+</video>
 
 <p>
   Perhaps the most exciting part of this experiment is that I created the Slack Lite in <a href="/slack-app-fewer-resources/demo.mp4">30 seconds</a>.
