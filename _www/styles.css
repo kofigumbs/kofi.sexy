@@ -75,3 +75,9 @@ iframe:not([allowfullscreen]) {
 img {
   width: 100%;
 }
+
+textarea {
+  padding: 1.5rem;
+  width: 100%;
+  min-height: 20rem;
+}
