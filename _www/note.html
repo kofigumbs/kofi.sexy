@@ -1,0 +1,15 @@
+---
+layout: base
+title: Note
+---
+<header>
+  <div contenteditable=plaintext-only style="white-space: pre-wrap"></div>
+</header>
+
+<script type="text/javascript">
+  const note = document.querySelector("[contenteditable]");
+  note.textContent = new URL(location.href).searchParams.get("q")
+  if (!note.hasChildNodes())
+    note.focus()
+  note.addEventListener("input", () => window.history.replaceState(null, null, "?q=" + encodeURIComponent(note.textContent)));
+</script>

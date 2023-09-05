@@ -77,7 +77,7 @@ iframe:not([allowfullscreen]) {
   border: solid 1px #80808020;
 }
 
-textarea {
+textarea, [contenteditable] {
   padding: 1.5rem;
   width: 100%;
   min-height: 20rem;

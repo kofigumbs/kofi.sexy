@@ -11,11 +11,6 @@
   to = "https://grayarea.kofi.sexy"
 
 [[redirects]]
-  from = "/note"
-  to = "/.netlify/functions/note"
-  status = 200
-
-[[redirects]]
   from = "https://kofigumbs.netlify.com/*"
   to = "https://kofi.sexy/:splat"
   status = 301
