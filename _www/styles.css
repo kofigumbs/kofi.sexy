@@ -37,6 +37,12 @@ h1 {
   font-size: 3rem;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: solid 2px #20BBFC;
+}
+
 hr {
   border-color: #80808020;
 }
@@ -50,7 +56,7 @@ p code {
 blockquote {
   margin: 0;
   padding-left: 1.5rem;
-  border-left: solid 1px #80808020;
+  border-left: solid 2px #80808020;
 }
 
 pre {
@@ -74,7 +80,7 @@ iframe {
 
 iframe:not([allowfullscreen]) {
   padding: 1.5rem;
-  border: solid 1px #80808020;
+  border: solid 2px #80808020;
 }
 
 textarea, [contenteditable] {

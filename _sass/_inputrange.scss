@@ -25,9 +25,8 @@ $track-border-width: 2px !default;
 $track-border-color: #cfd8dc !default;
 
 $track-radius: 5px !default;
-$contrast: 5% !default;
 
-$ie-bottom-track-color: darken($track-color, $contrast) !default;
+$ie-bottom-track-color: $track-color !default;
 
 @mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
   box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0 0 $shadow-size lighten($shadow-color, 5%);
@@ -59,22 +58,6 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 
   &::-moz-focus-outer {
     border: 0;
-  }
-
-  &:focus {
-    outline: 0;
-
-    &::-webkit-slider-runnable-track {
-      background: lighten($track-color, $contrast);
-    }
-
-    &::-ms-fill-lower {
-      background: $track-color;
-    }
-
-    &::-ms-fill-upper {
-      background: lighten($track-color, $contrast);
-    }
   }
 
   &::-webkit-slider-runnable-track {
