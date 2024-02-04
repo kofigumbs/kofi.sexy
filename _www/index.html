@@ -10,7 +10,7 @@ seo: { "type": "Person" }
   The source code for this blog is hosted on <a href="https://github.com/kofigumbs">GitHub</a>, along with my other personal projects.
 </p>
 
-{% assign years = site.posts | concat: site.old_links | sort: "date" | reverse | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for year in years %}
 <h2>{{ year.name }}</h2>
 {% for post in year.items %}
