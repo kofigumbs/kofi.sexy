@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:[]}};(window.NREUM||(NREUM={})).loader_config={xpid:"UAcHU1JVDhABVVJTAwEAVFQC",licenseKey:"NRJS-46e4e9fc3124f96cb86",applicationID:"1131407203"};;/*! For license information please see nr-loader-spa-1.251.1.min.js.LICENSE.txt */
+(()=>{var e,t,r={234:(e,t,r)=>{"use strict";r.d(t,{P_:()=>m,Mt:()=>b,C5:()=>s,DL:()=>w,OP:()=>D,lF:()=>O,Yu:()=>E,Dg:()=>v,CX:()=>c,GE:()=>x,sU:()=>N});var n=r(8632),i=r(9567);const o={beacon:n.ce.beacon,errorBeacon:n.ce.errorBeacon,licenseKey:void 0,applicationID:void 0,sa:void 0,queueTime:void 0,applicationTime:void 0,ttGuid:void 0,user:void 0,account:void 0,product:void 0,extra:void 0,jsAttributes:{},userAttributes:void 0,atts:void 0,transactionName:void 0,tNamePlain:void 0},a={};function s(e){if(!e)throw new Error("All info objects require an agent identifier!");if(!a[e])throw new Error("Info for ".concat(e," was never set"));return a[e]}function c(e,t){if(!e)throw new Error("All info objects require an agent identifier!");a[e]=(0,i.D)(t,o);const r=(0,n.ek)(e);r&&(r.info=a[e])}const u=e=>{if(!e||"string"!=typeof e)return!1;try{document.createDocumentFragment().querySelector(e)}catch{return!1}return!0};var d=r(7056),l=r(50);const f="[data-nr-mask]",h=()=>{const e={mask_selector:"*",block_selector:"[data-nr-block]",mask_input_options:{color:!1,date:!1,"datetime-local":!1,email:!1,month:!1,number:!1,range:!1,search:!1,tel:!1,text:!1,time:!1,url:!1,week:!1,textarea:!1,select:!1,password:!0}};return{feature_flags:[],proxy:{assets:void 0,beacon:void 0},privacy:{cookies_enabled:!0},ajax:{deny_list:void 0,block_internal:!0,enabled:!0,harvestTimeSeconds:10,autoStart:!0},distributed_tracing:{enabled:void 0,exclude_newrelic_header:void 0,cors_use_newrelic_header:void 0,cors_use_tracecontext_headers:void 0,allowed_origins:void 0},session:{domain:void 0,expiresMs:d.oD,inactiveMs:d.Hb},ssl:void 0,obfuscate:void 0,jserrors:{enabled:!0,harvestTimeSeconds:10,autoStart:!0},metrics:{enabled:!0,autoStart:!0},page_action:{enabled:!0,harvestTimeSeconds:30,autoStart:!0},page_view_event:{enabled:!0,autoStart:!0},page_view_timing:{enabled:!0,harvestTimeSeconds:30,long_task:!1,autoStart:!0},session_trace:{enabled:!0,harvestTimeSeconds:10,autoStart:!0},harvest:{tooManyRequestsDelay:60},session_replay:{autoStart:!0,enabled:!1,harvestTimeSeconds:60,sampling_rate:50,error_sampling_rate:50,collect_fonts:!1,inline_images:!1,inline_stylesheet:!0,mask_all_inputs:!0,get mask_text_selector(){return e.mask_selector},set mask_text_selector(t){u(t)?e.mask_selector="".concat(t,",").concat(f):""===t||null===t?e.mask_selector=f:(0,l.Z)("An invalid session_replay.mask_selector was provided. '*' will be used.",t)},get block_class(){return"nr-block"},get ignore_class(){return"nr-ignore"},get mask_text_class(){return"nr-mask"},get block_selector(){return e.block_selector},set block_selector(t){u(t)?e.block_selector+=",".concat(t):""!==t&&(0,l.Z)("An invalid session_replay.block_selector was provided and will not be used",t)},get mask_input_options(){return e.mask_input_options},set mask_input_options(t){t&&"object"==typeof t?e.mask_input_options={...t,password:!0}:(0,l.Z)("An invalid session_replay.mask_input_option was provided and will not be used",t)}},spa:{enabled:!0,harvestTimeSeconds:10,autoStart:!0}}},p={},g="All configuration objects require an agent identifier!";function m(e){if(!e)throw new Error(g);if(!p[e])throw new Error("Configuration for ".concat(e," was never set"));return p[e]}function v(e,t){if(!e)throw new Error(g);p[e]=(0,i.D)(t,h());const r=(0,n.ek)(e);r&&(r.init=p[e])}function b(e,t){if(!e)throw new Error(g);var r=m(e);if(r){for(var n=t.split("."),i=0;i<n.length-1;i++)if("object"!=typeof(r=r[n[i]]))return;r=r[n[n.length-1]]}return r}const y={accountID:void 0,trustKey:void 0,agentID:void 0,licenseKey:void 0,applicationID:void 0,xpid:void 0},A={};function w(e){if(!e)throw new Error("All loader-config objects require an agent identifier!");if(!A[e])throw new Error("LoaderConfig for ".concat(e," was never set"));return A[e]}function x(e,t){if(!e)throw new Error("All loader-config objects require an agent identifier!");A[e]=(0,i.D)(t,y);const r=(0,n.ek)(e);r&&(r.loader_config=A[e])}const E=(0,n.mF)().o;var _=r(385),T=r(6818);const S={buildEnv:T.Re,customTransaction:void 0,disabled:!1,distMethod:T.gF,isolatedBacklog:!1,loaderType:void 0,maxBytes:3e4,offset:Math.floor(_._A?.performance?.timeOrigin||_._A?.performance?.timing?.navigationStart||Date.now()),onerror:void 0,origin:""+_._A.location,ptid:void 0,releaseIds:{},session:void 0,xhrWrappable:"function"==typeof _._A.XMLHttpRequest?.prototype?.addEventListener,version:T.q4,denyList:void 0},R={};function D(e){if(!e)throw new Error("All runtime objects require an agent identifier!");if(!R[e])throw new Error("Runtime for ".concat(e," was never set"));return R[e]}function N(e,t){if(!e)throw new Error("All runtime objects require an agent identifier!");R[e]=(0,i.D)(t,S);const r=(0,n.ek)(e);r&&(r.runtime=R[e])}function O(e){return function(e){try{const t=s(e);return!!t.licenseKey&&!!t.errorBeacon&&!!t.applicationID}catch(e){return!1}}(e)}},9567:(e,t,r)=>{"use strict";r.d(t,{D:()=>i});var n=r(50);function i(e,t){try{if(!e||"object"!=typeof e)return(0,n.Z)("Setting a Configurable requires an object as input");if(!t||"object"!=typeof t)return(0,n.Z)("Setting a Configurable requires a model to set its initial properties");const r=Object.create(Object.getPrototypeOf(t),Object.getOwnPropertyDescriptors(t)),o=0===Object.keys(r).length?e:r;for(let a in o)if(void 0!==e[a])try{Array.isArray(e[a])&&Array.isArray(t[a])?r[a]=Array.from(new Set([...e[a],...t[a]])):"object"==typeof e[a]&&"object"==typeof t[a]?r[a]=i(e[a],t[a]):r[a]=e[a]}catch(e){(0,n.Z)("An error occurred while setting a property of a Configurable",e)}return r}catch(e){(0,n.Z)("An error occured while setting a Configurable",e)}}},6818:(e,t,r)=>{"use strict";r.d(t,{Re:()=>i,gF:()=>o,lF:()=>a,q4:()=>n});const n="1.251.1",i="PROD",o="CDN",a="2.0.0-alpha.11"},385:(e,t,r)=>{"use strict";r.d(t,{FN:()=>c,IF:()=>l,LW:()=>a,Nk:()=>h,Tt:()=>u,_A:()=>o,cv:()=>p,iS:()=>s,il:()=>n,ux:()=>d,v6:()=>i,w1:()=>f});const n="undefined"!=typeof window&&!!window.document,i="undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self.navigator instanceof WorkerNavigator||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis.navigator instanceof WorkerNavigator),o=n?window:"undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis),a="complete"===o?.document?.readyState,s=Boolean("hidden"===o?.document?.visibilityState),c=""+o?.location,u=/iPad|iPhone|iPod/.test(o.navigator?.userAgent),d=u&&"undefined"==typeof SharedWorker,l=(()=>{const e=o.navigator?.userAgent?.match(/Firefox[/\s](\d+\.\d+)/);return Array.isArray(e)&&e.length>=2?+e[1]:0})(),f=Boolean(n&&window.document.documentMode),h=!!o.navigator?.sendBeacon,p=Math.floor(o?.performance?.timeOrigin||o?.performance?.timing?.navigationStart||Date.now())},1117:(e,t,r)=>{"use strict";r.d(t,{w:()=>o});var n=r(50);const i={agentIdentifier:"",ee:void 0};class o{constructor(e){try{if("object"!=typeof e)return(0,n.Z)("shared context requires an object as input");this.sharedContext={},Object.assign(this.sharedContext,i),Object.entries(e).forEach((e=>{let[t,r]=e;Object.keys(i).includes(t)&&(this.sharedContext[t]=r)}))}catch(e){(0,n.Z)("An error occured while setting SharedContext",e)}}}},8e3:(e,t,r)=>{"use strict";r.d(t,{L:()=>d,R:()=>c});var n=r(8325),i=r(1284),o=r(4322),a=r(3325);const s={};function c(e,t){const r={staged:!1,priority:a.p[t]||0};u(e),s[e].get(t)||s[e].set(t,r)}function u(e){e&&(s[e]||(s[e]=new Map))}function d(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"feature";if(u(e),!e||!s[e].get(t))return a(t);s[e].get(t).staged=!0;const r=[...s[e]];function a(t){const r=e?n.ee.get(e):n.ee,a=o.X.handlers;if(r.backlog&&a){var s=r.backlog[t],c=a[t];if(c){for(var u=0;s&&u<s.length;++u)l(s[u],c);(0,i.D)(c,(function(e,t){(0,i.D)(t,(function(t,r){r[0].on(e,r[1])}))}))}delete a[t],r.backlog[t]=null,r.emit("drain-"+t,[])}}r.every((e=>{let[t,r]=e;return r.staged}))&&(r.sort(((e,t)=>e[1].priority-t[1].priority)),r.forEach((t=>{let[r]=t;s[e].delete(r),a(r)})))}function l(e,t){var r=e[1];(0,i.D)(t[r],(function(t,r){var n=e[0];if(r[0]===n){var i=r[1],o=e[3],a=e[2];i.apply(o,a)}}))}},8325:(e,t,r)=>{"use strict";r.d(t,{A:()=>c,ee:()=>u});var n=r(8632),i=r(2210),o=r(234);class a{constructor(e){this.contextId=e}}var s=r(3117);const c="nr@context:".concat(s.a),u=function e(t,r){var n={},s={},d={},f=!1;try{f=16===r.length&&(0,o.OP)(r).isolatedBacklog}catch(e){}var h={on:g,addEventListener:g,removeEventListener:function(e,t){var r=n[e];if(!r)return;for(var i=0;i<r.length;i++)r[i]===t&&r.splice(i,1)},emit:function(e,r,n,i,o){!1!==o&&(o=!0);if(u.aborted&&!i)return;t&&o&&t.emit(e,r,n);for(var a=p(n),c=m(e),d=c.length,l=0;l<d;l++)c[l].apply(a,r);var f=b()[s[e]];f&&f.push([h,e,r,a]);return a},get:v,listeners:m,context:p,buffer:function(e,t){const r=b();if(t=t||"feature",h.aborted)return;Object.entries(e||{}).forEach((e=>{let[n,i]=e;s[i]=t,t in r||(r[t]=[])}))},abort:l,aborted:!1,isBuffering:function(e){return!!b()[s[e]]},debugId:r,backlog:f?{}:t&&"object"==typeof t.backlog?t.backlog:{}};return h;function p(e){return e&&e instanceof a?e:e?(0,i.X)(e,c,(()=>new a(c))):new a(c)}function g(e,t){n[e]=m(e).concat(t)}function m(e){return n[e]||[]}function v(t){return d[t]=d[t]||e(h,t)}function b(){return h.backlog}}(void 0,"globalEE"),d=(0,n.fP)();function l(){u.aborted=!0,u.backlog={}}d.ee||(d.ee=u)},5546:(e,t,r)=>{"use strict";r.d(t,{E:()=>n,p:()=>i});var n=r(8325).ee.get("handle");function i(e,t,r,i,o){o?(o.buffer([e],i),o.emit(e,t,r)):(n.buffer([e],i),n.emit(e,t,r))}},4322:(e,t,r)=>{"use strict";r.d(t,{X:()=>o});var n=r(5546);o.on=a;var i=o.handlers={};function o(e,t,r,o){a(o||n.E,i,e,t,r)}function a(e,t,r,i,o){o||(o="feature"),e||(e=n.E);var a=t[o]=t[o]||{};(a[r]=a[r]||[]).push([e,i])}},3239:(e,t,r)=>{"use strict";r.d(t,{bP:()=>s,iz:()=>c,m$:()=>a});var n=r(385);let i=!1,o=!1;try{const e={get passive(){return i=!0,!1},get signal(){return o=!0,!1}};n._A.addEventListener("test",null,e),n._A.removeEventListener("test",null,e)}catch(e){}function a(e,t){return i||o?{capture:!!e,passive:i,signal:t}:!!e}function s(e,t){let r=arguments.length>2&&void 0!==arguments[2]&&arguments[2],n=arguments.length>3?arguments[3]:void 0;window.addEventListener(e,t,a(r,n))}function c(e,t){let r=arguments.length>2&&void 0!==arguments[2]&&arguments[2],n=arguments.length>3?arguments[3]:void 0;document.addEventListener(e,t,a(r,n))}},3117:(e,t,r)=>{"use strict";r.d(t,{a:()=>n});const n=(0,r(4402).Rl)()},4402:(e,t,r)=>{"use strict";r.d(t,{Ht:()=>u,M:()=>c,Rl:()=>a,ky:()=>s});var n=r(385);const i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";function o(e,t){return e?15&e[t]:16*Math.random()|0}function a(){const e=n._A?.crypto||n._A?.msCrypto;let t,r=0;return e&&e.getRandomValues&&(t=e.getRandomValues(new Uint8Array(30))),i.split("").map((e=>"x"===e?o(t,r++).toString(16):"y"===e?(3&o()|8).toString(16):e)).join("")}function s(e){const t=n._A?.crypto||n._A?.msCrypto;let r,i=0;t&&t.getRandomValues&&(r=t.getRandomValues(new Uint8Array(e)));const a=[];for(var s=0;s<e;s++)a.push(o(r,i++).toString(16));return a.join("")}function c(){return s(16)}function u(){return s(32)}},7056:(e,t,r)=>{"use strict";r.d(t,{Bq:()=>n,Hb:()=>o,IK:()=>c,oD:()=>i,uT:()=>s,wO:()=>a});const n="NRBA",i=144e5,o=18e5,a={PAUSE:"session-pause",RESET:"session-reset",RESUME:"session-resume",UPDATE:"session-update"},s={SAME_TAB:"same-tab",CROSS_TAB:"cross-tab"},c={OFF:0,FULL:1,ERROR:2}},7894:(e,t,r)=>{"use strict";function n(){return Math.round(performance.now())}r.d(t,{z:()=>n})},7243:(e,t,r)=>{"use strict";r.d(t,{e:()=>i});var n=r(385);function i(e){if(0===(e||"").indexOf("data:"))return{protocol:"data"};try{const t=new URL(e,location.href),r={port:t.port,hostname:t.hostname,pathname:t.pathname,search:t.search,protocol:t.protocol.slice(0,t.protocol.indexOf(":")),sameOrigin:t.protocol===n._A?.location?.protocol&&t.host===n._A?.location?.host};return r.port&&""!==r.port||("http:"===t.protocol&&(r.port="80"),"https:"===t.protocol&&(r.port="443")),r.pathname&&""!==r.pathname?r.pathname.startsWith("/")||(r.pathname="/".concat(r.pathname)):r.pathname="/",r}catch(e){return{}}}},50:(e,t,r)=>{"use strict";function n(e,t){"function"==typeof console.warn&&(console.warn("New Relic: ".concat(e)),t&&console.warn(t))}r.d(t,{Z:()=>n})},2825:(e,t,r)=>{"use strict";r.d(t,{N:()=>d,T:()=>l});var n=r(8325),i=r(5546),o=r(3325),a=r(385);const s="newrelic";const c={stn:[o.D.sessionTrace],err:[o.D.jserrors,o.D.metrics],ins:[o.D.pageAction],spa:[o.D.spa],sr:[o.D.sessionReplay,o.D.sessionTrace]},u=new Set;function d(e,t){const r=n.ee.get(t);e&&"object"==typeof e&&(u.has(t)||(Object.entries(e).forEach((e=>{let[t,n]=e;c[t]?c[t].forEach((e=>{n?(0,i.p)("feat-"+t,[],void 0,e,r):(0,i.p)("block-"+t,[],void 0,e,r),(0,i.p)("rumresp-"+t,[Boolean(n)],void 0,e,r)})):n&&(0,i.p)("feat-"+t,[],void 0,void 0,r),l[t]=Boolean(n)})),Object.keys(c).forEach((e=>{void 0===l[e]&&(c[e]?.forEach((t=>(0,i.p)("rumresp-"+e,[!1],void 0,t,r))),l[e]=!1)})),u.add(t),function(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};try{a._A.dispatchEvent(new CustomEvent(s,{detail:e}))}catch(e){}}({loaded:!0})))}const l={}},2210:(e,t,r)=>{"use strict";r.d(t,{X:()=>i});var n=Object.prototype.hasOwnProperty;function i(e,t,r){if(n.call(e,t))return e[t];var i=r();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:i,writable:!0,enumerable:!1}),i}catch(e){}return e[t]=i,i}},1284:(e,t,r)=>{"use strict";r.d(t,{D:()=>n});const n=(e,t)=>Object.entries(e||{}).map((e=>{let[r,n]=e;return t(r,n)}))},4351:(e,t,r)=>{"use strict";r.d(t,{P:()=>o});var n=r(8325);const i=()=>{const e=new WeakSet;return(t,r)=>{if("object"==typeof r&&null!==r){if(e.has(r))return;e.add(r)}return r}};function o(e){try{return JSON.stringify(e,i())}catch(e){try{n.ee.emit("internal-error",[e])}catch(e){}}}},3960:(e,t,r)=>{"use strict";r.d(t,{KB:()=>a,b2:()=>o});var n=r(3239);function i(){return"undefined"==typeof document||"complete"===document.readyState}function o(e,t){if(i())return e();(0,n.bP)("load",e,t)}function a(e){if(i())return e();(0,n.iz)("DOMContentLoaded",e)}},8632:(e,t,r)=>{"use strict";r.d(t,{EZ:()=>d,ce:()=>o,ek:()=>u,fP:()=>a,gG:()=>l,h5:()=>c,mF:()=>s});var n=r(7894),i=r(385);const o={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net"};function a(){return i._A.NREUM||(i._A.NREUM={}),void 0===i._A.newrelic&&(i._A.newrelic=i._A.NREUM),i._A.NREUM}function s(){let e=a();return e.o||(e.o={ST:i._A.setTimeout,SI:i._A.setImmediate,CT:i._A.clearTimeout,XHR:i._A.XMLHttpRequest,REQ:i._A.Request,EV:i._A.Event,PR:i._A.Promise,MO:i._A.MutationObserver,FETCH:i._A.fetch}),e}function c(e,t){let r=a();r.initializedAgents??={},t.initializedAt={ms:(0,n.z)(),date:new Date},r.initializedAgents[e]=t}function u(e){let t=a();return t.initializedAgents?.[e]}function d(e,t){a()[e]=t}function l(){return function(){let e=a();const t=e.info||{};e.info={beacon:o.beacon,errorBeacon:o.errorBeacon,...t}}(),function(){let e=a();const t=e.init||{};e.init={...t}}(),s(),function(){let e=a();const t=e.loader_config||{};e.loader_config={...t}}(),a()}},7956:(e,t,r)=>{"use strict";r.d(t,{N:()=>i});var n=r(3239);function i(e){let t=arguments.length>1&&void 0!==arguments[1]&&arguments[1],r=arguments.length>2?arguments[2]:void 0,i=arguments.length>3?arguments[3]:void 0;(0,n.iz)("visibilitychange",(function(){if(t)return void("hidden"===document.visibilityState&&e());e(document.visibilityState)}),r,i)}},1214:(e,t,r)=>{"use strict";r.d(t,{em:()=>b,u5:()=>R,QU:()=>O,_L:()=>C,Gm:()=>M,Lg:()=>L,BV:()=>Z,Kf:()=>Y});var n=r(8325),i=r(3117);const o="nr@original:".concat(i.a);var a=Object.prototype.hasOwnProperty,s=!1;function c(e,t){return e||(e=n.ee),r.inPlace=function(e,t,n,i,o){n||(n="");const a="-"===n.charAt(0);for(let s=0;s<t.length;s++){const c=t[s],u=e[c];d(u)||(e[c]=r(u,a?c+n:n,i,c,o))}},r.flag=o,r;function r(t,r,n,s,c){return d(t)?t:(r||(r=""),nrWrapper[o]=t,function(e,t,r){if(Object.defineProperty&&Object.keys)try{return Object.keys(e).forEach((function(r){Object.defineProperty(t,r,{get:function(){return e[r]},set:function(t){return e[r]=t,t}})})),t}catch(e){u([e],r)}for(var n in e)a.call(e,n)&&(t[n]=e[n])}(t,nrWrapper,e),nrWrapper);function nrWrapper(){var o,a,d,l;try{a=this,o=[...arguments],d="function"==typeof n?n(o,a):n||{}}catch(t){u([t,"",[o,a,s],d],e)}i(r+"start",[o,a,s],d,c);try{return l=t.apply(a,o)}catch(e){throw i(r+"err",[o,a,e],d,c),e}finally{i(r+"end",[o,a,l],d,c)}}}function i(r,n,i,o){if(!s||t){var a=s;s=!0;try{e.emit(r,n,i,t,o)}catch(t){u([t,r,n,i],e)}s=a}}}function u(e,t){t||(t=n.ee);try{t.emit("internal-error",e)}catch(e){}}function d(e){return!(e&&"function"==typeof e&&e.apply&&!e[o])}var l=r(2210),f=r(385);const h={},p=f._A.XMLHttpRequest,g="addEventListener",m="removeEventListener",v="nr@wrapped:".concat(n.A);function b(e){var t=function(e){return(e||n.ee).get("events")}(e);if(h[t.debugId]++)return t;h[t.debugId]=1;var r=c(t,!0);function i(e){r.inPlace(e,[g,m],"-",o)}function o(e,t){return e[1]}return"getPrototypeOf"in Object&&(f.il&&y(document,i),y(f._A,i),y(p.prototype,i)),t.on(g+"-start",(function(e,t){var n=e[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var i=(0,l.X)(n,v,(function(){var e={object:function(){if("function"!=typeof n.handleEvent)return;return n.handleEvent.apply(n,arguments)},function:n}[typeof n];return e?r(e,"fn-",null,e.name||"anonymous"):n}));this.wrapped=e[1]=i}})),t.on(m+"-start",(function(e){e[1]=this.wrapped||e[1]})),t}function y(e,t){let r=e;for(;"object"==typeof r&&!Object.prototype.hasOwnProperty.call(r,g);)r=Object.getPrototypeOf(r);for(var n=arguments.length,i=new Array(n>2?n-2:0),o=2;o<n;o++)i[o-2]=arguments[o];r&&t(r,...i)}var A="fetch-",w=A+"body-",x=["arrayBuffer","blob","json","text","formData"],E=f._A.Request,_=f._A.Response,T="prototype";const S={};function R(e){const t=function(e){return(e||n.ee).get("fetch")}(e);if(!(E&&_&&f._A.fetch))return t;if(S[t.debugId]++)return t;function r(e,r,i){var o=e[r];"function"==typeof o&&(e[r]=function(){var e,r=[...arguments],a={};t.emit(i+"before-start",[r],a),a[n.A]&&a[n.A].dt&&(e=a[n.A].dt);var s=o.apply(this,r);return t.emit(i+"start",[r,e],s),s.then((function(e){return t.emit(i+"end",[null,e],s),e}),(function(e){throw t.emit(i+"end",[e],s),e}))})}return S[t.debugId]=1,x.forEach((e=>{r(E[T],e,w),r(_[T],e,w)})),r(f._A,"fetch",A),t.on(A+"end",(function(e,r){var n=this;if(r){var i=r.headers.get("content-length");null!==i&&(n.rxSize=i),t.emit(A+"done",[null,r],n)}else t.emit(A+"done",[e],n)})),t}const D={},N=["pushState","replaceState"];function O(e){const t=function(e){return(e||n.ee).get("history")}(e);return!f.il||D[t.debugId]++||(D[t.debugId]=1,c(t).inPlace(window.history,N,"-")),t}var I=r(3239);const j={},P=["appendChild","insertBefore","replaceChild"];function C(e){const t=function(e){return(e||n.ee).get("jsonp")}(e);if(!f.il||j[t.debugId])return t;j[t.debugId]=!0;var r=c(t),i=/[?&](?:callback|cb)=([^&#]+)/,o=/(.*)\.([^.]+)/,a=/^(\w+)(\.|$)(.*)$/;function s(e,t){if(!e)return t;const r=e.match(a),n=r[1];return s(r[3],t[n])}return r.inPlace(Node.prototype,P,"dom-"),t.on("dom-start",(function(e){!function(e){if(!e||"string"!=typeof e.nodeName||"script"!==e.nodeName.toLowerCase())return;if("function"!=typeof e.addEventListener)return;var n=(a=e.src,c=a.match(i),c?c[1]:null);var a,c;if(!n)return;var u=function(e){var t=e.match(o);if(t&&t.length>=3)return{key:t[2],parent:s(t[1],window)};return{key:e,parent:window}}(n);if("function"!=typeof u.parent[u.key])return;var d={};function l(){t.emit("jsonp-end",[],d),e.removeEventListener("load",l,(0,I.m$)(!1)),e.removeEventListener("error",f,(0,I.m$)(!1))}function f(){t.emit("jsonp-error",[],d),t.emit("jsonp-end",[],d),e.removeEventListener("load",l,(0,I.m$)(!1)),e.removeEventListener("error",f,(0,I.m$)(!1))}r.inPlace(u.parent,[u.key],"cb-",d),e.addEventListener("load",l,(0,I.m$)(!1)),e.addEventListener("error",f,(0,I.m$)(!1)),t.emit("new-jsonp",[e.src],d)}(e[0])})),t}const k={};function M(e){const t=function(e){return(e||n.ee).get("mutation")}(e);if(!f.il||k[t.debugId])return t;k[t.debugId]=!0;var r=c(t),i=f._A.MutationObserver;return i&&(window.MutationObserver=function(e){return this instanceof i?new i(r(e,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype),t}const H={};function L(e){const t=function(e){return(e||n.ee).get("promise")}(e);if(H[t.debugId])return t;H[t.debugId]=!0;var r=t.context,i=c(t),a=f._A.Promise;return a&&function(){function e(r){var n=t.context(),o=i(r,"executor-",n,null,!1);const s=Reflect.construct(a,[o],e);return t.context(s).getCtx=function(){return n},s}f._A.Promise=e,Object.defineProperty(e,"name",{value:"Promise"}),e.toString=function(){return a.toString()},Object.setPrototypeOf(e,a),["all","race"].forEach((function(r){const n=a[r];e[r]=function(e){let i=!1;[...e||[]].forEach((e=>{this.resolve(e).then(a("all"===r),a(!1))}));const o=n.apply(this,arguments);return o;function a(e){return function(){t.emit("propagate",[null,!i],o,!1,!1),i=i||!e}}}})),["resolve","reject"].forEach((function(r){const n=a[r];e[r]=function(e){const r=n.apply(this,arguments);return e!==r&&t.emit("propagate",[e,!0],r,!1,!1),r}})),e.prototype=a.prototype;const n=a.prototype.then;a.prototype.then=function(){var e=this,o=r(e);o.promise=e;for(var a=arguments.length,s=new Array(a),c=0;c<a;c++)s[c]=arguments[c];s[0]=i(s[0],"cb-",o,null,!1),s[1]=i(s[1],"cb-",o,null,!1);const u=n.apply(this,s);return o.nextPromise=u,t.emit("propagate",[e,!0],u,!1,!1),u},a.prototype.then[o]=n,t.on("executor-start",(function(e){e[0]=i(e[0],"resolve-",this,null,!1),e[1]=i(e[1],"resolve-",this,null,!1)})),t.on("executor-err",(function(e,t,r){e[1](r)})),t.on("cb-end",(function(e,r,n){t.emit("propagate",[n,!0],this.nextPromise,!1,!1)})),t.on("propagate",(function(e,r,n){this.getCtx&&!r||(this.getCtx=function(){if(e instanceof Promise)var r=t.context(e);return r&&r.getCtx?r.getCtx():this})}))}(),t}const z={},F="setTimeout",B="setInterval",U="clearTimeout",V="-start",q="-",G=[F,"setImmediate",B,U,"clearImmediate"];function Z(e){const t=function(e){return(e||n.ee).get("timer")}(e);if(z[t.debugId]++)return t;z[t.debugId]=1;var r=c(t);return r.inPlace(f._A,G.slice(0,2),F+q),r.inPlace(f._A,G.slice(2,3),B+q),r.inPlace(f._A,G.slice(3),U+q),t.on(B+V,(function(e,t,n){e[0]=r(e[0],"fn-",null,n)})),t.on(F+V,(function(e,t,n){this.method=n,this.timerDuration=isNaN(e[1])?0:+e[1],e[0]=r(e[0],"fn-",this,n)})),t}var W=r(50);const X={},K=["open","send"];function Y(e){var t=e||n.ee;const r=function(e){return(e||n.ee).get("xhr")}(t);if(X[r.debugId]++)return r;X[r.debugId]=1,b(t);var i=c(r),o=f._A.XMLHttpRequest,a=f._A.MutationObserver,s=f._A.Promise,u=f._A.setInterval,d="readystatechange",l=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],h=[],p=f._A.XMLHttpRequest=function(e){const t=new o(e),n=r.context(t);try{r.emit("new-xhr",[t],n),t.addEventListener(d,(a=n,function(){var e=this;e.readyState>3&&!a.resolved&&(a.resolved=!0,r.emit("xhr-resolved",[],e)),i.inPlace(e,l,"fn-",w)}),(0,I.m$)(!1))}catch(e){(0,W.Z)("An error occurred while intercepting XHR",e);try{r.emit("internal-error",[e])}catch(e){}}var a;return t};function g(e,t){i.inPlace(t,["onreadystatechange"],"fn-",w)}if(function(e,t){for(var r in e)t[r]=e[r]}(o,p),p.prototype=o.prototype,i.inPlace(p.prototype,K,"-xhr-",w),r.on("send-xhr-start",(function(e,t){g(e,t),function(e){h.push(e),a&&(m?m.then(A):u?u(A):(v=-v,y.data=v))}(t)})),r.on("open-xhr-start",g),a){var m=s&&s.resolve();if(!u&&!s){var v=1,y=document.createTextNode(v);new a(A).observe(y,{characterData:!0})}}else t.on("fn-end",(function(e){e[0]&&e[0].type===d||A()}));function A(){for(var e=0;e<h.length;e++)g(0,h[e]);h.length&&(h=[])}function w(e,t){return t}return r}},7825:(e,t,r)=>{"use strict";r.d(t,{t:()=>n});const n=r(3325).D.ajax},6660:(e,t,r)=>{"use strict";r.d(t,{t:()=>n});const n=r(3325).D.jserrors},3081:(e,t,r)=>{"use strict";r.d(t,{gF:()=>o,mY:()=>i,t9:()=>n,vz:()=>s,xS:()=>a});const n=r(3325).D.metrics,i="sm",o="cm",a="storeSupportabilityMetrics",s="storeEventMetrics"},4649:(e,t,r)=>{"use strict";r.d(t,{t:()=>n});const n=r(3325).D.pageAction},7633:(e,t,r)=>{"use strict";r.d(t,{t:()=>n});const n=r(3325).D.pageViewEvent},9251:(e,t,r)=>{"use strict";r.d(t,{t:()=>n});const n=r(3325).D.pageViewTiming},7144:(e,t,r)=>{"use strict";r.d(t,{J0:()=>l,Mi:()=>d,Vb:()=>o,Ye:()=>s,fm:()=>c,i9:()=>a,t9:()=>i,u0:()=>u});var n=r(7056);const i=r(3325).D.sessionReplay,o=.12,a={DomContentLoaded:0,Load:1,FullSnapshot:2,IncrementalSnapshot:3,Meta:4,Custom:5},s=1e6,c=64e3,u={[n.IK.ERROR]:15e3,[n.IK.FULL]:3e5,[n.IK.OFF]:0},d={RESET:{message:"Session was reset",sm:"Reset"},IMPORT:{message:"Recorder failed to import",sm:"Import"},TOO_MANY:{message:"429: Too Many Requests",sm:"Too-Many"},TOO_BIG:{message:"Payload was too large",sm:"Too-Big"},CROSS_TAB:{message:"Session Entity was set to OFF on another tab",sm:"Cross-Tab"},ENTITLEMENTS:{message:"Session Replay is not allowed and will not be started",sm:"Entitlement"}},l=5e3},3614:(e,t,r)=>{"use strict";r.d(t,{BST_RESOURCE:()=>i,END:()=>s,FEATURE_NAME:()=>n,FN_END:()=>u,FN_START:()=>c,PUSH_STATE:()=>d,RESOURCE:()=>o,START:()=>a});const n=r(3325).D.sessionTrace,i="bstResource",o="resource",a="-start",s="-end",c="fn"+a,u="fn"+s,d="pushState"},7836:(e,t,r)=>{"use strict";r.d(t,{BODY:()=>x,CB_END:()=>E,CB_START:()=>u,END:()=>w,FEATURE_NAME:()=>i,FETCH:()=>T,FETCH_BODY:()=>v,FETCH_DONE:()=>m,FETCH_START:()=>g,FN_END:()=>c,FN_START:()=>s,INTERACTION:()=>f,INTERACTION_API:()=>d,INTERACTION_EVENTS:()=>o,JSONP_END:()=>b,JSONP_NODE:()=>p,JS_TIME:()=>_,MAX_TIMER_BUDGET:()=>a,REMAINING:()=>l,SPA_NODE:()=>h,START:()=>A,originalSetTimeout:()=>y});var n=r(234);const i=r(3325).D.spa,o=["click","submit","keypress","keydown","keyup","change"],a=999,s="fn-start",c="fn-end",u="cb-start",d="api-ixn-",l="remaining",f="interaction",h="spaNode",p="jsonpNode",g="fetch-start",m="fetch-done",v="fetch-body-",b="jsonp-end",y=n.Yu.ST,A="-start",w="-end",x="-body",E="cb"+w,_="jsTime",T="fetch"},5938:(e,t,r)=>{"use strict";r.d(t,{W:()=>i});var n=r(8325);class i{constructor(e,t,r){this.agentIdentifier=e,this.aggregator=t,this.ee=n.ee.get(e),this.featureName=r,this.blocked=!1}}},7530:(e,t,r)=>{"use strict";r.d(t,{j:()=>b});var n=r(3325),i=r(234),o=r(5546),a=r(8325),s=r(7894),c=r(8e3),u=r(3960),d=r(385),l=r(50),f=r(3081),h=r(8632);function p(){const e=(0,h.gG)();["setErrorHandler","finished","addToTrace","addRelease","addPageAction","setCurrentRouteName","setPageViewName","setCustomAttribute","interaction","noticeError","setUserId","setApplicationVersion","start","recordReplay","pauseReplay"].forEach((t=>{e[t]=function(){for(var r=arguments.length,n=new Array(r),i=0;i<r;i++)n[i]=arguments[i];return function(t){for(var r=arguments.length,n=new Array(r>1?r-1:0),i=1;i<r;i++)n[i-1]=arguments[i];let o=[];return Object.values(e.initializedAgents).forEach((e=>{e.exposed&&e.api[t]&&o.push(e.api[t](...n))})),o.length>1?o:o[0]}(t,...n)}}))}var g=r(2825);const m=e=>{const t=e.startsWith("http");e+="/",r.p=t?e:"https://"+e};let v=!1;function b(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},b=arguments.length>2?arguments[2]:void 0,y=arguments.length>3?arguments[3]:void 0,{init:A,info:w,loader_config:x,runtime:E={loaderType:b},exposed:_=!0}=t;const T=(0,h.gG)();w||(A=T.init,w=T.info,x=T.loader_config),(0,i.Dg)(e.agentIdentifier,A||{}),(0,i.GE)(e.agentIdentifier,x||{}),w.jsAttributes??={},d.v6&&(w.jsAttributes.isWorker=!0),(0,i.CX)(e.agentIdentifier,w);const S=(0,i.P_)(e.agentIdentifier),R=[w.beacon,w.errorBeacon];v||(S.proxy.assets&&(m(S.proxy.assets),R.push(S.proxy.assets)),S.proxy.beacon&&R.push(S.proxy.beacon),p(),(0,h.EZ)("activatedFeatures",g.T)),E.denyList=[...S.ajax.deny_list||[],...S.ajax.block_internal?R:[]],(0,i.sU)(e.agentIdentifier,E),void 0===e.api&&(e.api=function(e,t){t||(0,c.R)(e,"api");const h={};var p=a.ee.get(e),g=p.get("tracer"),m="api-",v=m+"ixn-";function b(t,r,n,o){const a=(0,i.C5)(e);return null===r?delete a.jsAttributes[t]:(0,i.CX)(e,{...a,jsAttributes:{...a.jsAttributes,[t]:r}}),w(m,n,!0,o||null===r?"session":void 0)(t,r)}function y(){}["setErrorHandler","finished","addToTrace","addRelease"].forEach((e=>{h[e]=w(m,e,!0,"api")})),h.addPageAction=w(m,"addPageAction",!0,n.D.pageAction),h.setCurrentRouteName=w(m,"routeName",!0,n.D.spa),h.setPageViewName=function(t,r){if("string"==typeof t)return"/"!==t.charAt(0)&&(t="/"+t),(0,i.OP)(e).customTransaction=(r||"http://custom.transaction")+t,w(m,"setPageViewName",!0)()},h.setCustomAttribute=function(e,t){let r=arguments.length>2&&void 0!==arguments[2]&&arguments[2];if("string"==typeof e){if(["string","number","boolean"].includes(typeof t)||null===t)return b(e,t,"setCustomAttribute",r);(0,l.Z)("Failed to execute setCustomAttribute.\nNon-null value must be a string, number or boolean type, but a type of <".concat(typeof t,"> was provided."))}else(0,l.Z)("Failed to execute setCustomAttribute.\nName must be a string type, but a type of <".concat(typeof e,"> was provided."))},h.setUserId=function(e){if("string"==typeof e||null===e)return b("enduser.id",e,"setUserId",!0);(0,l.Z)("Failed to execute setUserId.\nNon-null value must be a string type, but a type of <".concat(typeof e,"> was provided."))},h.setApplicationVersion=function(e){if("string"==typeof e||null===e)return b("application.version",e,"setApplicationVersion",!1);(0,l.Z)("Failed to execute setApplicationVersion. Expected <String | null>, but got <".concat(typeof e,">."))},h.start=e=>{try{const t=e?"defined":"undefined";(0,o.p)(f.xS,["API/start/".concat(t,"/called")],void 0,n.D.metrics,p);const r=Object.values(n.D);if(void 0===e)e=r;else{if((e=Array.isArray(e)&&e.length?e:[e]).some((e=>!r.includes(e))))return(0,l.Z)("Invalid feature name supplied. Acceptable feature names are: ".concat(r));e.includes(n.D.pageViewEvent)||e.push(n.D.pageViewEvent)}e.forEach((e=>{p.emit("".concat(e,"-opt-in"))}))}catch(e){(0,l.Z)("An unexpected issue occurred",e)}},h.recordReplay=function(){(0,o.p)(f.xS,["API/recordReplay/called"],void 0,n.D.metrics,p),(0,o.p)("recordReplay",[],void 0,n.D.sessionReplay,p)},h.pauseReplay=function(){(0,o.p)(f.xS,["API/pauseReplay/called"],void 0,n.D.metrics,p),(0,o.p)("pauseReplay",[],void 0,n.D.sessionReplay,p)},h.interaction=function(){return(new y).get()};var A=y.prototype={createTracer:function(e,t){var r={},i=this,a="function"==typeof t;return(0,o.p)(f.xS,["API/createTracer/called"],void 0,n.D.metrics,p),(0,o.p)(v+"tracer",[(0,s.z)(),e,r],i,n.D.spa,p),function(){if(g.emit((a?"":"no-")+"fn-start",[(0,s.z)(),i,a],r),a)try{return t.apply(this,arguments)}catch(e){throw g.emit("fn-err",[arguments,this,e],r),e}finally{g.emit("fn-end",[(0,s.z)()],r)}}}};function w(e,t,r,i){return function(){return(0,o.p)(f.xS,["API/"+t+"/called"],void 0,n.D.metrics,p),i&&(0,o.p)(e+t,[(0,s.z)(),...arguments],r?null:this,i,p),r?void 0:this}}function x(){r.e(111).then(r.bind(r,7438)).then((t=>{let{setAPI:r}=t;r(e),(0,c.L)(e,"api")})).catch((()=>(0,l.Z)("Downloading runtime APIs failed...")))}return["actionText","setName","setAttribute","save","ignore","onEnd","getContext","end","get"].forEach((e=>{A[e]=w(v,e,void 0,n.D.spa)})),h.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),(0,o.p)(f.xS,["API/noticeError/called"],void 0,n.D.metrics,p),(0,o.p)("err",[e,(0,s.z)(),!1,t],void 0,n.D.jserrors,p)},d.il?(0,u.b2)((()=>x()),!0):x(),h}(e.agentIdentifier,y)),void 0===e.exposed&&(e.exposed=_),v=!0}},1926:(e,t,r)=>{r.nc=(()=>{try{return document?.currentScript?.nonce}catch(e){}return""})()},3325:(e,t,r)=>{"use strict";r.d(t,{D:()=>n,p:()=>i});const n={ajax:"ajax",jserrors:"jserrors",metrics:"metrics",pageAction:"page_action",pageViewEvent:"page_view_event",pageViewTiming:"page_view_timing",sessionReplay:"session_replay",sessionTrace:"session_trace",spa:"spa"},i={[n.pageViewEvent]:1,[n.pageViewTiming]:2,[n.metrics]:3,[n.jserrors]:4,[n.ajax]:5,[n.sessionTrace]:6,[n.pageAction]:7,[n.spa]:8,[n.sessionReplay]:9}}},n={};function i(e){var t=n[e];if(void 0!==t)return t.exports;var o=n[e]={exports:{}};return r[e](o,o.exports,i),o.exports}i.m=r,i.d=(e,t)=>{for(var r in t)i.o(t,r)&&!i.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:t[r]})},i.f={},i.e=e=>Promise.all(Object.keys(i.f).reduce(((t,r)=>(i.f[r](e,t),t)),[])),i.u=e=>({111:"nr-spa",164:"nr-spa-compressor",433:"nr-spa-recorder"}[e]+"-1.251.1.min.js"),i.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),e={},t="NRBA-1.251.1.PROD:",i.l=(r,n,o,a)=>{if(e[r])e[r].push(n);else{var s,c;if(void 0!==o)for(var u=document.getElementsByTagName("script"),d=0;d<u.length;d++){var l=u[d];if(l.getAttribute("src")==r||l.getAttribute("data-webpack")==t+o){s=l;break}}if(!s){c=!0;var f={111:"sha512-lCY4+B0gOT0jVtMbaDU0ri7coukTGr4YSIrFnYCbNcvlKoBWZ5lEMC3pnQbfFRHmqU9ClOHO1zeM7zl3Bpi8lg==",433:"sha512-uSk6ex6Q5btbEC3Fd9ucXsXT/MfYs9nSwrApEySzfsKG5WHfu74lzjBZOw2ou+AfTHUFLXX7zUhG8T18KvZDQQ==",164:"sha512-69slZTW/5YZ/pY5zE0I3TCiV/tXwxGlT/pOzl7BgweR1maJ+C+doWoTbPHgKP1SrTS/0sZHb5fgMScLDwVDkqw=="};(s=document.createElement("script")).charset="utf-8",s.timeout=120,i.nc&&s.setAttribute("nonce",i.nc),s.setAttribute("data-webpack",t+o),s.src=r,0!==s.src.indexOf(window.location.origin+"/")&&(s.crossOrigin="anonymous"),f[a]&&(s.integrity=f[a])}e[r]=[n];var h=(t,n)=>{s.onerror=s.onload=null,clearTimeout(p);var i=e[r];if(delete e[r],s.parentNode&&s.parentNode.removeChild(s),i&&i.forEach((e=>e(n))),t)return t(n)},p=setTimeout(h.bind(null,void 0,{type:"timeout",target:s}),12e4);s.onerror=h.bind(null,s.onerror),s.onload=h.bind(null,s.onload),c&&document.head.appendChild(s)}},i.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.p="https://js-agent.newrelic.com/",(()=>{var e={801:0,92:0};i.f.j=(t,r)=>{var n=i.o(e,t)?e[t]:void 0;if(0!==n)if(n)r.push(n[2]);else{var o=new Promise(((r,i)=>n=e[t]=[r,i]));r.push(n[2]=o);var a=i.p+i.u(t),s=new Error;i.l(a,(r=>{if(i.o(e,t)&&(0!==(n=e[t])&&(e[t]=void 0),n)){var o=r&&("load"===r.type?"missing":r.type),a=r&&r.target&&r.target.src;s.message="Loading chunk "+t+" failed.\n("+o+": "+a+")",s.name="ChunkLoadError",s.type=o,s.request=a,n[1](s)}}),"chunk-"+t,t)}};var t=(t,r)=>{var n,o,[a,s,c]=r,u=0;if(a.some((t=>0!==e[t]))){for(n in s)i.o(s,n)&&(i.m[n]=s[n]);if(c)c(i)}for(t&&t(r);u<a.length;u++)o=a[u],i.o(e,o)&&e[o]&&e[o][0](),e[o]=0},r=self["webpackChunk:NRBA-1.251.1.PROD"]=self["webpackChunk:NRBA-1.251.1.PROD"]||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})(),(()=>{"use strict";i(1926);var e=i(50);class t{#e(t){for(var r=arguments.length,n=new Array(r>1?r-1:0),i=1;i<r;i++)n[i-1]=arguments[i];if("function"==typeof this.api?.[t])return this.api[t](...n);(0,e.Z)("Call to agent api ".concat(t," failed. The API is not currently initialized."))}addPageAction(e,t){return this.#e("addPageAction",e,t)}setPageViewName(e,t){return this.#e("setPageViewName",e,t)}setCustomAttribute(e,t,r){return this.#e("setCustomAttribute",e,t,r)}noticeError(e,t){return this.#e("noticeError",e,t)}setUserId(e){return this.#e("setUserId",e)}setApplicationVersion(e){return this.#e("setApplicationVersion",e)}setErrorHandler(e){return this.#e("setErrorHandler",e)}finished(e){return this.#e("finished",e)}addRelease(e,t){return this.#e("addRelease",e,t)}start(e){return this.#e("start",e)}recordReplay(){return this.#e("recordReplay")}pauseReplay(){return this.#e("pauseReplay")}addToTrace(e){return this.#e("addToTrace",e)}setCurrentRouteName(e){return this.#e("setCurrentRouteName",e)}interaction(){return this.#e("interaction")}}var r=i(3325),n=i(234);const o=Object.values(r.D);function a(e){const t={};return o.forEach((r=>{t[r]=function(e,t){return!1!==(0,n.Mt)(t,"".concat(e,".enabled"))}(r,e)})),t}var s=i(7530);var c=i(8e3),u=i(5938),d=i(3960),l=i(385);class f extends u.W{constructor(e,t,r){let i=!(arguments.length>3&&void 0!==arguments[3])||arguments[3];super(e,t,r),this.auto=i,this.abortHandler=void 0,this.featAggregate=void 0,this.onAggregateImported=void 0,!1===(0,n.Mt)(this.agentIdentifier,"".concat(this.featureName,".autoStart"))&&(this.auto=!1),this.auto&&(0,c.R)(e,r)}importAggregator(){let t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};if(this.featAggregate)return;if(!this.auto)return void this.ee.on("".concat(this.featureName,"-opt-in"),(()=>{(0,c.R)(this.agentIdentifier,this.featureName),this.auto=!0,this.importAggregator()}));const r=l.il&&!0===(0,n.Mt)(this.agentIdentifier,"privacy.cookies_enabled");let o;this.onAggregateImported=new Promise((e=>{o=e}));const a=async()=>{let n;try{if(r){const{setupAgentSession:e}=await i.e(111).then(i.bind(i,1656));n=e(this.agentIdentifier)}}catch(t){(0,e.Z)("A problem occurred when starting up session manager. This page will not start or extend any session.",t)}try{if(!this.shouldImportAgg(this.featureName,n))return(0,c.L)(this.agentIdentifier,this.featureName),void o(!1);const{lazyFeatureLoader:e}=await i.e(111).then(i.bind(i,8582)),{Aggregate:r}=await e(this.featureName,"aggregate");this.featAggregate=new r(this.agentIdentifier,this.aggregator,t),o(!0)}catch(t){(0,e.Z)("Downloading and initializing ".concat(this.featureName," failed..."),t),this.abortHandler?.(),(0,c.L)(this.agentIdentifier,this.featureName),o(!1)}};l.il?(0,d.b2)((()=>a()),!0):a()}shouldImportAgg(e,t){return e!==r.D.sessionReplay||!!n.Yu.MO&&(!1!==(0,n.Mt)(this.agentIdentifier,"session_trace.enabled")&&(!!t?.isNew||!!t?.state.sessionReplayMode))}}var h=i(7633);class p extends f{static featureName=h.t;constructor(e,t){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,h.t,r),this.importAggregator()}}var g=i(1117),m=i(1284);class v extends g.w{constructor(e){super(e),this.aggregatedData={}}store(e,t,r,n,i){var o=this.getBucket(e,t,r,i);return o.metrics=function(e,t){t||(t={count:0});return t.count+=1,(0,m.D)(e,(function(e,r){t[e]=b(r,t[e])})),t}(n,o.metrics),o}merge(e,t,r,n,i){var o=this.getBucket(e,t,n,i);if(o.metrics){var a=o.metrics;a.count+=r.count,(0,m.D)(r,(function(e,t){if("count"!==e){var n=a[e],i=r[e];i&&!i.c?a[e]=b(i.t,n):a[e]=function(e,t){if(!t)return e;t.c||(t=y(t.t));return t.min=Math.min(e.min,t.min),t.max=Math.max(e.max,t.max),t.t+=e.t,t.sos+=e.sos,t.c+=e.c,t}(i,a[e])}}))}else o.metrics=r}storeMetric(e,t,r,n){var i=this.getBucket(e,t,r);return i.stats=b(n,i.stats),i}getBucket(e,t,r,n){this.aggregatedData[e]||(this.aggregatedData[e]={});var i=this.aggregatedData[e][t];return i||(i=this.aggregatedData[e][t]={params:r||{}},n&&(i.custom=n)),i}get(e,t){return t?this.aggregatedData[e]&&this.aggregatedData[e][t]:this.aggregatedData[e]}take(e){for(var t={},r="",n=!1,i=0;i<e.length;i++)t[r=e[i]]=A(this.aggregatedData[r]),t[r].length&&(n=!0),delete this.aggregatedData[r];return n?t:null}}function b(e,t){return null==e?function(e){e?e.c++:e={c:1};return e}(t):t?(t.c||(t=y(t.t)),t.c+=1,t.t+=e,t.sos+=e*e,e>t.max&&(t.max=e),e<t.min&&(t.min=e),t):{t:e}}function y(e){return{t:e,min:e,max:e,sos:e*e,c:1}}function A(e){return"object"!=typeof e?[]:(0,m.D)(e,w)}function w(e,t){return t}var x=i(8632),E=i(4402),_=i(4351);var T=i(5546),S=i(7956),R=i(3239),D=i(7894),N=i(9251);class O extends f{static featureName=N.t;constructor(e,t){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,N.t,r),l.il&&((0,S.N)((()=>(0,T.p)("docHidden",[(0,D.z)()],void 0,N.t,this.ee)),!0),(0,R.bP)("pagehide",(()=>(0,T.p)("winPagehide",[(0,D.z)()],void 0,N.t,this.ee))),this.importAggregator())}}var I=i(3081);class j extends f{static featureName=I.t9;constructor(e,t){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,I.t9,r),this.importAggregator()}}var P=i(6660);class C{constructor(e,t,r,n){this.name="UncaughtError",this.message=e,this.sourceURL=t,this.line=r,this.column=n}}class k extends f{static featureName=P.t;#t=new Set;constructor(e,t){let n=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,P.t,n);try{this.removeOnAbort=new AbortController}catch(e){}this.ee.on("fn-err",((e,t,n)=>{this.abortHandler&&!this.#t.has(n)&&(this.#t.add(n),(0,T.p)("err",[this.#r(n),(0,D.z)()],void 0,r.D.jserrors,this.ee))})),this.ee.on("internal-error",(e=>{this.abortHandler&&(0,T.p)("ierr",[this.#r(e),(0,D.z)(),!0],void 0,r.D.jserrors,this.ee)})),l._A.addEventListener("unhandledrejection",(e=>{this.abortHandler&&(0,T.p)("err",[this.#n(e),(0,D.z)(),!1,{unhandledPromiseRejection:1}],void 0,r.D.jserrors,this.ee)}),(0,R.m$)(!1,this.removeOnAbort?.signal)),l._A.addEventListener("error",(e=>{this.abortHandler&&(this.#t.has(e.error)?this.#t.delete(e.error):(0,T.p)("err",[this.#i(e),(0,D.z)()],void 0,r.D.jserrors,this.ee))}),(0,R.m$)(!1,this.removeOnAbort?.signal)),this.abortHandler=this.#o,this.importAggregator()}#o(){this.removeOnAbort?.abort(),this.#t.clear(),this.abortHandler=void 0}#r(e){return e instanceof Error?e:void 0!==e?.message?new C(e.message,e.filename||e.sourceURL,e.lineno||e.line,e.colno||e.col):new C("string"==typeof e?e:(0,_.P)(e))}#n(e){let t="Unhandled Promise Rejection: ";if(e?.reason instanceof Error)try{return e.reason.message=t+e.reason.message,e.reason}catch(t){return e.reason}if(void 0===e.reason)return new C(t);const r=this.#r(e.reason);return r.message=t+r.message,r}#i(e){return e.error instanceof Error?e.error:new C(e.message,e.filename,e.lineno,e.colno)}}var M=i(2210);let H=1;const L="nr@id";function z(e){const t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===l._A?0:(0,M.X)(e,L,(function(){return H++}))}function F(e){if("string"==typeof e&&e.length)return e.length;if("object"==typeof e){if("undefined"!=typeof ArrayBuffer&&e instanceof ArrayBuffer&&e.byteLength)return e.byteLength;if("undefined"!=typeof Blob&&e instanceof Blob&&e.size)return e.size;if(!("undefined"!=typeof FormData&&e instanceof FormData))try{return(0,_.P)(e).length}catch(e){return}}}var B=i(1214),U=i(7243);class V{constructor(e){this.agentIdentifier=e}generateTracePayload(e){if(!this.shouldGenerateTrace(e))return null;var t=(0,n.DL)(this.agentIdentifier);if(!t)return null;var r=(t.accountID||"").toString()||null,i=(t.agentID||"").toString()||null,o=(t.trustKey||"").toString()||null;if(!r||!i)return null;var a=(0,E.M)(),s=(0,E.Ht)(),c=Date.now(),u={spanId:a,traceId:s,timestamp:c};return(e.sameOrigin||this.isAllowedOrigin(e)&&this.useTraceContextHeadersForCors())&&(u.traceContextParentHeader=this.generateTraceContextParentHeader(a,s),u.traceContextStateHeader=this.generateTraceContextStateHeader(a,c,r,i,o)),(e.sameOrigin&&!this.excludeNewrelicHeader()||!e.sameOrigin&&this.isAllowedOrigin(e)&&this.useNewrelicHeaderForCors())&&(u.newrelicHeader=this.generateTraceHeader(a,s,c,r,i,o)),u}generateTraceContextParentHeader(e,t){return"00-"+t+"-"+e+"-01"}generateTraceContextStateHeader(e,t,r,n,i){return i+"@nr=0-1-"+r+"-"+n+"-"+e+"----"+t}generateTraceHeader(e,t,r,n,i,o){if(!("function"==typeof l._A?.btoa))return null;var a={v:[0,1],d:{ty:"Browser",ac:n,ap:i,id:e,tr:t,ti:r}};return o&&n!==o&&(a.d.tk=o),btoa((0,_.P)(a))}shouldGenerateTrace(e){return this.isDtEnabled()&&this.isAllowedOrigin(e)}isAllowedOrigin(e){var t=!1,r={};if((0,n.Mt)(this.agentIdentifier,"distributed_tracing")&&(r=(0,n.P_)(this.agentIdentifier).distributed_tracing),e.sameOrigin)t=!0;else if(r.allowed_origins instanceof Array)for(var i=0;i<r.allowed_origins.length;i++){var o=(0,U.e)(r.allowed_origins[i]);if(e.hostname===o.hostname&&e.protocol===o.protocol&&e.port===o.port){t=!0;break}}return t}isDtEnabled(){var e=(0,n.Mt)(this.agentIdentifier,"distributed_tracing");return!!e&&!!e.enabled}excludeNewrelicHeader(){var e=(0,n.Mt)(this.agentIdentifier,"distributed_tracing");return!!e&&!!e.exclude_newrelic_header}useNewrelicHeaderForCors(){var e=(0,n.Mt)(this.agentIdentifier,"distributed_tracing");return!!e&&!1!==e.cors_use_newrelic_header}useTraceContextHeadersForCors(){var e=(0,n.Mt)(this.agentIdentifier,"distributed_tracing");return!!e&&!!e.cors_use_tracecontext_headers}}var q=i(7825),G=["load","error","abort","timeout"],Z=G.length,W=n.Yu.REQ,X=n.Yu.XHR;class K extends f{static featureName=q.t;constructor(e,t){let i=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];if(super(e,t,q.t,i),(0,n.OP)(e).xhrWrappable){this.dt=new V(e),this.handler=(e,t,r,n)=>(0,T.p)(e,t,r,n,this.ee);try{const e={xmlhttprequest:"xhr",fetch:"fetch",beacon:"beacon"};l._A?.performance?.getEntriesByType("resource").forEach((t=>{if(t.initiatorType in e&&0!==t.responseStatus){const n={status:t.responseStatus},i={rxSize:t.transferSize,duration:Math.floor(t.duration),cbTime:0};Y(n,t.name),this.handler("xhr",[n,i,t.startTime,t.responseEnd,e[t.initiatorType]],void 0,r.D.ajax)}}))}catch(e){}(0,B.u5)(this.ee),(0,B.Kf)(this.ee),function(e,t,i,o){function a(e){var t=this;t.totalCbs=0,t.called=0,t.cbTime=0,t.end=x,t.ended=!1,t.xhrGuids={},t.lastSize=null,t.loadCaptureCalled=!1,t.params=this.params||{},t.metrics=this.metrics||{},e.addEventListener("load",(function(r){E(t,e)}),(0,R.m$)(!1)),l.IF||e.addEventListener("progress",(function(e){t.lastSize=e.loaded}),(0,R.m$)(!1))}function s(e){this.params={method:e[0]},Y(this,e[1]),this.metrics={}}function c(t,r){var i=(0,n.DL)(e);i.xpid&&this.sameOrigin&&r.setRequestHeader("X-NewRelic-ID",i.xpid);var a=o.generateTracePayload(this.parsedOrigin);if(a){var s=!1;a.newrelicHeader&&(r.setRequestHeader("newrelic",a.newrelicHeader),s=!0),a.traceContextParentHeader&&(r.setRequestHeader("traceparent",a.traceContextParentHeader),a.traceContextStateHeader&&r.setRequestHeader("tracestate",a.traceContextStateHeader),s=!0),s&&(this.dt=a)}}function u(e,r){var n=this.metrics,i=e[0],o=this;if(n&&i){var a=F(i);a&&(n.txSize=a)}this.startTime=(0,D.z)(),this.body=i,this.listener=function(e){try{"abort"!==e.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==e.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof r.onload)&&"function"==typeof o.end)&&o.end(r)}catch(e){try{t.emit("internal-error",[e])}catch(e){}}};for(var s=0;s<Z;s++)r.addEventListener(G[s],this.listener,(0,R.m$)(!1))}function d(e,t,r){this.cbTime+=e,t?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof r.onload||"function"!=typeof this.end||this.end(r)}function f(e,t){var r=""+z(e)+!!t;this.xhrGuids&&!this.xhrGuids[r]&&(this.xhrGuids[r]=!0,this.totalCbs+=1)}function h(e,t){var r=""+z(e)+!!t;this.xhrGuids&&this.xhrGuids[r]&&(delete this.xhrGuids[r],this.totalCbs-=1)}function p(){this.endTime=(0,D.z)()}function g(e,r){r instanceof X&&"load"===e[0]&&t.emit("xhr-load-added",[e[1],e[2]],r)}function m(e,r){r instanceof X&&"load"===e[0]&&t.emit("xhr-load-removed",[e[1],e[2]],r)}function v(e,t,r){t instanceof X&&("onload"===r&&(this.onload=!0),("load"===(e[0]&&e[0].type)||this.onload)&&(this.xhrCbStart=(0,D.z)()))}function b(e,r){this.xhrCbStart&&t.emit("xhr-cb-time",[(0,D.z)()-this.xhrCbStart,this.onload,r],r)}function y(e){var t,r=e[1]||{};if("string"==typeof e[0]?0===(t=e[0]).length&&l.il&&(t=""+l._A.location.href):e[0]&&e[0].url?t=e[0].url:l._A?.URL&&e[0]&&e[0]instanceof URL?t=e[0].href:"function"==typeof e[0].toString&&(t=e[0].toString()),"string"==typeof t&&0!==t.length){t&&(this.parsedOrigin=(0,U.e)(t),this.sameOrigin=this.parsedOrigin.sameOrigin);var n=o.generateTracePayload(this.parsedOrigin);if(n&&(n.newrelicHeader||n.traceContextParentHeader))if(e[0]&&e[0].headers)s(e[0].headers,n)&&(this.dt=n);else{var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),s(i.headers,n)&&(this.dt=n),e.length>1?e[1]=i:e.push(i)}}function s(e,t){var r=!1;return t.newrelicHeader&&(e.set("newrelic",t.newrelicHeader),r=!0),t.traceContextParentHeader&&(e.set("traceparent",t.traceContextParentHeader),t.traceContextStateHeader&&e.set("tracestate",t.traceContextStateHeader),r=!0),r}}function A(e,t){this.params={},this.metrics={},this.startTime=(0,D.z)(),this.dt=t,e.length>=1&&(this.target=e[0]),e.length>=2&&(this.opts=e[1]);var r,n=this.opts||{},i=this.target;"string"==typeof i?r=i:"object"==typeof i&&i instanceof W?r=i.url:l._A?.URL&&"object"==typeof i&&i instanceof URL&&(r=i.href),Y(this,r);var o=(""+(i&&i instanceof W&&i.method||n.method||"GET")).toUpperCase();this.params.method=o,this.body=n.body,this.txSize=F(n.body)||0}function w(e,t){var n;this.endTime=(0,D.z)(),this.params||(this.params={}),this.params.status=t?t.status:0,"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var o={txSize:this.txSize,rxSize:n,duration:(0,D.z)()-this.startTime};i("xhr",[this.params,o,this.startTime,this.endTime,"fetch"],this,r.D.ajax)}function x(e){var t=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var o=0;o<Z;o++)e.removeEventListener(G[o],this.listener,!1);t.aborted||(n.duration=(0,D.z)()-this.startTime,this.loadCaptureCalled||4!==e.readyState?null==t.status&&(t.status=0):E(this,e),n.cbTime=this.cbTime,i("xhr",[t,n,this.startTime,this.endTime,"xhr"],this,r.D.ajax))}}function E(e,t){e.params.status=t.status;var r=function(e,t){var r=e.responseType;return"json"===r&&null!==t?t:"arraybuffer"===r||"blob"===r||"json"===r?F(e.response):"text"===r||""===r||void 0===r?F(e.responseText):void 0}(t,e.lastSize);if(r&&(e.metrics.rxSize=r),e.sameOrigin){var n=t.getResponseHeader("X-NewRelic-App-Data");n&&(e.params.cat=n.split(", ").pop())}e.loadCaptureCalled=!0}t.on("new-xhr",a),t.on("open-xhr-start",s),t.on("open-xhr-end",c),t.on("send-xhr-start",u),t.on("xhr-cb-time",d),t.on("xhr-load-added",f),t.on("xhr-load-removed",h),t.on("xhr-resolved",p),t.on("addEventListener-end",g),t.on("removeEventListener-end",m),t.on("fn-end",b),t.on("fetch-before-start",y),t.on("fetch-start",A),t.on("fn-start",v),t.on("fetch-done",w)}(e,this.ee,this.handler,this.dt),this.importAggregator()}}}function Y(e,t){var r=(0,U.e)(t),n=e.params||e;n.hostname=r.hostname,n.port=r.port,n.protocol=r.protocol,n.host=r.hostname+":"+r.port,n.pathname=r.pathname,e.parsedOrigin=r,e.sameOrigin=r.sameOrigin}var J=i(3614);const{BST_RESOURCE:Q,RESOURCE:ee,START:te,END:re,FEATURE_NAME:ne,FN_END:ie,FN_START:oe,PUSH_STATE:ae}=J;var se=i(7056),ce=i(7144);class ue extends f{static featureName=ce.t9;constructor(e,t){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,ce.t9,r);try{const e=JSON.parse(localStorage.getItem("NRBA_SESSION"));e.sessionReplayMode!==se.IK.OFF?this.#a(e.sessionReplayMode):this.importAggregator({})}catch(e){this.importAggregator({})}}async#a(e){const{Recorder:t}=await Promise.all([i.e(111),i.e(433)]).then(i.bind(i,4136));this.recorder=new t({mode:e,agentIdentifier:this.agentIdentifier}),this.recorder.startRecording(),this.importAggregator({recorder:this.recorder})}}var de=i(7836);const{FEATURE_NAME:le,START:fe,END:he,BODY:pe,CB_END:ge,JS_TIME:me,FETCH:ve,FN_START:be,CB_START:ye,FN_END:Ae}=de;var we=i(4649);class xe extends f{static featureName=we.t;constructor(e,t){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,we.t,r),this.importAggregator()}}new class extends t{constructor(t){let r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:(0,E.ky)(16);super(),l._A?(this.agentIdentifier=r,this.sharedAggregator=new v({agentIdentifier:this.agentIdentifier}),this.features={},(0,x.h5)(r,this),this.desiredFeatures=new Set(t.features||[]),this.desiredFeatures.add(p),(0,s.j)(this,t,t.loaderType||"agent"),this.run()):(0,e.Z)("Failed to initial the agent. Could not determine the runtime environment.")}get config(){return{info:(0,n.C5)(this.agentIdentifier),init:(0,n.P_)(this.agentIdentifier),loader_config:(0,n.DL)(this.agentIdentifier),runtime:(0,n.OP)(this.agentIdentifier)}}run(){try{const t=a(this.agentIdentifier),n=[...this.desiredFeatures];n.sort(((e,t)=>r.p[e.featureName]-r.p[t.featureName])),n.forEach((n=>{if(t[n.featureName]||n.featureName===r.D.pageViewEvent){const i=function(e){switch(e){case r.D.ajax:return[r.D.jserrors];case r.D.sessionTrace:return[r.D.ajax,r.D.pageViewEvent];case r.D.sessionReplay:return[r.D.sessionTrace];case r.D.pageViewTiming:return[r.D.pageViewEvent];default:return[]}}(n.featureName);i.every((e=>t[e]))||(0,e.Z)("".concat(n.featureName," is enabled but one or more dependent features has been disabled (").concat((0,_.P)(i),"). This may cause unintended consequences or missing data...")),this.features[n.featureName]=new n(this.agentIdentifier,this.sharedAggregator)}}))}catch(t){(0,e.Z)("Failed to initialize all enabled instrument classes (agent aborted) -",t);for(const e in this.features)this.features[e].abortHandler?.();const r=(0,x.fP)();return delete r.initializedAgents[this.agentIdentifier]?.api,delete r.initializedAgents[this.agentIdentifier]?.features,delete this.sharedAggregator,r.ee?.abort(),delete r.ee?.get(this.agentIdentifier),!1}}}({features:[K,p,O,class extends f{static featureName=ne;constructor(e,t){if(super(e,t,ne,!(arguments.length>2&&void 0!==arguments[2])||arguments[2]),!l.il)return;const n=this.ee;let i;(0,B.QU)(n),this.eventsEE=(0,B.em)(n),this.eventsEE.on(oe,(function(e,t){this.bstStart=(0,D.z)()})),this.eventsEE.on(ie,(function(e,t){(0,T.p)("bst",[e[0],t,this.bstStart,(0,D.z)()],void 0,r.D.sessionTrace,n)})),n.on(ae+te,(function(e){this.time=(0,D.z)(),this.startPath=location.pathname+location.hash})),n.on(ae+re,(function(e){(0,T.p)("bstHist",[location.pathname+location.hash,this.startPath,this.time],void 0,r.D.sessionTrace,n)}));try{i=new PerformanceObserver((e=>{const t=e.getEntries();(0,T.p)(Q,[t],void 0,r.D.sessionTrace,n)})),i.observe({type:ee,buffered:!0})}catch(e){}this.importAggregator({resourceObserver:i})}},ue,j,xe,k,class extends f{static featureName=le;constructor(e,t){if(super(e,t,le,!(arguments.length>2&&void 0!==arguments[2])||arguments[2]),!l.il)return;if(!(0,n.OP)(e).xhrWrappable)return;try{this.removeOnAbort=new AbortController}catch(e){}let r,i=0;const o=this.ee.get("tracer"),a=(0,B._L)(this.ee),s=(0,B.Lg)(this.ee),c=(0,B.BV)(this.ee),u=(0,B.Kf)(this.ee),d=this.ee.get("events"),f=(0,B.u5)(this.ee),h=(0,B.QU)(this.ee),p=(0,B.Gm)(this.ee);function g(e,t){h.emit("newURL",[""+window.location,t])}function m(){i++,r=window.location.hash,this[be]=(0,D.z)()}function v(){i--,window.location.hash!==r&&g(0,!0);var e=(0,D.z)();this[me]=~~this[me]+e-this[be],this[Ae]=e}function b(e,t){e.on(t,(function(){this[t]=(0,D.z)()}))}this.ee.on(be,m),s.on(ye,m),a.on(ye,m),this.ee.on(Ae,v),s.on(ge,v),a.on(ge,v),this.ee.buffer([be,Ae,"xhr-resolved"],this.featureName),d.buffer([be],this.featureName),c.buffer(["setTimeout"+he,"clearTimeout"+fe,be],this.featureName),u.buffer([be,"new-xhr","send-xhr"+fe],this.featureName),f.buffer([ve+fe,ve+"-done",ve+pe+fe,ve+pe+he],this.featureName),h.buffer(["newURL"],this.featureName),p.buffer([be],this.featureName),s.buffer(["propagate",ye,ge,"executor-err","resolve"+fe],this.featureName),o.buffer([be,"no-"+be],this.featureName),a.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"],this.featureName),b(f,ve+fe),b(f,ve+"-done"),b(a,"new-jsonp"),b(a,"jsonp-end"),b(a,"cb-start"),h.on("pushState-end",g),h.on("replaceState-end",g),window.addEventListener("hashchange",g,(0,R.m$)(!0,this.removeOnAbort?.signal)),window.addEventListener("load",g,(0,R.m$)(!0,this.removeOnAbort?.signal)),window.addEventListener("popstate",(function(){g(0,i>1)}),(0,R.m$)(!0,this.removeOnAbort?.signal)),this.abortHandler=this.#o,this.importAggregator()}#o(){this.removeOnAbort?.abort(),this.abortHandler=void 0}}],loaderType:"spa"})})()})();</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+
+            
+  
+  
+        
+  <title>Podcast: Stealing Fire: Ambitious Side Projects with Kofi Gumbs | 8th Light</title>
+  <meta name="description" content="Many programmers settle into a work-life balance where their day job pays their bills and their side projects fuel their passions. UI programmer Kofi Gumbs sees his side projects as opportunities to grow. 
+
+In our latest episode of Collaborative Cr..."/>  <meta property="og:url" content="https://8thlight.com/insights/podcast-stealing-fire-ambitious-side-projects-with-kofi-gumbs?token=QjLBjVC2S_g9-qbFLqtbQs6EymDXRZKM"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Stealing Fire: Ambitious Side Projects with Kofi Gumbs | 8th Light"/>
+  <meta property="og:image" content=""/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:description" content="Many programmers settle into a work-life balance where their day job pays their bills and their side projects fuel their passions. UI programmer Kofi Gumbs sees his side projects as opportunities to grow. 
+
+In our latest episode of Collaborative Cr..."/>
+  <meta property="og:site_name" content="8th Light"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:locale:alternate" content="en_US"/>
+  
+          <meta name="twitter:site" content="8thlightinc"/>
+      <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://8thlight.com/insights/podcast-stealing-fire-ambitious-side-projects-with-kofi-gumbs?token=QjLBjVC2S_g9-qbFLqtbQs6EymDXRZKM"/>
+  <meta name="twitter:title" content="Stealing Fire: Ambitious Side Projects with Kofi Gumbs | 8th Light"/>
+  <meta name="twitter:description" content="Many programmers settle into a work-life balance where their day job pays their bills and their side projects fuel their passions. UI programmer Kofi Gumbs sees his side projects as opportunities to grow. 
+
+In our latest episode of Collaborative Cr..."/>
+  <meta name="twitter:image" content=""/>
+
+  
+  <link rel="home" href="https://8thlight.com/"/>
+  <link rel="canonical" href="https://8thlight.com/insights/podcast-stealing-fire-ambitious-side-projects-with-kofi-gumbs">
+  <link rel="stylesheet" href="/assets/dist/main-0d39e6da6e824a1c82cd.css"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
+    <script type="text/javascript">
+        var MTUserId='1d99fbb7-7b6a-4356-a58e-783895675e6b';
+        var MTFontIds = new Array();
+
+        MTFontIds.push("6149639"); // Avenir® Next W05 Demi
+        MTFontIds.push("6149643"); // Avenir® Next W05 Demi Italic
+        MTFontIds.push("6149649"); // Avenir® Next W05 Bold
+        MTFontIds.push("6634663"); // Avenir® Next W05 Bold Italic
+        // MTFontIds.push("6149662"); // Avenir® Next W05 Regular
+        // MTFontIds.push("6149667"); // Avenir® Next W05 Italic
+        MTFontIds.push("6149672"); // Avenir® Next W05 Medium
+        MTFontIds.push("6149677"); // Avenir® Next W05 Medium Italic
+        // MTFontIds.push("6383935"); // Avenir® Next W05 Ultra Light
+        // MTFontIds.push("6383939"); // Avenir® Next W05 Ultra Light Italic
+        // MTFontIds.push("6383943"); // Avenir® Next W05 Thin
+        // MTFontIds.push("6383947"); // Avenir® Next W05 Thin Italic
+        // MTFontIds.push("6383962"); // Avenir® Next W05 Heavy
+        // MTFontIds.push("6383966"); // Avenir® Next W05 Heavy Italic
+        // MTFontIds.push("6383972"); // Avenir® Next W05 Light
+        // MTFontIds.push("6383975"); // Avenir® Next W05 Light Italic
+        (function() {
+            var mtTracking = document.createElement('script');
+            mtTracking.type='text/javascript';
+            mtTracking.async='true';
+            mtTracking.src='/assets/mtiFontTrackingCode.js';
+
+            (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(mtTracking);
+        })();
+    </script>
+              <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4TP14SVLN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H4TP14SVLN');
+</script>
+<script type="text/javascript" src="https://secure.365insightcreative.com/js/791113.js" ></script> <noscript><img alt="" src="https://secure.365insightcreative.com/791113.png" style="display:none;" /></noscript>
+      
+  <link rel="preload" href="/assets/fonts/sparks-v2-webfont.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/assets/fonts/GT-Flexa-Mono-Regular.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/assets/fonts/GT-Flexa-Standard-Regular.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/assets/fonts/AvenirNextLTPro-Bold.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="/assets/fonts/AvenirNextLTPro-Demi.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="/assets/fonts/AvenirNextLTPro-Regular.otf" as="font" type="font/otf" crossorigin> 
+  <link rel="preload" href="/assets/fonts/6149639/11ba579d-59f5-479e-b2dd-411ca230f60c.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/assets/fonts/6149672/9548fa3a-05c3-47ef-a6d5-f2f6fef54f84.woff2" as="font" type="font/woff2" crossorigin> 
+  
+  <link rel="alternate" type="application/rss+xml" href="https://8thlight.com/insights/feed/rss.xml">
+  <link rel="alternate" type="application/atom+xml" href="https://8thlight.com/insights/feed/atom.xml">
+
+</head>
+<body class=" bg-gray-200">
+
+        <!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4012159.js"></script>
+<!-- End of HubSpot Embed Code -->
+  
+            
+
+  
+    <header id="nav-bar" class="relative z-10 nav-bar nav-bar--transparent--light">
+  <div class="pt-9 pb-7 container">
+    <div id="Navigation" class="flex justify-between items-center">
+      <div>
+        <a id="home-logo" href="/" class="eighth-light-logo" aria-label="8th Light Home Page">
+          <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full" viewBox="0 0 76.35180000000003 47.63550000000001">
+  <title>8th Light Logo</title>
+	<path d="M 19.601800000000026,24.2695 C 23.190800000000024,22.025 25.58180000000003,18.066000000000003 25.58180000000003,13.5625 C 25.58180000000003,6.582000000000001 19.84380000000003,0.9035000000000011 12.790800000000019,0.9035000000000011 C 5.737600000000029,0.9035000000000011 2.842170943040401e-14,6.582500000000003 2.842170943040401e-14,13.5625 C 2.842170943040401e-14,18.066000000000003 2.3906000000000205,22.025 5.979600000000019,24.2695 C 2.3906000000000205,26.514000000000003 2.842170943040401e-14,30.473 2.842170943040401e-14,34.9765 C 2.842170943040401e-14,41.95700000000001 5.738100000000031,47.63550000000001 12.790800000000019,47.63550000000001 C 19.84380000000003,47.63550000000001 25.58180000000003,41.95700000000001 25.58180000000003,34.9765 C 25.58180000000003,30.473 23.190800000000024,26.514000000000003 19.601800000000026,24.2695 M 12.790800000000019,5.082000000000001 C 17.515800000000027,5.082000000000001 21.35880000000003,8.886499999999998 21.35880000000003,13.5625 C 21.35880000000003,18.238500000000002 17.515800000000027,22.043 12.790800000000019,22.043 C 8.06610000000002,22.043 4.222500000000025,18.238500000000002 4.222500000000025,13.5625 C 4.222500000000025,8.886499999999998 8.066600000000022,5.082000000000001 12.790800000000019,5.082000000000001 M 12.790800000000019,43.45700000000001 C 8.06610000000002,43.45700000000001 4.222500000000025,39.6525 4.222500000000025,34.9765 C 4.222500000000025,30.3005 8.066600000000022,26.496000000000002 12.790800000000019,26.496000000000002 C 17.514800000000022,26.496000000000002 21.35880000000003,30.3005 21.35880000000003,34.9765 C 21.35880000000003,39.6525 17.515800000000027,43.45700000000001 12.790800000000019,43.45700000000001" fill="currentColor"/>
+	<path d="M 76.35180000000003,21.356500000000004 L 58.12680000000003,21.356500000000004 L 71.01380000000003,8.603000000000002 L 67.65980000000002,5.283000000000001 L 54.77180000000001,18.037 L 54.77180000000001,0.0 L 50.02880000000002,0.0 L 50.02880000000002,18.037 L 37.14180000000003,5.283000000000001 L 33.78680000000003,8.603000000000002 L 46.67380000000003,21.356500000000004 L 28.44880000000002,21.356500000000004 L 28.44880000000002,26.051500000000004 L 46.67480000000003,26.051500000000004 L 33.78680000000003,38.805499999999995 L 37.14180000000003,42.1255 L 50.02880000000002,29.371499999999997 L 50.02880000000002,47.408 L 54.77180000000001,47.408 L 54.77180000000001,29.371499999999997 L 67.65980000000002,42.1255 L 71.01380000000003,38.805499999999995 L 58.12680000000003,26.051500000000004 L 76.35180000000003,26.051500000000004 L 76.35180000000003,21.356500000000004" fill="currentColor"/>
+</svg>
+
+        </a>
+      </div>
+      <div class="nav-bar__right flex items-center ">
+        <a class="nav-bar-right__page-name mr-8 lg:mr-16 tracking-widest font-semibold " href="/insights">INSIGHTS</a>
+        <nav aria-label="Primary">
+          <button tabindex="0" aria-label="Navigation menu" id="nav-opener--js" aria-expanded="false" aria-controls="nav-menu--js">
+            <svg class="mx-auto" width="32" height="32" aria-hidden="true" baseProfile="full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+   <g transform="translate(0, 9)">
+      <g id="nav-hamburger--top-bar" class="hamburger-bar">
+        <rect fill="currentColor" width="40" height="4" x="0" y="0"/>
+      </g>
+      <g id="nav-hamburger--middle-bar" class="hamburger-bar">
+        <rect  fill="currentColor" width="40" height="4" x="0" y="9"/>
+      </g>
+      <g id="nav-hamburger--bottom-bar" class="hamburger-bar">
+        <rect fill="currentColor" width="40" height="4" x="0" y="18"/>
+      </g>
+    </g>
+</svg>
+
+          </button>
+          <div class="nav-menu hidden" id="nav-menu--js">
+            <div class="nav-menu__big-links hero hero hero-pb--large text-white">
+              <ul class="container" id="nav-menu-list--js"><li class="nav-menu__link big-link headline large2 mono">
+                    <a  class="big-link" href="https://8thlight.com/">Home</a>
+                  </li><li class="nav-menu__link big-link headline large2 mono">
+                    <a  class="big-link" href="https://8thlight.com/about">About</a>
+                  </li><li class="nav-menu__link big-link headline large2 mono">
+                    <a  class="big-link" href="https://8thlight.com/leadership">Leadership</a>
+                  </li><li class="nav-menu__link big-link headline large2 mono">
+                    <a  class="big-link" href="https://8thlight.com/case-studies">Case Studies</a>
+                  </li><li class="nav-menu__link big-link headline large2 mono">
+                    <a  class="big-link" href="https://8thlight.com/services">Services</a>
+                  </li><li class="nav-menu__link big-link headline large2 mono">
+                    <a  class="big-link" href="https://8thlight.com/insights">Insights</a>
+                  </li><li class="nav-menu__link big-link headline large2 mono">
+                    <a  class="big-link" href="https://8thlight.com/careers">Careers</a>
+                  </li><li class="nav-menu__link big-link headline large2 mono">
+                    <a  class="big-link" href="https://8thlight.com/jobs">Job Openings</a>
+                  </li><li class="nav-menu__link big-link headline large2 mono">
+                    <a  class="big-link" href="https://8thlight.com/contact">Contact</a>
+                  </li></ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<div id="nav-spacer--js" class="hidden"></div>
+    <main>
+        <div id="dh-1">
+        <div class="h-500 lg:h-810 md:h-810 mb-9 lg:mt-[-120px] sm:mt-[-60px] relative">
+                            <div class="w-full h-full absolute" style="top: 0; left: 0">
+                    <div class="image-overlay text-white flex items-center w-full h-full" style="background-color: rgba(0, 0, 0, 0.5)">
+                        <div class="image-title-box mt-6 container">
+                            <h1 class="image-title headline large1 dynamic">Stealing Fire: Ambitious Side Projects with Kofi Gumbs</h1>
+                        </div>
+                    </div>
+                </div>
+                                
+
+<img class="object-cover w-full h-full" src="https://assets.8thlight.com/images/insights/_1260x600_crop_center-center_none/70348/CC-Kofi-Gumbs.webp" srcset="https://assets.8thlight.com/images/insights/_2520x1200_crop_center-center_none/70348/CC-Kofi-Gumbs.webp 2x" width="1260" height="600" alt="Stealing Fire: Ambitious Side Projects with Kofi Gumbs">
+                    </div>
+        <div class="container mb-12">
+            <div class="pb-12 border-bottom" id="dh-4">
+                <h2 class="headline small1 mb-16" id="dh-7"></h2>
+                                
+
+
+<div>
+        
+                        <div class="flex">
+            <a href="https://8thlight.com/authors/jerome-goodrich" class="block" style="width: 80px; height: 80px;">
+                                
+
+<img class="object-cover w-full h-full rounded-full border-solid border-4 border-gray-200" src="https://assets.8thlight.com/images/insights/authors/_80x80_crop_center-center_none/57124/jerome-goodrich_2023-01-24-200827_bfpa.webp" srcset="https://assets.8thlight.com/images/insights/authors/_160x160_crop_center-center_none/57124/jerome-goodrich_2023-01-24-200827_bfpa.webp 2x" width="80" height="80" alt="Jerome Goodrich">
+            </a>
+            <div class="my-auto ml-4 body">
+                <a href="https://8thlight.com/authors/jerome-goodrich" id="dh-10" class="font-semibold">
+                    Jerome Goodrich
+                </a>
+                <div>
+                        <p class="text-gray-400 body small">
+           August 17, 2021
+
+    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="flex flex-col xl:flex-row  justify-between relative">
+            <sidebar class="mb-8 xl:mb-24 xl:order-2 max-w-sm mt-6.25 cl:absolute cl:left-4/5">
+                <div class="contact-buttons flex space-x-4">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://8thlight.com/insights/podcast-stealing-fire-ambitious-side-projects-with-kofi-gumbs" target="_blank" title="Share on LinkedIn">
+        <svg class="rollover-svg w-[50px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" baseProfile="full" viewBox="-0.5 -0.75 51 51.5">
+	<defs/>
+	<path class="negative" d="M 25.00000000000003,50.06000000000495 C 38.807000000000016,50.06000000000495 50.00000000000003,38.86000000000422 50.00000000000003,25.030000000004293 C 50.00000000000003,11.210000000004584 38.807000000000016,4.547473508864641e-12 25.00000000000003,4.547473508864641e-12 C 11.193000000000026,4.547473508864641e-12 2.842170943040401e-14,11.210000000004584 2.842170943040401e-14,25.030000000004293 C 2.842170943040401e-14,38.86000000000422 11.193000000000026,50.06000000000495 25.00000000000003,50.06000000000495" stroke="currentColor" fill="currentColor"/>
+	<path class="positive" d="M 20.465000000000032,33.36000000000422 L 16.51200000000003,33.36000000000422 L 16.51200000000003,21.450000000004366 L 20.465000000000032,21.450000000004366 L 20.465000000000032,33.36000000000422 M 18.490000000000023,19.820000000004256 L 18.46200000000003,19.820000000004256 C 17.135000000000034,19.820000000004256 16.27700000000003,18.910000000004402 16.27700000000003,17.760000000004766 C 16.27700000000003,16.590000000004693 17.162000000000035,15.710000000004584 18.51200000000003,15.710000000004584 C 19.865000000000023,15.710000000004584 20.69700000000003,16.590000000004693 20.722000000000023,17.760000000004766 C 20.727000000000032,18.910000000004402 19.867000000000033,19.820000000004256 18.490000000000023,19.820000000004256 M 34.72000000000003,33.36000000000422 L 30.767000000000024,33.36000000000422 L 30.767000000000024,26.98000000000411 C 30.767000000000024,25.390000000004875 30.19500000000002,24.29000000000451 28.76500000000003,24.29000000000451 C 27.672000000000025,24.29000000000451 27.022000000000034,25.030000000004293 26.737000000000023,25.74000000000433 C 26.632000000000033,26.000000000004547 26.607000000000028,26.35000000000491 26.607000000000028,26.710000000004584 L 26.607000000000028,33.36000000000422 L 22.65200000000003,33.36000000000422 C 22.65200000000003,33.36000000000422 22.705000000000027,22.570000000004256 22.65200000000003,21.450000000004366 L 26.605000000000032,21.450000000004366 L 26.605000000000032,23.130000000004657 C 27.130000000000024,22.320000000004256 28.07000000000002,21.17000000000462 30.16700000000003,21.17000000000462 C 32.767000000000024,21.17000000000462 34.71700000000003,22.87000000000444 34.71700000000003,26.530000000004293 L 34.71700000000003,33.36000000000422 L 34.72000000000003,33.36000000000422" fill="white"/>
+</svg>
+</a>
+    <a href="https://twitter.com/intent/tweet?text=Stealing%20Fire%3A%20Ambitious%20Side%20Projects%20with%20Kofi%20Gumbs&url=https%3A%2F%2F8thlight.com%2Finsights%2Fpodcast-stealing-fire-ambitious-side-projects-with-kofi-gumbs" target="_blank" title="Share on Twitter">
+        <svg class="rollover-svg w-[50px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" baseProfile="full" viewBox="-0.5 -0.75 51 51.5">
+	<path class="negative" stroke="currentColor" d="M 25.000000000000057,50.06000000000495 C 38.807000000000045,50.06000000000495 50.00000000000006,38.86000000000422 50.00000000000006,25.030000000004293 C 50.00000000000006,11.210000000004584 38.807000000000045,4.547473508864641e-12 25.000000000000057,4.547473508864641e-12 C 11.193000000000069,4.547473508864641e-12 5.684341886080802e-14,11.210000000004584 5.684341886080802e-14,25.030000000004293 C 5.684341886080802e-14,38.86000000000422 11.193000000000069,50.06000000000495 25.000000000000057,50.06000000000495" fill="currentColor"/>
+	<path class="positive" d="M 35.71700000000007,18.940000000004147 C 34.96500000000006,19.270000000004984 34.15700000000007,19.500000000004547 33.31000000000006,19.60000000000491 C 34.17500000000007,19.080000000004475 34.84000000000006,18.260000000004766 35.152000000000044,17.270000000004984 C 34.34200000000007,17.760000000004766 33.44500000000005,18.11000000000422 32.490000000000066,18.29000000000451 C 31.72500000000005,17.48000000000411 30.635000000000048,16.970000000004802 29.430000000000064,16.970000000004802 C 27.115000000000066,16.970000000004802 25.23700000000005,18.85000000000491 25.23700000000005,21.160000000004402 C 25.23700000000005,21.49000000000433 25.275000000000063,21.810000000004948 25.345000000000056,22.12000000000444 C 21.86000000000007,21.950000000004366 18.770000000000067,20.270000000004984 16.702000000000055,17.74000000000433 C 16.34200000000007,18.36000000000422 16.135000000000048,19.080000000004475 16.135000000000048,19.85000000000491 C 16.135000000000048,21.30000000000473 16.875000000000057,22.590000000004693 18.000000000000057,23.340000000004693 C 17.31200000000007,23.320000000004256 16.66500000000005,23.130000000004657 16.10000000000005,22.810000000004948 C 16.10000000000005,22.830000000004475 16.10000000000005,22.85000000000491 16.10000000000005,22.87000000000444 C 16.10000000000005,24.900000000004184 17.545000000000044,26.60000000000491 19.462000000000046,26.98000000000411 C 19.11000000000007,27.080000000004475 18.740000000000066,27.130000000004657 18.357000000000056,27.130000000004657 C 18.087000000000046,27.130000000004657 17.825000000000045,27.10000000000491 17.567000000000064,27.060000000004948 C 18.10000000000005,28.720000000004802 19.650000000000063,29.940000000004147 21.48500000000007,29.970000000004802 C 20.050000000000068,31.10000000000491 18.242000000000047,31.770000000004984 16.277000000000044,31.770000000004984 C 15.940000000000055,31.770000000004984 15.605000000000047,31.750000000004547 15.277000000000044,31.710000000004584 C 17.132000000000062,32.900000000004184 19.337000000000046,33.60000000000491 21.70500000000007,33.60000000000491 C 29.41700000000006,33.60000000000491 33.63500000000005,27.200000000004366 33.63500000000005,21.660000000004402 C 33.63500000000005,21.470000000004802 33.63000000000005,21.29000000000451 33.62200000000007,21.11000000000422 C 34.44500000000005,20.520000000004984 35.15700000000007,19.780000000004293 35.71700000000007,18.940000000004147" fill="white"/>
+</svg>
+</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://8thlight.com/insights/podcast-stealing-fire-ambitious-side-projects-with-kofi-gumbs" target="_blank" title="Share on Facebook">
+        <svg class="rollover-svg w-[50px]" aria-hidden="true" baseProfile="full" xmlns="http://www.w3.org/2000/svg" viewBox="-0.6 -0.6 51.2 51.2">
+	<defs/>
+	<path class="negative" stroke="#141414" d="M 25.000000000000057,50.0 C 38.80700000000007,50.0 50.00000000000006,38.809999999999945 50.00000000000006,25.0 C 50.00000000000006,11.190000000000055 38.80700000000007,0.0 25.000000000000057,0.0 C 11.193000000000069,0.0 5.684341886080802e-14,11.190000000000055 5.684341886080802e-14,25.0 C 5.684341886080802e-14,38.809999999999945 11.193000000000069,50.0 25.000000000000057,50.0"/>
+	<path class="positive" d="M 29.037000000000063,25.0300000000002 L 26.387000000000057,25.0 C 26.35200000000006,29.23999999999978 26.307000000000045,34.460000000000036 26.307000000000045,34.460000000000036 L 22.377000000000038,34.42000000000007 C 22.377000000000038,34.42000000000007 22.420000000000044,29.26000000000022 22.45700000000005,24.970000000000255 L 20.59000000000006,24.960000000000036 L 20.617000000000047,21.61999999999989 L 22.485000000000042,21.63000000000011 L 22.502000000000038,19.470000000000255 C 22.515000000000043,17.920000000000073 23.27000000000004,15.510000000000218 26.50000000000003,15.540000000000418 L 29.40700000000004,15.580000000000382 L 29.380000000000052,18.820000000000164 C 29.380000000000052,18.820000000000164 27.610000000000042,18.800000000000182 27.267000000000053,18.800000000000182 C 26.922000000000054,18.800000000000182 26.43500000000006,18.970000000000255 26.42700000000005,19.700000000000273 L 26.410000000000053,21.670000000000073 L 29.405000000000058,21.690000000000055 L 29.037000000000063,25.0300000000002" fill="white"/>
+</svg>
+</a>
+    <a href="mailto:?subject=Read%20this%20post%20on%208thLight.com&body=%0D%0A--%0D%0AStealing Fire: Ambitious Side Projects with Kofi Gumbs%0D%0Ahttps://8thlight.com/insights/podcast-stealing-fire-ambitious-side-projects-with-kofi-gumbs" target="_blank" title="Email this post">
+        <svg class="rollover-svg w-[50px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" baseProfile="full" viewBox="0 0 50 50">
+	<circle r="24.5" cx="25" cy="25" class="negative" stroke="currentColor" fill="currentColor"/>
+	<path class="positive" d="M 36.27999999999997,20.900000000004184 L 29.5,25.190000000004147 L 36.206999999999994,31.10000000000491 C 36.252999999999986,30.99000000000433 36.27800000000002,30.87000000000444 36.27999999999997,30.74000000000433 L 36.27999999999997,20.900000000004184" fill="white"/>
+	<path class="positive" d="M 24.916999999999973,26.150000000004184 L 36.262,18.970000000004802 C 36.209,18.67000000000462 36.05500000000001,18.410000000004402 35.827999999999975,18.210000000004584 C 35.60000000000002,18.020000000004984 35.31200000000001,17.910000000004402 35.012,17.900000000004184 L 14.824999999999989,17.900000000004184 C 14.524999999999977,17.910000000004402 14.240999999999985,18.04000000000451 14.035000000000025,18.260000000004766 C 13.829000000000008,18.48000000000411 13.718000000000018,18.770000000004984 13.725000000000023,19.070000000004256 L 24.916999999999973,26.150000000004184" fill="white"/>
+	<path class="positive" d="M 27.935000000000002,26.11000000000422 L 25.233000000000004,27.890000000004875 C 25.13900000000001,27.950000000004366 25.028999999999996,27.98000000000411 24.918000000000006,27.98000000000411 C 24.805000000000007,27.98000000000411 24.694999999999993,27.950000000004366 24.600000000000023,27.890000000004875 L 21.898000000000025,26.11000000000422 L 15.079999999999984,32.13000000000466 C 15.170999999999992,32.150000000004184 15.26600000000002,32.17000000000462 15.360000000000014,32.17000000000462 L 34.47500000000002,32.17000000000462 C 34.56900000000002,32.1600000000044 34.66300000000001,32.150000000004184 34.754999999999995,32.13000000000466 L 27.935000000000002,26.11000000000422" fill="white"/>
+	<path class="positive" d="M 13.721000000000004,21.010000000004766 L 13.721000000000004,30.74000000000433 C 13.720000000000027,30.830000000004475 13.728000000000009,30.910000000004402 13.742999999999995,30.99000000000433 L 20.333000000000027,25.190000000004147 L 13.721000000000004,21.010000000004766" fill="white"/>
+</svg>
+</a>
+</div>
+            </sidebar>
+            <article class="max-w-8-cols xl:order-1 shrink-0 body">
+                
+
+		
+      <div class="blog-post block block--text">
+    <div class="block__inner">
+      <p>Many programmers settle into a work-life balance where their day job pays their bills and their side projects fuel their passions. UI programmer Kofi Gumbs sees his side projects as opportunities to grow. </p>
+
+<p>In our latest episode of Collaborative Craft, we talked to Kofi about making design playful. He shared insights on why programmers need to develop the confidence not to reinvent the wheel, the role of ambitious design, and how to approach the process of design in a way that is motivating to you.</p>
+
+<blockquote>
+<p>“I feel like the whole process has to feel like play as I'm working on it or else I get bored. I have to be learning something new. One of the reasons my solo projects end up being so all over the place is because I want to have a little play and chaos in my growth as a developer and to keep me energized in general.” </p>
+
+<p>— Kofi Gumbs</p>
+</blockquote>
+
+<p>Listen for Kofi’s ideas in our new episode, and see if you can infuse your work with a sense of curiosity and wonder.</p>
+
+<div><iframe style="width: 100%; height: 170px;" frameborder="no" scrolling="no" seamless="" src="https://player.captivate.fm/episode/32f96680-0801-4d3a-a6f9-225586cadf7c"></iframe></div>
+
+<p>Kofi Gumbs is a UI programmer currently based in Baltimore, MD, where he works remotely for Twitter. Most of his professional work centers on the Web platform, but Kofi's personal projects span a much wider spectrum—from assembly compilers to realtime graphics and audio. You can keep up with his side projects by following him on <a href="https://twitter.com/kofigumbs">Twitter</a>.</p>
+
+<p>If you'd like to receive new episodes as they're published, please subscribe to <strong>Collaborative Craft</strong> in <a href="https://podcasts.apple.com/gb/podcast/collaborative-craft/id1574530733">Apple Podcasts</a>, <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5jYXB0aXZhdGUuZm0vY29sbGFib3JhdGl2ZS1jcmFmdC8">Google Podcasts</a>, <a href="https://open.spotify.com/show/1IHAOMBIbug4g2YtNDZQfo">Spotify</a>, or wherever you get your podcasts. If you enjoyed this episode, please consider leaving a review in <a href="https://podcasts.apple.com/gb/podcast/collaborative-craft/id1574530733">Apple Podcasts</a>. It really helps others find the show.</p>
+
+<p><a href="https://www.dante32.com/">This podcast was produced by Dante32.</a></p>
+
+<h2>Episode Transcript</h2>
+
+<h3>Stealing Fire: Ambitious Side Projects with Kofi Gumbs</h3>
+
+<p>[00:00:00] <strong>Jerome</strong>: I can count us in. </p>
+
+<p>[00:00:02] <strong>Thomas</strong>: Okay. </p>
+
+<p>[00:00:03] <strong>Jerome</strong>: 4, 3, 2... Welcome to The Collaborative P- [laughter]... Collaborative Podcast?</p>
+
+<p>[00:00:12] <strong>Thomas</strong>: I'll start. And then you start. And then I'll read Kofi's bio. </p>
+
+<p>[00:00:16] <strong>Jerome</strong>: Okay. Yeah, that makes sense. </p>
+
+<p>[00:00:17] <strong>Thomas</strong>: You know what I mean?</p>
+
+<p>[00:00:18] <strong>Jerome</strong>: Yeah, yeah, yeah, that makes sense. </p>
+
+<p>[00:00:19] <strong>Thomas</strong>: Kofi, we have done this before. [Laughter]. </p>
+
+<p>[00:00:23] <strong>Jerome</strong>: This is impressive.</p>
+
+<p>[00:00:28] <strong>Thomas</strong>: Hello everyone. I'm Thomas Countz.</p>
+
+<p>[00:00:31] <strong>Jerome</strong>: And I'm Jerome Goodrich. </p>
+
+<p>[00:00:32] <strong>Thomas</strong>: And you're listening to Collaborative Craft. A podcast brought to you by 8th Light. </p>
+
+<p>[00:00:39] <strong>Jerome</strong>: So, Thomas, who's our guest for today? </p>
+
+<p>[00:00:42] <strong>Thomas</strong>: I'm so glad you asked, Jerome. Today we're talking with Kofi Gumbs. Kofi is a programmer based in Baltimore, Maryland, where he works as a front-end engineer at Twitter. As well as being a former 8th Light-er and Recurse Center Alum, Kofi is known around the internet for his many personal projects, which include codec-beam, which is an Erlang VM Bytecode Assembler for generating beam instructions from Haskell, which I believe you contributed to Jerome...? </p>
+
+<p>[00:01:12] <strong>Jerome</strong>: That's right. I did </p>
+
+<p>[00:01:13] <strong>Thomas</strong>: Multi, one of Kofi's latest experiments with building a low code platform for turning a group of websites into a native macOS experience. And Type Beat, a beautifully designed software sequencer that he's teased on Twitter. As a serial experimenter, Kofi's ability to ship is awesome to follow. And we're eager to learn more about how his approach to side projects might influence our approach to crafting software at work, which are often very different things. </p>
+
+<p>[00:01:44] <strong>Jerome</strong>: Super different. I am thrilled to talk to Kofi. Kofi was a bit of a mentor to me when I started at 8th Light. And as an aspirational side project, let's say, I'm really eager to kind of hear from the master. Side projects are always something I've wanted to do. Always something I get started on, but never something I get very far with. And like you mentioned in his bio, Kofi did give me a bit of an education in both side projects and Haskell and Open-Source. I believe that was my first Open-Source Contribution. And so, yeah, just really excited to catch up with Kofi and hear more about, you know, how he thinks about side projects and how that can relate to the craft of building software.</p>
+
+<p>[00:02:34] <strong>Thomas</strong>: I'm in the same boat. I am an aspirational, serial experimenter. I love side projects. I feel like I have a ton of them. But unlike Kofi, I don't ship nearly as often. And my side projects are not nearly as polished as his. He somehow takes all of the energy, creativity, curiosity, and oomph that I feel like I have, and he actually turns it into a final product and I always get stuck somewhere. And I feel like many people do. When I talk to people about this problem, I know I'm not alone. You have all these ideas and then somehow it just like something gets in the way or you lose track of time. Or, you know, it's a million things. </p>
+
+<p>[00:03:21] <strong>Jerome</strong>: There's a little bit of magic, right? That's missing. Hopefully Kofi can let us in on the secret. </p>
+
+<p>[00:03:29] <strong>Thomas</strong>: I mean, I feel like if my projects looked as good as his does, I would also be very motivated to get them done. </p>
+
+<p>[00:03:35] <strong>Jerome</strong>: That's a fair point. I mean, he presents very well. </p>
+
+<p>[00:03:40] <strong>Thomas</strong>: One thing that I want to say about side projects is there's a lot of baggage about it I think in the industry. Like a lot of people feel like they have to. Or they feel rebellious against it, cause they're like "I code all day at work. I don't want to do side projects at home." And so like, I really like to square the idea of side projects as like, it's your hobby, it's the thing you're doing instead of knitting or fixing a motorcycle or doing, you know, going to, I dunno, conventions. Whatever people do as hobbies. What was I thinking of? Cosplay! Cosplay Conventions. </p>
+
+<p>[00:04:16] <strong>Jerome</strong>: Oh like, Comic-Con. </p>
+
+<p>[00:04:17] <strong>Thomas</strong>: Exactly. Like, those things are your hobby and you put a lot of yourself into it and the same with code and just because it's what you do for work, it doesn't mean you have to have that as your hobby. It's just, you know, some people do. </p>
+
+<p>[00:04:27] <strong>Jerome</strong>: Yeah, yeah. I think that resonates a lot with me as somebody who is maybe in that camp of, "Oh, I code for a living, why...? You know, why should I also code on my off-time? Like, give me a little bit of variety." But then seeing, you know... There's still that allure, there's still like, I want to use my skills to make something that isn't a fulfillment platform or an invoicing web app or something like that. And I'm really excited to just hear how Kofi approaches it, because I think it really is a mindset and a mentality that maybe we can bring into our daily work. </p>
+
+<p>[00:05:08] <strong>Thomas</strong>: Exactly. Can we approach our day-to-day work for our employers writing code with the same kind of energy and excitement and motivation as Kofi has with his side projects? </p>
+
+<p>[00:05:20] <strong>Jerome</strong>: Absolutely. Alright, without further ado, let's talk to Kofi.</p>
+
+<p>[00:05:30] <strong>Thomas</strong>: Thank you so much for being here, Kofi and welcome to Collaborative Craft. </p>
+
+<p>[00:05:34] <strong>Jerome</strong>: Thank you. </p>
+
+<p>[00:05:36] <strong>Kofi</strong>: Thank you two. </p>
+
+<p>[00:05:37] <strong>Thomas</strong>: Cool. So I guess we can just dive in to talk about what gets you excited? What gets you motivated? Like your projects, even just the few that I read off in the intro are so diverse in terms of like, some of them are kind of like building a language and a compiler. Some are very creative and artistic. So they really span the gamut. How do you get started? Where does the inspiration come from? How do you say yes to an idea? </p>
+
+<p>[00:06:08] <strong>Jerome</strong>: And to piggyback, maybe even more, I'm really curious about like, what makes you think that you can do these things? </p>
+
+<p>[00:06:15] <strong>Thomas</strong>: [Laughter] Who gave you the right? </p>
+
+<p>[00:06:18] <strong>Jerome</strong>: Exactly. No, I mean, like, I look at some of your projects and I'm like, I would never have started because I would never think that I could actually do anything, you know?</p>
+
+<p>[00:06:31] <strong>Kofi</strong>: Codec-beam acts with the Haskell package is basically me copying what exists in the Erlang compiler. And so knowing that it does exist already makes it kind of feel like... you know, this is achievable. It's like someone has done it and they have put it up online for me to look at for free. And so that gives me a huge headstart. And so I know it's doable. </p>
+
+<p>[00:07:03] <strong>Thomas</strong>: So, sorry, just to- is that your like "Sunday reading" is to go and read...? </p>
+
+<p>[00:07:08] <strong>Jerome</strong>: I was gonna say like, so instead of reading Game of Thrones or like... Kofi pops open GitHub and starts reading and compiling... [Laughter].</p>
+
+<p>[00:07:16] <strong>Thomas</strong>: You could do a New York Times Crossword or... [Laughter].</p>
+
+<p>[00:07:19] <strong>Kofi</strong>: I've skipped some steps, I've skipped some steps. And actually, my brothers at one point would make fun of me because I would read GitHub code on my phone sometimes. They'd just assume I was reading tweets, but it was always, it's always in service of something specific. So I think that, yeah, I guess backing up even further, the core of that codec, what became to be known as codec-beam was originally called elm-beam, kind of. It was just me wanting to write Elm on the back end. And that was literally the extent to which like kind of the initial versions of this whole thing were born. I've tried a few approaches, actually. Jerome was there with me when I was trying some of these, while I worked at 8th Light. I tried like an elm to LLVM and elm to seed compiler. </p>
+
+<p>Those are both doable projects, too. And I think actually people in the community, in Elm community have done them. But this was like a year or two into my career. And I didn't understand those languages well enough to do it. I wanted to do it, but I didn't understand kind of that level of tool. So I looked for something that was a little higher level and easier to understand. And that's how I ended up in the beam internals, because Erlang internally is very similar to Elm. And so like at that point, I'm like, I'm telling you this story, I guess, super quickly. But at that point I'm like six or eight months into this journey. And the project is still all about getting home to the backend.</p>
+
+<p>So, but at this point I'm like working on understanding the Erlang compilers internal, right. So it's like very, I ended up working on something that is very much a bike shed from the original project-stated goals. But it still felt connected enough to me. And as I continued working on it, I realized this is actually probably its own thing. And that's how codec-beam kind of came around. So it was kind of like, I had a very concrete goal at first. And I ended up with a pretty concrete artifact, but it did not actually resemble or meet the goals that I originally outlined. And so I just called it something else. And then used it to build the original thing, is kind of how that project ended up going.</p>
+
+<p>The multi app that you mentioned at the start, Thomas, was actually the exact same story. Now that I'm thinking about it, it actually is the exact same story. But it was a lot more recent, so it took a lot less time. It was only over the course of a few months. But I just called it a chat app. I slipped- because in my mind it was a chat app, at first. I wanted to build an app because I was like, I'm logged into Zulip, which is a chat app. I'm logged into Slack and Discord. And I juggle between them. </p>
+
+<p>[00:10:04] <strong>Jerome</strong>: Your computer is overheating. [Laughter].</p>
+
+<p>[00:10:06] <strong>Kofi</strong>: Kind of. It's just more that, like, I don't like the mental space of knowing I have these, like- I start my day- I like to close my apps at the end of the day. And so when I start my day, I have to open the regular ones and I have to do it three times. And then in my tabs- which I always have three entries, when in my mind, it's like one... I go there for one reason, you know? So I started to- I was just going to build a chat app that had- it was just a web view, a series of web views. One web view for Discord, one web view for Slack, one web view for Zulip. And then as I started building it, I was like, you know, actually, there's no reason this is just limited to chat. This is actually, you know, I could put any URL in here and have an app that has tabs. And in fact, I can make the URL dynamically, configurable.</p>
+
+<p>And then when I finished that, I realized that this thing actually doesn't do chat at all.[Laughter]. It's a web browser kind of. It's a very minimal web browser that lets you kind of make it feel a little more native. So I published it as that. And then I used it to make the chat app. So I guess that's the thread so far. The music sequence that you mentioned maybe doesn't fall under that yet, because it's in progress.</p>
+
+<p>[00:11:24] <strong>Jerome</strong>: Ah, just give it time, right?</p>
+
+<p>[00:11:25] <strong>Kofi</strong>: Yeah.</p>
+
+<p>[00:11:27] <strong>Thomas</strong>: It's so pretty to look at and to hear because you recorded some videos of it. But it just looks so inviting, like you want to play. And I mean, I wouldn't call myself a musician. I played instruments at points in my life, but there's something about the way you've designed it that feels like, "oh, I want to interact with this. I want to see what it does. I want to figure it out." So we'll definitely include the link to that. </p>
+
+<p>[00:11:56] <strong>Kofi</strong>: That's awesome. That was my main goal. So it's really cool to hear. It's also a little funny to hear because I've changed the design, oh, quite a bit. So yeah, hopefully the new version still feels inviting. But yeah, that's the goal to make it kind of like, make it feel hands- it's a computer program, but I want it to feel like you're touching it and that you could touch any part of it to make a different piece of sound come out, and that should feel like a safe and playful experience. </p>
+
+<p>[00:12:37] <strong>Jerome</strong>: That's so cool. </p>
+
+<p>[00:12:39] <strong>Thomas</strong>: I love that word "playful" because all of the projects of yours that- well, even the way you're describing the arc of them, it feels so playful. And it reminds me of the stories. You hear- sorry, I'm going to say back in the day, but I'm a relatively young programmer- but like, you know, OG computers nerds that like they got a computer at home and then the first thing you do is you like hack away at it and you customize it and you build the- you just like experiment with it. And there's a lot of play and fun and curiosity. And I mean, just again, the breadth of the projects that you work on to me, just screams being like curious or wanting to figure something out or optimize something or tweak something, make it your own. And there just isn't a lot... Or there isn't as much of that maybe with consumer electronics today, because everything's so like tailored. But it sounds like you, you really carve out like a piece of tech for yourself and it's really cool to see. And yeah, it seems very playful. </p>
+
+<p>[00:13:41] <strong>Kofi</strong>: It's definitely playful to me. I think... This music app I'm working on, it might be one of the first ones that I intended to be playful for others, but I feel like the whole process has to feel like play to some degree as I'm working on it or else I get bored. So, I have to be learning something it's becoming a little bit rarer that I'm kind of learning fundamentally new things at work. And I think it's fine and part of the job. I just code a lot of react and I learn a little more about react everyday, I guess, but it's not kind of fundamental paradigm shifting kind of stuff. But I feel like some of the reason that my solo projects end up being so all over the place is because I want to have a little play and chaos as part of my, kind of growth as a developer and just kind of keeping me energized in general. </p>
+
+<p>[00:14:49] <strong>Jerome</strong>: Yeah. I love that. As I was kind of prepping for this episode, I was thinking about that kind of MVPs all the way down. Thinking about that playful, chaotic nature to some of your personal projects. And I realized that there's actually a pretty interesting- to me, at least- thread between that and kind of this new directive we have at 8th Light of like ambitious projects, custom solutions to ambitious projects or problems. And it like occurs to me that pretty much like every single one of your personal projects started with like a pretty ambitious kind of goal and the role of play and the role of chaos and the role of kind of, not really knowing where it's going and iterating and rolling with the punches and coming out with something that is totally different than what you intended, to me speaks a lot about the process of trying to solve ambitious projects. And I'm wondering if you have anything to say about that, if that sparks anything for you? </p>
+
+<p>[00:16:07] <strong>Kofi</strong>: Yeah. I think that when you have a project or some kind of unit that feels opaque, I guess. And where you're not sure what are the smaller pieces here? Cause I think, iteration as a software developer is almost entirely about working on the smaller pieces, working on classes or modules. And in those classes and modules, working on like structures or functions. And it's hard to see, you know, the classes, if you don't understand the blob yet. Yeah, I think for me, one advantage I have doing... One thing I'm grateful for is that I am living in this era where so much source code is available to me on GitHub. And yeah, I mentioned my brother's poking fun at the fact that I do like have- GitHubs probably one of my top visited sites on my phone. You can answer questions today instantly that you might not have been able to think about how to ask them not too long ago.</p>
+
+<p>And so, yeah, I do a lot of code search on GitHub, just to figure out, like, have people done this project in this language? If they didn't do it in this language, what language did they do it in? Like, what- has anyone done a big project in it? If so, like how did they lay out their- like how did they think about the domain?</p>
+
+<p>You can look at like, just their file structure and see like, "oh, these are the concepts that, you know, five people use, I guess these are probably worth maybe understanding from a, if I want to understand this domain perspective." </p>
+
+<p>[00:18:01] <strong>Jerome</strong>: That's really interesting because I feel like I do not leverage GitHub as much as like, it would be useful to use it, right? Like, GitHub is where I push my source code. And it's not like a compendium of knowledge that I can draw upon. I know other developers that, like yourself, that use it really effectively. And it makes sense to me, especially if, you know, talking about like ambitious projects to kind of stand on the shoulders of giants, right? Like, look at the work that's come before. Do you have any tips? Any like suggestions or practical ways that me or people like me might be able to leverage GitHub more effectively. </p>
+
+<p>[00:18:59] <strong>Thomas</strong>: Yeah. GitHub copilot, right? </p>
+
+<p>[00:19:03] <strong>Jerome</strong>: Boom! </p>
+
+<p>[00:19:05] <strong>Kofi</strong>: Boom! Yeah. I think a place that I started was just start projects. Like my personal start projects, even before I started actually reading code, I would see a project on Hacker News and say, oh that is an interesting product and I'm going to start it maybe as like a, "I liked the tweet" kind of energy. But a lot of, you know, a lot of like small to medium-sized projects are- have a handful of key insights. Like you can imagine like seeing react for the first time and thinking, oh, this is magic. And then understanding from some of their internal documentation. Okay, one of the key insights here is, you know, how they manage, you know, directional data flow and the virtual DOM.</p>
+
+<p>And now you have kind of two ideas that you can hunt through the repo and find virtual DOM that JS or similar. And that you've like stumbled upon what the developer's name as kind of the crux of the thing. And a lot of times just reading that file could point you to the, the interesting part. Which is kind of one thing, for me, inside projects- like making sure you're doing as much of the interesting part as possible is kind of a constant tension right there are hundreds of files inside of final products a lot of time. But in the same way that like, I spend energy when I'm writing projects and cutting out, what is the non-essential piece of this idea? It's kind of like the inverse process of finding in other people's projects. Like what exactly is going on in this project that kind of looks like magic to me from the outside?</p>
+
+<p>A part of how I got to Multi was doing that for the- there's a library, a C library called webview, which is just a cross-platform kind of wrapper around native platform web views. Pretty much every major desktop platform has one. And so you can kind of ship desktop apps by making a website and shipping the HTML JS and CSS, and then shipping a very small generic C layer around that. That's the actual executable. And so reading the code for that library, you know, the part of it where they create the Mac app is so tiny. And you know, some of it is like, well, if I don't need this feature that they just added cause there's a GitHub issue that asks for it, then it becomes even tinier.</p>
+
+<p>And so like that core idea was the first version of Multi and then kind of adding bells and whistles I felt to be necessary for Multi's success that didn't exist there. </p>
+
+<p>[00:21:58] <strong>Thomas</strong>: I love that. I don't- it either sounds like really stuck up or like, I don't know, what's the word like degrading to say to someone, but the advice I always give to people is to read source code. I don't do it as much as I, you know, want to, but I do read source code for fun. And especially if you're working on a project, like... People talk about- I work a lot in Rails. And people are always like, well, there you have it right there. You just like open it up and look at it. And really, it really is approachable code and you don't always agree with it, but it's, what's there. And by reading it, you gain a lot of understanding. And I think always going to the source is, like- you explained that it just makes me want to read more code because really, like you said, it, it's not magic. It's people that are just like us who are writing this. So it is possible. There is a way to do it. And like you said, we live in a time where you get access to all of that for free. So yeah. I want like a library, like a bookshelf behind me, but just like source code, like, "oh, I'll read this today." </p>
+
+<p>[00:23:11] <strong>Kofi</strong>: It was really freeing for me to think about it from the inverse perspective. Not just looking for things I want, but looking for things that are bugging me, like, why does you know, why is this bug here?</p>
+
+<p>And I just remember the first, maybe the second year of my career, my first Open-Source Contribution feeling like, "Oh, wow. Like this thing that I took to be an artifact is inspectable. And I just helped fix it because I took the time to kind of read it. And not that the fix was particularly hard, but it's, you know, it's just, these things are built by people who have fixed hours in their day and priorities in their lives. And it's the coolest part about software to me that it's figure-out-able. </p>
+
+<p>[00:24:04] <strong>Thomas</strong>: I want to circle back to, or I guess, we haven't really gotten to it yet, but this idea of MVPs all the way down. And to something that, I mean, I think you were still chewing it over, but this idea of like a project only existing in a single file? And why I'm interested in it is because, you know, a lot of what we try to talk about on this podcast is related to the day-to-day work. The work that, you know, we sit down at a desk and do our work for our employers. And in here we're talking about side projects, but there's so much about the way that you approach things and the way that you see things that I think are really inspiring to bring back to work. Like, can we find the play in work when we're approaching problems? And can we feel confident finding solutions rather than like reinventing the wheel? Like just really having our fingers into the industry and what's out there to be able to like pull inspiration from. It doesn't have to be like all in our institutions, or organizations, or all in our head. So I want to dive into your ideas, even though you approach your side projects this way, like, I think we can carry a lot of that curiosity in with work or into work. So yeah, I'd love for you to dive into kind of your theories about your personal projects. </p>
+
+<p>[00:25:23] <strong>Kofi</strong>: Sure. Yeah. It's yeah, I hinted at it just now with thinking about like, what is the interesting part about this project? And to stay motivated for me, you know, I've gotta be spending most of my time on the interesting part. And so I think one of the reasons I end up with sub projects is because when I find myself spending a lot of time on something that feels uninteresting to the thing that I'm trying to do, I want to kind of do it once and be done with it, you know. Make that the interesting part for a few weeks and then finish it and then go on to the thing that I originally thought was the interesting part. And so the idea with, I mentioned this, like keeping everything in a single file. It's such a, like, it's kind of how I like to speak just in absolutes for no reason, I guess... And as a concrete example, this music sequencer I've been working on, I have like three JavaScript files. There's one called index.JS, which is the thing. And then one called- I don't remember what they're called. It doesn't matter what they're called now, but I just put everything in that index.JS.</p>
+
+<p>And then it feels at a certain point, like, dang there are mixed levels of abstraction here. And, you know, I have, the top half of this file feels different from the bottom half. The bottom half is the app. The top half is plumbing. So, I put one in plumbing.JS or something. And then I have my actual, my app in index .JS.</p>
+
+<p>Now plumbing.JS to me should feel done to some degree or definition of done. Where like, once I take it out of that, of the app context, which is to me the single file, I want it to be finished and just work as a dependency to my main file. And so that is where I started thinking like, "dang, maybe when I pull it out of the file, I should just pull it out of the project" because I don't even want to like- obviously there are circumstances I have to redesign. I refactor and there are practical reasons why it probably doesn't make sense to like actually pull it out of the, Git repo, let's say. But conceptually, it's not a part of the thing I'm trying to build.</p>
+
+<p>It's a layer below. And especially when I'm thinking from the perspective that I want to build something that I will be sharing publicly on GitHub. I don't want anyone who tries to do something very similar to what I'm doing to have to kind of pick apart which pieces apply to them. Like they should be layers that they could feel like, okay, if I copy everything from this directory down, I'll have this little bit, and I can build my own version on top of that or something like that.</p>
+
+<p>[00:28:26] <strong>Jerome</strong>: It's almost like you're doing a public service. To others that I think the same way as you of like trying to find the interesting in source code and just making it easy for them. </p>
+
+<p>[00:28:37] <strong>Kofi</strong>: Yeah. I was hesitant when you said public service, but when you say to people who think the same way as me is, yeah. That's probably it. Yeah. I mean coding the way I think, or I'm trying to encode the way I think, in the project structure so that anyone who thinks similarly will have easy time. I guess the jury is still out as to like how many of us there are, but </p>
+
+<p>[00:28:59] <strong>Thomas</strong>: Alright, everyone go read Kofi's GitHub. [Laughter]. Star it if you think the way he does and just don't do anything if you don't. Wait, Kofi, do you, do you write tests for these things? Nobody clutch their pearls now, I'm just wondering.</p>
+
+<p>[00:29:18] <strong>Kofi</strong>: Usually not. Codec-beam has very good test coverage actually. And I was very proud of those- I am very proud of those tests. However, I feel like the only reason the test coverage got there is because I started to treat the tests as their own project. Like there's some interesting mechanics going on with, how do you test the code generation language for bytecode? Like without just putting arbitrary blobs of bytecode in your like test stubs files. So, because the tests were interesting, I wrote them. A lot of the times to me, the tests aren't interesting and I skip 'em. </p>
+
+<p>[00:29:55] <strong>Thomas</strong>: That's okay. I asked because like, yeah, I can imagine if you... I mean, okay. We're not here to debate like the importance of tests and TDD. And I think in our professional lives, definitely if you work at 8th Light, you write tests. But in terms of these projects, like, it sounds like there's a way that these abstractions reveal themselves that allow for you to almost hold it all in your head. Like the mental model of it is so close to what it actually is because you've spent so much time discovering the abstractions. And not saying you don't need tests, but you have a higher degree of confidence than you would if you had like a 15 file JS project. </p>
+
+<p>[00:30:43] <strong>Kofi</strong>: No, I think you're a hundred percent right. And I'm actually surprised that I didn't use the phrase, hold it in your head so far, because I love that phrase and I use it a lot to talk about design. Because I think that is, to me, that ended up being the main point of tests: to hold context concretely in an artifact.</p>
+
+<p>That's not your head because when you're working on a team in particular, especially, you know, a real world team where people come in and out of, they can't be in any single developer's head. But when I'm working on stuff, that's just, I'm working on it. I feel like that's a totally fine trade-off. And so to me, as I started working more on solo projects, one other aspect I hadn't thought about as far as keeping context in my head is how easy is it for me to reload the context, if I need to come back to the project. And I don't always love coming back to projects, but I do have to sometimes like Multi is a thing that I sell. And so when bugs come up, I try to fix them. But I'm working on it maybe like one weekend a month at this point. And so I actually have a hard time with Multi because it's in a language I don't otherwise use, Swift.</p>
+
+<p>And because of the nature of like how you have to inherit from certain classes and stuff to bank, a Mac app, there are a bunch of like structures and the structures live in different files. And so I have some trouble kind of coming back to it. And so I'm trying to be a little more strict about that in this sequence rap I'm building, because when I put it away for some time and come back to it, I want it to feel like all the stuff I'm looking at is the app. It's, you know, the layers are somewhere else. And when I, you know, look at the directory structure and when I look at the like main functions and code structures, they should remind me of like, the analogies that I used originally to name these sub components.</p>
+
+<p>[00:32:57] <strong>Jerome</strong>: Yeah. The first thing that pops into my head is like, how does that, that idealized kind of workflow work for you in your day job? Like how do you square that circle? Right? Like, is that a source of frustration? </p>
+
+<p>[00:33:13] <strong>Kofi</strong>: I'm no longer frustrated. I think there was a time I was. But I think that I am now maybe at a certain stage of grief where I've accepted the fact that it's very different.</p>
+
+<p>It's very different. You know, I have to write a lot of uninteresting code at work and it's not just where I work. I think anywhere, like you can't just pull out a chunk of code and Open-Source it, you know, at-will and a lot of- well, you know, one thing I realized, actually not at, not at my current job, but I worked at a logistics startup before and we did a lot, we did invoice processing and it was rare that we were kind of the source of truth because it was a start up so we had to integrate with like a bunch of older data systems. And then it was like a two-way integration a lot of times, pull data from them and then let people do whatever they wanted with it in our system, and then push it back to their kind of home database.</p>
+
+<p>And there were a few companies doing similar things. And whenever customers would talk about why did they stick with our product? They would say the integrations work and they're consistent. And they were so, from the inside, they just felt so like not- they felt like not the thing. Right. They felt like they're just the pipes that take the data in and out. And then we, and then we have the thing and then the data goes back in or out. Right. But from the customer's perspective, like that was the reason that a lot of people had tried other products and said like your integrations work.</p>
+
+<p>And the integrations always felt to me like, oh, we're just, you know, we're programming reactively. We don't really have, like organization area. Cause we're just like. Like building on, on legacy systems on their end. And, but so much of the value we delivered came from the stuff that to me is uninteresting to work on independently.</p>
+
+<p>So, yeah, right before I started my current job, I worked on my own product for awhile. It was for personal trainers. My wife's a personal trainer. And so she was user number one and still a user. And I think I fell into the same trap and that's kind of what solidified it for me that like, man, to build a business it's you have to be able to treat the stuff that's maybe not interesting from a programming perspective as like, you know, the thing that you do to eat kind of.</p>
+
+<p>So like, I do want to try it again, see if I can, you know, take another shot at making that kind of work interesting to me. But yeah, at the time I tried it, I felt like that was a constant fight of like, man, I want to be programming. What I view as the thing, which is maybe not what a customer might be needing as their thing.</p>
+
+<p>[00:36:11] <strong>Jerome</strong>: It seems like a yin and yang, right? Like on the one hand, I think it's really great to be programming things that you're excited about and developing your own philosophy of how to deliver interesting, in some ways, content for other Kofi's out </p>
+
+<p>[00:36:34] <strong>Kofi</strong>: there. </p>
+
+<p>[00:36:36] <strong>Jerome</strong>: But I really appreciate the acknowledgement that some of the unsexy stuff.</p>
+
+<p>Is also very important, even if it's not particularly interesting to you and both kind of go into creating lasting projects and there's room for both. Right. </p>
+
+<p>[00:36:53] <strong>Kofi</strong>: If I could take the version of myself that does work and is cool with that. And then have a copy that is the side project who is kind of saying these big, crazy projects and.</p>
+
+<p>Working on the interesting bits and they repair it. I feel like that might be my, my startup team for like- but personally I just, I don't know how to switch, you know, effectively navigate that in one body. But if I had two bodies, that would be great. </p>
+
+<p>[00:37:22] <strong>Jerome</strong>: Co-pilot. [Laughter].</p>
+
+<p>[00:37:25] <strong>Thomas</strong>: I have to say like sometimes. And I think it's, it's totally legitimate and healthy and valid to admit that like the work of a programmer, isn't just the sexy things.</p>
+
+<p>And it's why I think when you have like a really good project or product manager where it can be really interesting and fun because they have that kind of touch with the user and the customer, and you really can understand why that unsexy stuff needs to be done. But even with that, I totally pretend sometimes when I'm working that I'm like working at JPL or like NASA or something, and I'm like, I know working on an invoicing system, but I'm going to pretend like these are invoices for NASA, and then it'll be fun and interesting, right? </p>
+
+<p>[00:38:16] <strong>Kofi</strong>: Look, whatever works for you. </p>
+
+<p>[00:38:19] <strong>Thomas</strong>: I honestly thought everyone thought that way and then I told my team that, and they were like "What? You're crazy!" And I was like, oh, I guess I am. </p>
+
+<p>[00:38:26] <strong>Jerome</strong>: I want to use that now. I think that's- it reminds me of the- Neil Gaiman has like a commencement speech that people love, but just like make good art. And one of the things that he says in there is like, if you don't know how to do something, like pretend that you are somebody that enjoys doing it, and do what that person would do.</p>
+
+<p>I think unless Thomas, you have any questions, maybe we can wrap it up. </p>
+
+<p>[00:38:53] <strong>Thomas</strong>: Yeah. I think we're we're about at time. Kofi, thank you so much. So much. This has been a really awesome conversation. We've had a few- I think you- I don't know if you called them "drive by's" on Twitter. We passed by, on Twitter a few times and like I said, I've been following your side projects and as a serial side project-er, even though mine are never complete, I was always inspired by your work. So I was really excited to have this conversation. </p>
+
+<p>[00:39:24] <strong>Kofi</strong>: Thank you. This was, yeah, this was a lot of fun. I am glad that we got to it. I'm glad that it could, you know, help however you're thinking about your work. </p>
+
+<p>[00:39:34] <strong>Jerome</strong>: Yeah. How can the people on the interwebs find out about you and kind of keep abreast of the stuff that you're working on?</p>
+
+<p>[00:39:42] <strong>Kofi</strong>: I'm @KofiGumbs on Twitter. I'm also KofiGumbs on GitHub. If via this conversation, you're like, "I like the way that, you know, this guy might think, might organize his code," then, you know, we can talk on either of those. </p>
+
+<p>[00:39:57] <strong>Jerome</strong>: Collaborate maybe?</p>
+
+<p>[00:39:58] <strong>Kofi</strong>: Yeah. </p>
+
+<p>[00:39:59] <strong>Thomas</strong>: I'm definitely going to go read your source code. Hey listeners, maybe we can, we can hang out in the issues and open a bunch of... [Laughter].</p>
+
+<p>[00:40:07] <strong>Jerome</strong>: I can vouch for being a collaborative with Kofi. He's great. He's great to work with. Yeah. </p>
+
+<p>[00:40:12] <strong>Thomas</strong>: Well, yeah, thanks again so much. And yeah, we'll be sure to include all of that information in the show notes. </p>
+
+<p>[00:40:20] <strong>Jerome</strong>: Yeah, this is awesome. Thanks Kofi. </p>
+
+<p>[00:40:23] <strong>Kofi</strong>: Thank you.</p>
+
+<p>[00:40:29] <strong>Thomas</strong>: Oh, another fantastic conversation. </p>
+
+<p>[00:40:32] <strong>Jerome</strong>: Absolutely. </p>
+
+<p>[00:40:33] <strong>Thomas</strong>: I feel like I always walk away with these and I'm like super excited to do something. I'm like, what do I do with this energy? I know what I maybe want to do with all this energy, but I'm curious for you, Jerome, how did that hit for you? What resonated? What are you sparked with?</p>
+
+<p>[00:40:49] <strong>Jerome</strong>: Yeah. See, I'm interrupting you because I'm so excited to talk about it. I mean, my biggest takeaway is that I'm clearly using GitHub incorrectly, or at least not to its full potential. You know, I'm saying that a little tongue in cheek, but I think Kofi made a really compelling case for a really interesting way to make something from nothing.</p>
+
+<p>You don't start with nothing. Like, it's so obvious. But like, you know, most powerful things are. If I'm going to write a blog post, I'm going to do some initial research or I'm going to have some notes I can draw on or at the very least, you know, read something that sparks something for me. And I've just never really thought about code in the same way.</p>
+
+<p>I mean, you know, there's a little bit of the CopyPasta approach and taking from like tutorials and understanding how to do a particular thing, stack overflow, that kind of stuff. But I've never really thought about looking at a code base at somebody else's code and trying to find the kernel of what makes that code really interesting.</p>
+
+<p>And so that, for me, is super exciting and I'm tempted to start, you know, a side project now. We'll see how far I get, but I think just having that guidepost of like, "Oh yeah, what is the interesting thing here? Where can I really pull out something that gets my mind going? That gets me thinking, 'what can I do with this?'" I think hopefully that'll be motivating enough for me to at least complete something and ship it like Kofi does. </p>
+
+<p>[00:42:24] <strong>Thomas</strong>: Yeah. A hundred percent. And I don't think I've ever used GitHub to its full extent like that either..? I think I've approached it, but it seems so, like obvious. Yeah. When Kofi says it you're like, oh yeah, definitely you should be inspired by other people's work. What really hit for me, like I talked about in the beginning, I am always experimenting and always trying new things. And the one thing that Kofi was talking about that I think would help inspire me is specifically like how to load and unload it from your head. And the way that he approaches it is like, really scope things down. Work on the thing that's the most interesting and make it small enough that you can fit it in your head. And when there's something that needs to like support it, make that its own thing. Get that out of the way, knock it out, call it done and get back to the thing that you think is interesting.</p>
+
+<p>I think a lot of my... I would say a lot of my personal projects are very ambitious. At least ambitious to me. They're usually in a domain I don't really know a lot about. Or they're using some sort of, or several pieces of technology or languages or frameworks that I haven't worked in before. So there's a lot to do and it can get very overwhelming.</p>
+
+<p>So I'm like, "ah, I wanna like go back to one of my projects" and I'm like clear all of that out, focus on like the really small kind of thing. Call it done. Get other pieces out of the way. And it's also like a really cool way to manage those dependencies. Like we talked about, he doesn't really write tests for some of his side projects. But like, you know, if you manage your code in that way. I think, I mean, I don't need to justify not writing tests in a side project. But, you know, I think it would help me from not feeling overwhelmed, which is usually a blocker or a stopper for me, with my side projects. </p>
+
+<p>[00:44:20] <strong>Jerome</strong>: And thomas, I think we've already also kind of done that, which is really affirming to Kofi's point with this podcast. I remember when we were starting this thing, we kind of, you know, took it not as like a Lark, but we really wanted to focus only on the interesting bits. And we tried to cut away all of the logistics and really just trying to focus on what do we enjoy, what do we enjoy doing? And yeah, like I said, I think that just highlights again, the truth behind what Kofi was saying and the insight that he had there.</p>
+
+<p>[00:44:55] <strong>Thomas</strong>: Yeah. He's really tapped into something. </p>
+
+<p>[00:44:57] <strong>Jerome</strong>: Yeah. Yeah, for sure. </p>
+
+<p>[00:45:00] <strong>Thomas</strong>: Awesome. Well, I love this like meta commentary on the podcast and yeah, we're several episodes in and it's feeling more and more exciting every time we get to talk to someone awesome, like Kofi. So, I can't wait to see who we talk to next.</p>
+
+<p>Thank you so much for listening to this episode of Collaborative Craft. </p>
+
+<p>[00:45:26] <strong>Jerome</strong>: Check out the show notes for a link to this episode's transcript, and to learn more about our guest. </p>
+
+<p>[00:45:30] <strong>Thomas</strong>: Collaborative Craft is brought to you by 8th Light and produced by our friends at Dante32. </p>
+
+<p>[00:45:36] <strong>Jerome</strong>: 8th Light is a software consultancy dedicated to increasing the quality of software in the world by partnering with our clients to deliver custom solutions to ambitious projects. </p>
+
+<p>[00:45:46] <strong>Thomas</strong>: To learn more about 8th Light and how we can help you grow your software development and design capabilities, visit our website at 8thlight.com. </p>
+
+<p>[00:45:54] <strong>Jerome</strong>: Thanks again for listening. And don't forget to subscribe to Collaborative Craft wherever you get your podcasts. </p>
+
+<p>[00:46:01] <strong>Thomas</strong>: You can also follow us on Twitter at @CollabCraftPod to join in the conversation and let us know who you'd like to hear from next. </p>
+
+<p>[00:46:08] <strong>Jerome</strong>: We'd love to hear from you. </p>
+
+<p>[00:46:10] <strong>Thomas</strong>: Bye.</p>
+    </div>
+  </div>
+            </article>
+        </div>
+    </div>
+    <div class="container">
+        <footer class="mt-24 lg:mt-40">
+            
+<div class="border-top pt-16 pb-10">
+      <div class="lg:flex w-full pb-10">
+      <div class="self-start mr-10 mb-8">                    
+        <a href="https://8thlight.com/authors/jerome-goodrich">        
+
+<img class="round-headshot" src="https://assets.8thlight.com/images/insights/authors/_175x175_crop_center-center_none/57124/jerome-goodrich_2023-01-24-200827_bfpa.webp" srcset="https://assets.8thlight.com/images/insights/authors/_350x350_crop_center-center_none/57124/jerome-goodrich_2023-01-24-200827_bfpa.webp 2x" width="175" height="175" alt="">
+        </a>      </div>
+      <div class="max-w-6-cols">
+                  <a href="https://8thlight.com/authors/jerome-goodrich"><h3 class="body"><strong>Jerome Goodrich</strong></h3></a>
+                          <div class="text-gray-400 body small">Principal Crafter</div>
+                          <div class="mt-6">
+            <div class="wysiwyg body">
+              <p>Jerome Goodrich leads amazing software teams to design and develop thoughtful solutions to complex problems as a principal software crafter at 8th Light. He loves pairing strenuous hikes with deep conversations and is always trying to see things clearly and with an open heart. Jerome lives much of his life off of the internet, but he occasionally writes on <a target="_blank" href="https://jeromegoodrich.com/" rel="noreferrer noopener">his website</a>.</p>
+            </div>
+          </div>
+                          <div class="mt-8"></div>
+              </div>
+    </div>
+  </div>
+            
+
+
+  
+  
+  <div class="border-top pt-10 lg:pt-14 pb-16 lg:pb-28">
+    <div class="txt-2xl font-semibold mb-10 lg:mb-14">Related</div>
+    <div class="insights-grid">
+              
+<div class="col-span-4">
+    <div class="hover-zoom-wrap">
+        <a href="https://8thlight.com/insights/building-supportive-systems-with-software-crafter-serene-henery">
+                                                                                    
+
+<img class="hover-zoom" src="https://assets.8thlight.com/images/insights/_400x245_crop_center-center_none/94098/support-beams.webp" srcset="https://assets.8thlight.com/images/insights/_800x490_crop_center-center_none/94098/support-beams.webp 2x" width="400" height="245" alt="Support beams">
+                    </a>
+    </div>
+
+    <div class="mt-6 blog-card__data">
+        <div class="blog-card__post-info">
+            <a href="https://8thlight.com/insights/building-supportive-systems-with-software-crafter-serene-henery">
+                <div class="mb-3.5">
+                    <p class="body small">
+                        <strong>ARTICLE</strong>
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <h2 style="" class="headline small1">
+                        Building Supportive Systems with Software Crafter Serene Henery
+                    </h2>
+                </div>
+            </a>
+
+            
+
+
+<div>
+        
+                        <div class="flex">
+            <a href="https://8thlight.com/authors/8th-light" class="block" style="width: 48px; height: 48px;">
+                                
+
+<img class="object-cover w-full h-full rounded-full border-solid border-4 border-gray-200" src="https://assets.8thlight.com/images/insights/authors/_48x48_crop_center-center_none/17958/8thLight_Profile_Default.webp" srcset="https://assets.8thlight.com/images/insights/authors/_96x96_crop_center-center_none/17958/8thLight_Profile_Default.webp 2x" width="48" height="48" alt="8th Light">
+            </a>
+            <div class="my-auto ml-4 body">
+                <a href="https://8thlight.com/authors/8th-light" id="dh-10" class="font-semibold">
+                    8th Light
+                </a>
+                <div>
+                        <p class="text-gray-400 body small">
+           April 21, 2023
+
+    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>        </div>
+    </div>
+</div>
+              
+<div class="col-span-4">
+    <div class="hover-zoom-wrap">
+        <a href="https://8thlight.com/insights/level-up-your-software-development-career-with-these-4-in-demand-skills">
+                                                                                    
+
+<img class="hover-zoom" src="https://assets.8thlight.com/images/insights/_400x245_crop_center-center_none/71555/future-proof-software-skills.webp" srcset="https://assets.8thlight.com/images/insights/_800x490_crop_center-center_none/71555/future-proof-software-skills.webp 2x" width="400" height="245" alt="A laptop with unreadable lines of code sites in front of blue and purple lighting. Photo by Mohammad Rahmani on Unsplash.">
+                    </a>
+    </div>
+
+    <div class="mt-6 blog-card__data">
+        <div class="blog-card__post-info">
+            <a href="https://8thlight.com/insights/level-up-your-software-development-career-with-these-4-in-demand-skills">
+                <div class="mb-3.5">
+                    <p class="body small">
+                        <strong>ARTICLE</strong>
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <h2 style="" class="headline small1">
+                        Level Up Your Software Development Career with These 4 In-Demand Skills
+                    </h2>
+                </div>
+            </a>
+
+            
+
+
+<div>
+        
+                        <div class="flex">
+            <a href="https://8thlight.com/authors/juan-santana" class="block" style="width: 48px; height: 48px;">
+                                
+
+<img class="object-cover w-full h-full rounded-full border-solid border-4 border-gray-200" src="https://assets.8thlight.com/images/insights/authors/_48x48_crop_center-center_none/35155/juan-santana.webp" srcset="https://assets.8thlight.com/images/insights/authors/_96x96_crop_center-center_none/35155/juan-santana.webp 2x" width="48" height="48" alt="Juan Santana">
+            </a>
+            <div class="my-auto ml-4 body">
+                <a href="https://8thlight.com/authors/juan-santana" id="dh-10" class="font-semibold">
+                    Juan Santana
+                </a>
+                <div>
+                        <p class="text-gray-400 body small">
+           March 10, 2023
+
+    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>        </div>
+    </div>
+</div>
+              
+<div class="col-span-4">
+    <div class="hover-zoom-wrap">
+        <a href="https://8thlight.com/insights/healthcare-to-devsecops">
+                                                                                    
+
+<img class="hover-zoom" src="https://assets.8thlight.com/images/insights/_400x245_crop_center-center_none/62086/spotlight-malisa-hero_2023-02-03-232804_hdvj.webp" srcset="https://assets.8thlight.com/images/insights/_800x490_crop_center-center_none/62086/spotlight-malisa-hero_2023-02-03-232804_hdvj.webp 2x" width="400" height="245" alt="Spotlight malisa hero">
+                    </a>
+    </div>
+
+    <div class="mt-6 blog-card__data">
+        <div class="blog-card__post-info">
+            <a href="https://8thlight.com/insights/healthcare-to-devsecops">
+                <div class="mb-3.5">
+                    <p class="body small">
+                        <strong>ARTICLE</strong>
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <h2 style="" class="headline small1">
+                        Chasing Curiosity: Malisa Middlebrooks Followed Her Interests and Found a New Software Career
+                    </h2>
+                </div>
+            </a>
+
+            
+
+
+<div>
+        
+                        <div class="flex">
+            <a href="https://8thlight.com/authors/8th-light" class="block" style="width: 48px; height: 48px;">
+                                
+
+<img class="object-cover w-full h-full rounded-full border-solid border-4 border-gray-200" src="https://assets.8thlight.com/images/insights/authors/_48x48_crop_center-center_none/17958/8thLight_Profile_Default.webp" srcset="https://assets.8thlight.com/images/insights/authors/_96x96_crop_center-center_none/17958/8thLight_Profile_Default.webp 2x" width="48" height="48" alt="8th Light">
+            </a>
+            <div class="my-auto ml-4 body">
+                <a href="https://8thlight.com/authors/8th-light" id="dh-10" class="font-semibold">
+                    8th Light
+                </a>
+                <div>
+                        <p class="text-gray-400 body small">
+           February 03, 2023
+
+    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>        </div>
+    </div>
+</div>
+          </div>
+  </div>
+        </footer>
+    </div>
+  </main>
+        
+<footer class="footer bg-charcoal pt-[86px]">
+  <div class="container">
+    <a class="text-white inline-block eighth-light-logo" href="/" aria-label="8th Light Home Page">
+      <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full" viewBox="0 0 76.35180000000003 47.63550000000001">
+  <title>8th Light Logo</title>
+	<path d="M 19.601800000000026,24.2695 C 23.190800000000024,22.025 25.58180000000003,18.066000000000003 25.58180000000003,13.5625 C 25.58180000000003,6.582000000000001 19.84380000000003,0.9035000000000011 12.790800000000019,0.9035000000000011 C 5.737600000000029,0.9035000000000011 2.842170943040401e-14,6.582500000000003 2.842170943040401e-14,13.5625 C 2.842170943040401e-14,18.066000000000003 2.3906000000000205,22.025 5.979600000000019,24.2695 C 2.3906000000000205,26.514000000000003 2.842170943040401e-14,30.473 2.842170943040401e-14,34.9765 C 2.842170943040401e-14,41.95700000000001 5.738100000000031,47.63550000000001 12.790800000000019,47.63550000000001 C 19.84380000000003,47.63550000000001 25.58180000000003,41.95700000000001 25.58180000000003,34.9765 C 25.58180000000003,30.473 23.190800000000024,26.514000000000003 19.601800000000026,24.2695 M 12.790800000000019,5.082000000000001 C 17.515800000000027,5.082000000000001 21.35880000000003,8.886499999999998 21.35880000000003,13.5625 C 21.35880000000003,18.238500000000002 17.515800000000027,22.043 12.790800000000019,22.043 C 8.06610000000002,22.043 4.222500000000025,18.238500000000002 4.222500000000025,13.5625 C 4.222500000000025,8.886499999999998 8.066600000000022,5.082000000000001 12.790800000000019,5.082000000000001 M 12.790800000000019,43.45700000000001 C 8.06610000000002,43.45700000000001 4.222500000000025,39.6525 4.222500000000025,34.9765 C 4.222500000000025,30.3005 8.066600000000022,26.496000000000002 12.790800000000019,26.496000000000002 C 17.514800000000022,26.496000000000002 21.35880000000003,30.3005 21.35880000000003,34.9765 C 21.35880000000003,39.6525 17.515800000000027,43.45700000000001 12.790800000000019,43.45700000000001" fill="currentColor"/>
+	<path d="M 76.35180000000003,21.356500000000004 L 58.12680000000003,21.356500000000004 L 71.01380000000003,8.603000000000002 L 67.65980000000002,5.283000000000001 L 54.77180000000001,18.037 L 54.77180000000001,0.0 L 50.02880000000002,0.0 L 50.02880000000002,18.037 L 37.14180000000003,5.283000000000001 L 33.78680000000003,8.603000000000002 L 46.67380000000003,21.356500000000004 L 28.44880000000002,21.356500000000004 L 28.44880000000002,26.051500000000004 L 46.67480000000003,26.051500000000004 L 33.78680000000003,38.805499999999995 L 37.14180000000003,42.1255 L 50.02880000000002,29.371499999999997 L 50.02880000000002,47.408 L 54.77180000000001,47.408 L 54.77180000000001,29.371499999999997 L 67.65980000000002,42.1255 L 71.01380000000003,38.805499999999995 L 58.12680000000003,26.051500000000004 L 76.35180000000003,26.051500000000004 L 76.35180000000003,21.356500000000004" fill="currentColor"/>
+</svg>
+
+    </a>
+
+
+    <div id="footer__content" class=
+    "pt-4 lg:pt-28 dh--flex footer__content lg:flex justify-between max-w-5xl"><nav aria-label="Footer">
+          <ul id="footer__left-col" class=
+          "footer__left-col h2 font-mono text-white mb-16 lg:mb-0 max-w-md"><li>
+              <a  class="big-link" href="https://8thlight.com/about">About</a>
+            </li><li>
+              <a  class="big-link" href="https://8thlight.com/case-studies">Case Studies</a>
+            </li><li>
+              <a  class="big-link" href="https://8thlight.com/services">Services</a>
+            </li><li>
+              <a  class="big-link" href="https://8thlight.com/insights">Insights</a>
+            </li><li>
+              <a  class="big-link" href="https://8thlight.com/careers">Careers</a>
+            </li><li>
+              <a  class="big-link" href="https://8thlight.com/contact">Contact</a>
+            </li></ul>
+        </nav><div id="footer__right-col" class="footer__right-col lg:pt-4 grow max-w-4-cols"><div id="footer__keep-in-touch" class="footer__keep-in-touch mb-9">
+            <h2 class="headline small2 text-white mb-1">
+              Keep in Touch
+            </h2>
+            <ul class="body small text-white"><li>
+                  <a  class="block" href="/newsletter">Sign up for our newsletter</a>
+                </li><li>
+                  <a  class="block" href="/talent-community">Join our talent community</a>
+                </li></ul>
+
+          </div><div id="footer__resources" class="footer__resources mb-9">
+            <h2 class="headline small2 text-white mb-1">
+              Resources
+            </h2><p class="body small text-white">
+                <a  class="block" href="https://8thlight.com/jobs">Job Openings</a>              </p></div><div id="footer__locations-wrap" class="footer__locations-wrap">
+            <h2 class="headline small2 text-white mb-1">
+              Locations
+            </h2>
+
+            <ul id="footer__locations" class="footer__locations leading-7"><li class="body small text-white">
+                  Chicago (HQ)
+                </li><li class="body small text-white">
+                  London
+                </li><li class="body small text-white">
+                  Los Angeles (Satellite)
+                </li><li class="body small text-white">
+                  New York (Satellite)
+                </li><li class="body small text-white">
+                  Austin (Satellite)
+                </li></ul>
+          </div></div>
+    </div>
+
+    <div id="footer__social-and-copyright" class="footer__social-and-copyright"><ul id="footer-share-icons" class="footer-share-icons mt-24 lg:mt-44 mb-8 flex text-white"><li class="mr-4">
+                  <a  class="block" href="https://www.linkedin.com/company/8th-light/" rel="noopener" target="_blank" svgClass="reversed rollover-svg w-[50px]" aria-label="Visit external website: LinkedIn (opens in a new window)"><svg class="reversed rollover-svg w-[50px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" baseProfile="full" viewBox="-0.5 -0.75 51 51.5"><defs/><path class="negative" d="M 25.00000000000003,50.06000000000495 C 38.807000000000016,50.06000000000495 50.00000000000003,38.86000000000422 50.00000000000003,25.030000000004293 C 50.00000000000003,11.210000000004584 38.807000000000016,4.547473508864641e-12 25.00000000000003,4.547473508864641e-12 C 11.193000000000026,4.547473508864641e-12 2.842170943040401e-14,11.210000000004584 2.842170943040401e-14,25.030000000004293 C 2.842170943040401e-14,38.86000000000422 11.193000000000026,50.06000000000495 25.00000000000003,50.06000000000495" stroke="currentColor" fill="currentColor"/><path class="positive" d="M 20.465000000000032,33.36000000000422 L 16.51200000000003,33.36000000000422 L 16.51200000000003,21.450000000004366 L 20.465000000000032,21.450000000004366 L 20.465000000000032,33.36000000000422 M 18.490000000000023,19.820000000004256 L 18.46200000000003,19.820000000004256 C 17.135000000000034,19.820000000004256 16.27700000000003,18.910000000004402 16.27700000000003,17.760000000004766 C 16.27700000000003,16.590000000004693 17.162000000000035,15.710000000004584 18.51200000000003,15.710000000004584 C 19.865000000000023,15.710000000004584 20.69700000000003,16.590000000004693 20.722000000000023,17.760000000004766 C 20.727000000000032,18.910000000004402 19.867000000000033,19.820000000004256 18.490000000000023,19.820000000004256 M 34.72000000000003,33.36000000000422 L 30.767000000000024,33.36000000000422 L 30.767000000000024,26.98000000000411 C 30.767000000000024,25.390000000004875 30.19500000000002,24.29000000000451 28.76500000000003,24.29000000000451 C 27.672000000000025,24.29000000000451 27.022000000000034,25.030000000004293 26.737000000000023,25.74000000000433 C 26.632000000000033,26.000000000004547 26.607000000000028,26.35000000000491 26.607000000000028,26.710000000004584 L 26.607000000000028,33.36000000000422 L 22.65200000000003,33.36000000000422 C 22.65200000000003,33.36000000000422 22.705000000000027,22.570000000004256 22.65200000000003,21.450000000004366 L 26.605000000000032,21.450000000004366 L 26.605000000000032,23.130000000004657 C 27.130000000000024,22.320000000004256 28.07000000000002,21.17000000000462 30.16700000000003,21.17000000000462 C 32.767000000000024,21.17000000000462 34.71700000000003,22.87000000000444 34.71700000000003,26.530000000004293 L 34.71700000000003,33.36000000000422 L 34.72000000000003,33.36000000000422" fill="white"/></svg></a>
+            </li><li class="mr-4">
+                  <a  class="block" href="https://twitter.com/8thlightinc" rel="noopener" target="_blank" svgClass="reversed rollover-svg w-[50px]" aria-label="Visit external website: Twitter (opens in a new window)"><svg class="reversed rollover-svg w-[50px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" baseProfile="full" viewBox="-0.5 -0.75 51 51.5"><path class="negative" stroke="currentColor" d="M 25.000000000000057,50.06000000000495 C 38.807000000000045,50.06000000000495 50.00000000000006,38.86000000000422 50.00000000000006,25.030000000004293 C 50.00000000000006,11.210000000004584 38.807000000000045,4.547473508864641e-12 25.000000000000057,4.547473508864641e-12 C 11.193000000000069,4.547473508864641e-12 5.684341886080802e-14,11.210000000004584 5.684341886080802e-14,25.030000000004293 C 5.684341886080802e-14,38.86000000000422 11.193000000000069,50.06000000000495 25.000000000000057,50.06000000000495" fill="currentColor"/><path class="positive" d="M 35.71700000000007,18.940000000004147 C 34.96500000000006,19.270000000004984 34.15700000000007,19.500000000004547 33.31000000000006,19.60000000000491 C 34.17500000000007,19.080000000004475 34.84000000000006,18.260000000004766 35.152000000000044,17.270000000004984 C 34.34200000000007,17.760000000004766 33.44500000000005,18.11000000000422 32.490000000000066,18.29000000000451 C 31.72500000000005,17.48000000000411 30.635000000000048,16.970000000004802 29.430000000000064,16.970000000004802 C 27.115000000000066,16.970000000004802 25.23700000000005,18.85000000000491 25.23700000000005,21.160000000004402 C 25.23700000000005,21.49000000000433 25.275000000000063,21.810000000004948 25.345000000000056,22.12000000000444 C 21.86000000000007,21.950000000004366 18.770000000000067,20.270000000004984 16.702000000000055,17.74000000000433 C 16.34200000000007,18.36000000000422 16.135000000000048,19.080000000004475 16.135000000000048,19.85000000000491 C 16.135000000000048,21.30000000000473 16.875000000000057,22.590000000004693 18.000000000000057,23.340000000004693 C 17.31200000000007,23.320000000004256 16.66500000000005,23.130000000004657 16.10000000000005,22.810000000004948 C 16.10000000000005,22.830000000004475 16.10000000000005,22.85000000000491 16.10000000000005,22.87000000000444 C 16.10000000000005,24.900000000004184 17.545000000000044,26.60000000000491 19.462000000000046,26.98000000000411 C 19.11000000000007,27.080000000004475 18.740000000000066,27.130000000004657 18.357000000000056,27.130000000004657 C 18.087000000000046,27.130000000004657 17.825000000000045,27.10000000000491 17.567000000000064,27.060000000004948 C 18.10000000000005,28.720000000004802 19.650000000000063,29.940000000004147 21.48500000000007,29.970000000004802 C 20.050000000000068,31.10000000000491 18.242000000000047,31.770000000004984 16.277000000000044,31.770000000004984 C 15.940000000000055,31.770000000004984 15.605000000000047,31.750000000004547 15.277000000000044,31.710000000004584 C 17.132000000000062,32.900000000004184 19.337000000000046,33.60000000000491 21.70500000000007,33.60000000000491 C 29.41700000000006,33.60000000000491 33.63500000000005,27.200000000004366 33.63500000000005,21.660000000004402 C 33.63500000000005,21.470000000004802 33.63000000000005,21.29000000000451 33.62200000000007,21.11000000000422 C 34.44500000000005,20.520000000004984 35.15700000000007,19.780000000004293 35.71700000000007,18.940000000004147" fill="white"/></svg></a>
+            </li><li class="mr-4">
+                  <a  class="block" href="https://www.youtube.com/8thLightInc" rel="noopener" target="_blank" svgClass="reversed rollover-svg w-[50px]" aria-label="Visit external website: YouTube (opens in a new window)"><svg class="reversed rollover-svg w-[50px]" aria-hidden="true" viewBox="-0.5 -0.5 51 51" xmlns="http://www.w3.org/2000/svg"><defs
+    id="defs20"/><g
+    id="g310-3"
+    transform="translate(17.047,-5.61)"><path
+      id="path12-6"
+      class=""
+      d="m 7.9530015,6.4507022 c -13.3454934,0 -24.1642075,10.8148758 -24.1642075,24.1603728 0,13.345496 10.8187141,24.158455 24.1642075,24.158455 13.3454965,0 24.1642045,-10.812959 24.1642045,-24.158455 0,-13.345497 -10.818708,-24.1603728 -24.1642045,-24.1603728 z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="3"
+    /></g><g
+    id="g310"
+    transform="translate(0.375,0.38)"><circle
+      r="20"
+      cx="25"
+      cy="25"
+      class="positive"
+      fill="#ffffff"
+      id="circle2"/><path
+      d="m 14.111,26.69 h 1.784 v 8.86 h 1.722 V 26.69 H 19.4 v -1.51 h -5.289 v 1.51"
+      class="negative"
+      fill="currentColor"
+      id="path4"/><path
+      d="m 24.692,19.33 c 0.233,0 0.419,-0.06 0.556,-0.19 0.138,-0.13 0.207,-0.3 0.207,-0.53 v -4.59 c 0,-0.18 -0.07,-0.33 -0.211,-0.44 -0.14,-0.12 -0.324,-0.18 -0.552,-0.18 -0.21,0 -0.38,0.06 -0.513,0.18 -0.13,0.11 -0.195,0.26 -0.195,0.44 v 4.59 c 0,0.23 0.061,0.41 0.184,0.53 0.121,0.13 0.297,0.19 0.524,0.19"
+      class="negative"
+      fill="currentColor"
+      id="path6"/><path
+      d="m 28.491,27.81 c -0.238,0 -0.473,0.06 -0.706,0.18 -0.229,0.12 -0.448,0.3 -0.654,0.53 v -3.34 h -1.545 v 10.37 h 1.545 v -0.59 c 0.199,0.24 0.419,0.41 0.653,0.52 0.232,0.11 0.499,0.17 0.8,0.17 0.451,0 0.801,-0.15 1.038,-0.43 0.24,-0.3 0.36,-0.71 0.36,-1.25 v -4.24 c 0,-0.63 -0.127,-1.11 -0.384,-1.43 -0.254,-0.33 -0.624,-0.49 -1.107,-0.49 v 0 m -0.085,5.95 c 0,0.25 -0.045,0.42 -0.132,0.53 -0.089,0.11 -0.225,0.16 -0.413,0.16 -0.129,0 -0.25,-0.03 -0.369,-0.08 -0.117,-0.06 -0.239,-0.15 -0.361,-0.27 v -4.77 c 0.103,-0.1 0.209,-0.18 0.315,-0.23 0.106,-0.05 0.215,-0.08 0.324,-0.08 0.206,0 0.365,0.07 0.476,0.2 0.108,0.14 0.16,0.33 0.16,0.59 v 3.95"
+      class="negative"
+      fill="currentColor"
+      id="path8"/><path
+      d="m 22.906,33.71 c -0.144,0.17 -0.301,0.3 -0.474,0.41 -0.172,0.11 -0.316,0.16 -0.426,0.16 -0.144,0 -0.248,-0.04 -0.315,-0.12 -0.061,-0.08 -0.095,-0.21 -0.095,-0.39 V 27.9 h -1.528 v 6.4 c 0,0.46 0.09,0.79 0.269,1.02 0.181,0.23 0.444,0.34 0.799,0.34 0.287,0 0.583,-0.07 0.888,-0.24 0.306,-0.16 0.599,-0.4 0.882,-0.71 v 0.84 h 1.529 V 27.9 h -1.529 v 5.81"
+      class="negative"
+      fill="currentColor"
+      id="path10"/><path
+      d="M 24.625,0 C 11.025,0 0,11.02 0,24.62 0,38.22 11.025,49.24 24.625,49.24 38.225,49.24 49.25,38.22 49.25,24.62 49.25,11.02 38.225,0 24.625,0 m 3.979,12.16 h 1.718 v 6.46 c 0,0.2 0.039,0.34 0.111,0.43 0.07,0.09 0.189,0.14 0.35,0.14 0.126,0 0.286,-0.07 0.481,-0.18 0.192,-0.12 0.37,-0.28 0.529,-0.46 v -6.39 h 1.723 v 8.42 h -1.723 v -0.93 c -0.314,0.34 -0.644,0.61 -0.989,0.79 -0.343,0.17 -0.675,0.26 -0.998,0.26 -0.399,0 -0.698,-0.12 -0.9,-0.38 -0.2,-0.24 -0.301,-0.62 -0.301,-1.12 v -7.04 h -0.001 m -6.392,1.92 c 0,-0.65 0.231,-1.17 0.694,-1.56 0.464,-0.38 1.087,-0.58 1.868,-0.58 0.713,0 1.296,0.21 1.753,0.62 0.452,0.4 0.68,0.93 0.68,1.57 v 4.35 c 0,0.73 -0.224,1.29 -0.667,1.7 -0.448,0.41 -1.062,0.61 -1.844,0.61 -0.752,0 -1.356,-0.21 -1.807,-0.63 -0.451,-0.43 -0.678,-1 -0.678,-1.71 v -4.37 h 0.001 m -4.688,-4.92 1.259,4.56 h 0.122 l 1.198,-4.56 h 1.969 l -2.255,6.69 v 4.73 h -1.938 v -4.52 l -2.307,-6.9 h 1.951 0.001 m 22.54,24.04 c 0,3.04 -2.471,5.52 -5.519,5.52 H 15.371 c -3.049,0 -5.52,-2.48 -5.52,-5.52 v -4.44 c 0,-3.05 2.471,-5.52 5.52,-5.52 h 19.176 c 3.048,0 5.519,2.47 5.519,5.52 v 4.44 h -0.002"
+      class="negative"
+      fill="currentColor"
+      id="path12"/><path
+      d="m 33.104,27.71 c -0.685,0 -1.24,0.21 -1.673,0.63 -0.433,0.42 -0.65,0.96 -0.65,1.62 v 3.44 c 0,0.73 0.199,1.31 0.591,1.73 0.393,0.42 0.933,0.63 1.618,0.63 0.762,0 1.333,-0.2 1.715,-0.59 0.387,-0.4 0.575,-0.99 0.575,-1.77 V 33 h -1.571 v 0.35 c 0,0.45 -0.054,0.74 -0.152,0.87 -0.101,0.14 -0.278,0.2 -0.531,0.2 -0.244,0 -0.417,-0.07 -0.519,-0.23 -0.1,-0.16 -0.149,-0.43 -0.149,-0.84 v -1.44 h 2.922 v -1.95 c 0,-0.72 -0.186,-1.28 -0.562,-1.67 -0.375,-0.38 -0.913,-0.57 -1.613,-0.57 l -10e-4,-0.01 m 0.605,3.01 h -1.351 v -0.77 c 0,-0.32 0.05,-0.55 0.157,-0.69 0.106,-0.14 0.28,-0.21 0.524,-0.21 0.231,0 0.404,0.07 0.508,0.21 0.106,0.14 0.161,0.37 0.161,0.69 v 0.77 h 0.001"
+      class="negative"
+      fill="currentColor"
+      id="path14"/></g></svg></a>
+            </li><li class="mr-4">
+                  <a  class="block" href="mailto:contact@8thlight.com" svgClass="reversed rollover-svg w-[50px]" aria-label="Email us at contact@8thlight.com"><svg class="reversed rollover-svg w-[50px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" baseProfile="full" viewBox="0 0 50 50"><circle r="24.5" cx="25" cy="25" class="negative" stroke="currentColor" fill="currentColor"/><path class="positive" d="M 36.27999999999997,20.900000000004184 L 29.5,25.190000000004147 L 36.206999999999994,31.10000000000491 C 36.252999999999986,30.99000000000433 36.27800000000002,30.87000000000444 36.27999999999997,30.74000000000433 L 36.27999999999997,20.900000000004184" fill="white"/><path class="positive" d="M 24.916999999999973,26.150000000004184 L 36.262,18.970000000004802 C 36.209,18.67000000000462 36.05500000000001,18.410000000004402 35.827999999999975,18.210000000004584 C 35.60000000000002,18.020000000004984 35.31200000000001,17.910000000004402 35.012,17.900000000004184 L 14.824999999999989,17.900000000004184 C 14.524999999999977,17.910000000004402 14.240999999999985,18.04000000000451 14.035000000000025,18.260000000004766 C 13.829000000000008,18.48000000000411 13.718000000000018,18.770000000004984 13.725000000000023,19.070000000004256 L 24.916999999999973,26.150000000004184" fill="white"/><path class="positive" d="M 27.935000000000002,26.11000000000422 L 25.233000000000004,27.890000000004875 C 25.13900000000001,27.950000000004366 25.028999999999996,27.98000000000411 24.918000000000006,27.98000000000411 C 24.805000000000007,27.98000000000411 24.694999999999993,27.950000000004366 24.600000000000023,27.890000000004875 L 21.898000000000025,26.11000000000422 L 15.079999999999984,32.13000000000466 C 15.170999999999992,32.150000000004184 15.26600000000002,32.17000000000462 15.360000000000014,32.17000000000462 L 34.47500000000002,32.17000000000462 C 34.56900000000002,32.1600000000044 34.66300000000001,32.150000000004184 34.754999999999995,32.13000000000466 L 27.935000000000002,26.11000000000422" fill="white"/><path class="positive" d="M 13.721000000000004,21.010000000004766 L 13.721000000000004,30.74000000000433 C 13.720000000000027,30.830000000004475 13.728000000000009,30.910000000004402 13.742999999999995,30.99000000000433 L 20.333000000000027,25.190000000004147 L 13.721000000000004,21.010000000004766" fill="white"/></svg></a>
+            </li></ul><ul id="copyright-matter" class="small-copyright-links body small text-white pb-4 flex flex-col space-y-2 md:space-y-0 md:flex-row">
+        <li class="order-last md:order-first mt-2 md:mt-0">
+          COPYRIGHT &copy; 2024 EIGHTH LIGHT LLC.
+        </li><li class="md:border-l border-white">
+                          <a  class="block" href="https://8thlight.com/code-of-conduct">Code of Conduct</a>
+          </li><li class="md:border-l border-white">
+                          <a  class="block" href="/accessibility">Web Accessibility Statement</a>
+          </li><li class="md:border-l border-white">
+                          <a  class="block" href="https://8thlight.com/privacy-policy">Privacy Policy</a>
+          </li></ul>
+    </div>
+  </div>
+</footer>
+  <script src="/assets/dist/bundle-45194dc63ec6474ed47a.js"></script>      <script type="text/javascript">
+_linkedin_partner_id = "4297954";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=4297954&fmt=gif" />
+</noscript>
+  
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-46e4e9fc3124f96cb86","applicationID":"1131407203","transactionName":"MlZRZUIADURWUxFdWAscZkNZTgpZU1UdGkcNQw==","queueTime":0,"applicationTime":19,"atts":"HhFSEwoaHko=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+<!-- Cached by Blitz on 2024-01-30T14:12:09-06:00 --><!-- Served by Blitz on 2024-02-04T13:33:14-06:00 -->
