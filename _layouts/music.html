@@ -1,6 +1,22 @@
 ---
 layout: base
-head: <link rel="stylesheet" href="/music/styles.css" />
+head: |
+  <style>
+    [data-tare] {
+      height: 8rem;
+      margin-bottom: 1rem;
+    }
+    [data-tare-character] * {
+      border-width: var(--border-width, 2px);
+    }
+    [data-tare-character] + [data-tare-character] {
+      margin-left: .75vw;
+    }
+    audio {
+      width: 100%;
+    }
+  </style>
+
 ---
 
 <header>
@@ -8,17 +24,7 @@ head: <link rel="stylesheet" href="/music/styles.css" />
 </header>
 
 <main>
-  <div class="controls">
-    <button aria-label="Play/pause">
-      <span class="line" aria-hidden="true"></span>
-      <span class="line" aria-hidden="true"></span>
-      <span class="line" aria-hidden="true"></span>
-      <span class="line" aria-hidden="true"></span>
-    </button>
-    <div class="range"><input type="range" value="0" max="1" step="any"></div>
-    <div class="duration"></div>
-  </div>
-  <audio preload src="/music/Kofi Gumbs-{{ page.title }}.mp3"></audio>
+  <audio preload controls src="/music/Kofi Gumbs-{{ page.title }}.mp3"></audio>
 </main>
 
 <footer>
@@ -32,9 +38,6 @@ head: <link rel="stylesheet" href="/music/styles.css" />
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const audioContext = new AudioContext();
 
-  const playback = document.querySelector(".controls button");
-  const progress = document.querySelector(".controls input");
-  const duration = document.querySelector(".duration");
   const title = document.querySelector("header");
   const audio = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(audio);
@@ -42,23 +45,13 @@ head: <link rel="stylesheet" href="/music/styles.css" />
 
   source.connect(analyser);
   source.connect(audioContext.destination);
-  audio.addEventListener("playing", () => playback.classList.add("playing"));
-  audio.addEventListener("pause", () => playback.classList.remove("playing"));
-  audio.addEventListener("error",  () => playback.classList.remove("playing"));
-  audio.addEventListener("ended",  () => playback.classList.remove("playing"));
-  progress.addEventListener("input", () => audio.currentTime = progress.value * audio.duration);
 
-  const setDuration = () => duration.innerText = `${audio.duration/60|0}:${audio.duration%60|0}`;
-  if (audio.duration) setDuration();
-  else audio.addEventListener("loadedmetadata", setDuration);
-
-  playback.addEventListener("click", () => {
-    audioContext.resume();
-    audio.paused ? audio.play() : audio.pause()
+  audio.addEventListener("play", () => {
+    if (audioContext.state !== "running") audioContext.resume();
   });
 
   analyser.fftSize = 256;
-  const characters = title.querySelectorAll('[data-tare-character]');
+  const characters = title.querySelectorAll("[data-tare-character]");
   const buffer = new Uint8Array(analyser.frequencyBinCount);
   const step = analyser.frequencyBinCount / characters.length / 2;
   (function loop() {
@@ -73,7 +66,5 @@ head: <link rel="stylesheet" href="/music/styles.css" />
       data.forEach(x => sum += x);
       characters[i].style.setProperty("--border-width", Math.max(2, sum / data.length / 16) + "px");
     }
-
-    progress.value = audio.currentTime / audio.duration;
   })();
 </script>
