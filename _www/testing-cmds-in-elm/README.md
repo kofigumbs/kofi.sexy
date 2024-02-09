@@ -2,11 +2,11 @@
 title: Testing Cmd's in Elm
 description: A brief post + example about dependency injection
 categories: ['blog']
-canonical_url: /testing-cmds-in-elm/
+canonical_url: /blog/testing-cmds-in-elm
 
 ---
 
-This problem frequently appears in [#testing on Elm Slack](https://elmlang.slackarchive.io/testing),
+This problem frequently appears in #testing on Elm Slack,
 and I've been curious about what a "dependency injection" API might look like.
 Dependency injection, in general, is quite simple.
 If you have something that you want to test (or just isolate),
