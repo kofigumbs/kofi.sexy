@@ -18,6 +18,7 @@ class Generator < Jekyll::Generator
       doc.data["categories"] = yaml["categories"]
       doc.data["collection"] = "posts"
       doc.data["draft"]      = false
+      doc.data["external"]   = true
       posts.docs << doc
     end
   end

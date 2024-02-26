@@ -20,13 +20,8 @@ seo: { "type": "Person" }
       {{ post.title }}
     </div>
   </a>
-  {% if post.categories.first == 'blog' %}
-  Blog post
-  {% elsif post.categories.first == 'music' %}
-  Song
-  {% else %}
   {{ post.categories.first | capitalize }}
-  {% endif %}
+  {% if post.external %}&middot; External{% endif %}
   &middot; <time datetime="{{ post.date }}">{{ post.date | date: "%B %e" }}</time>
 </p>
 {% endfor %}
