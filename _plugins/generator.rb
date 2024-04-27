@@ -10,15 +10,8 @@ class Generator < Jekyll::Generator
     # Mix external posts (from _config.yml) into feed
     posts = site.collections["posts"]
     site.config["external_posts"].each do |yaml|
-      doc = ExternalPost.new yaml["url"], site: site, collection: posts
-      doc.data["permalink"]  = yaml["url"]
-      doc.data["title"]      = yaml["title"]
-      doc.data["image"]      = yaml["image"]
-      doc.data["date"]       = yaml["date"]
-      doc.data["categories"] = yaml["categories"]
-      doc.data["collection"] = "posts"
-      doc.data["draft"]      = false
-      doc.data["external"]   = true
+      doc = ExternalPost.new(yaml["permalink"], site: site, collection: posts)
+      doc.data.merge!(yaml, { "collection" => "posts", "draft" => false, "external" => true })
       posts.docs << doc
     end
   end
@@ -28,9 +21,8 @@ class ExternalPost < Jekyll::Document
   def initialize(url, options)
     super("", options)
     @url = url
-    @content = "<a href='#{url}'>#{url}</a>"
   end
 
-  def write(*_)
+  def write(*)
   end
 end

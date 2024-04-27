@@ -23,38 +23,38 @@ defaults:
 external_posts:
   - title: "Podcast: Collaborative Craft, Episode 3"
     date: 2021-08-17 10:00:00
-    url: "https://8thlight.com/blog/jerome-goodrich/thomas-countz/2021/08/17/collaborative-craft-stealing-fire-kofi-gumbs.html"
+    permalink: "https://8thlight.com/blog/jerome-goodrich/thomas-countz/2021/08/17/collaborative-craft-stealing-fire-kofi-gumbs.html"
     image: "/images/collaborative-craft-stealing-fire-kofi-gumbs.jpg"
-    categories: ['talk']
+    categories: [talk]
   - title: "Inventing options"
     date: 2019-03-18 10:00:00
-    url: "https://engineering.hubtran.com/2019/03/18/inventing-options.html"
-    categories: ['blog']
+    permalink: "https://engineering.hubtran.com/2019/03/18/inventing-options.html"
+    categories: [blog]
   - title: "How JSON decoding works in Elm—Part 3"
     date: 2017-08-29 10:00:00
-    url: "https://8thlight.com/blog/kofi-gumbs/2017/08/29/elm-json-decoding-custom.html"
-    categories: ['blog']
+    permalink: "https://8thlight.com/blog/kofi-gumbs/2017/08/29/elm-json-decoding-custom.html"
+    categories: [blog]
   - title: "How JSON decoding works in Elm—Part 2"
     date: 2017-07-17 10:00:00
-    url: "https://8thlight.com/blog/kofi-gumbs/2017/07/17/elm-json-decoding-data-structures.html"
-    categories: ['blog']
+    permalink: "https://8thlight.com/blog/kofi-gumbs/2017/07/17/elm-json-decoding-data-structures.html"
+    categories: [blog]
   - title: "How JSON decoding works in Elm—Part 1"
     date: 2017-06-28 10:00:00
-    url: "https://8thlight.com/blog/kofi-gumbs/2017/06/28/elm-json-decoding-types.html"
-    categories: ['blog']
+    permalink: "https://8thlight.com/blog/kofi-gumbs/2017/06/28/elm-json-decoding-types.html"
+    categories: [blog]
   - title: "The Core of Erlang"
     date: 2017-05-02 10:00:00
-    url: "https://8thlight.com/blog/kofi-gumbs/2017/05/02/core-erlang.html"
-    categories: ['blog']
+    permalink: "https://8thlight.com/blog/kofi-gumbs/2017/05/02/core-erlang.html"
+    categories: [blog]
   - title: "Docker as a (workstation) service"
     date: 2016-07-27 10:00:00
-    url: "https://8thlight.com/blog/kofi-gumbs/2016/07/27/docker-as-a-workstation-service.html"
-    categories: ['blog']
+    permalink: "https://8thlight.com/blog/kofi-gumbs/2016/07/27/docker-as-a-workstation-service.html"
+    categories: [blog]
   - title: "Becoming a professional learner"
     date: 2016-06-08 10:00:00
-    url: "https://8thlight.com/blog/kofi-gumbs/2016/06/08/becoming-a-professional-learner.html"
-    categories: ['blog']
+    permalink: "https://8thlight.com/blog/kofi-gumbs/2016/06/08/becoming-a-professional-learner.html"
+    categories: [blog]
   - title: "Using functions to make better abstractions"
     date: 2016-02-16 10:00:00
-    url: "https://8thlight.com/blog/kofi-gumbs/2016/02/16/using-functions-to-make-better-abstractions.html"
-    categories: ['blog']
+    permalink: "https://8thlight.com/blog/kofi-gumbs/2016/02/16/using-functions-to-make-better-abstractions.html"
+    categories: [blog]

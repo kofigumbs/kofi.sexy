@@ -1,6 +1,6 @@
 ---
 title: Why I make trivial apps
-categories: ['blog']
+category: blog
 
 ---
 
@@ -14,10 +14,10 @@ Over and over again, I found myself having to use the word “résumé,”
 but I refused to settle for the lazy spelling that ignores the diacritics.
 My work-around involved an elaborate 4-step process:
 
- - Google “resume”
- - copy the correct spelling from the Wikipedia entry
- - paste it into my email
- - change the ‘R’ to an ‘r’
+- Google “resume”
+- copy the correct spelling from the Wikipedia entry
+- paste it into my email
+- change the ‘R’ to an ‘r’
 
 As a software developer, I saw this as a problem and sought a solution.
 Thus, my Chrome extension, Resume, was born!

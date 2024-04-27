@@ -1,6 +1,6 @@
 ---
-categories: ['blog']
 title: A retrospective on Multi
+category: blog
 
 ---
 

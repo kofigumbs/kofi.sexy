@@ -1,6 +1,6 @@
 ---
 title: Inventing Options
-categories: ['blog']
+category: blog
 
 ---
 

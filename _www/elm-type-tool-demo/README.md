@@ -1,6 +1,6 @@
 ---
 title: Building a tool that leverages Elm's types
-categories: ['blog']
+category: blog
 canonical_url: /blog/elm-type-tool-demo
 
 ---

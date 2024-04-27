@@ -1,6 +1,6 @@
 ---
-title: 'Modern SPAs without bundlers, CDNs, or NodeJS'
-categories: ['blog']
+title: Modern SPAs without bundlers, CDNs, or NodeJS
+category: blog
 
 ---
 

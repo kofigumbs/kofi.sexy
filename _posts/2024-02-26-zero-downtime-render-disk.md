@@ -1,6 +1,6 @@
 ---
-title: "Zero-downtime deploys for Render apps with disk storage"
-categories: ['blog']
+title: Zero-downtime deploys for Render apps with disk storage
+category: blog
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Embed Twitter video
-categories: ['blog']
+category: blog
 
 ---
 

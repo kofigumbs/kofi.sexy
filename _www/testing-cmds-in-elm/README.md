@@ -1,7 +1,7 @@
 ---
 title: Testing Cmd's in Elm
 description: A brief post + example about dependency injection
-categories: ['blog']
+category: blog
 canonical_url: /blog/testing-cmds-in-elm
 
 ---
