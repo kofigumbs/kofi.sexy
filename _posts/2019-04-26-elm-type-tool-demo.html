@@ -1,0 +1,412 @@
+---
+title: Building a tool that leverages Elm's types
+category: blog
+canonical_url: /blog/elm-type-tool-demo
+
+---
+
+<p>This is a learn-by-example guide to building tools with Elm’s type system.
+This guide here accompanies <a href="/talk/guaranteed-refactors">my Elm in the Spring 2019 talk</a>.</p>
+
+<p>In this guide, we’ll be implementing a specific tool called <code>elm-snapshot</code>.
+The specific tool we are building is not very important,
+so I’ll focus on <em>extracting and manipulating Elm’s types</em>.
+To build <code>elm-snapshot</code> locally, clone this repo and run
+<a href="https://github.com/kofigumbs/kofi.sexy/tree/master/_www/elm-type-tool-demo/compile.rb"><code>./compile.rb</code></a>.</p>
+
+<h2 id="problem-statement">Problem Statement</h2>
+
+<p>Given some module that defines <code>someFunction</code>,
+I want to <em>refactor</em> <code>someFunction</code> and <em>verify</em> that
+I haven’t changed behavior.
+If my changes do introduce new behavior,
+I would like the tool to <em>inform</em> me of the circumstances
+under which the behaviour differs from the old implementation.</p>
+
+<p>Traditionally, I achieve this feedback via unit tests.
+For this guide, we’ll assume that we forgot or neglected to write unit tests for our code.
+Is it still possible to reclaim that certainty?
+Here is how I would like to use our tool:</p>
+
+<pre><code class="language-sh">elm-snapshot ./src/ToSentence.elm  # Generates the unique snapshot XYZ
+elm-test ./test/Snapshot_XYZ.elm   # Snapshot is just a normal elm-test module
+
+# ... refactor, refactor, refactor ...
+
+elm-test ./test/Snapshot_XYZ.elm   # Snapshot passes if we didn't change behavior!
+rm ./test/Snapshot_XYZ.elm         # No need to keep this around
+</code></pre>
+
+<p>Let’s take a stab at a concrete answer: what are snapshots?
+If we call the original function <code>f</code> and the refactored function <code>g</code>,
+snapshots are tests that verify that:</p>
+
+<pre><code>f 1 == g 1 &amp;&amp;
+f 2 == g 2 &amp;&amp;
+f 3 == g 3 ... and so on and so forth
+</code></pre>
+
+<p>For every valid input to <code>f</code>, passing that input into <code>f</code> should produce a value
+equal to passing the same input into <code>g</code>.</p>
+
+<h2 id="ruby-setup">Ruby Setup</h2>
+
+<p>We’ll be using Ruby to generate our “snapshot modules”.
+There is nothing particularly interesting about Ruby in this context,
+but it is a scripting language that I know well.
+Before we get started, we’ll make our file executable
+and add some standard dependencies.</p>
+
+<pre><code class="language-ruby">#!/usr/bin/env ruby
+
+require "time"
+require "json"
+require "pathname"
+</code></pre>
+
+<p>Given the interface I described above,
+we’ll also bail if we don’t get a filepath argument.</p>
+
+<pre><code class="language-ruby">if ARGV.count != 1
+  puts "USAGE: elm-snapshot PATH/TO/YOUR_MODULE.elm"
+  exit 1
+end
+</code></pre>
+
+<p>This is a great time to start running this file as a quick smoke test!
+After every block of code we add,
+the file should still be runnable even though the program isn’t complete.</p>
+
+<h2 id="extracting-types">Extracting Types</h2>
+
+<p>When you run <code>elm make</code>,
+the Elm compiler collects and verifies all the types in your program.
+In order to keep subsequent builds fast,
+the compiler will write “interface files” that represent the modules in your project.
+For instance, after compiling the file <code>ToSentence.elm</code>,
+you’ll find a new file at <code>elm-stuff/0.19.0/ToSentence.elmi</code>
+which represents all of the types exposed in the <code>ToSentence</code> module.</p>
+
+<p>Since we want to make sure that the interface files are up-to-date,
+we’ll run <code>elm make</code> on whatever filepath was passed in to <code>elm-snapshot</code>.
+If the compiler fails, then we will do the same.</p>
+
+<pre><code class="language-ruby">puts "=== CRAWLING PROJECT"
+
+path = Pathname.new(ARGV.first)
+exit 1 unless system "elm make #{path}"
+</code></pre>
+
+<p><code>.elmi</code> files are encoded using a custom compiler encoding
+that typically changes with each new version of Elm.
+It’s best to think of these files as an implementation detail of the compiler
+and not mess with them directly.
+We’ll inspect these files indirectly, using
+<a href="https://github.com/stoeffel/elm-interface-to-json"><code>elmi-to-json</code></a>—the
+same tool that <code>elm-test</code> uses to find your unit tests.</p>
+
+<p>First, make sure you have <code>elmi-to-json</code> installed (<code>npm install -g elmi-to-json</code>).
+Then, we can grab the type information as JSON and select the
+interface that corresponds to the filepath passed to our program.</p>
+
+<pre><code class="language-ruby">subject = JSON.parse(`elmi-to-json`).find do |interface|
+  path == Pathname.new(interface["modulePath"])
+end
+</code></pre>
+
+<details>
+<summary>Interface JSON for <a href="https://github.com/kofigumbs/kofi.sexy/tree/master/_www/elm-type-tool-demo/example/src/ToSentence.elm"><code>ToSentence.elm</code></a></summary>
+<pre><code class="language-json">
+{
+  "modulePath" : "src/ToSentence.elm",
+  "moduleName" : "ToSentence",
+  "interface" : {
+     "aliases" : {},
+     "types" : {
+        "toSentence" : {
+           "annotation" : {
+              "lambda" : [
+                 {
+                    "name" : "String",
+                    "vars" : [],
+                    "moduleName" : {
+                       "package" : "elm/core",
+                       "module" : "String"
+                    },
+                    "type" : "Type"
+                 },
+                 {
+                    "type" : "Type",
+                    "moduleName" : {
+                       "package" : "elm/core",
+                       "module" : "String"
+                    },
+                    "name" : "String",
+                    "vars" : []
+                 },
+                 {
+                    "name" : "List",
+                    "vars" : [
+                       {
+                          "moduleName" : {
+                             "package" : "elm/core",
+                             "module" : "String"
+                          },
+                          "type" : "Type",
+                          "name" : "String",
+                          "vars" : []
+                       }
+                    ],
+                    "type" : "Type",
+                    "moduleName" : {
+                       "module" : "List",
+                       "package" : "elm/core"
+                    }
+                 },
+                 {
+                    "name" : "String",
+                    "vars" : [],
+                    "moduleName" : {
+                       "module" : "String",
+                       "package" : "elm/core"
+                    },
+                    "type" : "Type"
+                 }
+              ]
+           },
+           "vars" : []
+        }
+     },
+     "unions" : {},
+     "binops" : {}
+  }
+}
+</code></pre>
+</details>
+
+<h2 id="building-fuzzers">Building Fuzzers</h2>
+
+<p>Consider the snapshot definition we used earlier: <code>f 1 == g 1 &amp;&amp; f 2 == g 2 &amp;&amp; ...</code>.
+This snippet suggests that the more numbers we can check,
+the more confidence we will have that the two behaviours match.
+Whenever we want to simulate a large set of potential values in Elm tests,
+we should think of fuzz tests.</p>
+
+<blockquote>
+  <p>These are called “<a href="https://en.wikipedia.org/wiki/Fuzz_testing">fuzz tests</a>” because of the randomness.
+You may find them elsewhere called <a href="http://blog.jessitron.com/2013/04/property-based-testing-what-is-it.html">property-based tests</a>,
+<a href="http://www.pivotaltracker.com/community/tracker-blog/generative-testing">generative tests</a>, or
+<a href="https://en.wikipedia.org/wiki/QuickCheck">QuickCheck-style tests</a>.</p>
+
+  <p>— <a href="https://package.elm-lang.org/packages/elm-explorations/test/latest/Test#fuzz">elm-test documentation</a></p>
+</blockquote>
+
+<p>If you peek into the <a href="https://package.elm-lang.org/packages/elm-explorations/test/latest/Fuzz"><code>Fuzz</code> module documentation</a>,
+you’ll notice that many of Elm’s built-in types have a corresponding function
+that returns a <code>Fuzzer</code>.
+As a first approximation, we’ll assume that the types we care about
+are all standard library types for which this correspondence is true:
+<code>String</code>, <code>Int</code>, <code>List String</code>, <code>List Int</code>, etc.</p>
+
+<pre><code class="language-ruby">fuzzer = -&gt; type do
+  if type["moduleName"]["package"] != "elm/core"
+    puts "elm-snapshot doesn't handle custom types yet!"
+    exit 1
+  else
+    "(Fuzz."                              +
+      type["name"].downcase               +
+      " "                                 +
+      type["vars"].map(&amp;fuzzer).join(" ") +
+      ")"
+  end
+end
+</code></pre>
+
+<p>This implementation leaves <em>much</em> to be desired—the
+above code cannot handle some major parts of Elm’s type system.
+We could implement these for <code>elm-snapshot</code>,
+but in the interest of brevity (and laziness) we’ll leave them out.
+Here are some ideas if you choose to take a stab:</p>
+<ul>
+  <li><strong>Generics:</strong> You can always substitute <code>()</code> for generic types.</li>
+  <li><strong>Records:</strong> Since these may hold any number of fields,
+you’ll need to use the <a href="https://package.elm-lang.org/packages/elm-explorations/test/latest/Fuzz#map"><code>map*</code></a>
+functions to compose smaller <code>Fuzzer</code>s.</li>
+  <li><strong>Custom Types:</strong> We <em>cannot</em> generate <code>Fuzzer</code>s for <a href="https://package.elm-lang.org/help/design-guidelines#keep-tags-and-record-constructors-secret">Opaque Types</a>.
+When present, our tool will need to bail.
+Otherwise, <code>elmi-to-json</code> will include the constructors under the <code>"unions"</code> key,
+which we can use with <a href="https://package.elm-lang.org/packages/elm-explorations/test/latest/Fuzz#oneOf"><code>oneOf</code></a>
+to build custom <code>Fuzzer</code>s.</li>
+</ul>
+
+<p>Finally, Rubyists may take issue with my arrow style functions here.
+Normally, methods are defined with the <code>def</code> keyword;
+however, this syntax does not let us easily use the global names we’ve been defining.
+Arrow functions let us side-step this restriction and keep this file in literate style.</p>
+
+<h2 id="code-generation">Code Generation</h2>
+
+<p>Now that we have the function types for our module,
+and we know how to generate the right <code>Fuzzer</code>s,
+we’re left with the mundane work of building up a valid <code>elm-test</code> module.
+To do so, we’ll use the following functions,
+which each generate a tiny bit of Elm code.</p>
+
+<pre><code class="language-ruby">make_names = -&gt; args do
+  args.each_with_index.map { |_, i| "a#{i}" }
+end
+
+make_call = -&gt; (name, args) do
+  subject["moduleName"] + "." + name + " " + make_names.(args).join(" ")
+end
+
+make_record = -&gt; args do
+  "{ " + make_names.(args).map { |x| "#{x} = #{x}" }.join(", ") + " }"
+end
+</code></pre>
+
+<p>We’ll use a 2-pass approach to generating our snapshot.</p>
+
+<ol>
+  <li>Generate fuzz tests that exercise our <code>Fuzzer</code>s and log the inputs and output</li>
+  <li>Generate unit tests that run the function with the logged inputs and compare against the logged output</li>
+</ol>
+
+<p>We’ll use a timestamp to create and track our unique snapshot.
+Since the approach above uses 2 test files,
+we’ll also create a function that does the appropriate <code>elm-test</code> setup.</p>
+
+<pre><code class="language-ruby">timestamp = Time.now.to_time.to_i.to_s
+
+puts "=== GENERATING SNAPSHOT #{timestamp}"
+
+test_module = "Snapshot_#{timestamp}"
+test_source = Pathname.pwd.join "tests", test_module + ".elm"
+
+generate_test = -&gt; contents do
+  File.write(test_source, &lt;&lt;~ELM.strip)
+    module #{test_module} exposing (..)
+
+    import Expect
+    import Fuzz
+    import Test exposing (..)
+    import #{subject["moduleName"]}
+
+    #{contents}
+  ELM
+end
+</code></pre>
+
+<p>In our first pass, we want to log all of the information required
+to call our function <em>and</em> the result of calling the function at this point in time.
+For each function in the interface, we’ll create a dummy fuzz test,
+which exists only to do that logging.
+Elm’s <a href="https://package.elm-lang.org/packages/elm/core/latest/Debug#log"><code>Debug.log</code></a>
+function does the heavy lifting for us by converting Elm values into their textual representations.
+Here’s the log format we’ll be using:</p>
+
+<pre><code>       function name   output
+             ↓           ↓
+123456789toSentence: 3: ("",{ a1 = "", a2 = "", a3 = [] })
+    ↑                ↑                    ↑
+timestamp      argument count         arguments
+</code></pre>
+
+<p>Some of this format is forced on us by <code>Debug.log</code>,
+but it will serve our needs nicely.
+In our second pass, we’ll parse that format and extract that metadata.
+For now, here’s how you might generate these “logging fuzz tests”:</p>
+
+<pre><code class="language-ruby">logging_fuzz_test = -&gt; (name, args) do
+  &lt;&lt;~ELM
+    #{name}_test : Test
+    #{name}_test =
+      fuzz#{args.count == 1 ? "" : args.count} #{args.map(&amp;fuzzer).join(" ")}
+        "#{subject["moduleName"]}.#{name}" &lt;|
+          \\#{make_names.(args).join(" ")} -&gt;
+            let
+              _ = Debug.log "#{timestamp}#{name}: #{args.count}"
+                ( #{make_call.(name, args)}
+                , #{make_record.(args)}
+                )
+            in
+            Expect.pass
+  ELM
+end
+
+fuzz_tests = subject["interface"]["types"].map do |name, expression|
+  expression["annotation"].keys != [ "lambda" ] \
+    ? ""
+    : logging_fuzz_test.(name, expression["annotation"]["lambda"][0...-1])
+end
+
+generate_test.(fuzz_tests.join("\n"))
+</code></pre>
+
+<h2 id="finalizing-the-snapshot">Finalizing the Snapshot</h2>
+
+<p>The snapshot file we have now, contains a bunch of passing tests.
+Running it will have no interesting result… Except for the logs!
+If we run our snapshot test module with <code>elm-test</code>,
+we can use the timestamp to find the logs we just crafted.</p>
+
+<pre><code class="language-ruby">logs = `elm-test #{test_source} | grep '^#{timestamp}'`.lines.map do |line|
+  line.strip[timestamp.length..-1].split(": ", 3)
+end
+</code></pre>
+
+<p>That monstrosity of Bash and Ruby splits each relevant log line into three parts:
+the function name, the argument count, and the ouput/arguments tuple.
+Before we logged the arguments, we packaged them into record.
+Here’s is the Elm that will let us unpack those in our final snapshot:</p>
+
+<pre><code class="language-ruby">prelude = &lt;&lt;~ELM
+  apply1 f x = f x.a0
+  apply2 f x = f x.a0 x.a1
+  apply3 f x = f x.a0 x.a1 x.a2
+  apply4 f x = f x.a0 x.a1 x.a2 x.a3
+  apply5 f x = f x.a0 x.a1 x.a2 x.a3 x.a4
+  apply6 f x = f x.a0 x.a1 x.a2 x.a3 x.a4 x.a5
+  apply7 f x = f x.a0 x.a1 x.a2 x.a3 x.a4 x.a5 x.a6
+  apply8 f x = f x.a0 x.a1 x.a2 x.a3 x.a4 x.a5 x.a6 x.a7
+ELM
+</code></pre>
+
+<p>So finally, we have all of the pieces to generate a test module
+that fails as we deviate from the behavior of the original function.</p>
+
+<pre><code class="language-ruby">snapshot = logs.each_with_index.map do |(name, count, output), i|
+  &lt;&lt;~ELM
+    test_#{name}_#{i} : Test
+    test_#{name}_#{i} =
+      test "#{name} (\##{i})" &lt;|
+        \\_ -&gt;
+          let ( result, args ) = #{output} in
+          apply#{count} #{subject["moduleName"]}.#{name} args
+            |&gt; Expect.equal result
+  ELM
+end
+
+generate_test.(prelude + snapshot.join("\n"))
+</code></pre>
+
+<h2 id="parting-thoughts">Parting Thoughts</h2>
+
+<p>I think there are some exciting opportunities for extending <code>elm-snapshot</code>.
+The “shrinking” story isn’t great in our implementation,
+so failing tests can be quite unreadable.
+I’ve also found that <code>Debug.log</code> does not properly escape some tricky strings,
+so the final snapshot may have syntax errors.</p>
+
+<p>Glaring issues aside, <code>elm-snapshot</code> has some tremendous upside.
+For instance, you could use this kind of tool to freeze
+your entire application or library to verify dependency updates.
+When I first imagined this tool,
+I briefly looked to see if others had experimented in other languages.
+The closest prior research I found was
+<a href="https://www.tedinski.com/2018/12/26/model-based-testing.html">Ted Kaminski’s post on “Ephemeral model-based testing”</a>.
+I highly recommend that post and the entirety of Ted’s blog.</p>
+
+<p>Hopefully, you’ve learned a bit about building tooling with and for Elm.
+These sorts of personal productivity tools are great playgrounds,
+and I’m excited to see the outcome of such experiments in the Elm community.</p>

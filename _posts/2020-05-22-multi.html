@@ -1,0 +1,79 @@
+---
+category: blog
+
+---
+
+<p>Last week I joined a programming community on Discord.
+I’m now a member of three programming community chats on Slack, one on Zulip, and this new one on Discord.
+These are all social groups (as opposed to professional), so I don’t need them open all the time.
+I just like to keep up with the conversations and contribute where I can.
+Having to do this across three different apps is annoying—I want one app to open/close; one app in my <code>⌘-Tab</code> switcher; and one app displaying notifications.
+That annoyance led to <a href="https://github.com/kofigumbs/multi">Multi</a>.</p>
+
+<p><img src="/images/multi.png" alt="Multi app (Chat) screenshot. The cursor has pressed the macOS View menubar item, which shows a dropdown that includes Slack workspaces, a Zulip instance, and a Discord server." /></p>
+
+<p>Multi lets you create a custom, lightweight macOS app from a group of websites.
+Each website is loaded in native WebView with a small JS shim to bridge web notifications to the macOS Notification Center.
+I originally prototyped with Serge Zaitsev’s <a href="https://github.com/zserge/webview/">webview library</a>, but later realized that using WebKit directly would save me some time and indirection.
+This project was built over the course of one week, so there are definitely some rough edges, but it’s fun that it works as well as it does.</p>
+
+<p id="approach">
+I built Multi without XCode, which proved to be the most challenging part.
+At first, I did this because I didn't have XCode installed (only the Command Line Tools), and working on High Sierra makes installation a little convoluted.
+Later in the development process it became a point of pride.
+I enjoy that my source directory is straightforward to navigate and free of <code>.xcodeproj</code> files!
+Of course, this is a small and precarious joy, and ultimately it's probably not worth it.
+However, if you do want to take the road less advised, here are a couple learnings:
+</p>
+
+<ul>
+  <li>Here’s a bare minimum single-file macOS app:
+    <pre><code class="language-swift">import AppKit
+
+let window = NSWindow(
+    contentRect: NSMakeRect(0, 0, 200, 200),
+    styleMask: [.titled, .closable, .miniaturizable, .resizable],
+    backing: .buffered,
+    defer: false
+)
+window.center()
+window.title = "Example App";
+window.makeKeyAndOrderFront(nil)
+
+_ = NSApplication.shared
+NSApp.setActivationPolicy(.regular)
+NSApp.activate(ignoringOtherApps: true)
+NSApp.run()
+</code></pre>
+    <p>You can run that with <code>swift example.swift</code> and a little window will pop up!
+The example includes no typical macOS keyboard shortcuts, so <code>⌘Q</code> won’t work, but it’s nice that there’s no <code>ViewController</code> in sight.
+In fact, there is no explicit <code>ViewController</code> in all of Multi!</p>
+  </li>
+  <li>macOS Notification Center limits which processes can send notifications.
+To get things working, you’ll need a <code>bundleIdentifier</code>, which is generally supplied in your <code>Info.plist</code> file.
+If you’re running everything from a single script though, you won’t have one.
+Rizwan Sattar wrote <a href="https://gist.github.com/rsattar/ed74982428003db8e875">a neat workaround</a> that monkey-patches <code>NSBundle</code>, which I’ve translated to Swift 4 below:
+    <pre><code class="language-swift">extension Bundle {	
+    @objc func bundleIdentifier_shim() -&gt; NSString {	
+        return self == Bundle.main	
+            ? "main.bundle.id.shim"	
+            : self.bundleIdentifier_shim() // Not recursive! See transformation below	
+    }	
+}
+
+let bundleClass = objc_getClass("NSBundle") as! AnyClass
+method_exchangeImplementations(
+    class_getInstanceMethod(bundleClass, #selector(getter: Bundle.bundleIdentifier))!,
+    class_getInstanceMethod(bundleClass, #selector(Bundle.bundleIdentifier_shim))!
+)
+</code></pre>
+    <p><em>Edit: someone on Hacker News suggested that <a href="https://github.com/saagarjha/DetailsViewer/blob/master/DetailsViewer/Swizzler.swift">this is a more future-proof method</a>.
+In either case, the final version of Multi does not use this workaround because it generates a valid <code>Info.plist</code> file.</em></p>
+  </li>
+</ul>
+
+<hr />
+
+<p>It’s been a while since I’ve written any Swift, and I enjoyed getting back into it.
+It was fun to remember exactly why I loved <code>extension</code>s, and using AppKit for the first time helped me appreciate the gravity of SwiftUI.
+Finally, if you check out Multi and/or have any ideas on how to make it nicer, please let me know!</p>

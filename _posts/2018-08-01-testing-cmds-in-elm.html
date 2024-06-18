@@ -1,0 +1,173 @@
+---
+title: Testing Cmd's in Elm
+description: A brief post + example about dependency injection
+category: blog
+canonical_url: /blog/testing-cmds-in-elm
+
+---
+
+<p>This problem frequently appears in #testing on Elm Slack,
+and I’ve been curious about what a “dependency injection” API might look like.
+Dependency injection, in general, is quite simple.
+If you have something that you want to test (or just isolate),
+then instead of working with that thing directly,
+pass it as an argument wherever you need it!
+This repo is an example of what it might look like to use Dependency injection to make <code>Cmd</code>s easy to test!</p>
+
+<h2 id="where-to-start">Where to start</h2>
+
+<p><a href="https://github.com/kofigumbs/kofi.sexy/tree/master/_www/testing-cmds-in-elm/Original.elm">Original.elm</a>
+is taken directly from the <a href="https://github.com/evancz/elm-architecture-tutorial">Elm Architecture Tutorial</a>.
+We’ll be looking at this application the whole time, so it’s worth understanding what it does.
+When you click the button, the app requests a random GIF from giphy.com.
+Also, when you start the app, it makes an HTTP request right away.
+Simple enough.</p>
+
+<h2 id="so-how-do-i-test-the-http-request">So how do I test the HTTP request?</h2>
+
+<p>First let’s state the problem:</p>
+
+<ol>
+  <li>In order to send a HTTP request in Elm, you <strong>must</strong> package it is a <code>Cmd</code></li>
+  <li>Once you package something as a <code>Cmd</code>, you have no ability to <strong>inspect</strong> it</li>
+</ol>
+
+<p>Together these mean that the Elm architecture guides you towards a solution that is tricky to unit test.
+Let’s see how dependency injection can help us.
+<strong>Instead of creating <code>Cmd</code>s inside of our application,
+let’s pass the <code>Cmd</code>s that we intend to use as an argument</strong>:</p>
+
+<pre><code class="language-elm">-- Testable/Effects.elm
+
+type alias Effects msg wrapper =
+    { http :
+        { method : String
+        , url : String
+        , decoder : Decoder msg
+        , onError : msg
+        }
+        -&gt; wrapper
+    , none : wrapper
+    }
+</code></pre>
+
+<p>You can read the type alias like as <code>Effects</code>,
+which are generic over <code>msg</code> (just like <code>Cmd</code>!),
+can <em>produce</em> some <code>wrapper</code>, which is <em>not necessarily a <code>Cmd</code></em>.
+First, we’ll take a look at <code>main</code>, where the <code>wrapper</code> <em>is</em> a <code>Cmd</code>.
+Then, we’ll check out the tests, where we exchange <code>Cmd</code> for something easier to inspect.</p>
+
+<pre><code class="language-elm">-- Testable/Main.elm
+
+effects : Effects msg (Cmd msg)
+effects =
+    { http =
+        \{ method, url, decoder, onError } -&gt;
+            Http.request
+                { method = method
+                , url = url
+                , headers = []
+                , body = Http.emptyBody
+                , expect = Http.expectJson decoder
+                , timeout = Nothing
+                , withCredentials = False
+                }
+                |&gt; Http.send (Result.withDefault onError)
+    , none = Cmd.none
+    }
+
+
+main =
+    Html.program
+        { init = Testable.App.init effects "cats"
+        , view = Testable.App.view
+        , update = Testable.App.update effects
+        , subscriptions = \_ -&gt; Sub.none
+        }
+</code></pre>
+
+<p>You can see that our <code>init</code> and <code>update</code> functions are a bit different now:
+they take <code>Effects</code> as the first parameter.
+This restricts the kinds of stuff they can return—it must be created with one of the fields in the record!
+So even though we’ve introduced some indirection, we have maintained type safety.
+Let’s take a peek at where <code>Effects</code> is ultimately used, just to make sure:</p>
+
+<pre><code class="language-elm">getRandomGif : Effects Msg cmd -&gt; String -&gt; cmd
+getRandomGif effects topic =
+    effects.http
+        { method = "GET"
+        , url = "... some long url ..." ++ topic
+        , decoder = decodeNewGif
+        , onError = NewGif Nothing
+        }
+</code></pre>
+
+<p>We did this all in the name of “testability”, but I’ve yet to show you a test!
+Well, fear no longer, and rejoice in the fruits of your labor:</p>
+
+<pre><code class="language-elm">-- Overwrite this in each test where you want to "capture" effects!
+-- You can use `Just` to isolate the effect that you care about,
+-- although in our example, that will only be HTTP.
+-- In more complicated apps, you could even use a `List` instead of a `Maybe`
+defaults : Effects msg (Maybe a)
+defaults =
+    { http = \_ -&gt; Nothing , none = Nothing }
+
+
+suite : Test
+suite =
+    describe "`Cmd`s that can be tested"
+        [ test "asks for GIFs, right off the bat" &lt;|
+            \_ -&gt;
+                init { defaults | http = Just } "dogs"
+                    |&gt; Tuple.second
+                    |&gt; expectEffects
+                        [ .method &gt;&gt; Expect.equal "GET"
+                        , .url &gt;&gt; String.endsWith "tag=dogs" &gt;&gt; Expect.true "url tag"
+                        ]
+        , test "does not queue `Cmd`s when GIF is received" &lt;|
+            \_ -&gt;
+                init defaults "robots"
+                    |&gt; Tuple.first
+                    |&gt; update { defaults | http = Just } (NewGif (Just "a-robot"))
+                    |&gt; Tuple.second
+                    |&gt; Expect.equal Nothing
+        , test "MorePlease is more `Cmd`s" &lt;|
+            \_ -&gt;
+                init defaults "pigeons"
+                    |&gt; Tuple.first
+                    |&gt; update { defaults | http = Just } MorePlease
+                    |&gt; Tuple.second
+                    |&gt; expectEffects
+                        [ .url &gt;&gt; String.endsWith "tag=pigeons" &gt;&gt; Expect.true "url tag"
+                        ]
+        ]
+</code></pre>
+
+<h2 id="perhaps-a-better-question">Perhaps a better question!</h2>
+
+<p>Is the test and resulting code more pleasant to maintain?
+In our quest for testability, we actually gave up quite a few niceties of Elm.
+First, we’ve removed the explicit dependency on the well-documented <code>http</code> library.
+Of course, this is the essence of dependency injection, so it may seem strange to list it as a loss.
+The real concern is that we actually lose the ability to use <em>any</em> Elm standard library directly within our app.
+Any time that we want to implement an effect, we must add it to our <code>Effects</code> record to maintain testability!
+All of the work that library authors put into designing pleasant and composable APIs is lost in the name of testability.</p>
+
+<p>The second note is that we’ve increased the complexity of all of our type signatures.
+This means any errors that arise will be trickier to debug.
+Compounded with the fact that the <code>Effects</code> module is unique to your application,
+this will certainly hurt the beginner-friendliness of your code.</p>
+
+<hr />
+
+<p>I do not know whether these downsides negate the utility of this approach.
+Stuff like this can be tricky to illustrate with a small code base,
+since simple code often doesn’t benefit at all from test coverage.
+Regardless, it’s encouraging to know that a testable solution is entirely possible,
+should the need arise before other solutions do!</p>
+
+<h2 id="credits">Credits</h2>
+
+<p>Thanks to <a href="https://github.com/BWoodfork">Byron</a>, whose idea this was originally,
+and <a href="https://github.com/7hoenix/">Justin</a> who helped me prototype the first version.</p>
