@@ -2,6 +2,11 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+
 url: https://kofi.sexy
 author:  { "twitter":  "kofigumbs", "name": "Kofi Gumbs" }
 twitter: { "username": "kofigumbs", "card": "summary"    }
